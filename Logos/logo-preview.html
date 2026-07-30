@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Preview — David Muñoz Diseñador</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #050A15;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            gap: 60px;
+            font-family: 'Outfit', sans-serif;
+            padding: 60px 40px;
+            overflow: hidden;
+        }
+
+        /* Cursor glow follower */
+        .cursor-glow {
+            position: fixed;
+            pointer-events: none;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 237, 255, 0.08) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            transition: left 0.12s ease, top 0.12s ease;
+            z-index: 0;
+        }
+
+        .label {
+            color: #5A6A7E;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .preview-bg-card {
+            background: rgba(10, 20, 40, 0.6);
+            border: 1px solid rgba(0, 237, 255, 0.12);
+            border-radius: 20px;
+            padding: 50px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .preview-bg-card:hover {
+            border-color: rgba(0, 237, 255, 0.25);
+            box-shadow: 0 0 40px rgba(0, 237, 255, 0.08);
+        }
+
+        /* ── LOGO ─────────────────────────────── */
+        .logo-wrap {
+            display: flex;
+            align-items: baseline;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 300;
+            font-size: 72px;
+            letter-spacing: 1.5px;
+            line-height: 1;
+            cursor: default;
+            user-select: none;
+        }
+
+        .logo-white {
+            color: #ffffff;
+            transition: filter 0.4s ease;
+        }
+
+        /* Ó — relleno azul sólido + glow dinámico */
+        .logo-o {
+            color: #00EDFF;
+            transition: filter 0.2s ease, transform 0.3s ease;
+            display: inline-block;
+            filter:
+                drop-shadow(0 0 6px rgba(0, 237, 255, 0.95)) drop-shadow(0 0 16px rgba(0, 237, 255, 0.65)) drop-shadow(0 0 32px rgba(0, 237, 255, 0.35));
+        }
+
+        /* Al hover del logo completo, el glow se intensifica */
+        .logo-wrap:hover .logo-o {
+            filter:
+                drop-shadow(0 0 8px rgba(0, 237, 255, 1)) drop-shadow(0 0 20px rgba(0, 237, 255, 0.85)) drop-shadow(0 0 45px rgba(0, 237, 255, 0.55)) drop-shadow(0 0 80px rgba(0, 237, 255, 0.25));
+            transform: scale(1.04);
+        }
+
+        .logo-wrap:hover .logo-white {
+            filter: brightness(0.85);
+        }
+
+        /* ── NAVBAR PREVIEW ─────────────────────── */
+        .navbar-preview {
+            background: rgba(5, 10, 21, 0.95);
+            border: 1px solid rgba(0, 237, 255, 0.12);
+            border-radius: 14px;
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            width: 700px;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+
+        .navbar-logo-wrap {
+            display: flex;
+            align-items: baseline;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 300;
+            font-size: 26px;
+            letter-spacing: 0.5px;
+            line-height: 1;
+            cursor: default;
+            user-select: none;
+        }
+
+        .navbar-logo-o {
+            color: #00EDFF;
+            display: inline-block;
+            filter:
+                drop-shadow(0 0 4px rgba(0, 237, 255, 0.95)) drop-shadow(0 0 10px rgba(0, 237, 255, 0.6)) drop-shadow(0 0 20px rgba(0, 237, 255, 0.3));
+            transition: filter 0.2s ease, transform 0.3s ease;
+        }
+
+        .navbar-logo-wrap:hover .navbar-logo-o {
+            filter:
+                drop-shadow(0 0 6px rgba(0, 237, 255, 1)) drop-shadow(0 0 16px rgba(0, 237, 255, 0.8)) drop-shadow(0 0 36px rgba(0, 237, 255, 0.5));
+            transform: scale(1.05);
+        }
+
+        .navbar-logo-wrap:hover .navbar-logo-white {
+            filter: brightness(0.85);
+        }
+
+        .navbar-logo-white {
+            color: #fff;
+            transition: filter 0.4s ease;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .navbar-links a {
+            color: #A8B8D0;
+            font-size: 14px;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* ── MINI LOGO ─────────────────────────── */
+        .logo-mini-wrap {
+            display: flex;
+            align-items: baseline;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 300;
+            font-size: 72px;
+            letter-spacing: 1.5px;
+            user-select: none;
+            cursor: default;
+        }
+
+        .logo-mini-wrap:hover .logo-o {
+            filter:
+                drop-shadow(0 0 8px rgba(0, 237, 255, 1)) drop-shadow(0 0 24px rgba(0, 237, 255, 0.8)) drop-shadow(0 0 60px rgba(0, 237, 255, 0.4));
+            transform: scale(1.06);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Cursor glow follower -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- LOGO PRINCIPAL -->
+    <div style="position:relative;z-index:1;">
+        <div class="label">Logo Principal</div>
+        <div class="preview-bg-card">
+            <div class="logo-wrap" id="mainLogo" style="font-size: 54px; font-weight: 700;">
+                <span class="logo-white" style="letter-spacing: 2px;">DAVID MU</span><span class="logo-o" id="mainO" style="font-weight: 800;">Ñ</span><span
+                    class="logo-white" style="letter-spacing: 2px;">OZ</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGO MÍNIMO -->
+    <div style="position:relative;z-index:1;">
+        <div class="label">Logo Mínimo — Ícono</div>
+        <div class="preview-bg-card" style="padding: 45px 80px;">
+            <div class="logo-mini-wrap" style="font-size: 54px; font-weight: 800;">
+                <span class="logo-o">Ñ</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR PREVIEW -->
+    <div style="position:relative;z-index:1;">
+        <div class="label">Preview en Navbar</div>
+        <div class="navbar-preview">
+            <div class="navbar-logo-wrap" style="font-size: 22px; font-weight: 700;">
+                <span class="navbar-logo-white">DAVID MU</span><span class="navbar-logo-o" style="font-weight: 800;">Ñ</span><span
+                    class="navbar-logo-white">OZ</span>
+            </div>
+            <div class="navbar-links">
+                <a href="#">Inicio</a>
+                <a href="#">Servicios</a>
+                <a href="#">Planes</a>
+                <a href="#"
+                    style="color:#00EDFF; border:1px solid rgba(0,237,255,0.4); padding:7px 20px; border-radius:50px;">Cotizar</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ── Cursor glow follower ──────────────────────────────────
+        const glow = document.getElementById('cursorGlow');
+
+        document.addEventListener('mousemove', (e) => {
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+        });
+
+        // ── Dynamic glow intensifies near the Ó ──────────────────
+        const mainO = document.getElementById('mainO');
+
+        document.addEventListener('mousemove', (e) => {
+            const rect = mainO.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const dist = Math.sqrt(Math.pow(e.clientX - cx, 2) + Math.pow(e.clientY - cy, 2));
+            const maxDist = 250;
+            const intensity = Math.max(0, 1 - dist / maxDist);
+
+            const base = 6 + intensity * 10;
+            const mid = 16 + intensity * 30;
+            const far = 32 + intensity * 60;
+            const xtra = intensity * 120;
+
+            let filterStr = `drop-shadow(0 0 ${base}px rgba(0,237,255,${0.9 + intensity * 0.1}))
+                       drop-shadow(0 0 ${mid}px rgba(0,237,255,${0.6 + intensity * 0.4}))
+                       drop-shadow(0 0 ${far}px rgba(0,237,255,${0.3 + intensity * 0.4}))`;
+            if (intensity > 0.1) {
+                filterStr += ` drop-shadow(0 0 ${xtra}px rgba(0,237,255,${intensity * 0.2}))`;
+            }
+
+            mainO.style.filter = filterStr;
+
+            // Scale subtly
+            const scale = 1 + intensity * 0.06;
+            mainO.style.transform = `scale(${scale})`;
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <circle cx="50" cy="50" r="45" fill="#050A15" stroke="#00EDFF" stroke-width="4" filter="url(#glow)"/>
+  <text x="50" y="54" font-family="'Outfit', 'Montserrat', sans-serif" font-weight="900" font-size="52" fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle" filter="url(#glow)">Ñ</text>
+</svg>

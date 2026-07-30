@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta de Logo Ajustada con Partículas — David Muñoz Diseñador</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #050A15;
+            --bg-card: #0A1428;
+            --accent: #00EDFF;
+            --accent-dim: rgba(0, 237, 255, 0.12);
+            --accent-glow: rgba(0, 237, 255, 0.4);
+            --text-primary: #FFFFFF;
+            --text-secondary: #A8B8D0;
+            --border: rgba(0, 237, 255, 0.12);
+            --font-head: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            min-height: 100vh;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .cursor-glow {
+            position: fixed;
+            pointer-events: none;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 237, 255, 0.05) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            transition: left 0.1s ease, top 0.1s ease;
+            z-index: 0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        header h1 {
+            font-family: var(--font-head);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        header h1 span {
+            color: var(--accent);
+            text-shadow: 0 0 15px rgba(0, 237, 255, 0.5);
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── PRIME SHOWCASE: PROPUESTA B AJUSTADA ────────── */
+        .showcase-card {
+            background: radial-gradient(circle at top right, rgba(0, 237, 255, 0.08), rgba(10, 20, 40, 0.6) 60%);
+            border: 2px solid var(--accent);
+            border-radius: 24px;
+            padding: 50px 40px;
+            box-shadow: 0 0 40px rgba(0, 237, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .badge-active {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: #050A15;
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 11px;
+            padding: 6px 16px;
+            border-radius: 50px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            box-shadow: 0 0 15px var(--accent);
+        }
+
+        .showcase-info h2 {
+            font-family: var(--font-head);
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+
+        .showcase-info p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            max-width: 750px;
+        }
+
+        /* ── ESTRUCTURA DEL LOGO CON PARTÍCULAS ──────────── */
+        .logo-display-wrapper {
+            background: #02060d;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 240px;
+            position: relative;
+        }
+
+        .logo-text-container {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            font-family: var(--font-head);
+            line-height: 1.1;
+            text-decoration: none;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            padding: 10px;
+        }
+
+        .logo-words {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 8px;
+            position: relative;
+            z-index: 5; /* Por encima del canvas trasero, debajo del delantero */
+        }
+
+        .logo-word {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffffff;
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+            transition: text-shadow 0.35s ease;
+        }
+
+        .glow-char {
+            color: var(--accent);
+            font-weight: 800;
+            display: inline-block;
+            filter: drop-shadow(0 0 3px var(--accent)) drop-shadow(0 0 8px var(--accent-glow));
+            transition: filter 0.35s ease;
+        }
+
+        .logo-subtext {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 5px;
+            margin-top: 5px;
+            text-transform: uppercase;
+            transition: color 0.35s ease, letter-spacing 0.35s ease;
+            display: block;
+            width: 100%;
+            position: relative;
+            z-index: 5; /* Por encima del canvas trasero */
+        }
+
+        /* Hover states */
+        .logo-text-container:hover .logo-word {
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .logo-text-container:hover .glow-char {
+            /* Solo aumenta el brillo de neón, NO escala */
+            filter: drop-shadow(0 0 10px var(--accent)) drop-shadow(0 0 25px var(--accent)) drop-shadow(0 0 45px var(--accent));
+        }
+
+        .logo-text-container:hover .logo-subtext {
+            color: var(--accent);
+            letter-spacing: 5.5px;
+        }
+
+        /* Canvases para partículas delante y detrás */
+        .logo-particles-canvas {
+            position: absolute;
+            top: -120px;
+            left: -200px;
+            width: calc(100% + 400px);
+            height: calc(100% + 240px);
+            pointer-events: none;
+        }
+
+        #logo-particles-back {
+            z-index: 1; /* Detrás del texto */
+        }
+
+        #logo-particles-front {
+            z-index: 10; /* Delante del texto */
+        }
+
+        /* ── MOCKUP NAV CON EL LOGO AJUSTADO ────────────── */
+        .mockup-nav-wrapper {
+            background: rgba(5, 10, 21, 0.95);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            width: 100%;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .mockup-nav-wrapper .nav-links-mockup {
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Versión reducida (Mobile Mockup) */
+        .mobile-preview-box {
+            background: #02060d;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            width: 260px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        /* Comportamiento responsivo en el mockup del logo */
+        .logo-text-container.mobile-mockup .logo-words {
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .logo-text-container.mobile-mockup .logo-word {
+            font-size: 22px;
+            line-height: 1.05;
+        }
+
+        .logo-text-container.mobile-mockup .logo-subtext {
+            font-size: 8px;
+            letter-spacing: 3.5px;
+            margin-top: 3px;
+        }
+
+        /* ── COMPARATIVA DE PROPUESTAS ORIGINALES ────────── */
+        .section-title {
+            font-family: var(--font-head);
+            font-size: 1.4rem;
+            margin-top: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 10px;
+        }
+
+        .proposal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .proposal-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .proposal-card {
+            background: rgba(10, 20, 40, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .proposal-name {
+            font-family: var(--font-head);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .proposal-preview {
+            background: #03070f;
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 150px;
+        }
+
+        /* Propuesta A original */
+        .logo-p1 {
+            font-family: var(--font-head);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .logo-p1 .main-text {
+            font-size: 24px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            line-height: 1;
+        }
+        .logo-p1 .dot {
+            color: var(--accent);
+            text-shadow: 0 0 8px var(--accent);
+        }
+        .logo-p1 .sub-text {
+            font-size: 9px;
+            letter-spacing: 6px;
+            margin-top: 5px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        /* Propuesta B original (con cambio de escala) */
+        .logo-p2-orig {
+            font-family: var(--font-head);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .logo-p2-orig .main-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            line-height: 1;
+        }
+        .logo-p2-orig .glow-char-orig {
+            color: var(--accent);
+            font-weight: 800;
+            display: inline-block;
+            filter: drop-shadow(0 0 5px var(--accent));
+            transition: all 0.3s ease;
+        }
+        .logo-p2-orig:hover .glow-char-orig {
+            filter: drop-shadow(0 0 15px var(--accent));
+            transform: translateY(-2px) scale(1.15); /* Efecto original de escala que descartamos */
+        }
+        .logo-p2-orig .sub-text {
+            font-size: 9px;
+            letter-spacing: 4px;
+            margin-top: 4px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        /* ── PANEL DE CONTROL DE PARTÍCULAS ───────────────── */
+        .control-panel {
+            background: rgba(10, 20, 40, 0.4);
+            border: 1px solid rgba(0, 237, 255, 0.12);
+            border-radius: 20px;
+            padding: 24px;
+            margin-top: 20px;
+            border-top: 2px solid rgba(0, 237, 255, 0.3);
+            box-shadow: inset 0 0 15px rgba(0, 237, 255, 0.05);
+        }
+
+        .panel-header {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 12px;
+        }
+
+        .panel-header h3 {
+            font-family: var(--font-head);
+            font-size: 1.15rem;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .panel-header p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .control-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .control-group label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .slider-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .slider-wrapper input[type="range"] {
+            flex: 1;
+            -webkit-appearance: none;
+            appearance: none;
+            background: rgba(255, 255, 255, 0.05);
+            height: 6px;
+            border-radius: 3px;
+            outline: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .slider-wrapper input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            box-shadow: 0 0 8px var(--accent);
+            transition: transform 0.1s ease;
+        }
+
+        .slider-wrapper input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.25);
+        }
+
+        .value-display {
+            font-family: var(--font-head);
+            font-size: 0.85rem;
+            color: var(--accent);
+            min-width: 55px;
+            text-align: right;
+            font-weight: 600;
+            text-shadow: 0 0 5px var(--accent-glow);
+        }
+
+        .color-presets {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            height: 30px;
+        }
+
+        .color-btn {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .color-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .color-btn.active {
+            border-color: #ffffff;
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        .preset-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .preset-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            padding: 6px 14px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .preset-btn:hover {
+            background: rgba(0, 237, 255, 0.05);
+            border-color: rgba(0, 237, 255, 0.2);
+            color: #ffffff;
+        }
+
+        .preset-btn.active {
+            background: var(--accent-dim);
+            border-color: var(--accent);
+            color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 237, 255, 0.15);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <header>
+        <h1>Propuesta de Logo Ajustada con <span>Partículas</span></h1>
+        <p>He refinado la <strong>Propuesta B</strong> de acuerdo a tus indicaciones. Se eliminó la animación de escala en la Ñ, se ajustó el salto de línea en formatos pequeños y se incorporó un <strong>sistema de partículas interactivas de neón</strong> que flotan alrededor de las letras al pasar el cursor.</p>
+    </header>
+
+    <div class="container">
+
+        <!-- CORE SHOWCASE -->
+        <div class="showcase-card">
+            <span class="badge-active">Propuesta B Ajustada</span>
+            
+            <div class="showcase-info">
+                <h2>Logotipo Tipográfico Interactivo con Partículas (Glow en la Ñ)</h2>
+                <p>Pasa el cursor sobre el logotipo de abajo. Verás que la letra <strong>Ñ</strong> aumenta su brillo y emite pequeñas chispas de neón cian que flotan a lo largo del nombre en un espacio 3D (algunas pasan por delante de las letras y otras por detrás, creando profundidad).</p>
+            </div>
+
+            <!-- CONTENEDOR PRINCIPAL DEL LOGO -->
+            <div class="logo-display-wrapper">
+                <a href="#" class="logo-text-container" id="logoParticlesContainer">
+                    
+                    <!-- Canvas trasero (partículas por detrás del texto) -->
+                    <canvas id="logo-particles-back" class="logo-particles-canvas"></canvas>
+                    
+                    <span class="logo-words">
+                        <span class="logo-word">DAVID</span>
+                        <span class="logo-word">MU<span class="glow-char" id="glowÑ">Ñ</span>OZ</span>
+                    </span>
+                    <span class="logo-subtext">DISEÑADOR</span>
+                    
+                    <!-- Canvas delantero (partículas por delante del texto) -->
+                    <canvas id="logo-particles-front" class="logo-particles-canvas"></canvas>
+
+                </a>
+            </div>
+
+            <!-- PANEL DE CONTROL INTERACTIVO DE PARTÍCULAS -->
+            <div class="control-panel">
+                <div class="panel-header">
+                    <h3>Panel de Control Interactivo (Personaliza en Vivo)</h3>
+                    <p>Modifica el comportamiento del logotipo y sus partículas en tiempo real para encontrar el ajuste perfecto.</p>
+                </div>
+                <div class="control-grid">
+                    <div class="control-group">
+                        <label for="param-speed">Velocidad de Partículas</label>
+                        <div class="slider-wrapper">
+                            <input type="range" id="param-speed" min="0.2" max="3.0" step="0.1" value="1.2">
+                            <span class="value-display" id="val-speed">1.2x</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="param-density">Cantidad de Partículas</label>
+                        <div class="slider-wrapper">
+                            <input type="range" id="param-density" min="1" max="20" step="1" value="3">
+                            <span class="value-display" id="val-density">3 part.</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="param-lifespan">Alcance (Dispersión)</label>
+                        <div class="slider-wrapper">
+                            <input type="range" id="param-lifespan" min="50" max="250" step="10" value="180">
+                            <span class="value-display" id="val-lifespan">Largo (Nombre)</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="param-size">Tamaño de Partícula</label>
+                        <div class="slider-wrapper">
+                            <input type="range" id="param-size" min="1.0" max="6.0" step="0.1" value="2.2">
+                            <span class="value-display" id="val-size">2.2px</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label>Color del Neón</label>
+                        <div class="color-presets">
+                            <button class="color-btn active" data-color="#00EDFF" style="background: #00EDFF; color: #00EDFF;"></button>
+                            <button class="color-btn" data-color="#FF007F" style="background: #FF007F; color: #FF007F;"></button>
+                            <button class="color-btn" data-color="#39FF14" style="background: #39FF14; color: #39FF14;"></button>
+                            <button class="color-btn" data-color="#FFD700" style="background: #FFD700; color: #FFD700;"></button>
+                            <button class="color-btn" data-color="#9D4EDD" style="background: #9D4EDD; color: #9D4EDD;"></button>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label>Preajustes (Presets)</label>
+                        <div class="preset-buttons">
+                            <button class="preset-btn" data-preset="subtle">Estelar Sutil</button>
+                            <button class="preset-btn active" data-preset="balanced">Equilibrado</button>
+                            <button class="preset-btn" data-preset="neon-storm">Tormenta Neón</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VISTA PREVIA EN FORMATO DE TABLETA/MÓVIL -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 10px;">
+                <div>
+                    <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em;">Vista en Computador / Escritorio</div>
+                    <div class="mockup-nav-wrapper">
+                        <!-- Logo en barra de navegación escritorio (escala 0.75) -->
+                        <div class="logo-text-container" style="transform: scale(0.75); transform-origin: left center;">
+                            <span class="logo-words">
+                                <span class="logo-word">DAVID</span>
+                                <span class="logo-word">MU<span class="glow-char" style="filter: drop-shadow(0 0 2px var(--accent));">Ñ</span>OZ</span>
+                            </span>
+                            <span class="logo-subtext" style="letter-spacing: 4px;">DISEÑADOR</span>
+                        </div>
+                        <div class="nav-links-mockup">
+                            <span>Servicios</span>
+                            <span>Planes</span>
+                            <span>Contacto</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em;">Vista en Celular / Pantalla Pequeña (Salto de renglón limpio)</div>
+                    <div class="mobile-preview-box">
+                        <!-- Logo con salto de línea responsivo para que no se rompa la palabra MUÑOZ -->
+                        <div class="logo-text-container mobile-mockup">
+                            <span class="logo-words">
+                                <span class="logo-word">DAVID</span>
+                                <span class="logo-word">MU<span class="glow-char" style="filter: drop-shadow(0 0 2px var(--accent));">Ñ</span>OZ</span>
+                            </span>
+                            <span class="logo-subtext">DISEÑADOR</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMPARACIÓN CON LAS PROPUESTAS ANTERIORES -->
+        <h3 class="section-title">Referencias de Propuestas Anteriores</h3>
+        <div class="proposal-grid">
+            
+            <div class="proposal-card">
+                <div class="proposal-name">Propuesta A Original (Minimalista con Punto)</div>
+                <div class="proposal-preview">
+                    <div class="logo-p1">
+                        <span class="main-text">DAVID MUÑOZ<span class="dot">.</span></span>
+                        <span class="sub-text">Diseñador</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="proposal-card">
+                <div class="proposal-name">Propuesta B Original (Con Escala en Hover)</div>
+                <div class="proposal-preview">
+                    <div class="logo-p2-orig">
+                        <span class="main-text">DAVID MU<span class="glow-char-orig">Ñ</span>OZ</span>
+                        <span class="sub-text">Diseñador</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // ── Cursor glow follower ──
+        const cursorGlow = document.getElementById('cursorGlow');
+        document.addEventListener('mousemove', (e) => {
+            if (cursorGlow) {
+                cursorGlow.style.left = e.clientX + 'px';
+                cursorGlow.style.top = e.clientY + 'px';
+            }
+        });
+
+        // ── SISTEMA DE PARTÍCULAS INTERACTIVAS DEL LOGOTIPO ──
+        const container = document.getElementById('logoParticlesContainer');
+        const glowChar = document.getElementById('glowÑ');
+        const canvasBack = document.getElementById('logo-particles-back');
+        const canvasFront = document.getElementById('logo-particles-front');
+        const ctxBack = canvasBack.getContext('2d');
+        const ctxFront = canvasFront.getContext('2d');
+
+        // PARÁMETROS GLOBALES DE PARTÍCULAS (Configurables)
+        const globalParams = {
+            speed: 1.2,
+            density: 3,        // Cantidad inicial ajustada a 3 a petición del usuario
+            lifespan: 180,     // Alcance de dispersión horizontal amplio
+            size: 2.2,
+            color: '#00EDFF'
+        };
+
+        // PRESETS DE COMPORTAMIENTO
+        const presets = {
+            subtle: {
+                speed: 0.8,
+                density: 2,
+                lifespan: 100,
+                size: 1.8
+            },
+            balanced: {
+                speed: 1.2,
+                density: 3,
+                lifespan: 180,
+                size: 2.2
+            },
+            'neon-storm': {
+                speed: 2.0,
+                density: 8,
+                lifespan: 240,
+                size: 3.0
+            }
+        };
+
+        let particles = [];
+        let isHovered = false;
+        let mouseX = null;
+        let mouseY = null;
+
+        // Ajusta el tamaño de los canvases al tamaño real incluyendo DPI
+        function resizeCanvases() {
+            const rect = canvasBack.getBoundingClientRect();
+            if (!rect.width || !rect.height) return;
+            
+            canvasBack.width = rect.width * window.devicePixelRatio;
+            canvasBack.height = rect.height * window.devicePixelRatio;
+            ctxBack.resetTransform();
+            ctxBack.scale(window.devicePixelRatio, window.devicePixelRatio);
+            
+            canvasFront.width = rect.width * window.devicePixelRatio;
+            canvasFront.height = rect.height * window.devicePixelRatio;
+            ctxFront.resetTransform();
+            ctxFront.scale(window.devicePixelRatio, window.devicePixelRatio);
+        }
+
+        window.addEventListener('resize', resizeCanvases);
+        window.addEventListener('load', resizeCanvases);
+        // Pequeño retardo para asegurar que las fuentes carguen antes de medir el tamaño
+        setTimeout(resizeCanvases, 200);
+
+        // Seguimiento del mouse para efecto de repulsión interactivo
+        const wrapper = document.querySelector('.logo-display-wrapper');
+        if (wrapper) {
+            wrapper.addEventListener('mousemove', (e) => {
+                const rectCanvas = canvasBack.getBoundingClientRect();
+                mouseX = e.clientX - rectCanvas.left;
+                mouseY = e.clientY - rectCanvas.top;
+            });
+
+            wrapper.addEventListener('mouseleave', () => {
+                mouseX = null;
+                mouseY = null;
+            });
+        }
+
+        // Encuentra la posición de la Ñ relativa al canvas
+        function getEmitterPos() {
+            if (!glowChar) return { x: 150, y: 30 };
+            const rectÑ = glowChar.getBoundingClientRect();
+            const rectCanvas = canvasBack.getBoundingClientRect();
+            return {
+                x: (rectÑ.left - rectCanvas.left) + rectÑ.width / 2,
+                y: (rectÑ.top - rectCanvas.top) + rectÑ.height / 2
+            };
+        }
+
+        // Obtener límites del logotipo para restringir y guiar a las partículas
+        function getLogoBounds() {
+            if (!container) return { left: 200, right: 450, top: 120, bottom: 180, width: 250, height: 60 };
+            const wordsEl = container.querySelector('.logo-words');
+            const rectText = wordsEl ? wordsEl.getBoundingClientRect() : container.getBoundingClientRect();
+            const rectCanvas = canvasBack.getBoundingClientRect();
+            const width = rectText.width || 250;
+            const height = rectText.height || 40;
+            return {
+                left: rectText.left - rectCanvas.left || 200,
+                right: rectText.right - rectCanvas.left || 450,
+                top: rectText.top - rectCanvas.top || 120,
+                bottom: rectText.bottom - rectCanvas.top || 160,
+                width: width,
+                height: height
+            };
+        }
+
+        // Definición de partícula
+        class Particle {
+            constructor(x, y) {
+                // Pequeño desplazamiento aleatorio inicial para que no compartan exactamente la misma coordenada
+                this.x = x + (Math.random() - 0.5) * 4;
+                this.y = y + (Math.random() - 0.5) * 4;
+                
+                // Velocidades físicas iniciales
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                
+                // Fase y velocidad para la oscilación del brillo lento (breathing/luxury glow)
+                this.glowPhase = Math.random() * Math.PI * 2;
+                this.glowSpeed = 0.008 + Math.random() * 0.012; // Muy lento para aspecto luxury
+                
+                // Fase y velocidad para la oscilación de profundidad 3D (delante/detrás)
+                this.depthPhase = Math.random() * Math.PI * 2;
+                this.depthSpeed = 0.003 + Math.random() * 0.007; // Movimiento tridimensional lento
+                this.depth = 0.4 + Math.random() * 1.2;
+                
+                this.baseSize = globalParams.size;
+                this.size = this.baseSize;
+                this.alpha = 0;
+                
+                // Objetivo de merodeo inicial
+                this.targetX = this.x;
+                this.targetY = this.y;
+            }
+
+            update() {
+                const emitter = getEmitterPos();
+                const bounds = getLogoBounds();
+                
+                // 1. Oscilación orgánica de profundidad (z-axis)
+                this.depthPhase += this.depthSpeed * globalParams.speed;
+                this.depth = 0.4 + 1.2 * (Math.sin(this.depthPhase) * 0.5 + 0.5);
+                
+                // Escalar el tamaño físico en base a la profundidad 3D
+                this.size = globalParams.size * (0.6 + this.depth * 0.4) * (0.5 + this.depth * 0.5);
+                
+                // 2. Oscilación de brillo lento (luxury breathing glow)
+                this.glowPhase += this.glowSpeed * globalParams.speed;
+                const baseOscillatingAlpha = 0.55 + 0.45 * (Math.sin(this.glowPhase) * 0.5 + 0.5);
+                
+                let targetAlpha = 0;
+                
+                if (isHovered) {
+                    // MODO ACTIVO (Hover en el logotipo)
+                    targetAlpha = baseOscillatingAlpha;
+                    
+                    // Elegir un nuevo objetivo de desplazamiento ocasionalmente
+                    if (Math.random() < 0.015 || Math.abs(this.x - this.targetX) < 15) {
+                        const spreadFactor = globalParams.lifespan / 90;
+                        const halfWidth = (bounds.width * 0.5) * spreadFactor;
+                        
+                        // Permitir que fluyan por todo el ancho de las letras
+                        const minX = Math.max(bounds.left - 30, emitter.x - halfWidth);
+                        const maxX = Math.min(bounds.right + 30, emitter.x + halfWidth);
+                        
+                        this.targetX = minX + Math.random() * (maxX - minX);
+                        this.targetY = bounds.top + bounds.height * 0.45 + (Math.random() - 0.5) * 10;
+                    }
+                    
+                    // Fuerza de atracción suave hacia el objetivo actual
+                    const dx = this.targetX - this.x;
+                    const dy = this.targetY - this.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist > 5) {
+                        const steerForce = 0.035 * globalParams.speed;
+                        this.vx += (dx / dist) * steerForce;
+                        this.vy += (dy / dist) * steerForce;
+                    }
+                    
+                    // Separación (Evita que las partículas se encimen)
+                    // CORRECCIÓN CLAVE: Se previene la división por cero (NaN) cuando colapsan en la misma coordenada
+                    for (let other of particles) {
+                        if (other === this) continue;
+                        const odx = this.x - other.x;
+                        const ody = this.y - other.y;
+                        const odist = Math.sqrt(odx * odx + ody * ody);
+                        
+                        if (odist === 0) {
+                            // Fuerza de separación de emergencia si coinciden exactamente
+                            const angle = Math.random() * Math.PI * 2;
+                            this.vx += Math.cos(angle) * 0.5;
+                            this.vy += Math.sin(angle) * 0.5;
+                            continue;
+                        }
+                        
+                        if (odist < 25) {
+                            const force = (25 - odist) / 25;
+                            this.vx += (odx / odist) * force * 0.15;
+                            this.vy += (ody / odist) * force * 0.15;
+                        }
+                    }
+                    
+                    // Interacción de repulsión con el cursor del mouse
+                    if (mouseX !== null && mouseY !== null) {
+                        const mdx = this.x - mouseX;
+                        const mdy = this.y - mouseY;
+                        const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+                        if (mdist > 0 && mdist < 75) {
+                            const force = (75 - mdist) / 75;
+                            this.vx += (mdx / mdist) * force * 0.45 * globalParams.speed;
+                            this.vy += (mdy / mdist) * force * 0.10 * globalParams.speed;
+                        }
+                    }
+                    
+                    // Fricción / Amortiguación de velocidad
+                    this.vx *= 0.96;
+                    this.vy *= 0.96;
+                    
+                } else {
+                    // MODO SUEÑO (Volver a la Ñ y esconderse)
+                    const dx = emitter.x - this.x;
+                    const dy = emitter.y - this.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (dist > 1.5) {
+                        const gatherForce = 0.18 * globalParams.speed;
+                        this.vx += (dx / dist) * gatherForce;
+                        this.vy += (dy / dist) * gatherForce;
+                        this.vx *= 0.85;
+                        this.vy *= 0.85;
+                    } else {
+                        this.vx = 0;
+                        this.vy = 0;
+                        this.x = emitter.x;
+                        this.y = emitter.y;
+                    }
+                    
+                    // Desvanecimiento suave conforme se acerca a la Ñ
+                    if (dist < 45) {
+                        targetAlpha = (dist / 45) * baseOscillatingAlpha;
+                    } else {
+                        targetAlpha = baseOscillatingAlpha;
+                    }
+                }
+                
+                // Actualización de posición
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                // Interpolación suave del brillo
+                this.alpha += (targetAlpha - this.alpha) * 0.08;
+            }
+
+            draw(ctx) {
+                if (this.alpha < 0.01) return;
+                
+                ctx.save();
+                
+                // 1. DIBUJAR RESPLANDOR NEÓN EXTERIOR (GLOW SUAVE)
+                ctx.globalAlpha = Math.max(0, Math.min(1, this.alpha * 0.35));
+                ctx.fillStyle = globalParams.color;
+                ctx.beginPath();
+                const glowSize = this.size * 3.5;
+                ctx.arc(this.x, this.y, glowSize, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // 2. DIBUJAR ANILLO INTERMEDIO (COLOR SÓLIDO)
+                ctx.globalAlpha = Math.max(0, Math.min(1, this.alpha * 0.7));
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size * 1.5, 0, Math.PI * 2);
+                ctx.fill();
+
+                // 3. DIBUJAR NÚCLEO BLANCO INTENSO (BRIGHT CORE)
+                ctx.globalAlpha = Math.max(0, Math.min(1, this.alpha));
+                
+                if (this.depth >= 0.9) {
+                    ctx.shadowColor = globalParams.color;
+                    ctx.shadowBlur = 10;
+                }
+                
+                ctx.fillStyle = "#FFFFFF";
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.restore();
+            }
+        }
+
+        // CONTROLADORES DE EVENTOS DEL PANEL DE CONTROL
+        const sliderSpeed = document.getElementById('param-speed');
+        const sliderDensity = document.getElementById('param-density');
+        const sliderLifespan = document.getElementById('param-lifespan');
+        const sliderSize = document.getElementById('param-size');
+
+        const valSpeed = document.getElementById('val-speed');
+        const valDensity = document.getElementById('val-density');
+        const valLifespan = document.getElementById('val-lifespan');
+        const valSize = document.getElementById('val-size');
+
+        // Inicializar o ajustar el pool de partículas para que sea un grupo fijo
+        function adjustParticlePool() {
+            const currentSize = particles.length;
+            const targetSize = globalParams.density;
+            const emitter = getEmitterPos();
+            
+            if (currentSize < targetSize) {
+                for (let i = currentSize; i < targetSize; i++) {
+                    particles.push(new Particle(emitter.x, emitter.y));
+                }
+            } else if (currentSize > targetSize) {
+                particles.splice(targetSize);
+            }
+        }
+
+        function updateParamsFromSliders() {
+            if (!sliderSpeed || !sliderDensity || !sliderLifespan || !sliderSize) return;
+            
+            globalParams.speed = parseFloat(sliderSpeed.value);
+            
+            const prevDensity = globalParams.density;
+            globalParams.density = parseInt(sliderDensity.value);
+            
+            globalParams.lifespan = parseInt(sliderLifespan.value);
+            globalParams.size = parseFloat(sliderSize.value);
+
+            // Ajustar el pool si cambió el slider de cantidad
+            if (globalParams.density !== prevDensity) {
+                adjustParticlePool();
+            }
+
+            // Actualizar textos informativos en los sliders
+            if (valSpeed) valSpeed.textContent = globalParams.speed.toFixed(1) + 'x';
+            if (valDensity) valDensity.textContent = globalParams.density + ' part.';
+
+            if (valLifespan) {
+                let lifespanText = 'Medio';
+                if (globalParams.lifespan <= 90) lifespanText = 'Corto (Ñ)';
+                else if (globalParams.lifespan >= 180) lifespanText = 'Largo (Nombre)';
+                else if (globalParams.lifespan >= 140) lifespanText = 'Largo';
+                valLifespan.textContent = lifespanText;
+            }
+
+            if (valSize) valSize.textContent = globalParams.size.toFixed(1) + 'px';
+        }
+
+        // Listener de sliders individuales
+        const sliders = [sliderSpeed, sliderDensity, sliderLifespan, sliderSize];
+        sliders.forEach(input => {
+            if (input) {
+                input.addEventListener('input', () => {
+                    updateParamsFromSliders();
+                    document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
+                });
+            }
+        });
+
+        // Eventos para botones de presets de comportamiento
+        document.querySelectorAll('.preset-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                
+                const presetName = e.target.dataset.preset;
+                const preset = presets[presetName];
+                if (preset) {
+                    if (sliderSpeed) sliderSpeed.value = preset.speed;
+                    if (sliderDensity) sliderDensity.value = preset.density;
+                    if (sliderLifespan) sliderLifespan.value = preset.lifespan;
+                    if (sliderSize) sliderSize.value = preset.size;
+                    updateParamsFromSliders();
+                }
+            });
+        });
+
+        // Convertidor Hex a RGB para inyectar variables de color CSS
+        function hexToRgb(hex) {
+            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? {
+                r: parseInt(result[1], 16),
+                g: parseInt(result[2], 16),
+                b: parseInt(result[3], 16)
+            } : null;
+        }
+
+        // Actualización de color de acento dinámico
+        function updateAccentColor(hexColor) {
+            const rgb = hexToRgb(hexColor);
+            if (rgb) {
+                document.documentElement.style.setProperty('--accent', hexColor);
+                document.documentElement.style.setProperty('--accent-dim', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.12)`);
+                document.documentElement.style.setProperty('--accent-glow', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.4)`);
+            }
+        }
+
+        // Eventos para botones de colores
+        document.querySelectorAll('.color-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                const color = e.target.dataset.color;
+                globalParams.color = color;
+                updateAccentColor(color);
+            });
+        });
+
+        // Eventos para detectar el hover sobre el logo interactivo
+        if (container) {
+            container.addEventListener('mouseenter', () => {
+                isHovered = true;
+            });
+
+            container.addEventListener('mouseleave', () => {
+                isHovered = false;
+            });
+        }
+
+        // Inicializar el pool de partículas al cargar
+        function initParticlePool() {
+            particles = [];
+            const emitter = getEmitterPos();
+            const targetSize = globalParams.density;
+            for (let i = 0; i < targetSize; i++) {
+                particles.push(new Particle(emitter.x, emitter.y));
+            }
+        }
+
+        // Bucle de animación principal
+        function loop() {
+            ctxBack.clearRect(0, 0, canvasBack.width, canvasBack.height);
+            ctxFront.clearRect(0, 0, canvasFront.width, canvasFront.height);
+            
+            particles.forEach(p => {
+                p.update();
+                if (p.depth < 0.9) {
+                    p.draw(ctxBack);
+                } else {
+                    p.draw(ctxFront);
+                }
+            });
+            
+            requestAnimationFrame(loop);
+        }
+
+        // Inicializaciones
+        window.addEventListener('load', () => {
+            resizeCanvases();
+            initParticlePool();
+        });
+        
+        // Ejecución inmediata
+        resizeCanvases();
+        updateParamsFromSliders();
+        initParticlePool();
+
+        // Inicia el bucle de partículas
+        loop();
+    </script>
+</body>
+</html>
