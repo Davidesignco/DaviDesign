@@ -1,0 +1,216 @@
+{
+  "clientName": "360 Sport Fit - Gimnasio Ibagué",
+  "contactName": "Equipo 360 Sport Fit",
+  "category": "Fitness & Bienestar",
+  "instagramUser": "@360_sportfit",
+  "scores": {
+    "overall": 35,
+    "visualIdentity": 3,
+    "socialMedia": 4,
+    "audiovisual": 4,
+    "website": 1,
+    "seoLocal": 5,
+    "automation": 2
+  },
+  "channelsSummary": [
+    {
+      "name": "Sitio Web Corporativo",
+      "status": "❌ No tiene",
+      "statusClass": "critical",
+      "desc": "No cuenta con página web propia. La ficha de Google Maps muestra la alerta de 'Agregar sitio web', perdiendo visitas de personas buscando gimnasios locales."
+    },
+    {
+      "name": "Google Maps (SEO Local)",
+      "status": "⚠️ Básico (5/10)",
+      "statusClass": "warning",
+      "desc": "Cuenta con 8 opiniones (5.0). Sin embargo, al no tener web conectada, Google no indexa sus servicios y el contacto es un enlace crudo de WhatsApp."
+    },
+    {
+      "name": "Instagram Profesional",
+      "status": "⚠️ Activo (4/10)",
+      "statusClass": "info",
+      "desc": "@360_sportfit con 1.6K seguidores. Tiene publicaciones constantes, pero el contenido carece de un enfoque comercial estratégico dirigido a su cliente ideal."
+    },
+    {
+      "name": "Directorios de Gimnasios",
+      "status": "❌ Muy Pobre (2/10)",
+      "statusClass": "critical",
+      "desc": "Su perfil en directorios de terceros (como FitFit Colombia) es extremadamente básico, con una sola foto de baja calidad y sin tarifas ni horarios."
+    },
+    {
+      "name": "Identidad de Marca & Diseño",
+      "status": "⚠️ Genérica (3/10)",
+      "statusClass": "warning",
+      "desc": "Posee un imagotipo circular (amarillo/negro), pero carece de un sistema de diseño estructurado para sus piezas digitales, perdiendo el aspecto de un gimnasio premium."
+    },
+    {
+      "name": "Automatización de Cobros",
+      "status": "❌ Manual (2/10)",
+      "statusClass": "critical",
+      "desc": "Los cobros de mensualidades se gestionan de forma manual o mediante planillas. Sin sistema de cobro recurrente automático ni recordatorios de pago."
+    }
+  ],
+  "analysis": {
+    "visualIdentity": [
+      "Aunque el logotipo circular en amarillo y negro es reconocible, las publicaciones digitales no siguen una guía de marca coherente, lo que diluye la solidez y el nivel del gimnasio en Ibagué.",
+      "No cuentan con plantillas de diseño profesionales para comunicar tarifas, promociones mensuales o el 'plan del día', viéndose informales ante alternativas con cadenas nacionales.",
+      "Falta de coherencia visual en las portadas de las historias destacadas y en el grid general de Instagram, mezclando contenidos personales sin una línea gráfica unificada."
+    ],
+    "socialMedia": [
+      "Contenido sin enfoque de público correcto: Los videos y posts no segmentan adecuadamente al usuario. Deberían dividir su contenido para atraer a principiantes (que buscan comodidad), entusiastas del fitness (que buscan buenos equipos) y a quienes buscan clases grupales.",
+      "La biografía de Instagram enlaza directamente a un link de WhatsApp directo crudo (wa.me) sin una landing page de destino que eduque al usuario sobre planes, horarios y las instalaciones antes de chatear.",
+      "Poco uso de contenido tipo Reels educativo enfocado en postura de ejercicios, nutrición básica o testimonios de cambio físico de sus alumnos, que son los formatos que más venden hoy en día."
+    ],
+    "audiovisual": [
+      "Falta de un video institucional o 'recorrido virtual' de alta calidad de las instalaciones de 360 Sport Fit para mostrar las máquinas, zona de cardio y peso libre de forma atractiva.",
+      "Los Reels actuales se perciben amateur: grabados con celulares de gama media y sin iluminación correcta, lo que desaprovecha el buen equipamiento e infraestructura real del gimnasio.",
+      "No se producen testimonios en video de los alumnos actuales relatando su experiencia o su progreso, el cual es el disparador de confianza más efectivo en el nicho fitness."
+    ],
+    "website": [
+      "Ausencia Crítica de Página Web: La pérdida de tráfico es masiva. Quienes buscan 'gimnasios en Ibagué' en Google terminan eligiendo otras opciones porque 360 Sport Fit no tiene un sitio que indexe en buscadores.",
+      "Falta de un catálogo de planes estructurado online. Un prospecto debería poder ver y comprar su membresía (mensual, trimestral, anual) en línea con pasarelas de pago directas.",
+      "Sin landing de captación: El gimnasio pierde la oportunidad de regalar un 'pase de un día gratis' a cambio de capturar el nombre, correo y WhatsApp del interesado para hacerle seguimiento."
+    ],
+    "seoLocal": [
+      "Ficha de Google Maps incompleta: Al no tener sitio web enlazado, Google penaliza su posicionamiento frente a competidores cercanos que sí tienen su ficha de Google My Business 100% llena.",
+      "Bajo número de reseñas: Solo 8 opiniones de clientes. Un gimnasio con flujo diario de personas debería estar por encima de las 100 opiniones de 5 estrellas mediante incentivos de calificación.",
+      "No se responden las opiniones de Google Maps de forma activa con palabras clave estratégicas (ej: 'gimnasio en Ibagué', 'pesas y cardio') para mejorar su visibilidad."
+    ],
+    "automation": [
+      "Fuga de ingresos por cobros manuales: Controlar el vencimiento de membresías de forma manual provoca que muchos clientes entren al gimnasio con días de retraso en sus pagos, afectando el flujo de caja.",
+      "Sin recordatorios automáticos de pago: Falta de un flujo automático por WhatsApp que avise al cliente 3 días antes de que venza su mensualidad con el link de pago directo (ePayco, MercadoPago, Wompi o PSE).",
+      "Falta de automatización en el onboarding: Cuando un cliente se inscribe, el proceso de enviarle la rutina en PDF, reglamento y horarios se hace manualmente en lugar de gatillarse automáticamente por WhatsApp."
+    ]
+  },
+  "actionPlan": [
+    {
+      "title": "Fase 1: Identidad Digital Premium & Estrategia de Contenidos",
+      "desc": "Definir un sistema de diseño digital deportivo y premium. Reestructurar el Instagram (@360_sportfit) con plantillas profesionales, portadas unificadas y una planeación de Reels educativos/motivacionales dirigidos a perfiles específicos de clientes."
+    },
+    {
+      "title": "Fase 2: Lanzamiento de Landing Page de Ventas con Pasarela de Pago",
+      "desc": "Desarrollar un sitio web premium (360sportfit.com) con fotos profesionales de las instalaciones, catálogo claro de planes y botones de pago en línea (mensualidades recurrentes) integrados con PSE/Wompi/ePayco."
+    },
+    {
+      "title": "Fase 3: Automatización de Cobros y Onboarding por WhatsApp",
+      "desc": "Configurar flujos con n8n para enviar notificaciones automáticas de vencimiento por WhatsApp con links de pago, y automatizar el envío de pases de cortesía para captar nuevos prospectos en la zona de Ibagué."
+    }
+  ],
+  "expectedResults": {
+    "presencia": {
+      "before": {
+        "title": "Presencia amateur y desordenada en redes",
+        "desc": "Grid de Instagram sin línea gráfica unificada, historias destacadas sin portadas profesionales y ausencia total de una página web oficial.",
+        "metrics": [
+          {
+            "name": "Coherencia Visual",
+            "val": "Baja / Desalineada"
+          },
+          {
+            "name": "Imagen Digital",
+            "val": "Amateur / Genérica"
+          },
+          {
+            "name": "Información del Gym",
+            "val": "Difícil de encontrar"
+          }
+        ]
+      },
+      "after": {
+        "title": "Gimnasio moderno y de estándar premium",
+        "desc": "Sitio web de primer nivel para ver y comprar membresías, combinado con un Instagram profesional con contenido estético que atrae al público correcto.",
+        "metrics": [
+          {
+            "name": "Coherencia Visual",
+            "val": "Alta / Deportiva Premium"
+          },
+          {
+            "name": "Imagen Digital",
+            "val": "Gimnasio de Nivel Pro"
+          },
+          {
+            "name": "Información del Gym",
+            "val": "Web 360sportfit.com"
+          }
+        ]
+      }
+    },
+    "captacion": {
+      "before": {
+        "title": "Pérdida constante de interesados locales",
+        "desc": "Ficha de Google Maps sin enlace web y biografía de Instagram redirigiendo a un chat de WhatsApp crudo donde se pierde el 50% de las ventas por falta de información previa.",
+        "metrics": [
+          {
+            "name": "Opiniones en Maps",
+            "val": "8 valoraciones"
+          },
+          {
+            "name": "Conversión de Clics",
+            "val": "Directo a Chat (Fricción)"
+          },
+          {
+            "name": "Pase de Cortesía",
+            "val": "Manual / Ineficiente"
+          }
+        ]
+      },
+      "after": {
+        "title": "Embudo automatizado de captación local",
+        "desc": "Sitio web estructurado para convertir clics en membresías pagadas. Flujo automático de regalo de 'Pase de un Día' que nutre tu base de datos de WhatsApp diariamente.",
+        "metrics": [
+          {
+            "name": "Opiniones en Maps",
+            "val": "100+ (Ficha Líder)"
+          },
+          {
+            "name": "Conversión de Clics",
+            "val": "Pasarela Web Directa"
+          },
+          {
+            "name": "Pase de Cortesía",
+            "val": "Auto por WhatsApp (n8n)"
+          }
+        ]
+      }
+    },
+    "eficiencia": {
+      "before": {
+        "title": "Cobros manuales y descontrol de vencimientos",
+        "desc": "Mensualidades rastreadas manualmente. Clientes entrenando con planes vencidos y alta carga de trabajo administrativo para cobrar uno a uno por chat.",
+        "metrics": [
+          {
+            "name": "Control de Pagos",
+            "val": "Planilla / Manual"
+          },
+          {
+            "name": "Recordatorio de Cobro",
+            "val": "Mensaje escrito manual"
+          },
+          {
+            "name": "Admisión y Bienvenida",
+            "val": "Manual en Recepción"
+          }
+        ]
+      },
+      "after": {
+        "title": "Recaudación automatizada 24/7",
+        "desc": "Membresías con débito recurrente automático. n8n notifica vencimientos por WhatsApp enviando link de PSE para renovar al instante sin intervención de personal.",
+        "metrics": [
+          {
+            "name": "Control de Pagos",
+            "val": "Débito Recurrente Web"
+          },
+          {
+            "name": "Recordatorio de Cobro",
+            "val": "WhatsApp Auto (n8n)"
+          },
+          {
+            "name": "Admisión y Bienvenida",
+            "val": "Reglamento y Rutina Auto"
+          }
+        ]
+      }
+    }
+  },
+  "hash": "sonqra"
+}

@@ -1,0 +1,198 @@
+{
+  "clientName": "Dra. Diana Carolina Barrero Miranda - Pediatra Ibagué",
+  "contactName": "Dra. Diana",
+  "category": "Pediatría & Lactancia",
+  "instagramUser": "@pediatra_dianabarrero",
+  "scores": {
+    "overall": 43,
+    "visualIdentity": 2,
+    "socialMedia": 2,
+    "audiovisual": 2,
+    "website": 3,
+    "seoLocal": 7,
+    "automation": 5
+  },
+  "channelsSummary": [
+    {
+      "name": "Sitio Web Corporativo",
+      "status": "⚠️ Tercerizado (3/10)",
+      "statusClass": "warning",
+      "desc": "No cuenta con sitio web propio. Depende de Doctoralia, una plataforma de terceros que muestra publicidad de la competencia."
+    },
+    {
+      "name": "Google Maps (SEO Local)",
+      "status": " Favorable (7/10)",
+      "statusClass": "info",
+      "desc": "23 opiniones (5.0) y categoría correcta. Sin embargo, el enlace de contacto primario es un WhatsApp crudo (wa.link)."
+    },
+    {
+      "name": "Instagram Profesional",
+      "status": "⚠️ Inactivo (@pediatra_dianabarrero)",
+      "statusClass": "warning",
+      "desc": "Tiene una cuenta creada con ese usuario pero sin actividad ni publicaciones desde hace más de un año, proyectando una sensación de abandono a los padres."
+    },
+    {
+      "name": "Facebook & TikTok",
+      "status": "❌ Inactivo",
+      "statusClass": "critical",
+      "desc": "Sin presencia de marca. Pérdida de alcance orgánico para divulgar consejos de crianza, lactancia y nutrición."
+    },
+    {
+      "name": "Identidad de Marca & Diseño",
+      "status": "❌ Inexistente (2/10)",
+      "statusClass": "critical",
+      "desc": "Carece de logotipo digital y línea de diseño unificada. Imagen online reducida al directorio de Doctoralia."
+    },
+    {
+      "name": "Automatización de Consultas",
+      "status": "⚠️ Parcial (5/10)",
+      "statusClass": "warning",
+      "desc": "Agendamiento en línea a través de Doctoralia. Sin embargo, las consultas por WhatsApp se gestionan manualmente."
+    }
+  ],
+  "analysis": {
+    "visualIdentity": [
+      "Carece por completo de una identidad visual corporativa digital. No cuenta con logotipo propio, tipografías institucionales ni una paleta de colores definida.",
+      "Su marca personal está limitada a la foto de perfil en el directorio de Doctoralia, lo que reduce su capacidad de posicionarse como una pediatra premium en la región.",
+      "No tiene plantillas para emitir recomendaciones de cuidado infantil (recetas, guías de lactancia o alimentación) con un diseño profesional que los padres puedan conservar."
+    ],
+    "socialMedia": [
+      "Cuenta de Instagram Inactiva: Posee el perfil @pediatra_dianabarrero, pero está desactualizado y sin publicaciones recientes (la última actividad indexada es de hace un año). Para una pediatra, tener una cuenta abandonada genera dudas de credibilidad ante papás jóvenes.",
+      "Perfil personal privado: Su cuenta personal @dianibarrero (896 seguidores) es privada y enlaza a la profesional, lo que no ayuda a captar pacientes nuevos de forma abierta.",
+      "Falta de enlace unificado: El enlace de su ficha de Google Maps redirige a un WhatsApp directo crudo (wa.link), en lugar de una landing page que consolide sus credenciales e invite a seguirlos en redes."
+    ],
+    "audiovisual": [
+      "No cuenta con material audiovisual educativo. En pediatría, los videos cortos respondiendo dudas comunes (fiebre, vacunas, alimentación complementaria) son el gancho número uno para atraer pacientes.",
+      "Las fotos de su consultorio en Medicadiz (Consultorio 503) en Google Maps son muy básicas e informales; podrían ser capturas profesionales de alta gama que transmitan seguridad y confort a los niños.",
+      "Falta de videoguías de soporte para padres de familia (ej: técnicas de lactancia en video), que elevarían drásticamente el valor de su consulta."
+    ],
+    "website": [
+      "Dependencia de Doctoralia: Paga una mensualidad a un directorio médico de terceros en lugar de invertir en un activo propio. Doctoralia suele mostrar sugerencias de otros pediatras de la competencia en el mismo perfil.",
+      "El botón de 'Reservar en línea' de Google Maps redirige fuera de su marca. Un sitio web propio le permitiría agendar sin comisiones ni dependencias de plataformas externas.",
+      "Falta de una base de conocimientos web (blog de pediatría) donde la doctora pueda indexar artículos médicos que posicionen su nombre en las búsquedas de Google en el Tolima."
+    ],
+    "seoLocal": [
+      "Su ficha de Google Maps tiene un excelente promedio de 5.0 con 23 reseñas, lo cual es muy positivo, pero la optimización del nombre ('Dra Diana Carolina Barrero Miranda | Pediatra Ibagué') tiene un aspecto artificial ante Google.",
+      "Falta de enlaces directos a guías de preparación de consulta pediátrica dentro de la ficha de Google Maps, lo que limita la interacción inicial del paciente.",
+      "Al no tener una web corporativa asociada, Google Maps no puede cruzar datos de palabras clave del sitio (como 'inmunología pediátrica Ibagué') para posicionarla mejor en búsquedas orgánicas complejas."
+    ],
+    "automation": [
+      "Aunque Doctoralia automatiza parte de la agenda, la atención de dudas, cotización de consultas y seguimiento post-consulta en WhatsApp se hace de forma manual.",
+      "No existe un sistema automatizado de nutrición o lactancia que envíe recordatorios o PDFs educativos por WhatsApp a los padres tras finalizar la consulta de puericultura.",
+      "Falta de un sistema automático de seguimiento a los 5 días de la consulta para verificar la evolución del niño y solicitar reseñas de Google de forma automatizada."
+    ]
+  },
+  "actionPlan": [
+    {
+      "title": "Fase 1: Identidad Visual & Reactivación de Instagram",
+      "desc": "Diseñar un logotipo premium y definir la línea gráfica de marca (cálida y profesional). Reactivar y optimizar su perfil de Instagram @pediatra_dianabarrero con un perfil bien estructurado, historias destacadas y contenido educativo inicial."
+    },
+    {
+      "title": "Fase 2: Lanzamiento de Sitio Web Médico Propio",
+      "desc": "Desarrollar una Landing Page premium con dominio médico propio (dianabarrerapediatra.com) que integre su propio sistema de agendamiento en línea (independiente de Doctoralia), catálogo de especialidades (alergias, lactancia) y blog educativo."
+    },
+    {
+      "title": "Fase 3: Automatización de Puericultura & Captación de Opiniones",
+      "desc": "Configurar automatizaciones de WhatsApp con n8n para enviar la guía de preparación de consulta a los padres, recordatorios automatizados y un sistema que a los 5 días de la cita envíe un formulario de seguimiento de salud del niño y solicite una reseña en Google."
+    }
+  ],
+  "expectedResults": {
+    "presencia": {
+      "before": {
+        "title": "Cuenta abandonada e inactiva",
+        "desc": "Perfil de Instagram profesional @pediatra_dianabarrero sin actividad reciente ni línea gráfica. Marca personal diluida en el directorio de Doctoralia sin identidad propia.",
+        "metrics": [
+          { "name": "Estado de Instagram", "val": "Inactivo / Abandonado" },
+          { "name": "Identidad Gráfica", "val": "Inexistente" },
+          { "name": "Generación de Confianza", "val": "Baja por Desactualización" }
+        ]
+      },
+      "after": {
+        "title": "Pediatra de referencia y activa",
+        "desc": "Instagram profesional optimizado y reactivado con plantillas de diseño médico premium sobre crianza y lactancia. Logotipo corporativo cálido que genera alta credibilidad.",
+        "metrics": [
+          { "name": "Estado de Instagram", "val": "@pediatra_dianabarrero Activo" },
+          { "name": "Identidad Gráfica", "val": "Línea Visual Premium" },
+          { "name": "Generación de Confianza", "val": "Alta / Grid Educativo" }
+        ]
+      }
+    },
+    "captacion": {
+      "before": {
+        "title": "Fuga de pacientes a la competencia",
+        "desc": "Dependencia total del buscador de Doctoralia, donde los acudientes ven anuncios y sugerencias de otros pediatras de Ibagué al entrar a su perfil.",
+        "metrics": [
+          {
+            "name": "Control del Tráfico",
+            "val": "Tercerizado (Doctoralia)"
+          },
+          {
+            "name": "Canal de Conversión",
+            "val": "Directorio de Terceros"
+          },
+          {
+            "name": "Enlace Ficha Google",
+            "val": "wa.link (WhatsApp)"
+          }
+        ]
+      },
+      "after": {
+        "title": "Canal de reserva directo y exclusivo",
+        "desc": "Landing page propia que convierte las búsquedas de Google en citas directas sin comisiones. Control absoluto del paciente sin sugerencias de la competencia.",
+        "metrics": [
+          {
+            "name": "Control del Tráfico",
+            "val": "Propio / Exclusivo"
+          },
+          {
+            "name": "Canal de Conversión",
+            "val": "Web Médica Directa"
+          },
+          {
+            "name": "Enlace Ficha Google",
+            "val": "dianabarrerapediatra.com"
+          }
+        ]
+      }
+    },
+    "eficiencia": {
+      "before": {
+        "title": "Seguimiento y soporte manual desorganizado",
+        "desc": "WhatsApp saturado con preguntas de padres sobre dosis de medicamentos o dudas post-consulta. Sin materiales educativos listos para enviar.",
+        "metrics": [
+          {
+            "name": "Soporte Post-Consulta",
+            "val": "Manual / Chat Abierto"
+          },
+          {
+            "name": "Envío de Instrucciones",
+            "val": "Texto escrito a mano"
+          },
+          {
+            "name": "Seguimiento Clínico",
+            "val": "Inexistente"
+          }
+        ]
+      },
+      "after": {
+        "title": "Soporte automatizado post-consulta",
+        "desc": "Envío automático de recetas en formato digital y guías de lactancia en PDF por WhatsApp. Sistema n8n de seguimiento de salud del menor a los 5 días de la cita.",
+        "metrics": [
+          {
+            "name": "Soporte Post-Consulta",
+            "val": "Materiales PDF Auto"
+          },
+          {
+            "name": "Envío de Instrucciones",
+            "val": "Automatizado por WhatsApp"
+          },
+          {
+            "name": "Seguimiento Clínico",
+            "val": "Filtro Auto (a los 5 días)"
+          }
+        ]
+      }
+    }
+  },
+  "hash": "gjq8ko"
+}

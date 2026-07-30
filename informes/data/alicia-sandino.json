@@ -1,0 +1,216 @@
+{
+  "clientName": "Dra. Alicia Sandino - Cirugía Plástica & Estética",
+  "contactName": "Dra. Alicia",
+  "category": "Cirugía Plástica & Estética",
+  "instagramUser": "@dra.aliciasandino",
+  "scores": {
+    "overall": 52,
+    "visualIdentity": 5,
+    "socialMedia": 5,
+    "audiovisual": 4,
+    "website": 4,
+    "seoLocal": 6,
+    "automation": 3
+  },
+  "channelsSummary": [
+    {
+      "name": "Sitio Web Corporativo",
+      "status": "⚠️ Mejorable (4/10)",
+      "statusClass": "warning",
+      "desc": "Cuenta con la web aliciasandino.com, pero la explicación de servicios es confusa y carece de una jerarquía de diseño premium."
+    },
+    {
+      "name": "Galería Antes y Después",
+      "status": "❌ Defectuosa",
+      "statusClass": "critical",
+      "desc": "Muestra los resultados embebiendo publicaciones de Instagram. Esto genera enlaces rotos, carga lenta y una visualización deficiente."
+    },
+    {
+      "name": "Instagram Profesional",
+      "status": "⚠️ Bajo Engagement (5/10)",
+      "statusClass": "warning",
+      "desc": "@dra.aliciasandino cuenta con 11.7K seguidores, pero el volumen de likes e interacción no concuerda, limitando su alcance orgánico."
+    },
+    {
+      "name": "TikTok Profesional",
+      "status": "❌ Sin Presencia",
+      "statusClass": "critical",
+      "desc": "Sin cuenta activa en TikTok, desaprovechando el principal canal de viralización para procedimientos estéticos y quirúrgicos."
+    },
+    {
+      "name": "Google Maps (SEO Local)",
+      "status": "⚠️ Favorable (6/10)",
+      "statusClass": "warning",
+      "desc": "12 opiniones y calificación de 4.7. La ficha está vinculada a su web, pero le falta optimización de palabras clave y reseñas activas."
+    },
+    {
+      "name": "Automatización de Citas",
+      "status": "⚠️ Parcial (3/10)",
+      "statusClass": "warning",
+      "desc": "Usa un multienlace (mtr.bio) que deriva a WhatsApp manual, sin un filtro automatizado de pre-consulta para cirugías."
+    }
+  ],
+  "analysis": {
+    "visualIdentity": [
+      "Aunque el logotipo caligráfico dorado es elegante, el resto del branding digital no mantiene una coherencia visual premium. El sitio web se percibe plano y las publicaciones de redes sociales carecen de una dirección de arte unificada.",
+      "La tipografía y la distribución de espacios en la web no comunican la exclusividad y el lujo que un paciente busca al cotizar un procedimiento quirúrgico de alta gama.",
+      "Los colores y elementos gráficos en Instagram cambian constantemente sin un patrón de marca establecido, lo que diluye su identidad."
+    ],
+    "socialMedia": [
+      "Desajuste de Seguidores y Likes: Cuenta con 11.7K seguidores en Instagram, pero sus publicaciones tienen promedios de likes muy bajos. Esto indica que el algoritmo no está mostrando su contenido debido a que el formato de publicación (imágenes genéricas o textos largos) no genera retención ni comentarios.",
+      "Sin canal de TikTok: TikTok es el buscador principal de la generación joven para cirugía plástica. No estar presente le cede este tráfico orgánico a otros cirujanos del país.",
+      "El enlace de la biografía dirige a un mtr.bio genérico. Sería más profesional tener una web propia que capture y califique los leads directamente."
+    ],
+    "audiovisual": [
+      "Falta de Reels dinámicos: Los videos de procedimientos se muestran de forma muy cruda o excesivamente médica, en lugar de utilizar formatos ágiles que respondan dudas frecuentes de pacientes (recuperación, dolor, cicatrices).",
+      "Las fotos y videos de testimonio no tienen un estándar de edición premium, lo que reduce la percepción de calidad del consultorio 703 de Medicadiz.",
+      "No se explican los casos clínicos en video ('Storytelling' médico), perdiendo la oportunidad de conectar con la historia detrás de cada transformación."
+    ],
+    "website": [
+      "Servicios poco claros: La web aliciasandino.com no estructura los procedimientos de manera atractiva ni intuitiva. La información es densa y confusa, a diferencia del estándar que desarrollamos para la draandreacardona.com, que sirve como modelo de claridad, fluidez y conversión de alta gama.",
+      "Galería 'Antes y Después' Rota: La sección de casos clínicos está montada con publicaciones de Instagram incrustadas. Esto provoca que el sitio web se vea descuidado cuando Instagram rompe los enlaces (como el error 'Es posible que el enlace esté dañado' que se muestra actualmente) y evita que los pacientes puedan ampliar e interactuar cómodamente con las fotos.",
+      "Para cirugías corporales y faciales, los pacientes necesitan comparar los resultados en imágenes HD directas y limpias, no a través de un visualizador de red social externo."
+    ],
+    "seoLocal": [
+      "Poco volumen de opiniones locales: Cuenta con solo 12 valoraciones en Google Maps. Un cirujano plástico de renombre necesita superar las 50 reseñas activas para generar la prueba social necesaria en internet.",
+      "La descripción de la ficha de Google Maps está poco optimizada. Debería incluir palabras clave estratégicas como 'Mamoplastia Ibagué', 'Abdominoplastia Tolima' o 'Cirugía Plástica Reconstructiva'.",
+      "Las fotos asociadas a la ficha local son informales (selfies de espejo de la doctora); deberían ser fotos profesionales de su consultorio y de su equipamiento médico."
+    ],
+    "automation": [
+      "Sin filtro de pre-consulta: Las cotizaciones de cirugías plásticas requieren un triaje previo (saber si el paciente tiene exámenes, si sufre de patologías, peso, procedencia). Hacer esto manualmente en WhatsApp satura al equipo de atención.",
+      "No existe un sistema automatizado que envíe a los pacientes postquirúrgicos sus pautas de cuidado diario por WhatsApp, lo que optimizaría la atención y evitaría llamadas de urgencia innecesarias.",
+      "Falta de seguimiento postoperatorio automatizado por n8n para asegurar que el paciente use sus fajas/medicación y recolectar testimonios para Google Maps al mes de la cirugía."
+    ]
+  },
+  "actionPlan": [
+    {
+      "title": "Fase 1: Rediseño Web Premium e Integración de Galería HD",
+      "desc": "Desarrollar una web médica premium inspirada en el modelo de draandreacardona.com, estructurando los servicios de forma clara y atractiva. Reemplazar las inserciones de Instagram de 'Antes y Después' por una galería de imágenes HD propia con comparadores interactivos de deslizamiento (sliders)."
+    },
+    {
+      "title": "Fase 2: Reactivación de Instagram y Estrategia TikTok",
+      "desc": "Unificar la línea gráfica de Instagram (@dra.aliciasandino) para optimizar el alcance de sus 11.7K seguidores mediante Reels de valor. Crear y configurar su canal de TikTok para divulgar mitos, cuidados quirúrgicos y casos clínicos en formato dinámico."
+    },
+    {
+      "title": "Fase 3: Embudo de Pre-Calificación de Cirugías con n8n",
+      "desc": "Implementar automatizaciones de WhatsApp para filtrar y calificar las solicitudes de cirugías (capturando peso, cirugías previas y ciudad del paciente) antes de agendar la consulta de valoración, ahorrando horas de chat manual al consultorio."
+    }
+  ],
+  "expectedResults": {
+    "presencia": {
+      "before": {
+        "title": "Ecosistema digital desestructurado",
+        "desc": "Página web confusa con enlaces rotos de Instagram y redes sociales con 11.7K seguidores pero muy baja interacción por falta de formatos atractivos.",
+        "metrics": [
+          {
+            "name": "Explicación de Servicios",
+            "val": "Confusa / Compleja"
+          },
+          {
+            "name": "Interacción Instagram",
+            "val": "Baja (<0.5%)"
+          },
+          {
+            "name": "Presencia en TikTok",
+            "val": "Nula"
+          }
+        ]
+      },
+      "after": {
+        "title": "Marca médica de alto prestigio y fluida",
+        "desc": "Página web premium inspirada en la experiencia de draandreacardona.com, con un Instagram reactivado y un canal de TikTok de alta visibilidad regional.",
+        "metrics": [
+          {
+            "name": "Explicación de Servicios",
+            "val": "Clara y Persuasiva"
+          },
+          {
+            "name": "Interacción Instagram",
+            "val": "Alta / Reels y Videos"
+          },
+          {
+            "name": "Presencia en TikTok",
+            "val": "Perfil Activo / Educativo"
+          }
+        ]
+      }
+    },
+    "captacion": {
+      "before": {
+        "title": "Galería de resultados defectuosa y lenta",
+        "desc": "Sección 'Antes y Después' con posts embebidos de Instagram lentos y rotos que restan profesionalismo. Ficha de Google Maps con baja prueba social (12 opiniones).",
+        "metrics": [
+          {
+            "name": "Visualización de Casos",
+            "val": "Rota / Embebida Instagram"
+          },
+          {
+            "name": "Opiniones Google Maps",
+            "val": "12 valoraciones"
+          },
+          {
+            "name": "Prestigio de la Galería",
+            "val": "Bajo / Inestable"
+          }
+        ]
+      },
+      "after": {
+        "title": "Visualización clínica impecable y exclusiva",
+        "desc": "Galería de imágenes HD con sliders interactivos rápidos y seguros en tu propia web. Google Maps optimizado escalando a más de 50 opiniones positivas.",
+        "metrics": [
+          {
+            "name": "Visualización de Casos",
+            "val": "Sliders HD Interactivos"
+          },
+          {
+            "name": "Opiniones Google Maps",
+            "val": "50+ (Ficha Líder)"
+          },
+          {
+            "name": "Prestigio de la Galería",
+            "val": "Alto / Profesional"
+          }
+        ]
+      }
+    },
+    "eficiencia": {
+      "before": {
+        "title": "Saturación en WhatsApp por cotizaciones genéricas",
+        "desc": "WhatsApp lleno de preguntas genéricas de pacientes sin pre-calificar. Seguimiento postoperatorio y de citas reactivo y gestionado de manera manual.",
+        "metrics": [
+          {
+            "name": "Filtro de Cirugías",
+            "val": "Nulo (Todo manual)"
+          },
+          {
+            "name": "Seguimiento Post-Cirugía",
+            "val": "Manual / Reactivo"
+          },
+          {
+            "name": "Onboarding del Paciente",
+            "val": "Mensaje genérico"
+          }
+        ]
+      },
+      "after": {
+        "title": "Triaje digital y flujo automático",
+        "desc": "Agendamiento web con embudo que pre-califica a interesados de cirugía. n8n envía las pautas de recuperación y recordatorios automáticos posquirúrgicos.",
+        "metrics": [
+          {
+            "name": "Filtro de Cirugías",
+            "val": "Formulario Auto (n8n)"
+          },
+          {
+            "name": "Seguimiento Post-Cirugía",
+            "val": "WhatsApp Auto (n8n)"
+          },
+          {
+            "name": "Onboarding del Paciente",
+            "val": "Guía PDF Personalizada"
+          }
+        ]
+      }
+    }
+  },
+  "hash": "dc1s5i"
+}

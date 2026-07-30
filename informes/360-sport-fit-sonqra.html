@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Presencia Visual — 360 Sport Fit - Gimnasio Ibagué</title>
+    <link rel="icon" type="image/svg+xml" href="../Logos/iso-logo-davidmunoz.svg">
+    <link rel="stylesheet" href="../css/styles.css">
+    
+    <style>
+        /* Report Page Custom Premium Styles */
+        :root {
+            --accent-green: #39FF14;
+            --accent-orange: #FF9900;
+        }
+
+        body {
+            padding-top: 100px;
+            background-image: 
+                linear-gradient(rgba(0, 237, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 237, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .report-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .report-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px auto;
+            max-width: 800px;
+        }
+
+        .meta-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 16px 24px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .meta-box-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 6px;
+        }
+
+        .meta-box-value {
+            font-family: var(--font-head);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Health Score Widget */
+        .score-card {
+            background: linear-gradient(145deg, rgba(0, 237, 255, 0.08) 0%, rgba(5, 10, 21, 0.6) 100%);
+            border: 1px solid var(--border-strong);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 30px var(--accent-dim);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .score-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 237, 255, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .score-circle-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            z-index: 1;
+        }
+
+        .score-percentage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-head);
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            text-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .score-label {
+            font-family: var(--font-head);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .score-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            max-width: 400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* SVG Circle progress */
+        .circle-bg {
+            fill: none;
+            stroke: rgba(10, 20, 40, 0.8);
+            stroke-width: 8;
+        }
+
+        .circle-progress {
+            fill: none;
+            stroke: var(--accent);
+            stroke-width: 10;
+            stroke-linecap: round;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+            transition: stroke-dashoffset 1s ease-in-out;
+            filter: drop-shadow(0 0 8px var(--accent-glow));
+        }
+
+        /* Analysis Grid */
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .analysis-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .analysis-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .analysis-title-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .analysis-icon {
+            font-size: 1.8rem;
+        }
+
+        .analysis-card-title {
+            font-family: var(--font-head);
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .analysis-badge {
+            background: var(--accent-dim);
+            color: var(--accent);
+            border: 1px solid var(--border-strong);
+            border-radius: 50px;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            font-family: var(--font-head);
+        }
+
+        .analysis-badge.warning {
+            background: rgba(255, 153, 0, 0.1);
+            color: var(--accent-orange);
+            border-color: rgba(255, 153, 0, 0.3);
+        }
+
+        .analysis-badge.critical {
+            background: rgba(255, 59, 59, 0.1);
+            color: var(--cta);
+            border-color: rgba(255, 59, 59, 0.3);
+        }
+
+        .analysis-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 10px;
+        }
+
+        .analysis-item {
+            display: flex;
+            gap: 12px;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .analysis-item-marker {
+            color: var(--cta);
+            font-weight: bold;
+            font-size: 1.1rem;
+            line-height: 1;
+            margin-top: 2px;
+        }
+
+        /* Action Plan Section */
+        .plan-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 50px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .plan-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .plan-header-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-dim);
+            border: 1px solid var(--border-strong);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .plan-title {
+            font-family: var(--font-head);
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .plan-step-card {
+            background: rgba(5, 10, 21, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            transition: all 0.3s var(--ease);
+        }
+
+        .plan-step-card:hover {
+            border-color: var(--accent);
+            background: var(--bg-glass);
+            transform: translateY(-3px);
+        }
+
+        .plan-step-num {
+            font-family: var(--font-head);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .plan-step-title {
+            font-family: var(--font-head);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .plan-step-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* CTA Section */
+        .cta-box {
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(0, 237, 255, 0.08) 0%, rgba(5, 10, 21, 0.95) 100%);
+            border: 1px solid var(--border-strong);
+            border-radius: 28px;
+            padding: 50px 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 237, 255, 0.1);
+        }
+
+        .cta-box-title {
+            font-family: var(--font-head);
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+
+        .cta-box-desc {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+
+        /* Responsive Fixes */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+            .score-card {
+                padding: 30px 20px;
+            }
+            .plan-section {
+                padding: 30px 20px;
+            }
+            .cta-box {
+                padding: 40px 20px;
+            }
+            .cta-box-title {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Results Section Styling */
+        .results-step-card {
+            background: rgba(5, 10, 21, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            transition: all 0.3s var(--ease);
+        }
+
+        .results-step-card:hover {
+            border-color: var(--accent);
+            background: rgba(0, 237, 255, 0.02);
+            transform: translateY(-3px);
+        }
+
+        .results-step-num {
+            font-family: var(--font-head);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        @media (max-width: 576px) {
+            .navbar .hero-badge {
+                display: none;
+            }
+            .cta-box .btn {
+                padding: 12px 24px;
+                font-size: 0.95rem;
+                white-space: normal;
+                display: inline-flex;
+                justify-content: center;
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+
+        /* Tab Navigation */
+        .tabs-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+            position: sticky;
+            top: 79px;
+            background: rgba(5, 10, 21, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 10;
+            padding-top: 10px;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-family: var(--font-head);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s var(--ease);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--border-strong);
+            background: var(--bg-glass);
+        }
+
+        .tab-btn.active {
+            background: rgba(255, 230, 0, 0.08) !important;
+            color: #FFE600 !important;
+            border-color: #FFE600 !important;
+            box-shadow: 0 0 15px rgba(255, 230, 0, 0.25) !important;
+            text-shadow: 0 0 2px rgba(255, 230, 0, 0.3);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20%;
+            width: 60%;
+            height: 2px;
+            background: #FFE600;
+            box-shadow: 0 0 8px #FFE600;
+        }
+
+        /* Tab Content Styles */
+        .tabs-slider-container {
+            width: 100%;
+        }
+
+        .mobile-tab-title {
+            display: none;
+        }
+
+        /* Desktop View */
+        @media (min-width: 769px) {
+            .tabs-slider-container {
+                display: block;
+            }
+            .tab-content {
+                display: none;
+                opacity: 0;
+                transform: translateY(10px);
+                transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+            }
+            .tab-content.active {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile View (Stacked Sub-modules) */
+        @media (max-width: 768px) {
+            .tabs-nav {
+                display: none !important; /* Hide tabs completely */
+            }
+            .tabs-slider-container {
+                display: flex;
+                flex-direction: column;
+                gap: 40px; /* Space between modules */
+            }
+            .tab-content {
+                display: flex !important; /* Stack vertically */
+                flex-direction: column;
+                opacity: 1 !important;
+                transform: none !important;
+                pointer-events: auto !important;
+                gap: 16px;
+            }
+            .mobile-tab-title {
+                display: block;
+                font-family: var(--font-head);
+                font-size: 1.35rem;
+                font-weight: 800;
+                color: #FFE600; /* Yellow highlight for title */
+                margin: 15px 0 5px;
+                padding-bottom: 8px;
+                border-bottom: 1px dashed rgba(255, 230, 0, 0.2);
+                text-shadow: 0 0 10px rgba(255, 230, 0, 0.15);
+            }
+            .transform-card {
+                padding: 20px;
+            }
+            .transform-card-title {
+                font-size: 1.15rem;
+            }
+            .transform-metrics-list {
+                margin-top: 15px;
+                padding-top: 12px;
+                gap: 8px;
+            }
+        }
+
+        /* Service Link Outbound Buttons */
+        .service-link-wrapper {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .btn-service {
+            background: var(--grad-cta);
+            border: 1px solid rgba(255, 59, 59, 0.2);
+            color: #FFFFFF;
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-family: var(--font-head);
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: all 0.3s var(--ease);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px var(--cta-glow);
+        }
+
+        .btn-service span {
+            transition: transform 0.3s var(--ease);
+        }
+
+        .btn-service:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px var(--cta-glow), 0 0 50px rgba(255, 59, 59, 0.3);
+            filter: brightness(1.15);
+            color: #FFFFFF;
+        }
+
+        .btn-service:hover span {
+            transform: translateX(4px);
+        }
+
+        /* Before vs After Cards styling */
+        .transform-card {
+            background: var(--grad-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Red Warning Card (Antes) */
+        .transform-card.before-card {
+            border-color: rgba(255, 59, 59, 0.15);
+        }
+        .transform-card.before-card:hover {
+            border-color: var(--cta);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--cta-glow);
+            background: rgba(255, 59, 59, 0.02);
+        }
+
+        /* Cyan/Blue Success Card (Después) */
+        .transform-card.after-card {
+            border-color: var(--border-strong);
+        }
+        .transform-card.after-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 25px var(--accent-glow);
+            background: var(--bg-glass);
+        }
+
+        .transform-label {
+            font-family: var(--font-head);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 16px;
+            width: fit-content;
+        }
+
+        .transform-label.before-label {
+            background: rgba(255, 59, 59, 0.15);
+            color: var(--cta-hover);
+            border: 1px solid rgba(255, 59, 59, 0.3);
+        }
+
+        .transform-label.after-label {
+            background: var(--accent-dim);
+            color: var(--accent);
+            border: 1px solid var(--border-strong);
+        }
+
+        .transform-card-title {
+            font-family: var(--font-head);
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .transform-card-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .transform-metrics-list {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .transform-metric-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.85rem;
+        }
+
+        .transform-metric-name {
+            color: var(--text-muted);
+        }
+
+        .transform-metric-val {
+            font-family: var(--font-head);
+            font-weight: 700;
+        }
+
+        .transform-metric-val.bad {
+            color: var(--cta-hover);
+        }
+
+        .transform-metric-val.good {
+            color: var(--accent);
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        /* Checklist styles */
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .checklist-item {
+            background: rgba(5, 10, 21, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: all 0.3s var(--ease);
+        }
+
+        .checklist-item:hover {
+            border-color: var(--border-strong);
+            background: var(--bg-glass);
+            transform: translateY(-2px);
+        }
+
+        .checklist-item-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .checklist-item-title {
+            font-family: var(--font-head);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .checklist-badge {
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 50px;
+            white-space: nowrap;
+            border: 1px solid transparent;
+        }
+
+        .checklist-badge.info {
+            background: rgba(0, 237, 255, 0.1);
+            color: var(--accent);
+            border-color: rgba(0, 237, 255, 0.3);
+        }
+
+        .checklist-badge.warning {
+            background: rgba(255, 184, 0, 0.1);
+            color: #FFB800;
+            border-color: rgba(255, 184, 0, 0.3);
+        }
+
+        .checklist-badge.critical {
+            background: rgba(255, 59, 59, 0.1);
+            color: var(--cta-hover);
+            border-color: rgba(255, 59, 59, 0.3);
+        }
+
+        .checklist-badge.success {
+            background: rgba(57, 255, 20, 0.1);
+            color: #39FF14;
+            border-color: rgba(57, 255, 20, 0.3);
+        }
+
+        .checklist-item-desc {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar scrolled">
+        <div class="container">
+            <div class="nav-inner">
+                <a href="../index.html" class="nav-logo logo-text-container" id="navLogoContainer">
+                    <canvas class="logo-particles-canvas logo-particles-back"></canvas>
+                    <span class="logo-words">
+                        <span class="logo-word">DAVID</span>
+                        <span class="logo-word">MU<span class="glow-char" id="glowÑ">Ñ</span>OZ</span>
+                    </span>
+                    <span class="logo-subtext">DISEÑADOR</span>
+                    <canvas class="logo-particles-canvas logo-particles-front"></canvas>
+                </a>
+                <div class="hero-badge" style="margin:0;">
+                    <span class="hero-badge-dot"></span> DIAGNÓSTICO DE MARCA
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <main class="container">
+        
+        <header class="report-header">
+            <div class="section-label">Informe de Presencia Digital</div>
+            <h1 class="section-title">Informe de Presencia Digital<br><span class="text-accent">360 Sport Fit - Gimnasio Ibagué</span></h1>
+            <p class="section-subtitle">Diagnóstico detallado de identidad de marca, rendimiento de canales digitales y plan de acción de crecimiento.</p>
+        </header>
+
+        <!-- META DATA -->
+        <div class="report-meta-grid">
+            <div class="meta-box">
+                <div class="meta-box-label">Cliente</div>
+                <div class="meta-box-value">360 Sport Fit - Gimnasio Ibagué</div>
+            </div>
+            <div class="meta-box">
+                <div class="meta-box-label">Categoría</div>
+                <div class="meta-box-value">Fitness & Bienestar</div>
+            </div>
+            <div class="meta-box">
+                <div class="meta-box-label">Fecha del Informe</div>
+                <div class="meta-box-value">01/06/2026</div>
+            </div>
+        </div>
+
+        <!-- CHANNELS CHECKLIST -->
+        <section class="plan-section" style="margin-bottom: 50px;">
+            <div class="plan-header">
+                <div class="plan-header-icon">📋</div>
+                <div>
+                    <h2 class="plan-title">Checklist de Presencia Digital</h2>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">Inventario y diagnóstico rápido de los activos y canales de comunicación de tu negocio.</p>
+                </div>
+            </div>
+            <div class="checklist-grid">
+                
+    <div class="checklist-item">
+        <div class="checklist-item-header">
+            <span class="checklist-item-title">Sitio Web Corporativo</span>
+            <span class="checklist-badge critical">❌ No tiene</span>
+        </div>
+        <p class="checklist-item-desc">No cuenta con página web propia. La ficha de Google Maps muestra la alerta de 'Agregar sitio web', perdiendo visitas de personas buscando gimnasios locales.</p>
+    </div>
+  
+
+    <div class="checklist-item">
+        <div class="checklist-item-header">
+            <span class="checklist-item-title">Google Maps (SEO Local)</span>
+            <span class="checklist-badge warning">⚠️ Básico (5/10)</span>
+        </div>
+        <p class="checklist-item-desc">Cuenta con 8 opiniones (5.0). Sin embargo, al no tener web conectada, Google no indexa sus servicios y el contacto es un enlace crudo de WhatsApp.</p>
+    </div>
+  
+
+    <div class="checklist-item">
+        <div class="checklist-item-header">
+            <span class="checklist-item-title">Instagram Profesional</span>
+            <span class="checklist-badge info">⚠️ Activo (4/10)</span>
+        </div>
+        <p class="checklist-item-desc">@360_sportfit con 1.6K seguidores. Tiene publicaciones constantes, pero el contenido carece de un enfoque comercial estratégico dirigido a su cliente ideal.</p>
+    </div>
+  
+
+    <div class="checklist-item">
+        <div class="checklist-item-header">
+            <span class="checklist-item-title">Directorios de Gimnasios</span>
+            <span class="checklist-badge critical">❌ Muy Pobre (2/10)</span>
+        </div>
+        <p class="checklist-item-desc">Su perfil en directorios de terceros (como FitFit Colombia) es extremadamente básico, con una sola foto de baja calidad y sin tarifas ni horarios.</p>
+    </div>
+  
+
+    <div class="checklist-item">
+        <div class="checklist-item-header">
+            <span class="checklist-item-title">Identidad de Marca & Diseño</span>
+            <span class="checklist-badge warning">⚠️ Genérica (3/10)</span>
+        </div>
+        <p class="checklist-item-desc">Posee un imagotipo circular (amarillo/negro), pero carece de un sistema de diseño estructurado para sus piezas digitales, perdiendo el aspecto de un gimnasio premium.</p>
+    </div>
+  
+
+    <div class="checklist-item">
+        <div class="checklist-item-header">
+            <span class="checklist-item-title">Automatización de Cobros</span>
+            <span class="checklist-badge critical">❌ Manual (2/10)</span>
+        </div>
+        <p class="checklist-item-desc">Los cobros de mensualidades se gestionan de forma manual o mediante planillas. Sin sistema de cobro recurrente automático ni recordatorios de pago.</p>
+    </div>
+  
+            </div>
+        </section>
+
+        <!-- HEALTH SCORE CARD -->
+        <section class="score-card">
+            <div class="score-circle-container">
+                <svg width="150" height="150" viewBox="0 0 150 150">
+                    <circle class="circle-bg" cx="75" cy="75" r="65" />
+                    <!-- stroke-dasharray = 2 * PI * r = 2 * 3.14159 * 65 = 408.4 -->
+                    <circle class="circle-progress" cx="75" cy="75" r="65" 
+                            stroke-dasharray="408.4" 
+                            stroke-dashoffset="265.46" />
+                </svg>
+                <div class="score-percentage">35%</div>
+            </div>
+            <h2 class="score-label">Salud Visual de la Marca: <span style="color: #FF3B3B;">Crítico / Requiere Intervención</span></h2>
+            <p class="score-desc">Este porcentaje refleja la consistencia gráfica, calidad de diseño y nivel de optimización de tu marca en medios digitales en comparación con los estándares de la industria premium.</p>
+        </section>
+
+        <!-- DETAILED ANALYSIS GRID -->
+        <section class="analysis-grid">
+            
+            <!-- 1. Identidad Visual -->
+            <div class="card analysis-card">
+                <div class="analysis-card-header">
+                    <div class="analysis-title-group">
+                        <span class="analysis-icon">🎨</span>
+                        <h3 class="analysis-card-title">Identidad Visual</h3>
+                    </div>
+                    <span class="analysis-badge critical">3/10</span>
+                </div>
+                <ul class="analysis-list">
+                    <li class="analysis-item"><span class="analysis-item-marker">→</span> <span>Aunque el logotipo circular en amarillo y negro es reconocible, las publicaciones digitales no siguen una guía de marca coherente, lo que diluye la solidez y el nivel del gimnasio en Ibagué.</span></li>
+<li class="analysis-item"><span class="analysis-item-marker">→</span> <span>No cuentan con plantillas de diseño profesionales para comunicar tarifas, promociones mensuales o el 'plan del día', viéndose informales ante alternativas con cadenas nacionales.</span></li>
+<li class="analysis-item"><span class="analysis-item-marker">→</span> <span>Falta de coherencia visual en las portadas de las historias destacadas y en el grid general de Instagram, mezclando contenidos personales sin una línea gráfica unificada.</span></li>
+                </ul>
+            </div>
+
+            <!-- 2. Ecosistema Redes -->
+            <div class="card analysis-card">
+                <div class="analysis-card-header">
+                    <div class="analysis-title-group">
+                        <span class="analysis-icon">📱</span>
+                        <h3 class="analysis-card-title">Ecosistema Redes</h3>
+                    </div>
+                    <div style="display:flex; flex-direction:column; align-items:flex-end;">
+                        <span class="analysis-badge critical">4/10</span>
+                    </div>
+                </div>
+                <ul class="analysis-list">
+                    <li class="analysis-item"><span class="analysis-item-marker">→</span> <span>Contenido sin enfoque de público correcto: Los videos y posts no segmentan adecuadamente al usuario. Deberían dividir su contenido para atraer a principiantes (que buscan comodidad), entusiastas del fitness (que buscan buenos equipos) y a quienes buscan clases grupales.</span></li>
+<li class="analysis-item"><span class="analysis-item-marker">→</span> <span>La biografía de Instagram enlaza directamente a un link de WhatsApp directo crudo (wa.me) sin una landing page de destino que eduque al usuario sobre planes, horarios y las instalaciones antes de chatear.</span></li>
+<li class="analysis-item"><span class="analysis-item-marker">→</span> <span>Poco uso de contenido tipo Reels educativo enfocado en postura de ejercicios, nutrición básica o testimonios de cambio físico de sus alumnos, que son los formatos que más venden hoy en día.</span></li>
+                </ul>
+            </div>
+
+            <!-- 3. Producción Audiovisual -->
+            <div class="card analysis-card">
+                <div class="analysis-card-header">
+                    <div class="analysis-title-group">
+                        <span class="analysis-icon">🎥</span>
+                        <h3 class="analysis-card-title">Producción Audiovisual</h3>
+                    </div>
+                    <span class="analysis-badge critical">4/10</span>
+                </div>
+                <ul class="analysis-list">
+                    <li class="analysis-item"><span class="analysis-item-marker">→</span> <span>Falta de un video institucional o 'recorrido virtual' de alta calidad de las instalaciones de 360 Sport Fit para mostrar las máquinas, zona de cardio y peso libre de forma atractiva.</span></li>
+<li class="analysis-item"><span class="analysis-item-marker">→</span> <span>Los Reels actuales se perciben amateur: grabados con celulares de gama media y sin iluminación correcta, lo que desaprovecha el buen equipamiento e infraestructura real del gimnasio.</span></li>
+<li class="analysis-item"><span class="analysis-item-marker">→</span> <span>No se producen testimonios en video de los alumnos actuales relatando su experiencia o su progreso, el cual es el disparador de confianza más efectivo en el nicho fitness.</span></li>
+                </ul>
+            </div>
+
+            <!-- 4. Sitio Web & Conversión -->
+            <div class="card analysis-card">
+                <div class="analysis-card-header">
+                    <div class="analysis-title-group">
+                        <span class="analysis-icon">💻</span>
+                        <h3 class="analysis-card-title">Sitio Web & Conversión</h3>
+                    </div>
+                    <span class="analysis-badge critical">1/10</span>
+                </div>
+                <ul class="analysis-list">
+                    <li class="analysis-item"><span class="analysis-item-marker">→</span> <span>Ausencia Crítica de Página Web: La pérdida de tráfico es masiva. Quienes buscan 'gimnasios en Ibagué' en Google terminan eligiendo otras opciones porque 360 Sport Fit no tiene un sitio que indexe en buscadores.</span></li>
+<li class="analysis-item"><span class="analysis-item-marker">→</span> <span>Falta de un catálogo de planes estructurado online. Un prospecto debería poder ver y comprar su membresía (mensual, trimestral, anual) en línea con pasarelas de pago directas.</span></li>
+<li class="analysis-item"><span class="analysis-item-marker">→</span> <span>Sin landing de captación: El gimnasio pierde la oportunidad de regalar un 'pase de un día gratis' a cambio de capturar el nombre, correo y WhatsApp del interesado para hacerle seguimiento.</span></li>
+                </ul>
+            </div>
+
+            <!-- 5. SEO Local & Google Maps -->
+            <div class="card analysis-card">
+                <div class="analysis-card-header">
+                    <div class="analysis-title-group">
+                        <span class="analysis-icon">🔍</span>
+                        <h3 class="analysis-card-title">SEO Local & Google Maps</h3>
+                    </div>
+                    <span class="analysis-badge warning">5/10</span>
+                </div>
+                <ul class="analysis-list">
+                    <li class="analysis-item"><span class="analysis-item-marker">→</span> <span>Ficha de Google Maps incompleta: Al no tener sitio web enlazado, Google penaliza su posicionamiento frente a competidores cercanos que sí tienen su ficha de Google My Business 100% llena.</span></li>
+<li class="analysis-item"><span class="analysis-item-marker">→</span> <span>Bajo número de reseñas: Solo 8 opiniones de clientes. Un gimnasio con flujo diario de personas debería estar por encima de las 100 opiniones de 5 estrellas mediante incentivos de calificación.</span></li>
+<li class="analysis-item"><span class="analysis-item-marker">→</span> <span>No se responden las opiniones de Google Maps de forma activa con palabras clave estratégicas (ej: 'gimnasio en Ibagué', 'pesas y cardio') para mejorar su visibilidad.</span></li>
+                </ul>
+            </div>
+
+            <!-- 6. Automatización de Procesos -->
+            <div class="card analysis-card">
+                <div class="analysis-card-header">
+                    <div class="analysis-title-group">
+                        <span class="analysis-icon">⚙️</span>
+                        <h3 class="analysis-card-title">Automatización de Procesos</h3>
+                    </div>
+                    <span class="analysis-badge critical">2/10</span>
+                </div>
+                <ul class="analysis-list">
+                    <li class="analysis-item"><span class="analysis-item-marker">→</span> <span>Fuga de ingresos por cobros manuales: Controlar el vencimiento de membresías de forma manual provoca que muchos clientes entren al gimnasio con días de retraso en sus pagos, afectando el flujo de caja.</span></li>
+<li class="analysis-item"><span class="analysis-item-marker">→</span> <span>Sin recordatorios automáticos de pago: Falta de un flujo automático por WhatsApp que avise al cliente 3 días antes de que venza su mensualidad con el link de pago directo (ePayco, MercadoPago, Wompi o PSE).</span></li>
+<li class="analysis-item"><span class="analysis-item-marker">→</span> <span>Falta de automatización en el onboarding: Cuando un cliente se inscribe, el proceso de enviarle la rutina en PDF, reglamento y horarios se hace manualmente en lugar de gatillarse automáticamente por WhatsApp.</span></li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- ACTION PLAN -->
+        <section class="plan-section">
+            <div class="plan-header">
+                <div class="plan-header-icon">⚙️</div>
+                <div>
+                    <h2 class="plan-title">Plan de Acción Sugerido</h2>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">Paso a paso recomendado para solucionar los puntos críticos identificados.</p>
+                </div>
+            </div>
+            <div class="plan-grid">
+                
+    <div class="plan-step-card">
+        <span class="plan-step-num">Paso 01</span>
+        <h4 class="plan-step-title">Fase 1: Identidad Digital Premium & Estrategia de Contenidos</h4>
+        <p class="plan-step-desc">Definir un sistema de diseño digital deportivo y premium. Reestructurar el Instagram (@360_sportfit) con plantillas profesionales, portadas unificadas y una planeación de Reels educativos/motivacionales dirigidos a perfiles específicos de clientes.</p>
+    </div>
+  
+
+    <div class="plan-step-card">
+        <span class="plan-step-num">Paso 02</span>
+        <h4 class="plan-step-title">Fase 2: Lanzamiento de Landing Page de Ventas con Pasarela de Pago</h4>
+        <p class="plan-step-desc">Desarrollar un sitio web premium (360sportfit.com) con fotos profesionales de las instalaciones, catálogo claro de planes y botones de pago en línea (mensualidades recurrentes) integrados con PSE/Wompi/ePayco.</p>
+    </div>
+  
+
+    <div class="plan-step-card">
+        <span class="plan-step-num">Paso 03</span>
+        <h4 class="plan-step-title">Fase 3: Automatización de Cobros y Onboarding por WhatsApp</h4>
+        <p class="plan-step-desc">Configurar flujos con n8n para enviar notificaciones automáticas de vencimiento por WhatsApp con links de pago, y automatizar el envío de pases de cortesía para captar nuevos prospectos en la zona de Ibagué.</p>
+    </div>
+  
+            </div>
+        </section>
+
+        <!-- EXPECTED RESULTS DASHBOARD -->
+        <section class="plan-section" style="margin-bottom: 50px;">
+            <div class="plan-header">
+                <div class="plan-header-icon">📈</div>
+                <div>
+                    <h2 class="plan-title">Resultados de la Transformación Digital</h2>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">Interactúa con las pestañas para comparar tu estado actual (Fricción) y el impacto del cambio (Resultados).</p>
+                </div>
+            </div>
+            
+            <!-- Navigation Tabs -->
+            <div class="tabs-nav">
+                <button class="tab-btn active" onclick="switchTab('presencia')">📱 Instagrowth Pro</button>
+                <button class="tab-btn" onclick="switchTab('captacion')">💻 Web Premium</button>
+                <button class="tab-btn" onclick="switchTab('eficiencia')">⚙️ Automatización</button>
+            </div>
+            
+            <!-- Tab Contents Slider Container -->
+            <div class="tabs-slider-container" id="tabsSliderContainer">
+                <div id="tab-presencia" class="tab-content active">
+                    <h3 class="mobile-tab-title">📱 Instagrowth Pro</h3>
+                    
+    <div class="transform-card before-card">
+        <div>
+            <span class="transform-label before-label">⚠️ Estado Actual (Fricción)</span>
+            <h4 class="transform-card-title">Presencia amateur y desordenada en redes</h4>
+            <p class="transform-card-desc">Grid de Instagram sin línea gráfica unificada, historias destacadas sin portadas profesionales y ausencia total de una página web oficial.</p>
+        </div>
+        <div class="transform-metrics-list">
+            
+    <div class="transform-metric-item">
+        <span class="transform-metric-name">Coherencia Visual</span>
+        <span class="transform-metric-val bad">Baja / Desalineada</span>
+    </div>
+  
+
+    <div class="transform-metric-item">
+        <span class="transform-metric-name">Imagen Digital</span>
+        <span class="transform-metric-val bad">Amateur / Genérica</span>
+    </div>
+  
+
+    <div class="transform-metric-item">
+        <span class="transform-metric-name">Información del Gym</span>
+        <span class="transform-metric-val bad">Difícil de encontrar</span>
+    </div>
+  
+        </div>
+    </div>
+    <div class="transform-card after-card">
+        <div>
+            <span class="transform-label after-label">📈 Impacto Pro (Resultado)</span>
+            <h4 class="transform-card-title">Gimnasio moderno y de estándar premium</h4>
+            <p class="transform-card-desc">Sitio web de primer nivel para ver y comprar membresías, combinado con un Instagram profesional con contenido estético que atrae al público correcto.</p>
+        </div>
+        <div class="transform-metrics-list">
+            
+    <div class="transform-metric-item">
+        <span class="transform-metric-name">Coherencia Visual</span>
+        <span class="transform-metric-val good">Alta / Deportiva Premium</span>
+    </div>
+  
+
+    <div class="transform-metric-item">
+        <span class="transform-metric-name">Imagen Digital</span>
+        <span class="transform-metric-val good">Gimnasio de Nivel Pro</span>
+    </div>
+  
+
+    <div class="transform-metric-item">
+        <span class="transform-metric-name">Información del Gym</span>
+        <span class="transform-metric-val good">Web 360sportfit.com</span>
+    </div>
+  
+        </div>
+    </div>
+  
+                    <div class="service-link-wrapper">
+                        <a href="../planes-instagrowth.html" target="_blank" class="btn-service">Conoce más <span>→</span></a>
+                    </div>
+                </div>
+                
+                <div id="tab-captacion" class="tab-content">
+                    <h3 class="mobile-tab-title">💻 Web Premium</h3>
+                    
+    <div class="transform-card before-card">
+        <div>
+            <span class="transform-label before-label">⚠️ Estado Actual (Fricción)</span>
+            <h4 class="transform-card-title">Pérdida constante de interesados locales</h4>
+            <p class="transform-card-desc">Ficha de Google Maps sin enlace web y biografía de Instagram redirigiendo a un chat de WhatsApp crudo donde se pierde el 50% de las ventas por falta de información previa.</p>
+        </div>
+        <div class="transform-metrics-list">
+            
+    <div class="transform-metric-item">
+        <span class="transform-metric-name">Opiniones en Maps</span>
+        <span class="transform-metric-val bad">8 valoraciones</span>
+    </div>
+  
+
+    <div class="transform-metric-item">
+        <span class="transform-metric-name">Conversión de Clics</span>
+        <span class="transform-metric-val bad">Directo a Chat (Fricción)</span>
+    </div>
+  
+
+    <div class="transform-metric-item">
+        <span class="transform-metric-name">Pase de Cortesía</span>
+        <span class="transform-metric-val bad">Manual / Ineficiente</span>
+    </div>
+  
+        </div>
+    </div>
+    <div class="transform-card after-card">
+        <div>
+            <span class="transform-label after-label">📈 Impacto Pro (Resultado)</span>
+            <h4 class="transform-card-title">Embudo automatizado de captación local</h4>
+            <p class="transform-card-desc">Sitio web estructurado para convertir clics en membresías pagadas. Flujo automático de regalo de 'Pase de un Día' que nutre tu base de datos de WhatsApp diariamente.</p>
+        </div>
+        <div class="transform-metrics-list">
+            
+    <div class="transform-metric-item">
+        <span class="transform-metric-name">Opiniones en Maps</span>
+        <span class="transform-metric-val good">100+ (Ficha Líder)</span>
+    </div>
+  
+
+    <div class="transform-metric-item">
+        <span class="transform-metric-name">Conversión de Clics</span>
+        <span class="transform-metric-val good">Pasarela Web Directa</span>
+    </div>
+  
+
+    <div class="transform-metric-item">
+        <span class="transform-metric-name">Pase de Cortesía</span>
+        <span class="transform-metric-val good">Auto por WhatsApp (n8n)</span>
+    </div>
+  
+        </div>
+    </div>
+  
+                    <div class="service-link-wrapper">
+                        <a href="../web-premium.html" target="_blank" class="btn-service">Conoce más <span>→</span></a>
+                    </div>
+                </div>
+                
+                <div id="tab-eficiencia" class="tab-content">
+                    <h3 class="mobile-tab-title">⚙️ Automatización</h3>
+                    
+    <div class="transform-card before-card">
+        <div>
+            <span class="transform-label before-label">⚠️ Estado Actual (Fricción)</span>
+            <h4 class="transform-card-title">Cobros manuales y descontrol de vencimientos</h4>
+            <p class="transform-card-desc">Mensualidades rastreadas manualmente. Clientes entrenando con planes vencidos y alta carga de trabajo administrativo para cobrar uno a uno por chat.</p>
+        </div>
+        <div class="transform-metrics-list">
+            
+    <div class="transform-metric-item">
+        <span class="transform-metric-name">Control de Pagos</span>
+        <span class="transform-metric-val bad">Planilla / Manual</span>
+    </div>
+  
+
+    <div class="transform-metric-item">
+        <span class="transform-metric-name">Recordatorio de Cobro</span>
+        <span class="transform-metric-val bad">Mensaje escrito manual</span>
+    </div>
+  
+
+    <div class="transform-metric-item">
+        <span class="transform-metric-name">Admisión y Bienvenida</span>
+        <span class="transform-metric-val bad">Manual en Recepción</span>
+    </div>
+  
+        </div>
+    </div>
+    <div class="transform-card after-card">
+        <div>
+            <span class="transform-label after-label">📈 Impacto Pro (Resultado)</span>
+            <h4 class="transform-card-title">Recaudación automatizada 24/7</h4>
+            <p class="transform-card-desc">Membresías con débito recurrente automático. n8n notifica vencimientos por WhatsApp enviando link de PSE para renovar al instante sin intervención de personal.</p>
+        </div>
+        <div class="transform-metrics-list">
+            
+    <div class="transform-metric-item">
+        <span class="transform-metric-name">Control de Pagos</span>
+        <span class="transform-metric-val good">Débito Recurrente Web</span>
+    </div>
+  
+
+    <div class="transform-metric-item">
+        <span class="transform-metric-name">Recordatorio de Cobro</span>
+        <span class="transform-metric-val good">WhatsApp Auto (n8n)</span>
+    </div>
+  
+
+    <div class="transform-metric-item">
+        <span class="transform-metric-name">Admisión y Bienvenida</span>
+        <span class="transform-metric-val good">Reglamento y Rutina Auto</span>
+    </div>
+  
+        </div>
+    </div>
+  
+                    <div class="service-link-wrapper">
+                        <a href="../automatizacion.html" target="_blank" class="btn-service">Conoce más <span>→</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section class="cta-box">
+            <div class="section-label">Próximo Paso</div>
+            <h2 class="cta-box-title">¿Cómo implementar esta transformación?</h2>
+            <p class="cta-box-desc">
+                Este diagnóstico identifica las fugas de valor visual que pueden estar costándole clientes y ventas a tu negocio. Para discutir en detalle cómo resolver estos problemas y elevar la marca a un estándar premium, te invito a agendar una sesión estratégica sin costo de 15 minutos.
+            </p>
+            <a href="https://wa.me/573169642159?text=Hola%20David%2C%20acabo%20de%20revisar%20el%20Informe%20de%20Presencia%20Visual%20que%20preparaste%20para%20mi%20negocio%20360%20Sport%20Fit%20-%20Gimnasio%20Ibagu%C3%A9.%20Me%20interesa%20discutir%20el%20plan%20de%20acci%C3%B3n%20para%20mejorar." target="_blank" class="btn btn-primary" style="font-size: 1.05rem; padding: 16px 40px; box-shadow: 0 0 30px var(--cta-glow);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px;">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                Agendar Sesión
+            </a>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); text-align: center;">
+        <div class="container">
+            <p style="font-size:0.875rem; color:var(--text-secondary);">
+                © 2025 <span class="text-accent">David Muñoz Studio</span>. Todos los derechos reservados.
+            </p>
+            <p style="font-size:0.75rem; color:var(--text-muted); margin-top:8px;">
+                Análisis exclusivo y confidencial preparado para 360 Sport Fit - Gimnasio Ibagué.
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/logo-particles.js"></script>
+    <script>
+        function switchTab(tabId) {
+            // Update active buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                if (btn.getAttribute('onclick').includes(`'${tabId}'`)) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Only toggle displays on desktop
+            if (window.innerWidth > 768) {
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    if (content.id === `tab-${tabId}`) {
+                        content.style.display = 'grid';
+                        setTimeout(() => {
+                            content.classList.add('active');
+                        }, 20);
+                    } else {
+                        content.classList.remove('active');
+                        content.style.display = 'none';
+                    }
+                });
+            }
+        }
+        
+        // Setup initial view on DOM load
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.innerWidth > 768) {
+                switchTab('presencia');
+            }
+            
+            // Handle window resizing to switch between desktop tabs and mobile stacked list
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    const activeBtn = document.querySelector('.tab-btn.active');
+                    if (activeBtn) {
+                        const match = activeBtn.getAttribute('onclick').match(/'([^']+)'/);
+                        if (match) {
+                            switchTab(match[1]);
+                        }
+                    } else {
+                        switchTab('presencia');
+                    }
+                } else {
+                    // Mobile view: clear inline display styles so CSS flex !important takes over
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.style.display = '';
+                        content.classList.add('active');
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

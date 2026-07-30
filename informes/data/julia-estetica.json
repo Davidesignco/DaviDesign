@@ -1,0 +1,162 @@
+{
+  "hash": "f4b9d3",
+  "clientName": "Julia Estética y Cosmetología",
+  "contactName": "Julia",
+  "category": "Estética & Cosmetología",
+  "instagramUser": "@juliaesteticaintegral",
+  "channelsSummary": [
+    {
+      "name": "Sitio Web Corporativo",
+      "status": "❌ No tiene",
+      "statusClass": "critical",
+      "desc": "Impide aparecer en búsquedas de Google Ibagué y automatizar reservas."
+    },
+    {
+      "name": "Google Maps (SEO Local)",
+      "status": "⚠️ Sin Optimizar (3/10)",
+      "statusClass": "warning",
+      "desc": "Registrada como tienda en vez de centro estético. Solo 1 reseña en total."
+    },
+    {
+      "name": "Instagram Profesional",
+      "status": " Activo (4/10)",
+      "statusClass": "info",
+      "desc": "375 seguidores. Último post hace 8 semanas. Enlace a WhatsApp crudo."
+    },
+    {
+      "name": "Facebook & TikTok",
+      "status": "❌ Inactivo",
+      "statusClass": "critical",
+      "desc": "Sin presencia ni videos de tratamientos en TikTok o perfiles locales."
+    },
+    {
+      "name": "Identidad de Marca & Diseño",
+      "status": "⚠️ Inconsistente (5/10)",
+      "statusClass": "warning",
+      "desc": "Logotipo de perfil ilegible en móvil. Colores y fuentes mezcladas."
+    },
+    {
+      "name": "Automatización de Citas",
+      "status": "❌ Manual (4/10)",
+      "statusClass": "critical",
+      "desc": "Recordatorios manuales por WhatsApp. Elevado riesgo de inasistencias."
+    }
+  ],
+  "scores": {
+    "overall": 39,
+    "visualIdentity": 5,
+    "socialMedia": 4,
+    "audiovisual": 5,
+    "website": 2,
+    "seoLocal": 3,
+    "automation": 4
+  },
+  "analysis": {
+    "visualIdentity": [
+      "El logo de perfil tiene el texto de categoría 'ESTÉTICA Y COSMETOLOGÍA INTEGRAL' demasiado pequeño, lo que lo hace completamente ilegible en pantallas de celulares.",
+      "Falta de coherencia visual y cromática en las publicaciones de Instagram; se combinan tipografías y colores sin un patrón o identidad de marca unificada.",
+      "No cuentan con una guía de marca simplificada para mantener una estética consistente en el contenido diario."
+    ],
+    "socialMedia": [
+      "El enlace en la biografía de Instagram es un link crudo e informal a WhatsApp (wa.me/57...), en lugar de un enlace a una Landing Page o a un catálogo interactivo profesional.",
+      "Las portadas de las historias destacadas no tienen diseño de marca unificado, utilizando capturas comunes en lugar de íconos personalizados en sintonía con la marca Julia.",
+      "Falta de presencia activa y optimizada en Facebook y TikTok, desaprovechando el 60% del mercado de clientes locales en Ibagué que usan estas redes."
+    ],
+    "audiovisual": [
+      "Las fotos y videos de los tratamientos (como limpiezas o Hollywood Peel) carecen de iluminación profesional, lo que disminuye el atractivo visual del servicio.",
+      "No se aprovechan los formatos dinámicos tipo Reel con audio en tendencia y edición dinámica; el feed es demasiado plano.",
+      "Falta de videos testimoniales de clientes reales saliendo felices del local, lo cual es la herramienta de venta más poderosa en estética."
+    ],
+    "website": [
+      "Ausencia Crítica de Sitio Web: La ficha de Google Maps muestra la opción de 'Agregar sitio web'. No tener una página web te hace invisible ante clientes que buscan activamente en Google.",
+      "El agendamiento depende 100% de que respondas un mensaje de WhatsApp de forma manual, lo que genera demoras y pérdida de clientes impacientes.",
+      "No se tiene un catálogo interactivo con fotos de alta calidad y tarifas claras de cada procedimiento estético."
+    ],
+    "seoLocal": [
+      "Categorización Incorrecta en Google Maps: Registrada como 'Tienda de belleza y salud' (venta de productos) en lugar de 'Centro de estética' (prestación de servicios), perdiendo el 90% de las búsquedas locales en Ibagué.",
+      "Falta de Prueba Social: La ficha cuenta con solo 1 reseña en Google Maps, lo que genera desconfianza comparado con otros centros estéticos de la ciudad.",
+      "Ausencia de palabras clave locales (ej: 'limpieza facial Ibagué', 'masajes reductores Ibagué') en la descripción del negocio en Google."
+    ],
+    "automation": [
+      "Gestión manual de citas: El control de la agenda y los recordatorios se hacen a mano, lo que eleva el riesgo de inasistencias (no-shows) y quita tiempo operativo.",
+      "No existe un sistema automatizado para solicitar reseñas en Google Maps por WhatsApp a las clientes después de ser atendidas.",
+      "No hay respuestas automáticas inteligentes fuera del horario comercial, lo que causa que los leads que escriben de noche se vayan a la competencia."
+    ]
+  },
+  "actionPlan": [
+    {
+      "title": "Fase 1: Identidad Premium & Google SEO",
+      "desc": "Rediseñar las plantillas de Instagram con la paleta de colores de Julia, optimizar la ficha de Google Maps con la categoría correcta ('Centro de Estética') y crear el sistema de captación automática de reseñas positivas."
+    },
+    {
+      "title": "Fase 2: Catálogo Web & Conversión",
+      "desc": "Desarrollar una Landing Page premium con el catálogo de servicios interactivo y formularios de agendamiento integrados, vinculándola en Google Maps e Instagram para captar tráfico local con alta intención."
+    },
+    {
+      "title": "Fase 3: Producción & Automatización n8n",
+      "desc": "Realizar una producción de video/foto pro de tus tratamientos principales, lanzar la estrategia de Reels en TikTok e IG, y conectar n8n para enviar confirmaciones y recordatorios automáticos de citas por WhatsApp."
+    }
+  ],
+  "expectedResults": {
+    "presencia": {
+      "before": {
+        "title": "Marca genérica y poco visible",
+        "desc": "Logotipo ilegible en pantallas móviles, feed de Instagram desorganizado y cuentas de TikTok y Facebook abandonadas que no generan confianza ni autoridad.",
+        "metrics": [
+          { "name": "Coherencia Visual", "val": "Inconsistente" },
+          { "name": "Canales Activos", "val": "Solo IG (parcial)" },
+          { "name": "Confianza de Marca", "val": "Baja" }
+        ]
+      },
+      "after": {
+        "title": "Presencia visual premium 360°",
+        "desc": "Identidad visual de lujo unificada en todas las redes, portadas profesionales e historias estructuradas. Grid estético y Reels de tratamientos atractivos que justifican tarifas premium.",
+        "metrics": [
+          { "name": "Coherencia Visual", "val": "Premium / Pro" },
+          { "name": "Canales Activos", "val": "IG, FB & TikTok" },
+          { "name": "Confianza de Marca", "val": "Alta Autoridad" }
+        ]
+      }
+    },
+    "captacion": {
+      "before": {
+        "title": "Fuga constante de clientes locales",
+        "desc": "Ficha de Google mal categorizada (Tienda) que te oculta en las búsquedas, sin sitio web para mostrar tus tratamientos, dependiendo de clics directos de WhatsApp de usuarios sin calificar.",
+        "metrics": [
+          { "name": "Tráfico en Google", "val": "Mínimo / Nulo" },
+          { "name": "Tasa de Conversión", "val": "Baja (< 2%)" },
+          { "name": "Visibilidad de Catálogo", "val": "Por Chat Manual" }
+        ]
+      },
+      "after": {
+        "title": "Embudo de captación automática",
+        "desc": "Ficha número 1 en Google Maps en Ibagué para búsquedas estéticas. Landing page de alta conversión que educa al cliente y le permite ver tarifas y agendar de inmediato.",
+        "metrics": [
+          { "name": "Tráfico en Google", "val": "Alto / Orgánico" },
+          { "name": "Tasa de Conversión", "val": "Alta (8% - 12%)" },
+          { "name": "Visibilidad de Catálogo", "val": "Web 24/7" }
+        ]
+      }
+    },
+    "eficiencia": {
+      "before": {
+        "title": "Operación manual y ausencias",
+        "desc": "Tiempo perdido respondiendo disponibilidad de citas manualmente por WhatsApp, alta tasa de cancelaciones de último minuto por falta de recordatorios, y solo 1 review en Google por no pedirlas.",
+        "metrics": [
+          { "name": "Tiempo de Gestión", "val": "Manual (2-3 hrs/día)" },
+          { "name": "Ausencia de Citas", "val": "15% - 20%" },
+          { "name": "Reseñas en Google", "val": "1 Reseña" }
+        ]
+      },
+      "after": {
+        "title": "Negocio en piloto automático con n8n",
+        "desc": "Gestión de agenda automatizada. Recordatorios automáticos por WhatsApp que reducen ausencias a cero, y sistema de auto-solicitud de reseñas tras cada tratamiento para aplastar a la competencia.",
+        "metrics": [
+          { "name": "Tiempo de Gestión", "val": "Automatizado (0 min)" },
+          { "name": "Ausencia de Citas", "val": "< 2%" },
+          { "name": "Reseñas en Google", "val": "+50 reseñas/año" }
+        ]
+      }
+    }
+  }
+}

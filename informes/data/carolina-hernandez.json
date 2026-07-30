@@ -1,0 +1,216 @@
+{
+  "clientName": "Dra. Carolina Hernández Rojas - Dermatóloga Ibagué",
+  "contactName": "Dra. Carolina",
+  "category": "Dermatología & Tricología",
+  "instagramUser": "@carohernandez.dermato",
+  "scores": {
+    "overall": 26,
+    "visualIdentity": 2,
+    "socialMedia": 2,
+    "audiovisual": 1,
+    "website": 1,
+    "seoLocal": 3,
+    "automation": 1
+  },
+  "channelsSummary": [
+    {
+      "name": "Sitio Web Corporativo",
+      "status": "❌ No tiene",
+      "statusClass": "critical",
+      "desc": "El enlace del Maps redirige a aiyellow.com (directorio de páginas amarillas). No cuenta con portal propio de citas."
+    },
+    {
+      "name": "Google Maps (SEO Local)",
+      "status": "❌ Ficha sin Reclamar",
+      "statusClass": "critical",
+      "desc": "La ficha tiene la opción de 'Reclamar este negocio'. Está expuesta a que terceros la controlen, y tiene solo 2 opiniones."
+    },
+    {
+      "name": "Foto de Google Maps",
+      "status": "❌ Imagen de un Taxi",
+      "statusClass": "critical",
+      "desc": "La foto principal que muestra Google Maps de su consultorio es un taxi amarillo transitando, restando profesionalidad."
+    },
+    {
+      "name": "Diferenciación de Nombre",
+      "status": "❌ Confusión en Búsquedas",
+      "statusClass": "critical",
+      "desc": "Existe otra dermatóloga con el mismo nombre en Bogotá con 18K seguidores que acapara todas las búsquedas de Google."
+    },
+    {
+      "name": "Instagram Profesional",
+      "status": "⚠️ Cuenta Iniciando (2/10)",
+      "statusClass": "warning",
+      "desc": "@carohernandez.dermato tiene solo 134 seguidores y 4 publicaciones. Está en fase inicial sin línea gráfica definida."
+    },
+    {
+      "name": "TikTok & Automatización",
+      "status": "❌ Inexistente (1/10)",
+      "statusClass": "critical",
+      "desc": "Sin presencia en TikTok y con enlace de agendamiento crudo por WhatsApp, sin flujos de pre-consulta o recordatorios."
+    }
+  ],
+  "analysis": {
+    "visualIdentity": [
+      "Al estar iniciando, carece de un sistema de identidad visual propio (paleta de colores, tipografías y logo premium) para su consultorio 502 de Medicadiz.",
+      "Sus 4 publicaciones en Instagram utilizan diseños genéricos que no transmiten la autoridad y confianza requeridas en una especialidad médica como la dermatología.",
+      "Falta de coherencia y branding en todas sus plataformas, limitando su capacidad de posicionarse como una dermatóloga de gama alta en el Tolima."
+    ],
+    "socialMedia": [
+      "Comunidad en fase inicial: Cuenta con solo 134 seguidores en Instagram. Esto representa un reto pero también una oportunidad de construir una marca sólida desde cero sin vicios previos.",
+      "Crisis de Identidad en Google: Al buscar 'Dra. Carolina Hernández Dermatóloga', los primeros resultados corresponden a la especialista de Bogotá (@carolinahernandezdermatologa) que tiene 18.8K seguidores. Un paciente de Ibagué que la busque terminará confundido y agendando con la doctora de Bogotá si no cuenta con una web enfocada en Ibagué.",
+      "Sin presencia en TikTok: Desaprovecha la red de mayor crecimiento para médicos jóvenes, ideal para posicionar temas de tricología (caída del cabello) y skincare."
+    ],
+    "audiovisual": [
+      "La foto de portada de su Google Maps es un taxi amarillo en movimiento frente a Medicadiz. Esto da una imagen descuidada del perfil local del consultorio y requiere ser cambiada urgentemente por retratos corporativos de la doctora o de las instalaciones del consultorio 502.",
+      "No cuenta con videos explicativos de la doctora hablando a la cámara, que es el formato principal para generar empatía y cercanía con el paciente.",
+      "Falta de fotos corporativas de alta calidad de sus equipos y de la experiencia de consulta dermatológica."
+    ],
+    "website": [
+      "Sin Sitio Web Propio: La ficha de Google Maps apunta al directorio de Páginas Amarillas aiyellow.com, lo cual proyecta una imagen digital anticuada y poco profesional.",
+      "La web de aiyellow es extremadamente básica, difícil de navegar y carece de un formulario de citas o explicaciones estéticas de sus tratamientos.",
+      "Una página web independiente es la única forma de ganarle el SEO a la doctora de Bogotá para las búsquedas locales en Ibagué ('Dermatóloga en Ibagué Dra. Carolina Hernández')."
+    ],
+    "seoLocal": [
+      "Ficha de Google Maps vulnerable: El perfil muestra 'Reclamar este negocio'. Si la doctora no verifica la propiedad de su ficha, cualquier usuario puede solicitar cambios de horario, dirección o incluso cerrarla en Google.",
+      "Paso crucial en SEO Local: Solo cuenta con 2 opiniones de pacientes. Necesita una campaña automatizada para captar reseñas de sus primeros pacientes y subir a más de 30 opiniones rápidamente.",
+      "No tiene configurados los servicios ni las palabras clave del consultorio dentro del perfil de Google Business Profile."
+    ],
+    "automation": [
+      "Agendamiento manual e ineficiente: Los prospectos que hacen clic en su enlace wa.me de Instagram llegan a un chat de WhatsApp directo sin ningún tipo de filtro ni información automatizada.",
+      "Falta de un sistema automático de pre-consulta que solicite fotos previas de la zona de piel a tratar o el motivo de la consulta, agilizando el trabajo de la doctora.",
+      "Sin automatizaciones post-consulta para fidelizar a los pacientes y solicitar opiniones de forma sistemática."
+    ]
+  },
+  "actionPlan": [
+    {
+      "title": "Fase 1: Reclamar Ficha de Google, Optimizar Fotos & Identidad",
+      "desc": "Verificar y reclamar la propiedad de la ficha en Google Maps. Reemplazar la foto del taxi por retratos corporativos e imágenes del consultorio 502. Diseñar la línea gráfica de marca (paleta de colores y logotipo)."
+    },
+    {
+      "title": "Fase 2: Lanzamiento de Web Premium con SEO Local para Ibagué",
+      "desc": "Desarrollar una Landing Page premium (dracarolinahernandez.com) enfocada 100% en captar búsquedas de 'Dermatología en Ibagué' para superar el SEO de la doctora de Bogotá y desviar el tráfico de aiyellow.com hacia un canal propio de reservas."
+    },
+    {
+      "title": "Fase 3: Crecimiento de Instagram, TikTok & Automatizaciones",
+      "desc": "Estructurar una parrilla de contenidos en Instagram y abrir canal en TikTok enfocado en tricología y acné. Implementar con n8n formularios de pre-consulta y recordatorios automatizados por WhatsApp."
+    }
+  ],
+  "expectedResults": {
+    "presencia": {
+      "before": {
+        "title": "Marca invisible y confundible online",
+        "desc": "Instagram con 134 seguidores sin línea de diseño. Ficha de Google Maps redirigiendo a páginas amarillas y dominada por el SEO de la doctora de Bogotá.",
+        "metrics": [
+          {
+            "name": "Seguidores Instagram",
+            "val": "134 (Fase Inicial)"
+          },
+          {
+            "name": "Coherencia Gráfica",
+            "val": "Inexistente"
+          },
+          {
+            "name": "Diferenciación de Marca",
+            "val": "Confusa / Bogotá Ranks"
+          }
+        ]
+      },
+      "after": {
+        "title": "Dermatóloga de referencia en Ibagué",
+        "desc": "Identidad visual de lujo establecida. Sitio web propio que posiciona su nombre y especialidad en Ibagué, separándola por completo de la competencia nacional.",
+        "metrics": [
+          {
+            "name": "Seguidores Instagram",
+            "val": "Comunidad en Crecimiento"
+          },
+          {
+            "name": "Coherencia Gráfica",
+            "val": "Branding Médico Premium"
+          },
+          {
+            "name": "Diferenciación de Marca",
+            "val": "Líder de SEO en Ibagué"
+          }
+        ]
+      }
+    },
+    "captacion": {
+      "before": {
+        "title": "Ficha de Maps vulnerable y taxi de portada",
+        "desc": "Perfil local sin verificar ('Reclamar este negocio'), con la foto de un taxi amarillo de portada y enlazado al directorio obsoleto de aiyellow.",
+        "metrics": [
+          {
+            "name": "Seguridad de la Ficha",
+            "val": "Sin Verificar"
+          },
+          {
+            "name": "Foto de Portada",
+            "val": "Taxi Amarillo (Amateur)"
+          },
+          {
+            "name": "Enlace Ficha Google",
+            "val": "aiyellow.com (Directorio)"
+          }
+        ]
+      },
+      "after": {
+        "title": "Canal local blindado y de alta conversión",
+        "desc": "Ficha de Maps verificada, con fotografías corporativas profesionales y enlazada a su propia landing page para capturar pacientes directamente.",
+        "metrics": [
+          {
+            "name": "Seguridad de la Ficha",
+            "val": "Verificada / Blindada"
+          },
+          {
+            "name": "Foto de Portada",
+            "val": "Foto Corporativa Pro"
+          },
+          {
+            "name": "Enlace Ficha Google",
+            "val": "dracarolinahernandez.com"
+          }
+        ]
+      }
+    },
+    "eficiencia": {
+      "before": {
+        "title": "Procesos manuales y lentos",
+        "desc": " WhatsApp directo crudo sin mensajes de bienvenida ni automatizaciones, atendiendo dudas y cotizaciones una a una de forma manual.",
+        "metrics": [
+          {
+            "name": "Agendamiento de Citas",
+            "val": "Manual / Sin Filtro"
+          },
+          {
+            "name": "Historial de Paciente",
+            "val": "Manual en consulta"
+          },
+          {
+            "name": "Onboarding",
+            "val": "Inexistente"
+          }
+        ]
+      },
+      "after": {
+        "title": "Consultorio digital optimizado",
+        "desc": "Triaje digital previo por WhatsApp. n8n recopila datos de los síntomas y motivo de la consulta antes de la cita presencial.",
+        "metrics": [
+          {
+            "name": "Agendamiento de Citas",
+            "val": "Pre-agendado Web Auto"
+          },
+          {
+            "name": "Historial de Paciente",
+            "val": "Formulario Pre-consulta Auto"
+          },
+          {
+            "name": "Onboarding",
+            "val": "Rutina Skincare Auto PDF"
+          }
+        ]
+      }
+    }
+  },
+  "hash": "jizytg"
+}

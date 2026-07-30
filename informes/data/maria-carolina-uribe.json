@@ -1,0 +1,216 @@
+{
+  "clientName": "Dra. María Carolina Uribe Garay - Gastroenterología Pediátrica",
+  "contactName": "Dra. María Carolina",
+  "category": "Gastroenterología Pediátrica",
+  "instagramUser": "@dracarouribegastroped",
+  "scores": {
+    "overall": 31,
+    "visualIdentity": 3,
+    "socialMedia": 3,
+    "audiovisual": 2,
+    "website": 1,
+    "seoLocal": 4,
+    "automation": 2
+  },
+  "channelsSummary": [
+    {
+      "name": "Sitio Web Corporativo",
+      "status": "❌ No tiene",
+      "statusClass": "critical",
+      "desc": "No cuenta con página web propia. Su presencia online depende de directorios externos donde compite directamente con otros pediatras."
+    },
+    {
+      "name": "Directorios Médicos",
+      "status": "⚠️ Ineficaces (Colgahnp/Doctoralia)",
+      "statusClass": "warning",
+      "desc": "Indexada en portales como Colgahnp y Doctoralia. Estas plataformas diluyen su marca personal y muestran publicidad de la competencia."
+    },
+    {
+      "name": "Instagram Profesional",
+      "status": "⚠️ Solo Imágenes (3/10)",
+      "statusClass": "warning",
+      "desc": "@dracarouribegastroped tiene 309 seguidores. Publica constantemente, pero solo imágenes estáticas, reduciendo drásticamente su alcance."
+    },
+    {
+      "name": "TikTok Profesional",
+      "status": "❌ Inexistente",
+      "statusClass": "critical",
+      "desc": "Sin perfil en TikTok, desaprovechando la plataforma clave para conectar con madres y padres jóvenes que buscan consejos de salud infantil."
+    },
+    {
+      "name": "Google Maps (SEO Local)",
+      "status": "⚠️ Básico (4/10)",
+      "statusClass": "warning",
+      "desc": "Solo cuenta con 3 opiniones. Al no tener sitio web propio enlazado, Google no indexa sus especialidades y servicios locales."
+    },
+    {
+      "name": "Automatización de Citas",
+      "status": "❌ Manual (2/10)",
+      "statusClass": "critical",
+      "desc": "El agendamiento depende enteramente de respuestas manuales de chat por WhatsApp, sin formularios de pre-consulta de antecedentes."
+    }
+  ],
+  "analysis": {
+    "visualIdentity": [
+      "Aunque utiliza una paleta de colores pasteles coherente (rosa y cian), los diseños de Instagram se limitan a plantillas genéricas de Canva con exceso de texto, perdiendo impacto visual y profesionalidad.",
+      "No cuenta con un logotipo corporativo propio de su especialidad (gastroenterología infantil y nutrición) que la diferencie de la pediatría general en Medicadiz.",
+      "Falta de coherencia gráfica entre su perfil de Instagram, página de Facebook y documentos de recomendaciones médicas que entrega a los padres."
+    ],
+    "socialMedia": [
+      "Límite de alcance por formato: Su cuenta @dracarouribegastroped tiene solo 309 seguidores porque publica exclusivamente infografías estáticas de texto. Hoy en día, el algoritmo de Instagram prioriza casi en un 100% los Reels. No publicar videos frena por completo su crecimiento orgánico.",
+      "No se aprovecha la enorme demanda de contenido en video sobre salud digestiva infantil, reflujo, microbiota y estreñimiento en bebés, que son temas altamente virales entre padres de familia.",
+      "Sin redes secundarias como TikTok, que es donde se concentran los padres jóvenes que buscan tips rápidos de alimentación y puericultura."
+    ],
+    "audiovisual": [
+      "Ausencia total de videos educativos de la doctora: En pediatría y gastroenterología infantil, la empatía y la confianza son los principales factores de decisión. Los padres necesitan ver y escuchar a la doctora hablar frente a la cámara para decidir agendar una cita.",
+      "Las fotos de su consultorio (608) en la Clínica Medicadiz en Google Maps son genéricas y no muestran la calidez y el ambiente adaptado para niños que debería proyectar un consultorio de gastropediatría.",
+      "No cuenta con videos cortos tipo 'explicativos dinámicos' utilizando animaciones o recursos visuales para enseñar sobre la microbiota o la intolerancia a la lactosa."
+    ],
+    "website": [
+      "Sin Portal Médico Propio: Depender de directorios como Colgahnp, Top Doctors o Doctoralia es ineficaz porque son portales masivos que no explican sus servicios de forma exclusiva y ponen al paciente a un clic de distancia de agendar con su competencia.",
+      "Un sitio web propio con dominio personalizado (ej: dracarolinauribegastroped.com) le permitiría estructurar una guía digital de patologías digestivas infantiles (estreñimiento, alergias, intolerancias) y captar pacientes sin intermediarios.",
+      "No cuenta con una landing page donde los padres puedan descargar una 'guía de preparación para la primera consulta' a cambio de dejar sus datos de contacto."
+    ],
+    "seoLocal": [
+      "Ficha de Google Maps con bajo posicionamiento: Al no tener sitio web enlazado, Google no puede asociar palabras clave médicas como 'gastropediatra en Ibagué' o 'endoscopia pediátrica Tolima' a su ubicación.",
+      "Baja prueba social: Solo 3 reseñas en Maps. Para un consultorio de especialidad médica en Medicadiz, es fundamental contar con al menos 30 reseñas de pacientes para inspirar confianza absoluta.",
+      "No responde las reseñas en Maps y el enlace de la ficha redirige a un directorio de terceros en lugar de una landing page directa."
+    ],
+    "automation": [
+      "Proceso de citas 100% manual: Las solicitudes de agendamiento saturan el chat de WhatsApp con consultas repetitivas de tarifas, horarios y convenios, aumentando la carga administrativa.",
+      "Sin cuestionario de pre-consulta: Las consultas de gastroenterología pediátrica requieren antecedentes detallados (exámenes previos, síntomas, alimentación). Al no tener un formulario automatizado previo a la cita, se pierde tiempo clínico valioso en la consulta presencial.",
+      "Sin recordatorios de control: La salud digestiva requiere citas de seguimiento a las pocas semanas. Sin flujos automatizados de recordatorio por WhatsApp mediante n8n, muchos padres olvidan las consultas de control."
+    ]
+  },
+  "actionPlan": [
+    {
+      "title": "Fase 1: Identidad Visual Skincare/Infantil & Reels Dinámicos",
+      "desc": "Rediseñar su línea gráfica digital con un enfoque profesional, cálido y pediátrico. Modificar la estrategia de contenidos en Instagram (@dracarouribegastroped) reemplazando posts estáticos por Reels educativos cortos, donde la doctora responda preguntas comunes."
+    },
+    {
+      "title": "Fase 2: Lanzamiento de Sitio Web de Gastropediatría Premium",
+      "desc": "Desarrollar una Landing Page premium (dracarolinauribe.com) que actúe como su portal oficial libre de competencia. Diseñar un catálogo claro de patologías digestivas y nutricionales infantiles, e integrar agendamiento automatizado de citas."
+    },
+    {
+      "title": "Fase 3: Automatización de Onboarding & Pre-Consulta con n8n",
+      "desc": "Implementar flujos automatizados con n8n para enviar a los padres una guía en PDF tras agendar y un formulario de pre-consulta para recopilar antecedentes y exámenes del niño antes de la cita presencial."
+    }
+  ],
+  "expectedResults": {
+    "presencia": {
+      "before": {
+        "title": "Marca diluida en directorios masivos",
+        "desc": "Presencia web limitada a perfiles de terceros y cuenta de Instagram con 309 seguidores estancada por publicar exclusivamente imágenes de texto.",
+        "metrics": [
+          {
+            "name": "Sitio Web Propio",
+            "val": "Inexistente"
+          },
+          {
+            "name": "Formato en Instagram",
+            "val": "Solo Imágenes (Cero Reels)"
+          },
+          {
+            "name": "Confianza / Empatía",
+            "val": "Baja (Cero videos de la Dra.)"
+          }
+        ]
+      },
+      "after": {
+        "title": "Referente de gastropediatría digital",
+        "desc": "Sitio web de lujo propio libre de competidores, sumado a un Instagram con Reels educativos de alta interacción y canal de TikTok activo para padres jóvenes.",
+        "metrics": [
+          {
+            "name": "Sitio Web Propio",
+            "val": "dracarolinauribe.com"
+          },
+          {
+            "name": "Formato en Instagram",
+            "val": "Reels / Videos Virales"
+          },
+          {
+            "name": "Confianza / Empatía",
+            "val": "Alta (Doctora en video)"
+          }
+        ]
+      }
+    },
+    "captacion": {
+      "before": {
+        "title": "Fuga de pacientes a rivales locales",
+        "desc": "Fichas de directorios (Doctoralia, Colgahnp) que exponen al paciente a ver perfiles de otros pediatras. Ficha de Google Maps con solo 3 reseñas.",
+        "metrics": [
+          {
+            "name": "Control del Tráfico",
+            "val": "Tercerizado (Fuga Alta)"
+          },
+          {
+            "name": "Prueba Social (Maps)",
+            "val": "3 opiniones"
+          },
+          {
+            "name": "Canal de Reservas",
+            "val": "Directorio de Terceros"
+          }
+        ]
+      },
+      "after": {
+        "title": "Embudo médico blindado y con alta reputación",
+        "desc": "Web médica exclusiva como único canal de reservas. Ficha de Google Maps escalada a más de 30 opiniones positivas gracias a campañas automatizadas.",
+        "metrics": [
+          {
+            "name": "Control del Tráfico",
+            "val": "Total (Exclusivo 100%)"
+          },
+          {
+            "name": "Prueba Social (Maps)",
+            "val": "30+ Reseñas (Líder)"
+          },
+          {
+            "name": "Canal de Reservas",
+            "val": "Web Médica Directa"
+          }
+        ]
+      }
+    },
+    "eficiencia": {
+      "before": {
+        "title": "Pérdida de tiempo clínico en consulta",
+        "desc": "Citas agendadas 100% de forma manual. Sin recopilación previa de laboratorios o exámenes del niño, consumiendo tiempo valioso de la consulta física.",
+        "metrics": [
+          {
+            "name": "Filtro de Citas",
+            "val": "Manual por chat"
+          },
+          {
+            "name": "Recopilación de Datos",
+            "val": "En consulta presencial"
+          },
+          {
+            "name": "Seguimiento y Control",
+            "val": "Inexistente / Reactivo"
+          }
+        ]
+      },
+      "after": {
+        "title": "Consultorio de gastropediatría digitalizado",
+        "desc": "Pre-agendamiento automático. n8n recopila laboratorios y síntomas mediante formulario web previo a la cita y programa recordatorios de seguimiento.",
+        "metrics": [
+          {
+            "name": "Filtro de Citas",
+            "val": "Embudo de pre-consulta"
+          },
+          {
+            "name": "Recopilación de Datos",
+            "val": "Automatizada (Pre-cita)"
+          },
+          {
+            "name": "Seguimiento y Control",
+            "val": "Alertas n8n en WhatsApp"
+          }
+        ]
+      }
+    }
+  },
+  "hash": "amr55a"
+}

@@ -1,0 +1,216 @@
+{
+  "clientName": "Ortoestética Ibagué - Clínica Odontológica",
+  "contactName": "Dra. Margarita & Equipo",
+  "category": "Odontología & Ortodoncia",
+  "instagramUser": "@ortoesteticasonrie",
+  "scores": {
+    "overall": 31,
+    "visualIdentity": 3,
+    "socialMedia": 2,
+    "audiovisual": 2,
+    "website": 2,
+    "seoLocal": 6,
+    "automation": 2
+  },
+  "channelsSummary": [
+    {
+      "name": "Sitio Web Corporativo",
+      "status": "❌ Muy Desactualizado (2/10)",
+      "statusClass": "critical",
+      "desc": "ortoesteticaibague.com es lento, plano y muestra secciones obsoletas como 'Indicadores de Calidad 2020', delatando años de abandono."
+    },
+    {
+      "name": "Google Maps (SEO Local)",
+      "status": "⚠️ Favorable (6/10)",
+      "statusClass": "warning",
+      "desc": "Tiene 40 opiniones y 4.9 de calificación, lo cual es muy positivo. Sin embargo, deriva clics a una web que no convierte."
+    },
+    {
+      "name": "Instagram Profesional",
+      "status": "❌ Abandonado desde 2024",
+      "statusClass": "critical",
+      "desc": "@ortoesteticasonrie tiene solo 480 seguidores. Su última publicación fue en junio de 2024, proyectando la falsa sensación de estar cerrado."
+    },
+    {
+      "name": "Facebook Corporativo",
+      "status": "❌ Abandonado desde 2024",
+      "statusClass": "critical",
+      "desc": "Página con publicaciones congeladas hace años. Sin actividad para capturar tráfico de familias locales."
+    },
+    {
+      "name": "Identidad de Marca & Diseño",
+      "status": "⚠️ Básico (3/10)",
+      "statusClass": "warning",
+      "desc": "Su logotipo (diente verde/azul) es básico pero genérico. Las publicaciones pasadas carecen de estética dental premium."
+    },
+    {
+      "name": "Automatización de Pacientes",
+      "status": "❌ Manual (2/10)",
+      "statusClass": "critical",
+      "desc": "Sin recordatorios de citas automatizados ni flujos automáticos de retorno para profilaxis (limpieza) semestral."
+    }
+  ],
+  "analysis": {
+    "visualIdentity": [
+      "Diseño e identidad genéricos: El imagotipo de diente verde y azul se percibe anticuado en comparación con las clínicas dentales boutique y de estética dental modernas.",
+      "Las plantillas de sus antiguas publicaciones digitales son planas, usan tipografías básicas y abusan de imágenes de stock genéricas en lugar de mostrar los rostros de sus propios doctores y pacientes.",
+      "Falta de una línea de comunicación visual de lujo que justifique tarifas de tratamientos estéticos de alta gama (ortodoncia invisible, diseño de sonrisa)."
+    ],
+    "socialMedia": [
+      "Percepción de Cierre Permanente: Al tener sus cuentas de Instagram y Facebook sin ninguna publicación desde junio de 2024 (hace 2 años), un paciente potencial que investigue la clínica asumirá que cerró sus puertas, perdiendo decenas de clientes mensuales.",
+      "Ausencia de Reels y Videos: Sus piezas pasadas son casi en su totalidad imágenes estáticas. En odontología, los Reels mostrando el paso a paso de un diseño de sonrisa o brackets son el único formato que logra alcance e interacción reales.",
+      "Sin canal de TikTok: TikTok es actualmente el motor de búsqueda más importante de jóvenes buscando ortodoncia o aclaramiento dental. No tener presencia es ceder el 100% de ese mercado."
+    ],
+    "audiovisual": [
+      "Falta de material de valor: No cuentan con videos testimoniales en alta definición donde los pacientes reales muestren su antes y después y relaten cómo cambió su confianza tras su tratamiento.",
+      "Las fotos de su ficha local muestran la fachada exterior de forma amateur, en lugar de retratar el equipamiento tecnológico moderno, consultorios higiénicos y la calidez del equipo médico.",
+      "Falta de videos de marca dinámicos: Explicaciones rápidas sobre mitos de la ortodoncia invisible o la importancia del implante dental para evitar la pérdida ósea."
+    ],
+    "website": [
+      "Web obsoleta y descuidada: Mantener una sección de 'Indicadores de Calidad 2020' expone a la clínica ante la competencia al denotar falta de mantenimiento web. La información de servicios es básica y plana.",
+      "Carga lenta y mala experiencia móvil: El sitio actual no está optimizado para dispositivos móviles, dificultando la lectura de especialidades desde smartphones, que representan el 90% de las visitas.",
+      "Sin conversión directa: No existe un sistema web donde el paciente pueda pre-agendar su cita o realizar una autoevaluación dental rápida para perfilar su tratamiento antes de chatear."
+    ],
+    "seoLocal": [
+      "Favorable pero desaprovechada: La ficha de Maps posee 40 opiniones excelentes, siendo su mayor activo. Sin embargo, redirige a una web que no convierte a los visitantes en citas, anulando todo el tráfico orgánico local.",
+      "El perfil de Maps carece de publicaciones actualizadas de promociones, horarios especiales o respuestas interactivas que incluyan palabras clave de búsqueda local (ej. 'ortodoncia en Ibagué').",
+      "Mala fotografía de portada local: Se requiere actualizar las fotos de Maps para que destaquen las salas de atención clínica y transmitan una experiencia de lujo."
+    ],
+    "automation": [
+      "Gestión de agenda manual por WhatsApp: Al no tener automatizaciones, todo el proceso de acordar citas, recordar asistencias y reagendar recae de forma manual en la recepcionista, aumentando la inasistencia.",
+      "Pérdida de la recurrencia semestral: El principal motor de ingresos estables de una clínica es la profilaxis (limpieza) cada 6 meses. Sin un flujo automatizado en n8n que alerte al paciente en su mes 6 para agendar su limpieza, la clínica pierde miles de dólares en citas recurrentes.",
+      "Falta de seguimiento automático posquirúrgico (ej. post-implante o post-extracción de cordales) y captación automática de reseñas tras la consulta."
+    ]
+  },
+  "actionPlan": [
+    {
+      "title": "Fase 1: Reactivación Urgente de Redes (Instagram & TikTok) y Reels",
+      "desc": "Diseñar plantillas premium acordes a estética dental. Reactivar el Instagram (@ortoesteticasonrie) para disipar la percepción de cierre, publicando Reels educativos e interactivos, y lanzar el perfil de TikTok."
+    },
+    {
+      "title": "Fase 2: Rediseño Web Premium y Optimización de Conversión",
+      "desc": "Reemplazar la web obsoleta por una Landing Page moderna y fluida (ortoesteticaibague.com), eliminando datos desactualizados. Incluir catálogo interactivo de servicios y un embudo dinámico de agendamiento."
+    },
+    {
+      "title": "Fase 3: Flujo de Retención de Pacientes (Profilaxis n8n) y Maps",
+      "desc": "Implementar automatizaciones con n8n para agendar pre-consultas, enviar recordatorios automáticos de citas y configurar un bot que alerte cada 6 meses a los pacientes inactivos para su limpieza de control."
+    }
+  ],
+  "expectedResults": {
+    "presencia": {
+      "before": {
+        "title": "Marca congelada en el tiempo",
+        "desc": "Redes sociales abandonadas desde 2024 que sugieren que el negocio está cerrado. Página web antigua con información de 2020 y diseño plano.",
+        "metrics": [
+          {
+            "name": "Actividad en Redes",
+            "val": "Inactiva (Desde 2024)"
+          },
+          {
+            "name": "Actualización Web",
+            "val": "Desfasada (Datos 2020)"
+          },
+          {
+            "name": "Imagen de Clínica",
+            "val": "Genérica / Anticuada"
+          }
+        ]
+      },
+      "after": {
+        "title": "Clínica dental de vanguardia activa",
+        "desc": "Instagram y TikTok activos con Reels semanales estéticos de antes y después. Sitio web boutique moderno que transmite tecnología de punta y lujo clínico.",
+        "metrics": [
+          {
+            "name": "Actividad en Redes",
+            "val": "Activa / Reels Semanales"
+          },
+          {
+            "name": "Actualización Web",
+            "val": "Actualizada y Dinámica"
+          },
+          {
+            "name": "Imagen de Clínica",
+            "val": "Estética Dental Premium"
+          }
+        ]
+      }
+    },
+    "captacion": {
+      "before": {
+        "title": "Tráfico de Maps desperdiciado",
+        "desc": "Ficha local con buenas opiniones (40) pero redirigiendo a una página web disfuncional y a perfiles sociales inactivos que congelan la conversión.",
+        "metrics": [
+          {
+            "name": "Opiniones Google",
+            "val": "40 valoraciones"
+          },
+          {
+            "name": "Conversión de Maps",
+            "val": "Perdida en Web Obsoleta"
+          },
+          {
+            "name": "Canal de Captación",
+            "val": "Incompleto / Inactivo"
+          }
+        ]
+      },
+      "after": {
+        "title": "Embudo local de alta conversión",
+        "desc": "Ficha de Maps optimizada que deriva clics a una landing page ultra rápida con botones de agendamiento integrados, convirtiendo búsquedas en citas reales.",
+        "metrics": [
+          {
+            "name": "Opiniones Google",
+            "val": "100+ (Campaña Activa)"
+          },
+          {
+            "name": "Conversión de Maps",
+            "val": "Alta / Web Rápida y Fluida"
+          },
+          {
+            "name": "Canal de Captación",
+            "val": "Web Médica Directa"
+          }
+        ]
+      }
+    },
+    "eficiencia": {
+      "before": {
+        "title": "Alta inasistencia y pérdida de limpieza semestral",
+        "desc": "Recordatorios de citas manuales que quitan tiempo administrativo. Cero control de pacientes recurrentes, perdiendo el flujo de limpiezas cada 6 meses.",
+        "metrics": [
+          {
+            "name": "Control de Profilaxis",
+            "val": "Inexistente"
+          },
+          {
+            "name": "Confirmación de Citas",
+            "val": "Mensaje manual lento"
+          },
+          {
+            "name": "Seguimiento Post-Procedimiento",
+            "val": "Manual / Reactivo"
+          }
+        ]
+      },
+      "after": {
+        "title": "Clínica digitalizada y de alta recurrencia",
+        "desc": "n8n avisa de forma automática cada 6 meses a los pacientes que requieren limpieza, y envía recordatorios automáticos de citas por WhatsApp reduciendo inasistencia.",
+        "metrics": [
+          {
+            "name": "Control de Profilaxis",
+            "val": "WhatsApp Auto (n8n)"
+          },
+          {
+            "name": "Confirmación de Citas",
+            "val": "Automatizada (WhatsApp)"
+          },
+          {
+            "name": "Seguimiento Post-Procedimiento",
+            "val": "Instrucciones Auto (n8n)"
+          }
+        ]
+      }
+    }
+  },
+  "hash": "hxc4lg"
+}

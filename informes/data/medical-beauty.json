@@ -1,0 +1,217 @@
+{
+  "clientName": "Medical Beauty Center - Dra. Gina Colmenares",
+  "contactName": "Dra. Gina",
+  "category": "Medicina Estética & Cirugía",
+  "instagramUser": "@dra.ginacolmenares",
+  "scores": {
+    "overall": 44,
+    "visualIdentity": 6,
+    "socialMedia": 5,
+    "audiovisual": 6,
+    "website": 1,
+    "seoLocal": 4,
+    "automation": 4
+  },
+  "channelsSummary": [
+    {
+      "name": "Sitio Web Corporativo",
+      "status": "❌ No tiene",
+      "statusClass": "critical",
+      "desc": "No cuenta con dominio propio. Depende de redes sociales, lo que genera fugas de clientes de alto valor."
+    },
+    {
+      "name": "Google Maps (SEO Local)",
+      "status": "⚠️ Crítico (4/10)",
+      "statusClass": "warning",
+      "desc": "Solo 5 reseñas en total (para 18k seguidores). El enlace web en la ficha apunta a 'instagram.com' genérico."
+    },
+    {
+      "name": "Instagram Profesional",
+      "status": " Activo (7/10)",
+      "statusClass": "info",
+      "desc": "18 mil seguidores. Excelente estética, pero con baja interacción (solo 10-40 likes por post) y sin embudo de conversión."
+    },
+    {
+      "name": "Facebook & TikTok",
+      "status": "⚠️ Poco Optimizado",
+      "statusClass": "warning",
+      "desc": "Facebook con 840 seguidores. Poca sinergia y cruzamiento de contenido entre canales."
+    },
+    {
+      "name": "Identidad de Marca & Diseño",
+      "status": " Activo (6/10)",
+      "statusClass": "info",
+      "desc": "Logotipo físico de alta calidad. Sin embargo, falta consistencia y plantillas en las publicaciones del feed."
+    },
+    {
+      "name": "Automatización de Citas",
+      "status": "❌ Manual (4/10)",
+      "statusClass": "critical",
+      "desc": "Gestión manual de agenda por WhatsApp, lo que sobrecarga al equipo y aumenta las inasistencias."
+    }
+  ],
+  "analysis": {
+    "visualIdentity": [
+      "Cuentan con un logotipo físico de gama alta en su recepción (Medical Beauty Center), pero esta estética premium no se traslada al 100% en las publicaciones digitales.",
+      "El feed de Instagram mezcla publicaciones con diferentes tipografías, marcos y estilos gráficos, lo que diluye la percepción de marca médica de lujo.",
+      "Falta de plantillas de diseño unificadas para stories, promociones o explicaciones médicas, lo que hace que el contenido se vea improvisado en ocasiones."
+    ],
+    "socialMedia": [
+      "Aunque cuentan con una excelente comunidad de 18 mil seguidores en Instagram, no hay un enlace de conversión profesional (Landing Page) en su biografía para captar leads.",
+      "Inconsistencia Crítica de Engagement (Seguidores vs. Likes): A pesar de registrar 18 mil seguidores, sus publicaciones tienen un promedio de solo 10 a 40 'Me Gusta'. Esto indica un engagement rate menor al 0.2% (comunidad inactiva o algoritmos limitando el alcance).",
+      "El enlace en Google Maps es erróneo y apunta a 'instagram.com' en seco, lo que redirige a la pantalla de login genérica de Instagram en lugar de abrir su perfil, perdiendo clientes potenciales.",
+      "El Facebook de la clínica tiene solo 840 seguidores y las publicaciones son réplicas automáticas de Instagram, sin una estrategia de posicionamiento local específica."
+    ],
+    "audiovisual": [
+      "La Dra. Gina tiene excelente presencia en cámara y las fotos de su consultorio e instalaciones son profesionales.",
+      "Los videos de tratamientos (como aplicación de ácido hialurónico o toxina) se beneficiarían de una edición más dinámica, subtítulos de alto impacto y música en tendencia para enganchar más en Instagram/TikTok.",
+      "Los testimonios de pacientes no están estructurados en formato de video-caso de éxito ('Antes y Después explicado'), que es el formato de mayor conversión en medicina estética."
+    ],
+    "website": [
+      "Ausencia Total de Sitio Web Premium: No cuentan con una Landing Page o sitio web institucional con dominio propio.",
+      "La falta de un sitio web obliga a los pacientes que buscan en Google a navegar en Instagram, aumentando la fricción en la decisión de compra.",
+      "No existe un catálogo digital estructurado de tratamientos (Fullface, labios, peelings) donde el cliente pueda revisar información clínica detallada, beneficios y contraindicaciones."
+    ],
+    "seoLocal": [
+      "Escasa Prueba Social en Google Maps: Para una clínica de esta reputación y 18k seguidores, tener únicamente **5 opiniones** en Google Maps genera desconfianza y reduce el posicionamiento en Ibagué.",
+      "Categorización Genérica: Registrada como 'Médico' en Google Maps, en lugar de una categoría más específica como 'Clínica de medicina estética' o 'Centro de estética', perdiendo búsquedas específicas.",
+      "El enlace roto ('instagram.com') en la ficha es un error grave de configuración SEO Local que ahuyenta a los usuarios de Google Search."
+    ],
+    "automation": [
+      "El agendamiento y confirmación de citas depende totalmente del trabajo manual de la recepción por WhatsApp, reduciendo la eficiencia operativa.",
+      "No hay un sistema de recordatorio automático de citas enlazado a Google Calendar o n8n para reducir inasistencias (no-shows).",
+      "Ausencia de un embudo automatizado para solicitar reseñas de Google Maps a los pacientes satisfechos al finalizar su cita."
+    ]
+  },
+  "actionPlan": [
+    {
+      "title": "Fase 1: Corrección de Google SEO & Local Maps",
+      "desc": "Corregir el enlace web roto en Google Maps (reemplazar 'instagram.com' por el enlace correcto), optimizar la categoría del negocio a 'Clínica de medicina estética' y configurar un sistema automatizado para captar reseñas positivas de pacientes reales para superar las 50 opiniones en Google."
+    },
+    {
+      "title": "Fase 2: Lanzamiento de Landing Page Web Premium",
+      "desc": "Diseñar y desarrollar un sitio web/landing page de alta conversión para Medical Beauty Center, que incluya el catálogo interactivo de tratamientos, credenciales de la Dra. Gina Colmenares y un formulario para captar leads altamente calificados interesados en procedimientos Fullface."
+    },
+    {
+      "title": "Fase 3: Embudo de Agenda con n8n & Plan Instagrowth",
+      "desc": "Conectar la base de datos de citas con n8n para enviar confirmaciones, recordatorios de preparación de citas y encuestas de satisfacción de forma automatizada por WhatsApp. Implementar el plan Instagrowth Pro para unificar la línea gráfica de sus 18k seguidores con plantillas premium."
+    }
+  ],
+  "expectedResults": {
+    "presencia": {
+      "before": {
+        "title": "Identidad dispersa en 18k seguidores",
+        "desc": "Gran audiencia en Instagram pero con plantillas genéricas, perfiles de Facebook/TikTok poco activos y un logo premium físico que no se refleja en la estética online.",
+        "metrics": [
+          {
+            "name": "Coherencia Visual",
+            "val": "Media / Dispersa"
+          },
+          {
+            "name": "Presencia Multicanal",
+            "val": "Baja (Solo IG)"
+          },
+          {
+            "name": "Estética Online",
+            "val": "Genérica"
+          }
+        ]
+      },
+      "after": {
+        "title": "Marca médica estética de lujo",
+        "desc": "Línea gráfica premium unificada en Instagram, Facebook y TikTok. Grid médico de alta gama y reels de tratamientos con edición profesional que proyectan la máxima autoridad y justifican tarifas premium.",
+        "metrics": [
+          {
+            "name": "Coherencia Visual",
+            "val": "Premium / Pro"
+          },
+          {
+            "name": "Presencia Multicanal",
+            "val": "IG, FB & TikTok"
+          },
+          {
+            "name": "Estética Online",
+            "val": "Nivel Lujo"
+          }
+        ]
+      }
+    },
+    "captacion": {
+      "before": {
+        "title": "Fuga de leads y enlace roto en Google",
+        "desc": "Ficha de Google Maps con solo 5 reseñas, enlazando a 'instagram.com' (login de Instagram), obligando al usuario a buscar manualmente o abandonar la búsqueda.",
+        "metrics": [
+          {
+            "name": "Enlace Web en Google Maps",
+            "val": "instagram.com (Roto/Login)"
+          },
+          {
+            "name": "Reseñas en Google Maps",
+            "val": "5 Opiniones"
+          },
+          {
+            "name": "Canal de Conversión",
+            "val": "Instagram (Fricción)"
+          }
+        ]
+      },
+      "after": {
+        "title": "Embudo de captación médica 24/7",
+        "desc": "Landing page médica con catálogo de procedimientos de alta gama. Enlace web correcto y posicionado en Google Maps. Formulario de reservas directo para pacientes calificados.",
+        "metrics": [
+          {
+            "name": "Enlace Web en Google Maps",
+            "val": "medicalbeautycenter.es (Correcto)"
+          },
+          {
+            "name": "Reseñas en Google Maps",
+            "val": "+60 Opiniones/año"
+          },
+          {
+            "name": "Canal de Conversión",
+            "val": "Landing Page Directa"
+          }
+        ]
+      }
+    },
+    "eficiencia": {
+      "before": {
+        "title": "Secretaría saturada y cancelaciones",
+        "desc": "Reserva de citas manual por WhatsApp, alto porcentaje de inasistencias por falta de confirmación estructurada y tiempo valioso del personal gastado en chat de soporte.",
+        "metrics": [
+          {
+            "name": "Gestión de Citas",
+            "val": "100% Manual"
+          },
+          {
+            "name": "Tasa de Ausentismo",
+            "val": "12% - 15%"
+          },
+          {
+            "name": "Solicitud de Opiniones",
+            "val": "Ocasional / Manual"
+          }
+        ]
+      },
+      "after": {
+        "title": "Clínica en piloto automático con n8n",
+        "desc": "Integración de agenda médica automatizada. Recordatorios automáticos de citas por WhatsApp que disminuyen inasistencias al mínimo. Captación automatizada de reviews al salir del consultorio.",
+        "metrics": [
+          {
+            "name": "Gestión de Citas",
+            "val": "Automatizada (n8n)"
+          },
+          {
+            "name": "Tasa de Ausentismo",
+            "val": "< 3%"
+          },
+          {
+            "name": "Solicitud de Opiniones",
+            "val": "Auto-WhatsApp (n8n)"
+          }
+        ]
+      }
+    }
+  },
+  "hash": "h8lxc2"
+}

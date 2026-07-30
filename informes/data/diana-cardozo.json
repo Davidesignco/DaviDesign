@@ -1,0 +1,216 @@
+{
+  "clientName": "Dra. Diana Cardozo - Consultorio Dermatológico",
+  "contactName": "Dra. Diana",
+  "category": "Dermatología & Estética",
+  "instagramUser": "@dradianacardozo_dermatologa",
+  "scores": {
+    "overall": 42,
+    "visualIdentity": 4,
+    "socialMedia": 5,
+    "audiovisual": 4,
+    "website": 1,
+    "seoLocal": 7,
+    "automation": 2
+  },
+  "channelsSummary": [
+    {
+      "name": "Sitio Web Corporativo",
+      "status": "❌ Caído / Expirado",
+      "statusClass": "critical",
+      "desc": "El dominio dradianacardozo.com está fuera de línea por error DNS. La web que tuvo en el pasado se dejó vencer, perdiendo su activo digital principal."
+    },
+    {
+      "name": "Google Maps (SEO Local)",
+      "status": "⚠️ Favorable (7/10)",
+      "statusClass": "warning",
+      "desc": "Cuenta con una excelente reputación (66 opiniones y 4.9). Sin embargo, no tiene sitio web enlazado, perdiendo el botón directo de reserva."
+    },
+    {
+      "name": "Instagram Profesional",
+      "status": "⚠️ Seguidores vs Likes (5/10)",
+      "statusClass": "warning",
+      "desc": "@dradianacardozo_dermatologa tiene una gran base de 10.8K seguidores, pero el alcance e interacción de sus publicaciones es muy bajo."
+    },
+    {
+      "name": "Directorios Médicos",
+      "status": "❌ Fuga de Clientes (3/10)",
+      "statusClass": "critical",
+      "desc": "En directorios como Clinicasesteticas.com.co, sus perfiles promocionan directamente a médicos competidores de Ibagué en su propia ficha."
+    },
+    {
+      "name": "Identidad de Marca & Diseño",
+      "status": "⚠️ Desactualizada (4/10)",
+      "statusClass": "warning",
+      "desc": "Logotipo e imagen digital genérica (flor de loto) que no refleja la sofisticación y alta tecnología láser que implementa en su consulta."
+    },
+    {
+      "name": "Automatización de Citas",
+      "status": "❌ Manual (2/10)",
+      "statusClass": "critical",
+      "desc": "El agendamiento y los recordatorios se gestionan 100% de manera manual por chat de WhatsApp, sin filtros de pre-consulta automatizados."
+    }
+  ],
+  "analysis": {
+    "visualIdentity": [
+      "El logotipo actual de flor de loto y las tipografías utilizadas en redes sociales se perciben desactualizadas y no reflejan la alta tecnología médica y estética (Láser DEKA, Radiesse, etc.) que ofrece en su consultorio 412 de Medicadiz.",
+      "Falta de un sistema de plantillas visuales premium para mostrar los casos clínicos de éxito (Antes y Después) con un diseño que proteja la privacidad y mantenga la estética corporativa.",
+      "No cuenta con un manual de identidad de marca que unifique el tono de comunicación, colores y tipografías en sus diferentes canales."
+    ],
+    "socialMedia": [
+      "Incongruencia de Seguidores y Likes: Cuenta con una comunidad grande de 10.8K seguidores en Instagram, pero las publicaciones tienen muy pocos likes. Esto ocurre porque el contenido (imágenes estáticas o videos informales) no está adaptado al algoritmo de Instagram ni apela de forma dinámica a su público objetivo.",
+      "Ausencia de TikTok: Al no tener presencia en TikTok, pierde la red de mayor crecimiento orgánico en dermatología, donde las rutinas de skincare y mitos dermatológicos tienen alta viralidad.",
+      "El enlace de contacto de Facebook dirige a una web caída (dradianacardozo.com) y en Instagram no hay una landing page unificada, limitando drásticamente el tráfico hacia el WhatsApp de agendamiento."
+    ],
+    "audiovisual": [
+      "Videos de baja producción: Los Reels e historias actuales se graban sin una dirección de arte clara, iluminación médica premium o edición dinámica, lo que disminuye el valor percibido de sus tratamientos estéticos.",
+      "Aunque cuenta con excelentes fotos de 'Antes y Después' de acné y cicatrices, no se explican en formato video corto (Reel/TikTok) donde la doctora relate de forma cercana el proceso y éxito del paciente.",
+      "Falta de un video institucional o recorrido estético de su consultorio en Medicadiz, que transmita la experiencia de lujo de asistir a su consulta dermatológica."
+    ],
+    "website": [
+      "Vulnerabilidad por Sitio Web Inactivo: Su dominio oficial dradianacardozo.com está caído por error de DNS. Dejar vencer la web es un error crítico que destruye la credibilidad digital y elimina el canal propio de agendamiento.",
+      "Fuga de Tráfico en Directorios: Al depender de directorios como Clinicasesteticas.com.co, sus perfiles recomiendan activamente a otros médicos competidores de Ibagué (como Dr. Mario Cruz o Dr. Francisco Zambrano), robando la atención del paciente en su propia ficha.",
+      "Una página web propia actúa como un espacio exclusivo libre de competencia directa, donde la doctora tiene control absoluto del contenido, testimonios y conversión."
+    ],
+    "seoLocal": [
+      "La ficha de Google Maps tiene un rendimiento favorable con 66 opiniones y 4.9 de calificación, pero al carecer de sitio web enlazado, Google no cruza palabras clave orgánicas (como 'tratamiento láser cicatrices Ibagué') limitando su alcance.",
+      "El botón 'Sitio web' de Google Maps está ausente, forzando a los usuarios a llamar o buscar otras alternativas que ofrezcan reserva en línea.",
+      "No se está utilizando el módulo de Google Maps para publicar de forma periódica las promociones de tratamientos dermatológicos o de rejuvenecimiento facial."
+    ],
+    "automation": [
+      "Agendamiento 100% manual: La recepción de pacientes, agendamiento de citas y recordatorios de asistencia dependen de gestiones de chat manual por WhatsApp, aumentando el riesgo de inasistencia.",
+      "Sin recordatorios automáticos de mantenimiento: Los tratamientos estéticos (toxina botulínica, ácido hialurónico, sesiones de láser) requieren refuerzos periódicos (cada 4 o 6 meses). Sin un flujo automatizado en n8n que recuerde al paciente su próxima aplicación, se pierde la recurrencia.",
+      "Falta de un formulario de historial médico de pre-consulta que el paciente pueda llenar digitalmente antes de asistir al consultorio."
+    ]
+  },
+  "actionPlan": [
+    {
+      "title": "Fase 1: Identidad Premium & Optimización de Instagram",
+      "desc": "Renovar la identidad visual de la marca (colores médicos estéticos de alta gama). Implementar una estrategia de Reels estructurada (mitos dermatológicos, explicación de láser y skincare) para reactivar e incrementar la interacción en Instagram (@dradianacardozo_dermatologa)."
+    },
+    {
+      "title": "Fase 2: Relanzamiento de Sitio Web Propio y Blindado",
+      "desc": "Desarrollar una Landing Page premium en su propio dominio (dradianacardozo.com) que actúe como canal oficial. Un espacio exclusivo libre de competidores donde se muestren casos reales de 'Antes y Después' y se integre agendamiento en línea."
+    },
+    {
+      "title": "Fase 3: Embudo de Retención Automatizado (n8n)",
+      "desc": "Configurar flujos con n8n para pre-agendar citas en la web y enviar recordatorios automáticos de WhatsApp a los 4 o 6 meses para tratamientos estéticos recurrentes (Botox, Láser, Rellenos), maximizando el valor de por vida del paciente."
+    }
+  ],
+  "expectedResults": {
+    "presencia": {
+      "before": {
+        "title": "Marca desactualizada con canales inactivos",
+        "desc": "Dominio web oficial caído (dradianacardozo.com), Instagram con baja interacción y plantillas visuales informales que restan seriedad a su perfil dermatológico.",
+        "metrics": [
+          {
+            "name": "Sitio Web Oficial",
+            "val": "Caído / Inactivo"
+          },
+          {
+            "name": "Interacción Instagram",
+            "val": "Muy baja (<1%)"
+          },
+          {
+            "name": "Coherencia de Marca",
+            "val": "Desactualizada"
+          }
+        ]
+      },
+      "after": {
+        "title": "Dermatóloga referente y premium online",
+        "desc": "Sitio web de lujo reactivado y perfiles de redes con una dirección de arte impecable, videos educativos profesionales y alta interacción de su gran comunidad.",
+        "metrics": [
+          {
+            "name": "Sitio Web Oficial",
+            "val": "Reactivado y Blindado"
+          },
+          {
+            "name": "Interacción Instagram",
+            "val": "Alta / Reels Educativos"
+          },
+          {
+            "name": "Coherencia de Marca",
+            "val": "Identidad Médica Premium"
+          }
+        ]
+      }
+    },
+    "captacion": {
+      "before": {
+        "title": "Fuga de pacientes a la competencia en directorios",
+        "desc": "Perfiles en directorios médicos que muestran anuncios de cirujanos y médicos rivales. Ficha de Google Maps sin botón de página web oficial.",
+        "metrics": [
+          {
+            "name": "Control del Tráfico",
+            "val": "Nulo (Fuga en Ficha)"
+          },
+          {
+            "name": "Exposición a Rivales",
+            "val": "Alta (Doctoralia/Estética)"
+          },
+          {
+            "name": "Ficha Google Maps",
+            "val": "Sin enlace a Sitio Web"
+          }
+        ]
+      },
+      "after": {
+        "title": "Embudo médico blindado y exclusivo",
+        "desc": "Sitio web propio como único destino de conversión. Google Maps optimizado para derivar clics directamente a su web, reteniendo al 100% de los pacientes.",
+        "metrics": [
+          {
+            "name": "Control del Tráfico",
+            "val": "Total (100% Exclusivo)"
+          },
+          {
+            "name": "Exposición a Rivales",
+            "val": "0% (Web Privada)"
+          },
+          {
+            "name": "Ficha Google Maps",
+            "val": "Botón Web enlazado"
+          }
+        ]
+      }
+    },
+    "eficiencia": {
+      "before": {
+        "title": "Citas manuales y pérdida de recurrencia",
+        "desc": "Cobros y agendamientos manuales por chat. Sin sistema para recordar tratamientos recurrentes (Botox, Láser), perdiendo ventas de pacientes que olvidan su retoque.",
+        "metrics": [
+          {
+            "name": "Agendamiento de Citas",
+            "val": "Manual / Sin Filtro"
+          },
+          {
+            "name": "Retención de Pacientes",
+            "val": "Reactiva (Sujeta a memoria)"
+          },
+          {
+            "name": "Historia Clínica",
+            "val": "Física en Consultorio"
+          }
+        ]
+      },
+      "after": {
+        "title": "Consultorio estético digitalizado y recurrente",
+        "desc": "Agendamiento web integrado. n8n envía notificaciones automatizadas por WhatsApp recordando retoques periódicos e invitando a re-agendar de forma automática.",
+        "metrics": [
+          {
+            "name": "Agendamiento de Citas",
+            "val": "Pre-agendado Web Auto"
+          },
+          {
+            "name": "Retención de Pacientes",
+            "val": "Activa / WhatsApp Auto (n8n)"
+          },
+          {
+            "name": "Historia Clínica",
+            "val": "Formulario Pre-consulta Digital"
+          }
+        ]
+      }
+    }
+  },
+  "hash": "2aokk7"
+}

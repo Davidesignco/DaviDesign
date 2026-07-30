@@ -1,0 +1,42 @@
+{
+  "clientName": "Restaurante El Carbonero",
+  "category": "Gastronomía / Asadero",
+  "instagramUser": "@elcarboneroibague",
+  "scores": {
+    "overall": 65,
+    "visualIdentity": 5,
+    "socialMedia": 7,
+    "website": 4
+  },
+  "analysis": {
+    "visualIdentity": [
+      "El logotipo carece de una versión responsiva y simplificada para fotos de perfil.",
+      "No existe una paleta de colores coherente definida; se combinan colores cálidos y fríos al azar en las publicaciones.",
+      "Uso de tipografías genéricas en el menú físico y digital que no transmiten la calidad real de los platos."
+    ],
+    "socialMedia": [
+      "La fotografía de alimentos (food styling) carece de iluminación profesional para hacer los platos más provocativos.",
+      "Se publican demasiadas imágenes estáticas de volantes; se recomienda transicionar un 80% hacia formato Reels y videos dinámicos.",
+      "La biografía no tiene un llamado a la acción claro para reservas o pedidos a domicilio."
+    ],
+    "website": [
+      "El sitio web actual no está optimizado para dispositivos móviles, dificultando la lectura del menú en teléfonos.",
+      "El menú está en formato PDF pesado para descargar; debería ser una página web interactiva e instantánea.",
+      "El tiempo de carga inicial supera los 4 segundos, lo que genera una fuga del 40% de los visitantes potenciales."
+    ]
+  },
+  "actionPlan": [
+    {
+      "title": "Rediseño de Identidad Simplificada",
+      "desc": "Adaptar el logo actual a formatos circulares e iconográficos para redes sociales y crear una paleta de colores cálida y coherente."
+    },
+    {
+      "title": "Producción Reels & Contenido Pro",
+      "desc": "Planificar una sesión de producción audiovisual mensual enfocada en Reels que capturen la experiencia del cliente y la preparación de platos."
+    },
+    {
+      "title": "Menú Web Digital Interactivo",
+      "desc": "Desarrollar una Landing Page ultrarrápida optimizada para móviles con el menú digital interactivo y enlaces directos a reservas por WhatsApp."
+    }
+  ]
+}

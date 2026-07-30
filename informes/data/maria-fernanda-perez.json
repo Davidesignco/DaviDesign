@@ -1,0 +1,216 @@
+{
+  "clientName": "Dra. María Fernanda Pérez O'Meara - Especialista en Glaucoma (Nazar)",
+  "contactName": "Dra. María Fernanda",
+  "category": "Oftalmología & Glaucoma",
+  "instagramUser": "@nazaroftalmologiaenibague",
+  "scores": {
+    "overall": 46,
+    "visualIdentity": 3,
+    "socialMedia": 4,
+    "audiovisual": 3,
+    "website": 4,
+    "seoLocal": 5,
+    "automation": 3
+  },
+  "channelsSummary": [
+    {
+      "name": "Sitio Web Corporativo",
+      "status": "⚠️ Integrado en Nazar (4/10)",
+      "statusClass": "warning",
+      "desc": "Aparece dentro del sitio web de Nazar Grupo Oftalmológico, pero carece de un canal digital independiente que resalte su especialización y capture consultas directas."
+    },
+    {
+      "name": "Google Maps (SEO Local)",
+      "status": "⚠️ Ficha Básica (5/10)",
+      "statusClass": "warning",
+      "desc": "Tiene su propia ficha de Google con 3 opiniones. El enlace de reserva es externo (Doctoralia) y el de contacto es un WhatsApp crudo (wa.link)."
+    },
+    {
+      "name": "Instagram Profesional",
+      "status": "⚠️ Institucional (4/10)",
+      "statusClass": "warning",
+      "desc": "Nazar cuenta con perfil (@nazaroftalmologiaenibague), pero no existe un canal específico de Marca Personal para humanizar su trabajo en glaucoma."
+    },
+    {
+      "name": "Facebook & YouTube",
+      "status": "⚠️ Esporádico (3/10)",
+      "statusClass": "warning",
+      "desc": "Aparece ocasionalmente en videos institucionales o invitaciones a congresos, pero sin una estrategia de distribución de contenido propia."
+    },
+    {
+      "name": "Identidad de Marca & Diseño",
+      "status": "❌ Inexistente (2/10)",
+      "statusClass": "critical",
+      "desc": "Como doctora independiente, carece de logotipo propio o línea gráfica personal, estando 100% supeditada al branding de la clínica."
+    },
+    {
+      "name": "Automatización de Consultas",
+      "status": "⚠️ Parcial (3/10)",
+      "statusClass": "warning",
+      "desc": "Doctoralia gestiona parte de las citas de Nazar, pero las consultas directas por WhatsApp se operan de manera manual."
+    }
+  ],
+  "analysis": {
+    "visualIdentity": [
+      "Marca personal diluida: Al depender exclusivamente de la marca corporativa de Nazar, la doctora no cuenta con una firma visual, paleta de colores ni tipografías propias que consoliden su prestigio académico (U. del Rosario, Máster en España) de forma independiente.",
+      "Carece de plantillas o formatos de comunicación personalizados para entregar guías posoperatorias o recetas oftálmicas digitales con su propio sello de especialista premium.",
+      "Oportunidad de Co-Branding: Se puede diseñar una submarca (ej: 'Unidad de Glaucoma - Dra. María Fernanda Pérez') que conviva en perfecta armonía con el logo de Nazar, elevando el valor percibido del servicio."
+    ],
+    "socialMedia": [
+      "Instagram Institucional vs Personal: Nazar cuenta con 1.4K seguidores en @nazaroftalmologiaenibague, pero el contenido de clínica suele ser frío e institucional. Los pacientes de glaucoma buscan conectar con la especialista humana que los va a operar.",
+      "Falta de canales colaborativos: No se utiliza la herramienta de 'Colaborador' en Instagram para publicar contenido educativo grabado por la doctora que aparezca simultáneamente en la cuenta de Nazar y en una cuenta profesional de ella, duplicando el alcance.",
+      "El enlace de citas en su ficha es un wa.link directo a un chat manual, perdiendo la oportunidad de derivar a un embudo automatizado que filtre pacientes (particular, convenios, cirugías)."
+    ],
+    "audiovisual": [
+      "Contenido educativo fragmentado: Aunque ha participado en videos para Nazar o congresos, no cuenta con Reels cortos y dinámicos donde explique al paciente de a pie qué es el glaucoma ('el ladrón silencioso de la vista') y la tecnología SLT o YAG Láser.",
+      "Las fotos de su ficha de Google Maps muestran imágenes genéricas de la fachada de Medicadiz, en lugar de retratos profesionales de alta calidad de la doctora operando los equipos tecnológicos del consultorio 302.",
+      "Falta de testimonios en video de pacientes operados de glaucoma en Nazar, que son el disparador de confianza número uno para cirugías de alto valor."
+    ],
+    "website": [
+      "Falta de Landing Page de Especialidad: El sitio web de Nazar es institucional y genérico. No tiene un embudo de ventas optimizado específicamente para la 'Unidad de Glaucoma', que es un servicio de alta rentabilidad.",
+      "Dependencia de directorios médicos: Su ficha de Maps redirige a Doctoralia, donde los pacientes son expuestos a la competencia directa de oftalmólogos locales de Ibagué.",
+      "Falta de reservas y pre-consultas directas bajo su nombre, obligándola a competir dentro de las agendas generales de la clínica."
+    ],
+    "seoLocal": [
+      "SEO Local de Especialidad: Su ficha de Google Maps tiene solo 3 opiniones de pacientes. Para ser la principal especialista en glaucoma en Ibagué, requiere una estrategia activa para subir a más de 50 opiniones en Google Maps.",
+      "Búsqueda por nombre de doctor: Muchos pacientes buscan directamente el nombre de la doctora tras recibir una recomendación. Si no encuentran una web propia o un perfil social activo y humano bajo su nombre, la conversión se enfría.",
+      "El título de su ficha no está optimizado con palabras clave locales transaccionales (ej: 'Oftalmólogo Glaucoma Ibagué - Dra. María Fernanda Pérez')."
+    ],
+    "automation": [
+      "Gestión manual de WhatsApp: Aunque Doctoralia atiende la agenda general, la confirmación de citas, preparación previa a cirugía y seguimiento del tratamiento de gotas oftálmicas se realiza de forma manual.",
+      "Sin recordatorios post-quirúrgicos: El postoperatorio de glaucoma requiere disciplina. No existe un flujo de WhatsApp automatizado que acompañe al paciente tras su cirugía.",
+      "Falta de captación de reseñas automatizada: No se utiliza la base de datos de Nazar para enviar un WhatsApp post-consulta pidiendo una calificación en Google Maps."
+    ]
+  },
+  "actionPlan": [
+    {
+      "title": "Fase 1: Co-Branding de Marca Personal & Reels Educativos",
+      "desc": "Diseñar su identidad visual como especialista (logotipo personal que complemente al de Nazar). Crear un set de grabación en Nazar para producir Reels educativos sobre glaucoma y publicarlos en colaboración con la clínica."
+    },
+    {
+      "title": "Fase 2: Landing Page Exclusiva de Glaucoma",
+      "desc": "Desarrollar una Landing Page premium enfocada 100% en la Unidad de Glaucoma (dramariafernandaperez.com o nazar-glaucoma.com) que actúe como embudo de citas exclusivo, libre de publicidad de la competencia."
+    },
+    {
+      "title": "Fase 3: Automatización de Seguimiento & Reseñas con n8n",
+      "desc": "Configurar flujos con n8n en WhatsApp para enviar recordatorios de uso de gotas post-cirugía y capturar opiniones de pacientes, elevando la reputación local de su ficha y de la clínica Nazar en Google Maps."
+    }
+  ],
+  "expectedResults": {
+    "presencia": {
+      "before": {
+        "title": "Marca personal oculta tras la clínica",
+        "desc": "Identidad visual y redes delegadas por completo en el branding institucional de Nazar. El perfil de la doctora queda diluido en la web general de la clínica.",
+        "metrics": [
+          {
+            "name": "Identidad Personal",
+            "val": "Delegada en Clínica"
+          },
+          {
+            "name": "Canales de Divulgación",
+            "val": "Genéricos Nazar"
+          },
+          {
+            "name": "Foco en Especialidad",
+            "val": "Bajo (Web General)"
+          }
+        ]
+      },
+      "after": {
+        "title": "Liderazgo y autoridad médica visible",
+        "desc": "Identidad personal (Co-Branding) de la doctora activa en su propio portal web y perfiles educativos, proyectando máxima autoridad en glaucoma para Nazar.",
+        "metrics": [
+          {
+            "name": "Identidad Personal",
+            "val": "Co-Branding Nazar Pro"
+          },
+          {
+            "name": "Canales de Divulgación",
+            "val": "Reels Colaborativos"
+          },
+          {
+            "name": "Foco en Especialidad",
+            "val": "Unidad de Glaucoma Web"
+          }
+        ]
+      }
+    },
+    "captacion": {
+      "before": {
+        "title": "3 opiniones y desvío a competidores",
+        "desc": "Google Maps con baja interacción (3 reseñas) que envía tráfico a Doctoralia, exponiendo al paciente a otros oftalmólogos locales.",
+        "metrics": [
+          {
+            "name": "Opiniones Google",
+            "val": "3 valoraciones"
+          },
+          {
+            "name": "Tráfico del Paciente",
+            "val": "Doctoralia (Terceros)"
+          },
+          {
+            "name": "Riesgo de Fuga",
+            "val": "Alto (Competidores)"
+          }
+        ]
+      },
+      "after": {
+        "title": "Embudo exclusivo de alta conversión",
+        "desc": "Ficha local escalada en opiniones que redirige a su propia landing page. Captación directa sin comisiones ni exposición a la competencia.",
+        "metrics": [
+          {
+            "name": "Opiniones Google",
+            "val": "40+ (Automatizadas)"
+          },
+          {
+            "name": "Tráfico del Paciente",
+            "val": "Landing de Especialidad"
+          },
+          {
+            "name": "Riesgo de Fuga",
+            "val": "0% (Exclusivo)"
+          }
+        ]
+      }
+    },
+    "eficiencia": {
+      "before": {
+        "title": "Atención y seguimiento manual",
+        "desc": "Citas y seguimiento post-quirúrgico del glaucoma (control de gotas) gestionado de manera manual e informal por chat abierto.",
+        "metrics": [
+          {
+            "name": "Gestión de Citas",
+            "val": "Chat Manual / wa.link"
+          },
+          {
+            "name": "Seguimiento Quirúrgico",
+            "val": "Manual / A demanda"
+          },
+          {
+            "name": "Captura de Reseñas",
+            "val": "Inexistente"
+          }
+        ]
+      },
+      "after": {
+        "title": "Flujo post-quirúrgico digitalizado",
+        "desc": "Reserva automatizada. n8n envía recordatorios de gotas y cuidado ocular post-cirugía por WhatsApp, pidiendo una reseña de Google al recibir el alta médica.",
+        "metrics": [
+          {
+            "name": "Gestión de Citas",
+            "val": "Reserva Web Auto"
+          },
+          {
+            "name": "Seguimiento Quirúrgico",
+            "val": "WhatsApp Auto (n8n)"
+          },
+          {
+            "name": "Captura de Reseñas",
+            "val": "Automatizada (n8n)"
+          }
+        ]
+      }
+    }
+  },
+  "hash": "omctt0"
+}

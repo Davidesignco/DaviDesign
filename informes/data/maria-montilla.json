@@ -1,0 +1,216 @@
+{
+  "clientName": "Dra. María del Pilar Montilla Velásquez - Endocrino Pediatra",
+  "contactName": "Dra. María del Pilar",
+  "category": "Endocrinología Pediátrica",
+  "instagramUser": "@endopedmontilla",
+  "scores": {
+    "overall": 36,
+    "visualIdentity": 4,
+    "socialMedia": 4,
+    "audiovisual": 4,
+    "website": 1,
+    "seoLocal": 5,
+    "automation": 2
+  },
+  "channelsSummary": [
+    {
+      "name": "Sitio Web Corporativo",
+      "status": "❌ No tiene",
+      "statusClass": "critical",
+      "desc": "No cuenta con sitio web ni catálogo estructurado de patologías (Crecimiento, Tiroides, Pubertad)."
+    },
+    {
+      "name": "Google Maps (SEO Local)",
+      "status": "⚠️ Roto / Sin Categoría",
+      "statusClass": "warning",
+      "desc": "88 opiniones excelentes (5.0), pero carece de categoría configurada, lo que la hace invisible en búsquedas orgánicas."
+    },
+    {
+      "name": "Instagram Profesional",
+      "status": " Activo (4/10)",
+      "statusClass": "info",
+      "desc": "@endopedmontilla. Contenido informativo básico, con enlace directo a WhatsApp (wa.link) sin Landing de conversión."
+    },
+    {
+      "name": "Facebook & TikTok",
+      "status": "❌ Inactivo",
+      "statusClass": "critical",
+      "desc": "Sin canales auxiliares activos para educar a padres de familia sobre endocrinología infantil."
+    },
+    {
+      "name": "Identidad de Marca & Diseño",
+      "status": "⚠️ Básica (4/10)",
+      "statusClass": "warning",
+      "desc": "No cuenta con línea gráfica premium unificada. Diseños informales tipo Canva en redes sociales."
+    },
+    {
+      "name": "Automatización de Consultas",
+      "status": "❌ Manual (2/10)",
+      "statusClass": "critical",
+      "desc": "Agendamiento operado 100% por chat manual. Sin recordatorios automáticos de citas ni formularios de pre-consulta."
+    }
+  ],
+  "analysis": {
+    "visualIdentity": [
+      "Aunque cuenta con una excelente placa física de consultorio, en el plano digital no tiene un sistema de identidad visual coherente ni colores definidos.",
+      "Las publicaciones de Instagram utilizan plantillas genéricas de Canva con tipografías y colores variados, lo que le resta prestigio a su alto perfil académico (UdeA, UNAL).",
+      "Falta de una línea gráfica institucional que transmita tanto la seriedad de una subespecialidad médica como la calidez de la pediatría."
+    ],
+    "socialMedia": [
+      "La cuenta @endopedmontilla publica información valiosa, pero carece de Reels de alto enganche que expliquen de forma rápida temas como el retraso en el crecimiento o pubertad precoz.",
+      "El uso de enlaces crudos a WhatsApp (wa.link o wa.me) en su biografía limita la conversión, ya que no permite filtrar pacientes antes de agendar (ej. EPS, particulares o tipo de consulta).",
+      "No se aprovecha Facebook, que es la red principal donde se concentran los padres de familia y acudientes de niños en Ibagué."
+    ],
+    "audiovisual": [
+      "La producción de contenido se limita a infografías estáticas de texto, perdiendo la oportunidad de conectar a través de videos explicativos de la doctora.",
+      "No se aprovecha el consultorio físico en Medicadiz como set de grabación profesional para responder preguntas frecuentes en video de alta calidad (iluminación y audio pro).",
+      "Falta de videos tipo 'explicación animada' o didáctica para que los padres entiendan de forma simple patologías complejas como la diabetes tipo 1 infantil."
+    ],
+    "website": [
+      "Ausencia Crítica de Sitio Web Profesional: Para una especialista con maestría en Epidemiología Clínica, no tener un portal web propio le resta posicionamiento científico frente a otros médicos.",
+      "El enlace en la sección de servicios es un Beacons.ai gratuito que tiene un aspecto informal y no profesional para la práctica de medicina especializada.",
+      "No cuenta con un sistema de reserva automatizado donde los padres puedan ver horarios disponibles y confirmar citas directamente sin chatear."
+    ],
+    "seoLocal": [
+      "Error Grave de Configuración: La ficha de Google Maps no tiene asignada ninguna categoría de negocio. Google Maps muestra textualmente 'Agregar categoría'. Esto bloquea su posicionamiento orgánico en búsquedas de Google.",
+      "El enlace web de Google Maps apunta a un link de WhatsApp (wa.link), en lugar de redirigir a un portal web formal de citas médicas.",
+      "A pesar de tener 88 excelentes valoraciones de pacientes, no se están canalizando hacia un sitio web donde puedan indexarse como testimonios oficiales estructurados."
+    ],
+    "automation": [
+      "El agendamiento depende enteramente de que la secretaria o la doctora respondan mensajes manuales por WhatsApp, generando demoras y pérdida de citas fuera de horario.",
+      "No existe un sistema automatizado de recordatorios para prevenir inasistencias en consultas especializadas que suelen tener alta demanda.",
+      "Falta de formularios de pre-consulta automatizados para que los acudientes envíen los exámenes previos del niño por WhatsApp/Web antes de la cita, agilizando la consulta."
+    ]
+  },
+  "actionPlan": [
+    {
+      "title": "Fase 1: Configuración de Ficha Google Maps & SEO",
+      "desc": "Corregir urgentemente la ficha de Google Maps añadiendo la categoría de negocio correcta ('Pediatra' o 'Médico') para que empiece a indexar en las búsquedas locales, y actualizar los enlaces web."
+    },
+    {
+      "title": "Fase 2: Lanzamiento de Web Premium de Endocrinología Pediatra",
+      "desc": "Desarrollar una Landing Page premium con dominio médico propio que estructure las patologías tratadas, presente las credenciales académicas de la Dra. Pilar Montilla y permita pre-agendar citas."
+    },
+    {
+      "title": "Fase 3: Embudo de Pre-Consulta con n8n & Plantillas Premium",
+      "desc": "Implementar automatizaciones con n8n para enviar recordatorios por WhatsApp y recopilar exámenes de laboratorio previos mediante formularios web antes de la consulta. Unificar la identidad en Instagram (@endopedmontilla)."
+    }
+  ],
+  "expectedResults": {
+    "presencia": {
+      "before": {
+        "title": "Perfil académico alto con presencia online básica",
+        "desc": "Infografías estáticas hechas en Canva, perfiles dispersos sin línea gráfica y enlace Beacons.ai gratuito que proyecta informalidad médica.",
+        "metrics": [
+          {
+            "name": "Coherencia Visual",
+            "val": "Baja / Canva"
+          },
+          {
+            "name": "Imagen de Marca",
+            "val": "Informal / Básica"
+          },
+          {
+            "name": "Portal Médico",
+            "val": "Beacons Gratuito"
+          }
+        ]
+      },
+      "after": {
+        "title": "Autoridad médica pediátrica premium",
+        "desc": "Identidad visual de lujo adaptada a la endocrinología infantil, con videos profesionales educativos, infografías premium y un portal web con dominio propio de alta autoridad.",
+        "metrics": [
+          {
+            "name": "Coherencia Visual",
+            "val": "Premium / Especialista"
+          },
+          {
+            "name": "Imagen de Marca",
+            "val": "Alta Autoridad"
+          },
+          {
+            "name": "Portal Médico",
+            "val": "Web Médica Premium"
+          }
+        ]
+      }
+    },
+    "captacion": {
+      "before": {
+        "title": "Invisible en búsquedas de Google por categoría",
+        "desc": "Google Maps sin categoría configurada (invisible ante búsquedas de pacientes locales), derivando clics directamente a un link wa.link de WhatsApp.",
+        "metrics": [
+          {
+            "name": "Posicionamiento Local",
+            "val": "Bloqueado (Sin Categoría)"
+          },
+          {
+            "name": "Canal de Conversión",
+            "val": "WhatsApp directo (Rígido)"
+          },
+          {
+            "name": "Enlace Ficha Google",
+            "val": "wa.link (WhatsApp)"
+          }
+        ]
+      },
+      "after": {
+        "title": "Posicionamiento orgánico número 1 en Ibagué",
+        "desc": "Ficha de Google Maps optimizada bajo la categoría correcta, atrayendo búsquedas orgánicas diarias. Landing page de alta conversión que educa y pre-califica a los pacientes.",
+        "metrics": [
+          {
+            "name": "Posicionamiento Local",
+            "val": "Optimizado en Ibagué"
+          },
+          {
+            "name": "Canal de Conversión",
+            "val": "Landing Page Médica"
+          },
+          {
+            "name": "Enlace Ficha Google",
+            "val": "drapilarmontilla.com"
+          }
+        ]
+      }
+    },
+    "eficiencia": {
+      "before": {
+        "title": "Operación de citas manual y lenta",
+        "desc": "Intercambio infinito de mensajes manuales para acordar horario de cita y pérdida de tiempo al recopilar antecedentes del paciente durante la consulta física.",
+        "metrics": [
+          {
+            "name": "Agendamiento de Citas",
+            "val": "100% Chat Manual"
+          },
+          {
+            "name": "Recopilación de Exámenes",
+            "val": "Durante Consulta"
+          },
+          {
+            "name": "Gestión de Recordatorios",
+            "val": "Manual / Inexistente"
+          }
+        ]
+      },
+      "after": {
+        "title": "Consultorio médico digitalizado",
+        "desc": "Pre-agendamiento automático. n8n envía confirmación y un enlace para que los padres suban laboratorios y antecedentes antes de la cita, ahorrando 10 minutos por consulta.",
+        "metrics": [
+          {
+            "name": "Agendamiento de Citas",
+            "val": "Pre-agendado Web"
+          },
+          {
+            "name": "Recopilación de Exámenes",
+            "val": "Automatizada (Pre-consulta)"
+          },
+          {
+            "name": "Gestión de Recordatorios",
+            "val": "WhatsApp Auto (n8n)"
+          }
+        ]
+      }
+    }
+  },
+  "hash": "xregb3"
+}

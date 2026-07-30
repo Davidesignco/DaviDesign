@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Presencia Visual — Restaurante El Carbonero</title>
+    <link rel="icon" type="image/svg+xml" href="../Logos/iso-logo-davidmunoz.svg">
+    <link rel="stylesheet" href="../css/styles.css">
+    
+    <style>
+        /* Report Page Custom Premium Styles */
+        :root {
+            --accent-green: #39FF14;
+            --accent-orange: #FF9900;
+        }
+
+        body {
+            padding-top: 100px;
+            background-image: 
+                linear-gradient(rgba(0, 237, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 237, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .report-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .report-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px auto;
+            max-width: 800px;
+        }
+
+        .meta-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 16px 24px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .meta-box-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 6px;
+        }
+
+        .meta-box-value {
+            font-family: var(--font-head);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Health Score Widget */
+        .score-card {
+            background: linear-gradient(145deg, rgba(0, 237, 255, 0.08) 0%, rgba(5, 10, 21, 0.6) 100%);
+            border: 1px solid var(--border-strong);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 30px var(--accent-dim);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .score-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 237, 255, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .score-circle-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            z-index: 1;
+        }
+
+        .score-percentage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-head);
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            text-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .score-label {
+            font-family: var(--font-head);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .score-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            max-width: 400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* SVG Circle progress */
+        .circle-bg {
+            fill: none;
+            stroke: rgba(10, 20, 40, 0.8);
+            stroke-width: 8;
+        }
+
+        .circle-progress {
+            fill: none;
+            stroke: var(--accent);
+            stroke-width: 10;
+            stroke-linecap: round;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+            transition: stroke-dashoffset 1s ease-in-out;
+            filter: drop-shadow(0 0 8px var(--accent-glow));
+        }
+
+        /* Analysis Grid */
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .analysis-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .analysis-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .analysis-title-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .analysis-icon {
+            font-size: 1.8rem;
+        }
+
+        .analysis-card-title {
+            font-family: var(--font-head);
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .analysis-badge {
+            background: var(--accent-dim);
+            color: var(--accent);
+            border: 1px solid var(--border-strong);
+            border-radius: 50px;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            font-family: var(--font-head);
+        }
+
+        .analysis-badge.warning {
+            background: rgba(255, 153, 0, 0.1);
+            color: var(--accent-orange);
+            border-color: rgba(255, 153, 0, 0.3);
+        }
+
+        .analysis-badge.critical {
+            background: rgba(255, 59, 59, 0.1);
+            color: var(--cta);
+            border-color: rgba(255, 59, 59, 0.3);
+        }
+
+        .analysis-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 10px;
+        }
+
+        .analysis-item {
+            display: flex;
+            gap: 12px;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .analysis-item-marker {
+            color: var(--cta);
+            font-weight: bold;
+            font-size: 1.1rem;
+            line-height: 1;
+            margin-top: 2px;
+        }
+
+        /* Action Plan Section */
+        .plan-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 50px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .plan-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .plan-header-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-dim);
+            border: 1px solid var(--border-strong);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .plan-title {
+            font-family: var(--font-head);
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .plan-step-card {
+            background: rgba(5, 10, 21, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            transition: all 0.3s var(--ease);
+        }
+
+        .plan-step-card:hover {
+            border-color: var(--accent);
+            background: var(--bg-glass);
+            transform: translateY(-3px);
+        }
+
+        .plan-step-num {
+            font-family: var(--font-head);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .plan-step-title {
+            font-family: var(--font-head);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .plan-step-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* CTA Section */
+        .cta-box {
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(0, 237, 255, 0.08) 0%, rgba(5, 10, 21, 0.95) 100%);
+            border: 1px solid var(--border-strong);
+            border-radius: 28px;
+            padding: 50px 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 237, 255, 0.1);
+        }
+
+        .cta-box-title {
+            font-family: var(--font-head);
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+
+        .cta-box-desc {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+
+        /* Responsive Fixes */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+            .score-card {
+                padding: 30px 20px;
+            }
+            .plan-section {
+                padding: 30px 20px;
+            }
+            .cta-box {
+                padding: 40px 20px;
+            }
+            .cta-box-title {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar .hero-badge {
+                display: none;
+            }
+            .cta-box .btn {
+                padding: 12px 24px;
+                font-size: 0.95rem;
+                white-space: normal;
+                display: inline-flex;
+                justify-content: center;
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar scrolled">
+        <div class="container">
+            <div class="nav-inner">
+                <a href="../index.html" class="nav-logo logo-text-container" id="navLogoContainer">
+                    <canvas class="logo-particles-canvas logo-particles-back"></canvas>
+                    <span class="logo-words">
+                        <span class="logo-word">DAVID</span>
+                        <span class="logo-word">MU<span class="glow-char" id="glowÑ">Ñ</span>OZ</span>
+                    </span>
+                    <span class="logo-subtext">DISEÑADOR</span>
+                    <canvas class="logo-particles-canvas logo-particles-front"></canvas>
+                </a>
+                <div class="hero-badge" style="margin:0;">
+                    <span class="hero-badge-dot"></span> DIAGNÓSTICO DE MARCA
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <main class="container">
+        
+        <header class="report-header">
+            <div class="section-label">Auditoría Visual de Negocio</div>
+            <h1 class="section-title">Análisis de Presencia Visual<br><span class="text-accent">Restaurante El Carbonero</span></h1>
+            <p class="section-subtitle">Diagnóstico detallado de identidad de marca, rendimiento de canales digitales y plan de acción de transformación visual.</p>
+        </header>
+
+        <!-- META DATA -->
+        <div class="report-meta-grid">
+            <div class="meta-box">
+                <div class="meta-box-label">Cliente</div>
+                <div class="meta-box-value">Restaurante El Carbonero</div>
+            </div>
+            <div class="meta-box">
+                <div class="meta-box-label">Categoría</div>
+                <div class="meta-box-value">Gastronomía / Asadero</div>
+            </div>
+            <div class="meta-box">
+                <div class="meta-box-label">Fecha del Informe</div>
+                <div class="meta-box-value">30/05/2026</div>
+            </div>
+        </div>
+
+        <!-- HEALTH SCORE CARD -->
+        <section class="score-card">
+            <div class="score-circle-container">
+                <svg width="150" height="150" viewBox="0 0 150 150">
+                    <circle class="circle-bg" cx="75" cy="75" r="65" />
+                    <!-- stroke-dasharray = 2 * PI * r = 2 * 3.14159 * 65 = 408.4 -->
+                    <circle class="circle-progress" cx="75" cy="75" r="65" 
+                            stroke-dasharray="408.4" 
+                            stroke-dashoffset="142.94" />
+                </svg>
+                <div class="score-percentage">65%</div>
+            </div>
+            <h2 class="score-label">Salud Visual de la Marca: <span style="color: #00EDFF;">Favorable / Con Oportunidades</span></h2>
+            <p class="score-desc">Este porcentaje refleja la consistencia gráfica, calidad de diseño y nivel de optimización de tu marca en medios digitales en comparación con los estándares de la industria premium.</p>
+        </section>
+
+        <!-- DETAILED ANALYSIS GRID -->
+        <section class="analysis-grid">
+            
+            <!-- Visual Identity -->
+            <div class="card analysis-card">
+                <div class="analysis-card-header">
+                    <div class="analysis-title-group">
+                        <span class="analysis-icon">🎨</span>
+                        <h3 class="analysis-card-title">Identidad Visual</h3>
+                    </div>
+                    <span class="analysis-badge warning">5/10</span>
+                </div>
+                <ul class="analysis-list">
+                    <li class="analysis-item"><span class="analysis-item-marker">→</span> <span>El logotipo carece de una versión responsiva y simplificada para fotos de perfil.</span></li>
+<li class="analysis-item"><span class="analysis-item-marker">→</span> <span>No existe una paleta de colores coherente definida; se combinan colores cálidos y fríos al azar en las publicaciones.</span></li>
+<li class="analysis-item"><span class="analysis-item-marker">→</span> <span>Uso de tipografías genéricas en el menú físico y digital que no transmiten la calidad real de los platos.</span></li>
+                </ul>
+            </div>
+
+            <!-- Social Media -->
+            <div class="card analysis-card">
+                <div class="analysis-card-header">
+                    <div class="analysis-title-group">
+                        <span class="analysis-icon">📱</span>
+                        <h3 class="analysis-card-title">Instagram & Redes</h3>
+                    </div>
+                    <div style="display:flex; flex-direction:column; align-items:flex-end;">
+                        <span class="analysis-badge warning">7/10</span>
+                        <span style="font-size:0.75rem; color:var(--text-muted); margin-top:4px;">@elcarboneroibague</span>
+                    </div>
+                </div>
+                <ul class="analysis-list">
+                    <li class="analysis-item"><span class="analysis-item-marker">→</span> <span>La fotografía de alimentos (food styling) carece de iluminación profesional para hacer los platos más provocativos.</span></li>
+<li class="analysis-item"><span class="analysis-item-marker">→</span> <span>Se publican demasiadas imágenes estáticas de volantes; se recomienda transicionar un 80% hacia formato Reels y videos dinámicos.</span></li>
+<li class="analysis-item"><span class="analysis-item-marker">→</span> <span>La biografía no tiene un llamado a la acción claro para reservas o pedidos a domicilio.</span></li>
+                </ul>
+            </div>
+
+            <!-- Website -->
+            <div class="card analysis-card">
+                <div class="analysis-card-header">
+                    <div class="analysis-title-group">
+                        <span class="analysis-icon">💻</span>
+                        <h3 class="analysis-card-title">Sitio Web</h3>
+                    </div>
+                    <span class="analysis-badge critical">4/10</span>
+                </div>
+                <ul class="analysis-list">
+                    <li class="analysis-item"><span class="analysis-item-marker">→</span> <span>El sitio web actual no está optimizado para dispositivos móviles, dificultando la lectura del menú en teléfonos.</span></li>
+<li class="analysis-item"><span class="analysis-item-marker">→</span> <span>El menú está en formato PDF pesado para descargar; debería ser una página web interactiva e instantánea.</span></li>
+<li class="analysis-item"><span class="analysis-item-marker">→</span> <span>El tiempo de carga inicial supera los 4 segundos, lo que genera una fuga del 40% de los visitantes potenciales.</span></li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- ACTION PLAN -->
+        <section class="plan-section">
+            <div class="plan-header">
+                <div class="plan-header-icon">⚙️</div>
+                <div>
+                    <h2 class="plan-title">Plan de Acción Sugerido</h2>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">Paso a paso recomendado para solucionar los puntos críticos identificados.</p>
+                </div>
+            </div>
+            <div class="plan-grid">
+                
+    <div class="plan-step-card">
+        <span class="plan-step-num">Paso 01</span>
+        <h4 class="plan-step-title">Rediseño de Identidad Simplificada</h4>
+        <p class="plan-step-desc">Adaptar el logo actual a formatos circulares e iconográficos para redes sociales y crear una paleta de colores cálida y coherente.</p>
+    </div>
+  
+
+    <div class="plan-step-card">
+        <span class="plan-step-num">Paso 02</span>
+        <h4 class="plan-step-title">Producción Reels & Contenido Pro</h4>
+        <p class="plan-step-desc">Planificar una sesión de producción audiovisual mensual enfocada en Reels que capturen la experiencia del cliente y la preparación de platos.</p>
+    </div>
+  
+
+    <div class="plan-step-card">
+        <span class="plan-step-num">Paso 03</span>
+        <h4 class="plan-step-title">Menú Web Digital Interactivo</h4>
+        <p class="plan-step-desc">Desarrollar una Landing Page ultrarrápida optimizada para móviles con el menú digital interactivo y enlaces directos a reservas por WhatsApp.</p>
+    </div>
+  
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section class="cta-box">
+            <div class="section-label">Próximo Paso</div>
+            <h2 class="cta-box-title">¿Cómo implementar esta transformación?</h2>
+            <p class="cta-box-desc">
+                Este diagnóstico identifica las fugas de valor visual que pueden estar costándole clientes y ventas a tu negocio. Para discutir en detalle cómo resolver estos problemas y elevar la marca a un estándar premium, te invito a agendar una sesión estratégica sin costo de 15 minutos.
+            </p>
+            <a href="https://wa.me/573169642159?text=Hola%20David%2C%20acabo%20de%20revisar%20el%20Informe%20de%20Presencia%20Visual%20que%20preparaste%20para%20mi%20negocio%20Restaurante%20El%20Carbonero.%20Me%20interesa%20discutir%20el%20plan%20de%20acci%C3%B3n%20para%20mejorar." target="_blank" class="btn btn-primary" style="font-size: 1.05rem; padding: 16px 40px; box-shadow: 0 0 30px var(--cta-glow);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px;">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                Agendar Sesión
+            </a>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); text-align: center;">
+        <div class="container">
+            <p style="font-size:0.875rem; color:var(--text-secondary);">
+                © 2025 <span class="text-accent">David Muñoz Studio</span>. Todos los derechos reservados.
+            </p>
+            <p style="font-size:0.75rem; color:var(--text-muted); margin-top:8px;">
+                Análisis exclusivo y confidencial preparado para Restaurante El Carbonero.
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/logo-particles.js"></script>
+</body>
+
+</html>
