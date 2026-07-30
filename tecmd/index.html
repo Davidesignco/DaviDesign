@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resolución de Prueba Técnica | David Muñoz Diseñador</title>
+  <link rel="icon" type="image/svg+xml" href="../Logos/iso-logo-davidmunoz.svg?v=1.2">
+  <meta name="description" content="Propuesta técnica y resolución del examen de ingreso para Diseñador Gráfico & WordPress - TEC MD.">
+  
+  <!-- Estilos del sitio principal de David -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <!-- Estilos específicos del portal de entrega -->
+  <link rel="stylesheet" href="css/portal.css">
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       NAVIGATION BAR (MISMO ESTILO DEL SITIO PRINCIPAL DE DAVID)
+       ========================================================================== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo logo-text-container" id="navLogoContainer">
+          <canvas class="logo-particles-canvas logo-particles-back"></canvas>
+          <span class="logo-words">
+            <span class="logo-word">DAVID</span>
+            <span class="logo-word">MU<span class="glow-char" id="glowÑ">Ñ</span>OZ</span>
+          </span>
+          <span class="logo-subtext">DISEÑADOR</span>
+          <canvas class="logo-particles-canvas logo-particles-front"></canvas>
+        </a>
+
+        <ul class="nav-links">
+          <li class="nav-dropdown">
+            <a class="nav-dropdown-toggle" href="#">
+              Planes
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="../planes-diseno.html">🎨 Diseño Gráfico Pro</a>
+              <a href="../planes-instagrowth.html">📱📸 InstaGrowth Pro</a>
+            </div>
+          </li>
+          <li><a href="../produccion.html">Fotografía &amp; Video</a></li>
+          <li><a href="../automatizacion.html">Automatizaciones</a></li>
+          <li><a href="../web-premium.html">Web Premium</a></li>
+          <li><a href="../portafolio.html">Portafolio</a></li>
+          <li>
+            <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" class="nav-cta btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px; vertical-align: middle;">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+              Cotizar Gratis
+            </a>
+          </li>
+        </ul>
+
+        <button class="nav-toggle" aria-label="Abrir menú" id="navToggle">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="nav-mobile" id="navMobile">
+    <a href="../planes-diseno.html">Diseño Gráfico Pro</a>
+    <a href="../planes-instagrowth.html">InstaGrowth Pro</a>
+    <a href="../produccion.html">Fotografía &amp; Video</a>
+    <a href="../automatizacion.html">Automatizaciones</a>
+    <a href="../web-premium.html">Web Premium</a>
+    <a href="../portafolio.html">Portafolio</a>
+    <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20informaci%C3%B3n" target="_blank" class="btn btn-primary mt-24">Cotizar Gratis</a>
+  </div>
+
+  <!-- ==========================================================================
+       HERO PORTAL SECTION
+       ========================================================================== -->
+  <section class="portal-hero">
+    <div class="container">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Entrega de Evaluación Técnica · Diseñador Gráfico &amp; WordPress
+      </div>
+      <h1 class="portal-hero-title">
+        Resolución de <span class="text-accent">Prueba</span>
+      </h1>
+      <p class="portal-hero-subtitle">
+        Presentación unificada de piezas de diseño, maquetación de landing page responsive en vivo, respuestas de desarrollo e implementación en WordPress y marketing digital para <strong>TEC MD</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PANEL 1: DISEÑO GRÁFICO (PIEZAS Y JUSTIFICACIÓN CREATIVA)
+       ========================================================================== -->
+  <main class="container">
+    <!-- ==========================================================================
+         SECCIÓN 1: DISEÑO GRÁFICO (PIEZAS Y JUSTIFICACIÓN CREATIVA)
+         ========================================================================== -->
+    <div class="portal-panel" id="panel-diseno">
+      <div class="section-header" style="text-align: left; margin-bottom: 40px;">
+        <span class="section-label" style="display:inline-block;">Parte 1</span>
+        <h2 class="section-title">Composición y Piezas <span class="text-accent">Visuales</span></h2>
+        <p class="section-subtitle">Exhibición de las propuestas gráficas diseñadas para la convocatoria del Diplomado en Inteligencia Artificial Aplicada a la Educación.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- Pieza 1: Post -->
+        <div class="gallery-card card-square" data-tools="Photoshop, Illustrator, Composición, Redes Sociales">
+          <div class="gallery-preview">
+            <img src="assets/1x1.png" alt="Post para Instagram (1080x1080)">
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-title">Post para Instagram</div>
+            <div class="gallery-desc">Formato cuadrado (1080x1080 px). Optimizado para el feed de Instagram, centrado en captar la atención mediante contraste de color institucional y amarillo de acento.</div>
+          </div>
+        </div>
+
+        <!-- Pieza 2: Formato Vertical (9:16) -->
+        <div class="gallery-card card-square" data-tools="Photoshop, Illustrator, Jerarquía Visual, Mobile Design">
+          <div class="gallery-preview">
+            <img src="assets/vertical.png" alt="Formato Vertical (9:16)">
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-title">Formato Vertical (9:16)</div>
+            <div class="gallery-desc">Formato vertical (1080x1920 px) utilizado para historias de Instagram, reels y mobile marketing. Estructurado respetando las zonas seguras superiores e inferiores para garantizar la legibilidad en redes sociales.</div>
+          </div>
+        </div>
+
+        <!-- Pieza 3: Banner Web -->
+        <div class="gallery-card card-wide card-banner" style="grid-column: span 2;" data-tools="Photoshop, Mockup Web, Composición 3D, UI/UX">
+          <div class="gallery-preview">
+            <img src="assets/banner-web.png" alt="Banner Web para página institucional">
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-title">Banner Web Institucional</div>
+            <div class="gallery-desc">Propuesta de banner principal (Hero) para integrar en la web de la institución. Composición equilibrada a tres planos con profundidad visual que respeta el espacio para textos renderizables.</div>
+          </div>
+        </div>
+
+        <!-- Pieza 4: Correo electrónico -->
+        <div class="gallery-card card-wide card-email" style="grid-column: span 2;" data-tools="Photoshop, Illustrator, HTML Email, Branding">
+          <div class="gallery-preview">
+            <img src="assets/email.png" alt="Pieza para Correo Electrónico">
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-title">Pieza de Cabecera para Correo Electrónico</div>
+            <div class="gallery-desc">Banner de cabecera (600px de ancho) diseñado especialmente para la plantilla HTML del correo masivo o informativo de admisiones, integrando logotipo, eslogan y modelo de forma limpia.</div>
+          </div>
+        </div>
+
+        <!-- Pieza 5: Portada de Previsualización (Link Preview) -->
+        <div class="gallery-card card-wide card-portada" style="grid-column: span 2;" data-tools="Photoshop, Open Graph, Link Preview, Social Media">
+          <div class="gallery-preview">
+            <img src="assets/portada-web.png" alt="Portada de Previsualización para Redes Sociales">
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-title">Portada de Previsualización (Open Graph)</div>
+            <div class="gallery-desc">Imagen horizontal diseñada especialmente para cargarse como miniatura o vista previa (preview) al compartir el enlace de la landing page en plataformas de mensajería (como WhatsApp) y redes sociales.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Justificación de Diseño -->
+      <div class="answer-card" style="margin-top: 30px;">
+        <span class="answer-num">Justificación Creativa</span>
+        <h3 class="answer-question">Propuesta de Composición, Color y Jerarquía</h3>
+        <div class="answer-text">
+          <p>
+            El diseño visual de la campaña se estructuró bajo una jerarquía gráfica limpia y de alto impacto tecnológico, alineada con la identidad de TEC MD. Se seleccionó una paleta basada en el azul oscuro institucional para transmitir credibilidad y sobriedad, complementada con acentos amarillos para dirigir los llamados a la acción (CTA) y elementos tipográficos clave.
+          </p>
+          <p>
+            Para las piezas tipográficas se emplearon fuentes sin serifa modernas que garantizan una lectura óptima en pantallas de dispositivos móviles. La composición integra a la modelo con un degradado de profundidad y detalles geométricos que evocan conectividad y redes neuronales, reforzando visualmente el concepto de Inteligencia Artificial Aplicada a la Educación de forma sobria y profesional.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SECCIÓN 2: WIREFRAME ESTRUCTURAL RESPONSIVO
+         ========================================================================== -->
+    <div class="portal-panel" id="panel-wireframe">
+      <div class="mockup-section-header">
+        <div class="mockup-title-block">
+          <span class="section-label">Wireframe Estructural</span>
+          <h3>Visualización del Wireframe</h3>
+          <p class="section-subtitle" style="margin-bottom: 0;">Boceto esquemático responsivo que detalla la organización de contenidos propuesto para la landing.</p>
+        </div>
+        
+        <!-- Selectores de dispositivo con borde neón animado -->
+        <div class="neon-selector-wrapper">
+          <div class="device-selector">
+            <button class="device-select-btn active wireframe-device-btn" data-device="desktop">
+              🖥️ Escritorio
+            </button>
+            <button class="device-select-btn wireframe-device-btn" data-device="tablet">
+              📟 Tablet
+            </button>
+            <button class="device-select-btn wireframe-device-btn" data-device="mobile">
+              📱 Móvil
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mockup Display Area -->
+      <div class="mockup-display show-desktop" id="wireframe-mockup-display">
+        
+        <!-- Laptop/Desktop Frame -->
+        <div class="browser-frame">
+          <div class="browser-header-bar">
+            <div class="browser-dots">
+              <span class="browser-dot red"></span>
+              <span class="browser-dot yellow"></span>
+              <span class="browser-dot green"></span>
+            </div>
+            <div class="browser-address-bar"></div>
+          </div>
+          <div class="browser-viewport">
+            <img src="assets/wireframe escritorio.png" alt="Captura de Wireframe Escritorio">
+          </div>
+        </div>
+
+        <!-- Tablet Frame -->
+        <div class="tablet-frame">
+          <div class="tablet-viewport">
+            <img src="assets/wireframe tablet.png" alt="Captura de Wireframe Tablet">
+          </div>
+        </div>
+
+        <!-- Mobile Frame -->
+        <div class="mobile-frame">
+          <div class="mobile-notch"></div>
+          <div class="mobile-viewport">
+            <img src="assets/wireframe movil.png" alt="Captura de Wireframe Móvil">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SECCIÓN 3: IMPLEMENTACIÓN Y MAQUETACIÓN EN WORDPRESS
+         ========================================================================== -->
+    <div class="portal-panel" id="panel-wordpress">
+      <div class="section-header" style="text-align: left; margin-bottom: 40px;">
+        <span class="section-label" style="display:inline-block;">Parte 2</span>
+        <h2 class="section-title">WordPress y Maquetación <span class="text-accent">Web</span></h2>
+        <p class="section-subtitle">Explicación metodológica sobre la implementación, el uso de plugins, la responsividad y el SEO técnico en WordPress.</p>
+      </div>
+
+      <div class="card-grid">
+        
+        <!-- Pregunta 1.1 -->
+        <div class="answer-card">
+          <span class="answer-num">Pregunta 2.1</span>
+          <h3 class="answer-question">¿Cómo la implementaría en WordPress?</h3>
+          <div class="answer-text">
+            <p>
+              La mejor forma de implementar la landing page en WordPress de manera sólida y mantenible es a través de <strong>Elementor Pro</strong>, un maquetador visual de alto rendimiento que, con sus contenedores flexibles (Flexbox y Grid), permite estructurar cada sección y previsualizar en tiempo real el comportamiento responsivo en diferentes resoluciones, ajustando rellenos, tamaños y posiciones para cada tipo de pantalla.
+            </p>
+            <p>
+              Este maquetador se integra de forma directa con un ecosistema de plugins esenciales para asegurar el funcionamiento óptimo de la landing:
+            </p>
+            <ul>
+              <li><strong>Formularios e Integración:</strong> Para la captura de leads se implementa el widget nativo de <strong>Elementor Forms</strong> o el plugin <strong>Fluent Forms</strong>, configurándolos en conjunto con <strong>WP Mail SMTP</strong> para asegurar que las notificaciones de los correos se despachen mediante un servidor de correo seguro y no se queden en spam. Adicionalmente, se puede conectar de forma directa con <strong>Mailchimp</strong> para automatizar el email marketing.</li>
+              <li><strong>Optimización SEO Semántico:</strong> Usaremos **Yoast SEO** o **Rank Math SEO**. La funcionalidad de Yoast SEO (e incorporaciones recientes de sugerencias basadas en IA para textos y metadatos) nos facilita estructurar adecuadamente las palabras clave y generar fragmentos atractivos basados en la intención de búsqueda real del sector educativo.</li>
+            </ul>
+            <p>
+              <strong>Nota técnica:</strong> Aunque las herramientas visuales como Elementor agilizan el desarrollo, mantengo una fuerte preferencia por la maquetación mediante <strong>código nativo puro (HTML5, CSS3 y JavaScript vanilla)</strong>. El desarrollo en código puro elimina la dependencia y el peso excesivo de múltiples plugins, permitiendo una velocidad de carga (WPO) excepcional, estructuras semánticas limpias y animaciones personalizadas mucho más fluidas. Por ejemplo, en WordPress se suele recurrir a plugins pesados como <em>Slider Revolution</em> para animaciones complejas, los cuales sobrecargan el sitio y ralentizan la velocidad de carga móvil; una limitación que con código nativo se resuelve de manera limpia, eficiente y sin consumo extra de recursos.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pregunta 1.2 -->
+        <div class="answer-card">
+          <span class="answer-num">Pregunta 2.2</span>
+          <h3 class="answer-question">¿Qué plugins utilizaría?</h3>
+          <div class="answer-text">
+            <p>
+              En el desarrollo web profesional, especialmente en el ecosistema tecnológico actual, considero contraproducente "casarse" rígidamente con un único plugin o herramienta, ya que la industria está en constante evolución y diariamente surgen mejores soluciones.
+            </p>
+            <p>
+              Por ende, mi enfoque se centra en mantener una pila tecnológica (stack) recomendada que se audita y actualiza periódicamente mediante la lectura de blogs especializados de la comunidad de WordPress y pruebas en entornos de staging. El stack óptimo propuesto para este proyecto incluye:
+            </p>
+            <ul>
+              <li><strong>Elementor Pro:</strong> Como maquetador visual principal y gestor de plantillas dinámicas.</li>
+              <li><strong>Rank Math SEO o Yoast SEO:</strong> Para la optimización de metadatos, mapas del sitio y legibilidad.</li>
+              <li><strong>WP Rocket o LiteSpeed Cache:</strong> Para la optimización de caché, minificación de archivos y velocidad de carga global.</li>
+              <li><strong>WP Mail SMTP:</strong> Para gestionar el envío seguro de correos de leads mediante SMTP.</li>
+              <li><strong>Fluent Forms:</strong> En caso de requerir lógica condicional avanzada en el formulario de inscripción.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pregunta 1.3 -->
+        <div class="answer-card">
+          <span class="answer-num">Pregunta 2.3</span>
+          <h3 class="answer-question">¿Cómo garantizaría que sea responsive?</h3>
+          <div class="answer-text">
+            <p>
+              La única forma práctica y real de garantizar que un sitio web sea completamente responsive es mediante auditorías continuas utilizando las herramientas de inspección nativas.
+            </p>
+            <p>
+              Mi flujo de trabajo se apoya en las <strong>Herramientas de Desarrollador (DevTools)</strong> integradas en navegadores como <strong>Chrome, Edge y Firefox</strong>, simulando dispositivos reales y probando resoluciones intermedias píxel a píxel. Esto nos asegura que el diseño se adapte de forma fluida a cualquier ancho de pantalla y evita las sorpresas de confiar ciegamente en las vistas predeterminadas (móvil/tablet) que muestran los maquetadores de bloques en WordPress, las cuales a menudo ignoran resoluciones intermedias.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pregunta 1.4 -->
+        <div class="answer-card">
+          <span class="answer-num">Pregunta 2.4</span>
+          <h3 class="answer-question">¿Qué elementos SEO incluiría?</h3>
+          <div class="answer-text">
+            <p>
+              Una de las prácticas de SEO más importantes (y que lamentablemente se suele ignorar o se complica al usar constructores visuales) es <strong>mantener el banner principal (Hero) maquetado con texto real y renderizable</strong> en lugar de incrustar el texto dentro de una imagen estática. Las arañas de indexación de Google priorizan la lectura del primer encabezado <code>H1</code> para comprender la temática de la página; si este texto está fundido en una imagen, esa valiosa información se pierde para el buscador.
+            </p>
+            <p>
+              En la landing page propuesta para TEC MD, el banner está completamente estructurado con texto nativo HTML, lo que facilita enormemente el rastreo a los motores de búsqueda. Adicionalmente, la estrategia SEO incluye:
+            </p>
+            <ul>
+              <li><strong>Jerarquía semántica estricta de encabezados:</strong> Uso correcto y ordenado de etiquetas <code>H1</code>, <code>H2</code> y <code>H3</code> para guiar a las arañas en la lectura del mapa de contenidos.</li>
+              <li><strong>Optimización de imágenes:</strong> Implementación de etiquetas descriptivas <code>alt</code> y títulos descriptivos en cada imagen, además de definir una imagen de portada para redes sociales (Open Graph).</li>
+              <li><strong>Búsqueda y segmentación de palabras clave:</strong> Integración de keywords exactas y de cola larga (long-tail) específicas del diplomado de manera natural dentro del contenido para mejorar el posicionamiento orgánico.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SECCIÓN 4: MARKETING DIGITAL Y ANALÍTICA
+         ========================================================================== -->
+    <div class="portal-panel" id="panel-marketing">
+      <div class="section-header" style="text-align: left; margin-bottom: 40px;">
+        <span class="section-label" style="display:inline-block;">Parte 3</span>
+        <h2 class="section-title">Marketing Digital y <span class="text-accent">Analítica</span></h2>
+        <p class="section-subtitle">Respuestas a los cuestionamientos estratégicos para la medición e incremento de tráfico orgánico y pauta digital.</p>
+      </div>
+
+      <div class="card-grid">
+
+        <!-- Pregunta 2.1 -->
+        <div class="answer-card">
+          <span class="answer-num">Pregunta 3.1</span>
+          <h3 class="answer-question">¿Qué indicadores revisaría para medir el desempeño de una campaña digital de captación de estudiantes?</h3>
+          <div class="answer-text">
+            <p>
+              Los indicadores clave de rendimiento (KPIs) para medir el éxito de la campaña de captación de leads varían según la plataforma publicitaria y la fase del embudo de conversión (funnel). Para estructurar, medir y optimizar este embudo de manera profesional, utilizaremos <strong>Google Analytics 4 (GA4)</strong>, <strong>Google Tag Manager (GTM)</strong>, <strong>Meta Pixel</strong> para el rastreo y el plugin <strong>Jetpack</strong> para monitoreo rápido del tráfico en WordPress.
+            </p>
+            <p>
+              El análisis del embudo y optimización se realiza cruzando las siguientes métricas:
+            </p>
+            <ul>
+              <li><strong>Alcance y Click-Through Rate (CTR):</strong> Por ejemplo, en campañas de Meta Ads evaluamos de qué formatos proviene el mayor alcance y clics (siendo Reels y videos cortos los de mejor rendimiento). Un CTR saludable debe oscilar entre el 10% y el 15%; de no lograrse, implementamos <strong>Pruebas A/B</strong> variando la propuesta de diseño (videos vs. imágenes). Está demostrado que el contenido en video corto (de 8 a 10 segundos), que va directo al grano, con audio llamativo y subtítulos de apoyo, genera una retención mucho mayor.</li>
+              <li><strong>Pérdida de Tráfico en Carga (Landing Visits vs. Ad Clicks):</strong> Monitoreamos la diferencia entre los clics del anuncio y los usuarios que efectivamente cargan la landing page. Muchos usuarios abandonan el proceso si la web tarda en cargar debido a la necesidad de dopamina instantánea en redes sociales; si la deserción aquí es alta, trabajamos de inmediato en optimización WPO (velocidad de carga), pues es el factor determinante.</li>
+              <li><strong>Comportamiento en la Landing (Eventos y Scroll):</strong> Implementamos etiquetas de eventos con Google Tag Manager en diferentes alturas de la landing page para saber hasta qué punto hacen scroll los usuarios y detectar las secciones con mayor tasa de deserción, ajustando el orden o el contenido para hacerlo más digerible.</li>
+              <li><strong>Tasa de Conversión de Leads (Leads vs. Visitas):</strong> Medimos cuántos de los usuarios que llegan al formulario terminan enviando sus datos.</li>
+              <li><strong>Calificación de Leads (Retroalimentación Offline):</strong> A través del equipo de admisiones, cruzamos la cantidad de registros con el porcentaje de matrículas reales concretadas, identificando si los estudiantes se quedaron en el camino por factores geográficos o económicos, lo que nos permite afinar la segmentación demográfica y de intereses en Meta Ads para optimizar el presupuesto publicitario.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pregunta 2.2 -->
+        <div class="answer-card">
+          <span class="answer-num">Pregunta 3.2</span>
+          <h3 class="answer-question">¿Qué acciones implementaría para mejorar el tráfico orgánico del sitio web institucional?</h3>
+          <div class="answer-text">
+            <p>
+              Para incrementar el tráfico orgánico a largo plazo de la institución, la clave es consolidar la <strong>autoridad del dominio (Domain Authority)</strong> y la relevancia del contenido mediante las siguientes acciones:
+            </p>
+            <ul>
+              <li><strong>Estrategia de Linkbuilding Ético:</strong> Participar activamente en foros, directorios educativos y blogs de autoridad del sector para colocar enlaces de calidad hacia nuestra web, mejorando la confianza que Google otorga al sitio.</li>
+              <li><strong>Optimización para Motores de Inteligencia Artificial (AIO / SEO para IA):</strong> Hoy en día, los usuarios utilizan cada vez más chatbots con IA (como ChatGPT, Gemini o Perplexity) para buscar recomendaciones. Las IA no inventan información académica; rastrean la web y resumen fuentes confiables. Al estructurar técnicamente nuestro contenido de valor con etiquetas semánticas claras y datos estructurados (Schema Markup), logramos que estos buscadores identifiquen nuestra web y nos recomienden en sus respuestas, lo que genera un tráfico orgánico de altísima confianza.</li>
+              <li><strong>Estrategia de Contenido y SEO Social:</strong> Optimizar las descripciones de nuestras publicaciones en redes sociales utilizando palabras clave relevantes (SEO en Meta/TikTok) para que indexen en las búsquedas móviles de Google, complementando el canal orgánico con artículos de valor y guías de blog de la institución.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pregunta 2.3 -->
+        <div class="answer-card">
+          <span class="answer-num">Pregunta 3.3</span>
+          <h3 class="answer-question">¿Cuál es la diferencia entre SEO On Page y SEO Off Page?</h3>
+          <div class="answer-text">
+            <ul>
+              <li><strong>SEO On-Page:</strong> Comprende todas las optimizaciones técnicas y de contenido que realizamos directamente <strong>dentro de nuestro propio sitio web</strong> (ej. estructura de keywords, etiquetas H1-H6, optimización de velocidad, etiquetas ALT en imágenes y enlaces internos).</li>
+              <li><strong>SEO Off-Page:</strong> Consiste en todas las acciones externas que se ejecutan <strong>fuera de nuestro sitio web</strong> para mejorar su relevancia y autoridad (ej. linkbuilding, menciones de marca en portales externos, presencia en directorios y compartidos en redes sociales).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pregunta 2.4 -->
+        <div class="answer-card">
+          <span class="answer-num">Pregunta 3.4</span>
+          <h3 class="answer-question">¿Qué herramientas conoce para analítica web?</h3>
+          <div class="answer-text">
+            <p>
+              Para analítica y rendimiento web utilizo y configuro principalmente:
+            </p>
+            <ul>
+              <li><strong>Google Analytics 4 (GA4):</strong> Para monitorear el comportamiento del tráfico, origen de usuarios, eventos y conversiones finales.</li>
+              <li><strong>Google Search Console:</strong> Herramienta oficial para auditar la indexación de páginas, rastrear problemas de rastreo y monitorear consultas orgánicas e impresiones.</li>
+              <li><strong>Google Tag Manager (GTM):</strong> Para administrar etiquetas de conversión y rastrear clics a botones o llamadas a acción sin modificar el código fuente.</li>
+              <li><strong>Microsoft Clarity / Hotjar:</strong> Para obtener grabaciones de pantalla de usuarios y mapas de calor reales, detectando problemas de usabilidad o deserción en el formulario.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pregunta 2.5 -->
+        <div class="answer-card">
+          <span class="answer-num">Pregunta 3.5</span>
+          <h3 class="answer-question">Mencione tres tendencias actuales de diseño digital aplicables al sector educativo</h3>
+          <div class="answer-text">
+            <ol>
+              <li><strong>Diseño enfocado en Mobile-First y micro-contenidos:</strong> Las interfaces educativas actuales deben estructurarse priorizando la experiencia y velocidad en celulares, utilizando tarjetas de contenido modular y acordeones dinámicos que eviten la fatiga del usuario.</li>
+              <li><strong>Micro-interacciones y animaciones de baja carga cognitiva:</strong> El uso de pequeños detalles dinámicos e interactivos (como el canvas interactivo en el banner o transiciones fluidas en pestañas) que guían la atención del estudiante y mejoran la experiencia sin ralentizar el tiempo de carga del sitio.</li>
+              <li><strong>Glassmorphism y tarjetas translúcidas:</strong> La aplicación de capas de diseño que emulan interfaces de software moderno, haciendo que la web del diplomado o institución se perciba con una estética tecnológica y vanguardista.</li>
+            </ol>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SECCIÓN 5: SIMULADOR DE PLANTILLAS DE CORREO INTERACTIVAS
+         ========================================================================== -->
+    <div class="portal-panel" id="panel-correo">
+      <div class="section-header" style="text-align: left; margin-bottom: 30px;">
+        <span class="section-label" style="display:inline-block;">Simulador Email</span>
+        <h2 class="section-title">Plantillas de Correo <span class="text-accent">Interactivas</span></h2>
+        <p class="section-subtitle">Previsualiza en tiempo real las plantillas de correo HTML que construimos para los flujos de inscripción.</p>
+      </div>
+
+      <!-- Controls & Input -->
+      <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 25px; margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between;">
+        
+        <div style="display: flex; flex-direction: column; gap: 6px; flex-grow: 1; min-width: 250px;">
+          <label for="sim-name-input" style="font-family: 'JUST Sans', Arial, sans-serif; font-size: 0.85rem; font-weight: bold; color: var(--accent); text-transform: uppercase;">
+            Escribe un nombre para personalizar el correo:
+          </label>
+          <input type="text" id="sim-name-input" placeholder="Escribe un nombre (ej. Juan)..." style="background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 10px 15px; color: #ffffff; font-family: 'Inter', Arial, sans-serif; font-size: 0.95rem; width: 100%; max-width: 350px; outline: none; transition: border-color 0.3s ease;">
+        </div>
+
+        <div class="neon-selector-wrapper" style="margin: 0;">
+          <div class="device-selector" style="margin: 0;">
+            <button class="device-select-btn active email-sim-tab" data-view="student">
+              ✉️ Email Estudiante
+            </button>
+            <button class="device-select-btn email-sim-tab" data-view="admin">
+              💻 Email Administrador
+            </button>
+          </div>
+        </div>
+        
+      </div>
+
+      <!-- Simulator Frames -->
+      <div style="background-color: #0d111a; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 18px; padding: 30px; min-height: 500px; display: flex; justify-content: center;">
+        
+        <!-- View 1: Student Email Wrapper -->
+        <div id="student-preview-wrapper" style="width: 100%; max-width: 650px;">
+          <!-- Gmail Mockup Header -->
+          <div style="background-color: #1a2035; border-radius: 8px 8px 0 0; border: 1px solid #34495e; border-bottom: none; padding: 15px 20px; font-family: 'Inter', Arial, sans-serif; font-size: 0.85rem; color: var(--text-secondary);">
+            <div style="margin-bottom: 5px;"><strong>De:</strong> TEC MD Admisiones &lt;admisiones@tecmd.edu.co&gt;</div>
+            <div><strong>Para:</strong> correo-registrado@email.com</div>
+          </div>
+          <!-- Viewport -->
+          <div style="border: 1px solid #34495e; border-radius: 0 0 8px 8px; background-color: #ffffff; overflow: hidden;">
+            <iframe id="iframe-student" style="width: 100%; height: 500px; border: none; display: block; background-color: #f4f6f9;"></iframe>
+          </div>
+        </div>
+
+        <!-- View 2: Admin Email Wrapper -->
+        <div id="admin-preview-wrapper" style="width: 100%; max-width: 650px; display: none;">
+          <!-- Gmail Mockup Header -->
+          <div style="background-color: #1a2035; border-radius: 8px 8px 0 0; border: 1px solid #34495e; border-bottom: none; padding: 15px 20px; font-family: 'Inter', Arial, sans-serif; font-size: 0.85rem; color: var(--text-secondary);">
+            <div style="margin-bottom: 5px;"><strong>De:</strong> TEC MD Admisiones &lt;no-reply@davidmunoz.co&gt;</div>
+            <div><strong>Para:</strong> davidesign93@gmail.com</div>
+          </div>
+          <!-- Viewport -->
+          <div style="border: 1px solid #34495e; border-radius: 0 0 8px 8px; background-color: #ffffff; overflow: hidden;">
+            <iframe id="iframe-admin" style="width: 100%; height: 500px; border: none; display: block; background-color: #f4f6f9;"></iframe>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ==========================================================================
+         SECCIÓN 6: VISUALIZACIÓN DE LA LANDING PAGE EN VIVO (TRABAJO EXTRA)
+         ========================================================================== -->
+    <div class="portal-panel" id="panel-landing">
+      <div class="mockup-section-header">
+        <div class="mockup-title-block">
+          <span class="section-label">Página en Vivo</span>
+          <h3>Visualización de la Landing Page</h3>
+          <p class="section-subtitle" style="margin-bottom: 0;">Explora el comportamiento responsivo de la landing page interactiva real (`landing.html`).</p>
+        </div>
+        
+        <!-- Selectores de dispositivo con borde neón animado -->
+        <div class="neon-selector-wrapper">
+          <div class="device-selector">
+            <button class="device-select-btn active web-device-btn" data-device="desktop">
+              🖥️ Escritorio
+            </button>
+            <button class="device-select-btn web-device-btn" data-device="tablet">
+              📟 Tablet
+            </button>
+            <button class="device-select-btn web-device-btn" data-device="mobile">
+              📱 Móvil
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mockup Display Area -->
+      <div class="mockup-display show-desktop" id="web-mockup-display">
+        
+        <!-- Laptop/Desktop Frame -->
+        <div class="browser-frame">
+          <div class="browser-header-bar">
+            <div class="browser-dots">
+              <span class="browser-dot red"></span>
+              <span class="browser-dot yellow"></span>
+              <span class="browser-dot green"></span>
+            </div>
+            <div class="browser-address-bar"></div>
+          </div>
+          <div class="browser-viewport">
+            <img src="assets/web escritorio.png" alt="Captura de Web Escritorio">
+          </div>
+        </div>
+
+        <!-- Tablet Frame -->
+        <div class="tablet-frame">
+          <div class="tablet-viewport">
+            <img src="assets/web tablet.png" alt="Captura de Web Tablet">
+          </div>
+        </div>
+
+        <!-- Mobile Frame -->
+        <div class="mobile-frame">
+          <div class="mobile-notch"></div>
+          <div class="mobile-viewport">
+            <img src="assets/web movil.png" alt="Captura de Web Móvil">
+          </div>
+        </div>
+
+      </div>
+
+      
+    </div>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER (MISMO ESTILO DEL PIE DE PÁGINA DE DAVID)
+       ========================================================================== -->
+  <footer class="footer" style="margin-top: 80px;">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">
+            <a href="../index.html" class="logo-text-container static-logo">
+              <span class="logo-words">
+                <span class="logo-word">DAVID</span>
+                <span class="logo-word">MU<span class="glow-char">Ñ</span>OZ</span>
+              </span>
+              <span class="logo-subtext">DISEÑADOR</span>
+            </a>
+          </div>
+          <p class="footer-brand-desc">Diseño, producción audiovisual y automatizaciones para marcas que quieren liderar en Ibagué, Tolima y Colombia.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/davidesign.co?igsh=YXJwempvMGxid2gz" class="social-link" title="Instagram" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/share/1GdNCi94S1/" class="social-link" title="Facebook" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="https://tiktok.com/@davidesign.co" class="social-link" title="TikTok" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+              </svg>
+            </a>
+            <a href="https://wa.me/573169642159" class="social-link" title="WhatsApp" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Servicios</div>
+          <ul class="footer-links">
+            <li><a href="../planes-diseno.html">Diseño Gráfico Pro</a></li>
+            <li><a href="../planes-instagrowth.html">InstaGrowth Pro</a></li>
+            <li><a href="../produccion.html">Fotografía & Video</a></li>
+            <li><a href="../automatizacion.html">Automatizaciones n8n</a></li>
+            <li><a href="../web-premium.html">Web & Tech Premium</a></li>
+            <li><a href="../portafolio.html">Portafolio</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Empresa</div>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/573169642159" target="_blank">WhatsApp</a></li>
+            <li><a href="https://www.instagram.com/davidesign.co?igsh=YXJwempvMGxid2gz" target="_blank">Instagram</a></li>
+            <li><a href="https://www.facebook.com/share/1GdNCi94S1/" target="_blank">Facebook</a></li>
+            <li><a href="https://tiktok.com/@davidesign.co" target="_blank">TikTok</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Ubicación</div>
+          <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.8;">
+            Ibagué, Tolima<br>Colombia<br><br>
+            Lun – Vie<br>8:00 am – 6:00 pm
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 <span class="footer-accent">David Muñoz Diseñador</span>. Todos los derechos reservados.</p>
+        <p class="footer-copy">Diseño <span class="footer-accent">Tech-Premium</span> · Ibagué, Colombia</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Action -->
+  <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20una%20auditor%C3%ADa%20de%20marca%20gratuita" target="_blank" class="floating-cta" id="floatingCTA">
+    <span>Auditoría Gratuita</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <!-- ==========================================================================
+       LIGHTBOX GALLERY MODAL (PIEZAS DE DISEÑO)
+       ========================================================================== -->
+  <div class="lightbox-modal" id="lightboxModal" aria-hidden="true">
+    <button class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Cerrar vista">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    
+    <button class="lightbox-nav-btn lightbox-prev-btn" id="lightboxPrevBtn" aria-label="Anterior pieza">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    
+    <button class="lightbox-nav-btn lightbox-next-btn" id="lightboxNextBtn" aria-label="Siguiente pieza">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="lightbox-box">
+      <!-- Panel de Media (Izquierda) -->
+      <div class="lightbox-media-panel">
+        <!-- Imagen estándar para piezas normales -->
+        <img src="" alt="" id="lightboxImg">
+        
+        <!-- Deslizador de comparación para la pieza vertical 9:16 -->
+        <div class="comparison-slider" id="lightboxComparisonSlider" style="display: none;">
+          <div class="slider-wrapper" id="sliderWrapper">
+            <!-- Imagen base original -->
+            <img src="assets/vertical.png" alt="Original" class="slider-image-under">
+            
+            <!-- Imagen con zona segura (superpuesta) -->
+            <img src="assets/vertical-zona-segura.png" alt="Zona Segura" class="slider-image-over" id="sliderImageOver">
+            
+            <!-- Tirador/Manija -->
+            <div class="slider-handle" id="sliderHandle">
+              <div class="slider-handle-line"></div>
+              <div class="slider-handle-button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="8 18 2 12 8 6"></polyline>
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                </svg>
+              </div>
+              <div class="slider-handle-line"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Panel de Detalles (Derecha) -->
+      <div class="lightbox-sidebar">
+        <!-- Contenido principal -->
+        <div class="lightbox-sidebar-content">
+          <h4 class="lightbox-title" id="lightboxTitle"></h4>
+          <p class="lightbox-desc" id="lightboxDesc"></p>
+          
+          <!-- Sección de herramientas usadas -->
+          <div class="lightbox-tools-section">
+            <span class="lightbox-section-label">Herramientas utilizadas:</span>
+            <div class="lightbox-tools-container" id="lightboxTools">
+              <!-- Se renderizan los tags vía JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón CTA flotante para ir a la Landing Page -->
+  <a href="landing.html" target="_blank" class="floating-landing-cta" id="floatingLandingCTA">
+    <span>mira la landing page terminada AQUÍ</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </a>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+  <script src="../js/logo-particles.js"></script>
+  <script src="js/portal.js"></script>
+</body>
+
+</html>
