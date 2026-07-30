@@ -1,0 +1,10 @@
+# Node modules
+node_modules/
+
+# Environment variables (sensitive data)
+.env
+
+# Local reports output (compiled files)
+informes/*.html
+!informes/template.html
+informes/data/test-cliente.json

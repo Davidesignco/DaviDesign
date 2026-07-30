@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatizaciones n8n — David Muñoz Diseñador | IA & Procesos Automatizados Ibagué</title>
+    <link rel="icon" type="image/svg+xml" href="Logos/iso-logo-davidmunoz.svg?v=1.2">
+    <meta name="description"
+        content="Automatizaciones n8n para empresas en Ibagué y Colombia. Conecte WhatsApp, Google, CRMs. Ahorre cientos de horas hombre. Desde $950.000 COP/mes.">
+    <meta name="keywords"
+        content="automatización n8n Colombia, consultoría automatización Ibagué, IA empresas Tolima, workflows automatizados">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Automatizaciones n8n | David Muñoz Diseñador">
+    <meta property="og:description" content="Conecte sus apps y ahorre cientos de horas hombre con n8n e IA.">
+    <meta property="og:type" content="website">
+    <style>
+        /* Sophisticated Nodes Animation */
+        .flow-anim-container {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .flow-anim-container::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.3;
+            transform: translateY(-50%);
+        }
+
+        .flow-node-pro {
+            width: 64px;
+            height: 64px;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s var(--ease);
+            animation: nodePulse 3s ease-in-out infinite;
+        }
+
+        .flow-node-pro:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .flow-node-pro:nth-child(3) {
+            animation-delay: 1s;
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        .flow-node-pro:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+
+        @keyframes nodePulse {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+                border-color: var(--border);
+            }
+
+            50% {
+                transform: translateY(-10px) scale(1.05);
+            }
+        }
+
+        .flow-node-pro.accent {
+            border-color: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .apps-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .app-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 8px 16px;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            transition: all 0.25s var(--ease);
+        }
+
+        .app-pill:hover {
+            border-color: var(--border-strong);
+            color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        @media (max-width: 768px) {
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+
+            .flow-anim-container {
+                padding: 24px 16px;
+                gap: 12px;
+            }
+
+            .flow-node-pro {
+                width: 48px;
+                height: 48px;
+                font-size: 1.4rem;
+            }
+
+            .app-pill {
+                padding: 6px 12px;
+                font-size: 0.75rem;
+            }
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .concept-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .pricing-grid-auto {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-grid-auto {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .steps-grid-5 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0;
+            position: relative;
+        }
+
+        .steps-grid-5 .step-item {
+            border-left: 1px solid var(--border);
+        }
+
+        .steps-grid-5 .step-item:first-child {
+            border-left: none;
+        }
+
+        @media (max-width: 1100px) {
+            .steps-grid-5 {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            .steps-grid-5 .step-item {
+                border-left: 1px solid var(--border);
+                border-top: 1px solid var(--border);
+            }
+
+            /* Reset first-child border-top if it's the very first */
+            .steps-grid-5 .step-item:first-child {
+                border-top: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .steps-grid-5 {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-grid-5 .step-item {
+                border-left: none;
+                border-top: 1px solid var(--border);
+            }
+
+            .steps-grid-5 .step-item:first-child {
+                border-top: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo logo-text-container" id="navLogoContainer">
+          <canvas class="logo-particles-canvas logo-particles-back"></canvas>
+          <span class="logo-words">
+            <span class="logo-word">DAVID</span>
+            <span class="logo-word">MU<span class="glow-char" id="glowÑ">Ñ</span>OZ</span>
+          </span>
+          <span class="logo-subtext">DISEÑADOR</span>
+          <canvas class="logo-particles-canvas logo-particles-front"></canvas>
+        </a>
+
+        <ul class="nav-links">
+          <li class="nav-dropdown">
+            <a class="nav-dropdown-toggle" href="#">
+              Planes
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="planes-diseno.html">🎨 Diseño Gráfico Pro</a>
+              <a href="planes-instagrowth.html">📱📸 InstaGrowth Pro</a>
+            </div>
+          </li>
+          <li><a href="produccion.html">Fotografía &amp; Video</a></li>
+          <li><a href="automatizacion.html" class="active">Automatizaciones</a></li>
+          <li><a href="web-premium.html">Web Premium</a></li>
+          <li><a href="portafolio.html">Portafolio</a></li>
+          <li>
+            <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios"
+              target="_blank" class="nav-cta btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                style="margin-right: 6px; vertical-align: middle;">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+              Cotizar Gratis
+            </a>
+          </li>
+        </ul>
+
+        <button class="nav-toggle" aria-label="Abrir menú" id="navToggle">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Mobile Nav -->
+  <div class="nav-mobile" id="navMobile">
+    <a href="planes-diseno.html">Diseño Gráfico Pro</a>
+    <a href="planes-instagrowth.html">InstaGrowth Pro</a>
+    <a href="produccion.html">Fotografía &amp; Video</a>
+    <a href="automatizacion.html" class="active">Automatizaciones</a>
+    <a href="web-premium.html">Web Premium</a>
+    <a href="portafolio.html">Portafolio</a>
+    <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20informaci%C3%B3n" target="_blank"
+      class="btn btn-primary mt-24">Cotizar Gratis</a>
+  </div>
+
+    <!-- HERO -->
+    <section class="page-hero section-alt" style="position:relative;overflow:hidden;">
+        <div class="hero-grid" style="opacity:0.4;"></div>
+        <div class="hero-orb hero-orb-1"
+            style="background:radial-gradient(circle, rgba(0,237,255,0.15) 0%, transparent 70%);"></div>
+        <div class="container" style="position:relative;z-index:2;">
+            <div class="hero-badge" style="margin:0 auto 24px;">
+                <span class="hero-badge-dot"></span> ORQUESTACIÓN DIGITAL · IA · INGENIERÍA DE PROCESOS
+            </div>
+            <h1 class="page-hero-title">Orquestación Digital:<br>Ingeniería de <span class="text-accent">Procesos
+                    Pro.</span></h1>
+            <p class="page-hero-subtitle">Diseñamos ecosistemas inteligentes que trabajan 24/7 por usted. Conectamos su
+                software, IA y datos para eliminar el trabajo manual y escalar su negocio.</p>
+            <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20un%20diagnóstico%20de%20automatización%20para%20mi%20empresa"
+                target="_blank" class="btn btn-primary">Solicitar Diagnóstico Gratis</a>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="concept-grid reveal">
+                <div>
+                    <div class="section-label" style="margin-bottom:12px;">¿Qué es la Automatización Estratégica?</div>
+                    <h2
+                        style="font-family:var(--font-head);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:16px;">
+                        "No se trata solo de tecnología,<br>se trata de <span class="text-accent">libertad.</span>"</h2>
+                    <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:24px;">Cada proceso manual que
+                        su equipo repite todos los días es tiempo y dinero que se desperdicia. La automatización
+                        estratégica hace que sus sistemas trabajen 24/7 sin errores humanos, sin cansancio, sin
+                        interrupciones.</p>
+                    <p style="color:var(--text-secondary);line-height:1.8;">Usando n8n como motor de orchestración,
+                        conectamos cualquier aplicación que su empresa ya usa — sin escribir miles de líneas de código.
+                    </p>
+                </div>
+
+                <!-- Apps integration cloud -->
+                <div>
+                    <div class="flow-anim-container">
+                        <div class="flow-node-pro">💬</div>
+                        <div class="flow-node-pro">🤖</div>
+                        <div class="flow-node-pro accent">⚙️</div>
+                        <div class="flow-node-pro">📑</div>
+                    </div>
+                    <div
+                        style="text-align:center;margin-bottom:16px;font-size:0.8rem;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;">
+                        Infinitas posibilidades de integración</div>
+                    <div class="apps-grid">
+                        <div class="app-pill">💬 WhatsApp API</div>
+                        <div class="app-pill">📄 Google Workspace</div>
+                        <div class="app-pill">🧠 IA (GPT-4 / Claude)</div>
+                        <div class="app-pill">🎯 CRMs (HubSpot/Salesforce)</div>
+                        <div class="app-pill">💳 Pagos (Stripe/PayU)</div>
+                        <div class="app-pill">🛒 Shopify / Woo</div>
+                        <div class="app-pill">📋 Notion / Airtable</div>
+                        <div class="app-pill">⚡ + 400 Conexiones</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASOS DE USO -->
+    <section class="section-alt">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Casos de Uso</span>
+                <h2 class="section-title">Impacto Real por <span class="text-accent">Sector</span></h2>
+                <p class="section-subtitle">Automatizaciones que ya hemos implementado para negocios reales en Colombia.
+                </p>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+
+                <div class="card reveal reveal-delay-1" style="border-top:4px solid var(--accent);">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+                        <span style="font-size:2.5rem;">🏥</span>
+                        <h3
+                            style="font-family:var(--font-head);font-size:1.2rem;font-weight:800;color:var(--text-primary);">
+                            Salud & Clínicas</h3>
+                    </div>
+                    <ul style="display:flex;flex-direction:column;gap:12px;">
+                        <li
+                            style="display:flex;gap:10px;font-size:0.875rem;color:var(--text-secondary);line-height:1.4;">
+                            <span style="color:var(--accent);font-weight:bold;">→</span> Agendamiento autónomo por
+                            WhatsApp con IA.
+                        </li>
+                        <li
+                            style="display:flex;gap:10px;font-size:0.875rem;color:var(--text-secondary);line-height:1.4;">
+                            <span style="color:var(--accent);font-weight:bold;">→</span> Recordatorios multicanal para
+                            reducción de no-show.
+                        </li>
+                        <li
+                            style="display:flex;gap:10px;font-size:0.875rem;color:var(--text-secondary);line-height:1.4;">
+                            <span style="color:var(--accent);font-weight:bold;">→</span> Sincronización bidireccional de
+                            agendas médicas.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card reveal reveal-delay-2" style="border-top:4px solid var(--accent);">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+                        <span style="font-size:2.5rem;">🏢</span>
+                        <h3
+                            style="font-family:var(--font-head);font-size:1.2rem;font-weight:800;color:var(--text-primary);">
+                            Real Estate</h3>
+                    </div>
+                    <ul style="display:flex;flex-direction:column;gap:12px;">
+                        <li
+                            style="display:flex;gap:10px;font-size:0.875rem;color:var(--text-secondary);line-height:1.4;">
+                            <span style="color:var(--accent);font-weight:bold;">→</span> Calificación de leads 24/7
+                            mediante IA conversacional.
+                        </li>
+                        <li
+                            style="display:flex;gap:10px;font-size:0.875rem;color:var(--text-secondary);line-height:1.4;">
+                            <span style="color:var(--accent);font-weight:bold;">→</span> Despacho automático de
+                            catálogos y PDF técnicos.
+                        </li>
+                        <li
+                            style="display:flex;gap:10px;font-size:0.875rem;color:var(--text-secondary);line-height:1.4;">
+                            <span style="color:var(--accent);font-weight:bold;">→</span> Alertas en tiempo real para
+                            asesores comerciales.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card reveal reveal-delay-3" style="border-top:4px solid var(--accent);">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+                        <span style="font-size:2.5rem;">🛍️</span>
+                        <h3
+                            style="font-family:var(--font-head);font-size:1.2rem;font-weight:800;color:var(--text-primary);">
+                            E-Commerce Pro</h3>
+                    </div>
+                    <ul style="display:flex;flex-direction:column;gap:12px;">
+                        <li
+                            style="display:flex;gap:10px;font-size:0.875rem;color:var(--text-secondary);line-height:1.4;">
+                            <span style="color:var(--accent);font-weight:bold;">→</span> Control inteligente de
+                            inventarios multitienda.
+                        </li>
+                        <li
+                            style="display:flex;gap:10px;font-size:0.875rem;color:var(--text-secondary);line-height:1.4;">
+                            <span style="color:var(--accent);font-weight:bold;">→</span> Automatización completa de
+                            guías y envíos.
+                        </li>
+                        <li
+                            style="display:flex;gap:10px;font-size:0.875rem;color:var(--text-secondary);line-height:1.4;">
+                            <span style="color:var(--accent);font-weight:bold;">→</span> Recuperación de carritos vía
+                            WhatsApp dinámico.
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PLAN DE IMPLEMENTACIÓN -->
+    <section id="planes">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Inversión</span>
+                <h2 class="section-title">Plan de <span class="text-accent">Implementación</span></h2>
+                <p class="section-subtitle">Un proceso metodológico en dos fases para garantizar el éxito de su
+                    automatización.</p>
+            </div>
+
+            <div class="pricing-grid-auto reveal">
+
+                <div class="pricing-card" style="border:1px solid var(--accent);background:var(--accent-dim);">
+                    <div class="pricing-badge" style="background:var(--accent);color:white;">Fase 1: Construcción</div>
+                    <div class="pricing-plan-name" style="margin-top:10px;">Ingeniería de Procesos</div>
+                    <div style="font-size:0.85rem;color:var(--accent);font-weight:700;margin-bottom:8px;">Meses 1 al 6 ·
+                        Implementación Pro</div>
+                    <div class="pricing-price"><sup>$</sup>950.000<span>/mes</span></div>
+                    <p class="pricing-desc" style="font-size:0.9rem;">Transformamos procesos manuales en workflows
+                        digitales robustos y escalables.</p>
+                    <ul class="pricing-features" style="margin:20px 0;">
+                        <li class="pricing-feature"><span class="check" style="background:var(--accent);"><svg
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white"
+                                    stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Auditoría técnica de procesos</li>
+                        <li class="pricing-feature"><span class="check" style="background:var(--accent);"><svg
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white"
+                                    stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Arquitectura de flujos en n8n</li>
+                        <li class="pricing-feature"><span class="check" style="background:var(--accent);"><svg
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white"
+                                    stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Integración de IA & Software</li>
+                        <li class="pricing-feature"><span class="check" style="background:var(--accent);"><svg
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white"
+                                    stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Capacitación & Handover</li>
+                    </ul>
+                    <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20agendar%20mi%20diagnóstico%20de%20automatización%20gratuito"
+                        target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;">Diagnóstico
+                        Gratis</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-badge"
+                        style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);">
+                        Fase 2: Optimización</div>
+                    <div class="pricing-plan-name" style="margin-top:10px;">Monitor & Mejora</div>
+                    <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:8px;">Mes 7+ · Soporte Continuo
+                    </div>
+                    <div class="pricing-price"><sup>$</sup>400.000<span>/mes</span></div>
+                    <p class="pricing-desc" style="font-size:0.9rem;">Evolución y mantenimiento de su ecosistema para
+                        estabilidad total.</p>
+                    <ul class="pricing-features" style="margin:20px 0;">
+                        <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Monitoreo 24/7 de errores</li>
+                        <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Nuevas integraciones ligeras</li>
+                        <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Soporte técnico prioritario</li>
+                        <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Data Quality & Analytics</li>
+                    </ul>
+                    <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20agendar%20mi%20diagnóstico%20de%20automatización%20gratuito"
+                        target="_blank" class="btn btn-outline"
+                        style="width:100%;justify-content:center;border-color:var(--border);">Diagnóstico Gratis</a>
+                </div>
+
+            </div>
+
+            <p style="text-align:center;color:var(--text-muted);font-size:0.82rem;margin-top:20px;">* Contrato de
+                permanencia de 6 meses en Fase 1. Sin permanencia en Fase 2.</p>
+        </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="section-alt">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Proceso</span>
+                <h2 class="section-title">Del Análisis al <span class="text-accent">Lanzamiento</span></h2>
+            </div>
+            <div class="steps-grid-5 reveal" style="border:1px solid var(--border);border-radius:20px;overflow:hidden;">
+                <div class="step-item">
+                    <div class="step-num">01</div>
+                    <div class="step-title">Análisis</div>
+                    <p class="step-desc">Mapeamos todos sus procesos. Identificamos los cuellos de botella que más
+                        dinero le cuestan.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">02</div>
+                    <div class="step-title">Arquitectura</div>
+                    <p class="step-desc">Diseñamos el blueprint técnico de su ecosistema digital. Validamos con usted
+                        antes de desarrollar.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">03</div>
+                    <div class="step-title">Desarrollo</div>
+                    <p class="step-desc">Construimos los workflows en n8n, configuramos integraciones y creamos los
+                        dashboards de control.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">04</div>
+                    <div class="step-title">Testeo</div>
+                    <p class="step-desc">Probamos cada escenario posible. Zero bugs tolerados en producción.
+                        Capacitación de su equipo.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">05</div>
+                    <div class="step-title">Lanzamiento</div>
+                    <p class="step-desc">Go live con monitoreo activo las primeras semanas. Su negocio en piloto
+                        automático desde el día 1.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+        <div class="container">
+            <div class="cta-block reveal">
+                <div class="cta-title">¿Cuánto dinero está perdiendo<br>por <span class="text-accent">procesos
+                        manuales</span> lentos?</div>
+                <p class="cta-subtitle">Agende una consultoría técnica gratuita. Analizamos sus procesos y le decimos
+                    exactamente qué y cuánto podemos automatizar — sin costo.</p>
+                <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20agendar%20mi%20diagnóstico%20de%20automatización%20gratuito"
+                    target="_blank" class="btn btn-primary" style="font-size:1rem;padding:16px 40px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="currentColor" style="margin-right:8px;">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Diagnóstico Gratis
+                </a>
+            </div>
+        </div>
+    </section>
+
+      <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">
+            <a href="index.html" class="logo-text-container static-logo">
+              <span class="logo-words">
+                <span class="logo-word">DAVID</span>
+                <span class="logo-word">MU<span class="glow-char">Ñ</span>OZ</span>
+              </span>
+              <span class="logo-subtext">DISEÑADOR</span>
+            </a>
+          </div>
+          <p class="footer-brand-desc">Diseño, producción audiovisual y automatizaciones para marcas que quieren liderar en Ibagué, Tolima y Colombia.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/davidesign.co?igsh=YXJwempvMGxid2gz" class="social-link" title="Instagram" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/share/1GdNCi94S1/" class="social-link" title="Facebook" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="https://tiktok.com/@davidesign.co" class="social-link" title="TikTok" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+              </svg>
+            </a>
+            <a href="https://wa.me/573169642159" class="social-link" title="WhatsApp" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Servicios</div>
+          <ul class="footer-links">
+            <li><a href="planes-diseno.html">Diseño Gráfico Pro</a></li>
+            <li><a href="planes-instagrowth.html">InstaGrowth Pro</a></li>
+            <li><a href="produccion.html">Fotografía & Video</a></li>
+            <li><a href="automatizacion.html">Automatizaciones n8n</a></li>
+            <li><a href="web-premium.html">Web & Tech Premium</a></li>
+            <li><a href="portafolio.html">Portafolio</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Empresa</div>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/573169642159" target="_blank">WhatsApp</a></li>
+            <li><a href="https://www.instagram.com/davidesign.co?igsh=YXJwempvMGxid2gz" target="_blank">Instagram</a></li>
+            <li><a href="https://www.facebook.com/share/1GdNCi94S1/" target="_blank">Facebook</a></li>
+            <li><a href="https://tiktok.com/@davidesign.co" target="_blank">TikTok</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Ubicación</div>
+          <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.8;">
+            Ibagué, Tolima<br>Colombia<br><br>
+            Lun – Vie<br>8:00 am – 6:00 pm
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 <span class="footer-accent">David Muñoz Diseñador</span>. Todos los derechos reservados.</p>
+        <p class="footer-copy">Diseño <span class="footer-accent">Tech-Premium</span> · Ibagué, Colombia</p>
+      </div>
+    </div>
+  </footer>
+    <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20agendar%20mi%20diagnóstico%20de%20automatización%20gratuito"
+        target="_blank" class="floating-cta" id="floatingCTA">
+        <span>Diagnóstico Gratis</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script src="js/logo-particles.js"></script>
+</body>
+
+</html>

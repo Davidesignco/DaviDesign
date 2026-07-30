@@ -1,0 +1,3573 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio Estilo Instagram | David Muñoz Diseñador | Suscripción Creativa</title>
+  <link rel="icon" type="image/svg+xml" href="Logos/iso-logo-davidmunoz.svg?v=1.2">
+  <meta name="description"
+    content="Explore el portafolio interactivo de David Muñoz Torres, estructurado como perfil de Instagram. Más de 10 años de experiencia en diseño gráfico, e-commerce y producción audiovisual.">
+  <meta name="keywords"
+    content="portafolio david muñoz, diseño gráfico ibague, fotógrafo ibague, marketing digital, branding ibague">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Portafolio Estilo Instagram | David Muñoz Diseñador">
+  <meta property="og:description"
+    content="Diseño, Producción Audiovisual & Automatizaciones. Explora mis proyectos en formato interactivo.">
+  <meta property="og:type" content="website">
+
+  <style>
+    /* ── STYLING PORTAFOLIO INSTAGRAM ─────────────────────────── */
+    .instagram-wrapper {
+      padding-top: 100px;
+      padding-bottom: 60px;
+      background: var(--bg-deep);
+      min-height: 100vh;
+    }
+
+    .instagram-container {
+      max-width: 935px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Perfil */
+    .profile-header {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      grid-template-areas:
+        "avatar username"
+        "avatar meta"
+        "avatar bio";
+      gap: 12px 40px;
+      align-items: flex-start;
+      margin-bottom: 44px;
+    }
+
+    .profile-username-container {
+      grid-area: username;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .profile-desktop-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .avatar-wrapper {
+      grid-area: avatar;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .avatar-ring {
+      width: 168px;
+      height: 168px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #00EDFF, #0080FF, #00eedb);
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      box-shadow: 0 0 20px rgba(0, 237, 255, 0.2);
+      transition: transform 0.4s var(--ease-spring), box-shadow 0.4s ease;
+    }
+
+    .avatar-ring:hover {
+      transform: scale(1.04) rotate(5deg);
+      box-shadow: 0 0 35px rgba(0, 237, 255, 0.45);
+    }
+
+    .live-badge {
+      position: absolute;
+      bottom: -6px;
+      background: linear-gradient(135deg, #FF3B3B, #FF6B35);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 2px solid var(--bg-deep);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 10px rgba(255, 59, 59, 0.3);
+    }
+
+    .avatar-ring img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--bg-deep);
+      background: #02050b;
+    }
+
+    .profile-handle {
+      font-family: var(--font-head);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+    }
+
+    .instagram-verified-badge {
+      fill: var(--accent);
+      width: 20px;
+      height: 20px;
+      margin-left: 6px;
+      filter: drop-shadow(0 0 6px rgba(0, 237, 255, 0.4));
+    }
+
+    .profile-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      padding: 7px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s var(--ease);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .profile-btn:hover {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+      color: var(--text-primary);
+      box-shadow: 0 0 10px rgba(0, 237, 255, 0.15);
+    }
+
+    .profile-btn.btn-cta-ig {
+      background: var(--grad-accent);
+      border: none;
+      color: #000;
+    }
+
+    .profile-btn.btn-cta-ig:hover {
+      background: linear-gradient(135deg, #00f0ff, #33a1ff);
+      box-shadow: 0 0 15px rgba(0, 237, 255, 0.35);
+      color: #000;
+    }
+
+
+
+    .profile-meta-container {
+      grid-area: meta;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .profile-name-mobile {
+      display: none;
+    }
+
+    .profile-actions-mobile {
+      display: none;
+    }
+
+    .profile-stats-row {
+      display: flex;
+      gap: 40px;
+      font-size: 0.95rem;
+    }
+
+    .stat-number-ig {
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .stat-label-ig {
+      color: var(--text-secondary);
+    }
+
+    .profile-bio-container {
+      grid-area: bio;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      border-left: 2px solid var(--accent-dim);
+      padding-left: 14px;
+    }
+
+    .profile-name-desktop {
+      font-weight: 700;
+      color: var(--text-primary);
+      font-size: 0.98rem;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .profile-bio-text {
+      white-space: pre-line;
+    }
+
+    .profile-bio-link {
+      color: var(--accent);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 6px;
+      transition: color 0.2s ease;
+    }
+
+    .profile-bio-link:hover {
+      color: #0080FF;
+      text-decoration: underline;
+    }
+
+    /* Tabs Bar */
+    .tab-bar {
+      display: flex;
+      justify-content: center;
+      border-top: 1px solid var(--border);
+      margin-bottom: 28px;
+      gap: 40px;
+    }
+
+    .tab-button {
+      background: none;
+      border: none;
+      border-top: 1px solid transparent;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 18px 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .tab-button svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    .tab-button:hover,
+    .tab-button.active {
+      color: var(--accent);
+    }
+
+    .tab-button.active::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    /* Grid de Contenidos */
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .grid-item {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: #02050b;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.35s var(--ease), border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .grid-item:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-strong);
+      box-shadow: 0 8px 30px rgba(0, 237, 255, 0.15);
+    }
+
+    .grid-item-media {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .grid-item:hover .grid-item-media {
+      transform: scale(1.05);
+    }
+
+    /* Hover overlay style */
+    .grid-item-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(5, 10, 21, 0.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 2;
+    }
+
+    .grid-item:hover .grid-item-overlay {
+      opacity: 1;
+    }
+
+    .overlay-metric {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .overlay-metric svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    /* Play/Reel icon top-right */
+    .reel-indicator {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      z-index: 1;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .reel-indicator svg {
+      width: 12px;
+      height: 12px;
+      fill: currentColor;
+      margin-left: 2px; /* Center play button slightly */
+    }
+
+    .carousel-indicator {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      z-index: 1;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .carousel-indicator svg {
+      width: 12px;
+      height: 12px;
+      fill: currentColor;
+    }
+
+    /* ── TAB 3: SOBRE MÍ (CV) ────────────────────────────────── */
+    .cv-container {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .cv-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .cv-section-title {
+      font-family: var(--font-head);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+
+    .cv-section-title svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Timeline design */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+      padding-left: 20px;
+      border-left: 2px solid var(--border);
+      margin-left: 10px;
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      position: absolute;
+      left: -27px;
+      top: 6px;
+      border: 3px solid var(--bg-card);
+      box-shadow: 0 0 8px var(--accent);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .timeline-role {
+      font-family: var(--font-head);
+      font-weight: 700;
+      color: var(--text-primary);
+      font-size: 1rem;
+    }
+
+    .timeline-company {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .timeline-date {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    .timeline-desc {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .timeline-desc li {
+      margin-bottom: 4px;
+      position: relative;
+      padding-left: 12px;
+    }
+
+    .timeline-desc li::before {
+      content: "•";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+    }
+
+    /* Skills block */
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .skill-bar-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .skill-info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .skill-track {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .skill-fill {
+      height: 100%;
+      background: var(--grad-accent);
+      border-radius: 4px;
+      width: 0; /* Animated in JS */
+      transition: width 1.5s var(--ease);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    /* Highlights (stories design) */
+    .highlights-container {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 40px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      scrollbar-width: none; /* Firefox */
+    }
+
+    .highlights-container::-webkit-scrollbar {
+      display: none; /* Safari/Chrome */
+    }
+
+    .highlight-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .highlight-circle {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      padding: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .highlight-circle:hover {
+      border-color: var(--accent);
+      transform: scale(1.05);
+      box-shadow: 0 4px 18px rgba(0, 237, 255, 0.25);
+    }
+
+    .highlight-inner {
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      border: 1px dashed var(--border);
+      color: var(--accent);
+    }
+
+    .highlight-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.5px;
+      max-width: 80px;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* ── LIGHTBOX MODAL ─────────────────────────────────────── */
+    .instagram-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(3, 5, 10, 0.95);
+      z-index: 2500;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .instagram-modal.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      padding: 8px;
+      z-index: 2502;
+      transition: color 0.25s ease;
+    }
+
+    .modal-close-btn:hover {
+      color: var(--accent);
+    }
+
+    .modal-close-btn svg {
+      width: 28px;
+      height: 28px;
+      fill: currentColor;
+    }
+
+    .modal-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      display: flex;
+      width: 100%;
+      max-width: 980px;
+      height: 80vh;
+      min-height: 500px;
+      max-height: 750px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+
+    .modal-media-panel {
+      flex: 1.25;
+      background: #020408;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .modal-media-element {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: none;
+    }
+
+    .modal-media-element.active {
+      display: block;
+    }
+
+    .modal-sidebar {
+      flex: 0.75;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border-left: 1px solid var(--border);
+      background: var(--bg-card);
+    }
+
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .sidebar-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      padding: 2px;
+    }
+
+    .sidebar-avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .sidebar-user-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-username {
+      font-weight: 700;
+      color: var(--text-primary);
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .sidebar-category {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    .sidebar-action-btn {
+      color: var(--accent);
+      background: none;
+      border: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .sidebar-action-btn:hover {
+      color: #0080FF;
+    }
+
+    .sidebar-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      scrollbar-width: thin;
+    }
+
+    .sidebar-content::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .sidebar-content::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 2px;
+    }
+
+    .post-caption-box {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .caption-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .caption-avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .caption-text-container {
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .caption-author {
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-right: 6px;
+    }
+
+    .caption-body {
+      color: var(--text-secondary);
+    }
+
+    .caption-tools {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tool-tag-ig {
+      font-size: 0.72rem;
+      background: rgba(0, 237, 255, 0.08);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* Comments list style */
+    .comments-section {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      border-top: 1px solid rgba(0, 237, 255, 0.06);
+      padding-top: 14px;
+    }
+
+    .comment-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 0.85rem;
+    }
+
+    .comment-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #02050b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.65rem;
+      border: 1px solid var(--border);
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .comment-author {
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-right: 6px;
+    }
+
+    .comment-text {
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    /* Sidebar Footer Actions */
+    .sidebar-footer {
+      border-top: 1px solid var(--border);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-actions-row {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-primary);
+    }
+
+    .footer-actions-left {
+      display: flex;
+      gap: 16px;
+    }
+
+    .action-icon-btn {
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      transition: color 0.2s ease, transform 0.15s ease;
+    }
+
+    .action-icon-btn:hover {
+      color: var(--accent);
+      transform: scale(1.1);
+    }
+
+    .action-icon-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+    }
+
+    .action-icon-btn.liked {
+      color: #FF3B3B;
+    }
+    .action-icon-btn.liked svg {
+      fill: #FF3B3B;
+      stroke: #FF3B3B;
+    }
+
+    .post-likes-count {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .post-date-tag {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .cta-whatsapp-bar {
+      margin-top: 4px;
+    }
+
+    .cta-whatsapp-btn {
+      display: flex;
+      width: 100%;
+      background: var(--grad-cta);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 10px;
+      border-radius: 8px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 15px var(--cta-glow);
+    }
+
+    .cta-whatsapp-btn:hover {
+      background: linear-gradient(135deg, #ff4c4c, #ff8452);
+      box-shadow: 0 6px 20px rgba(255, 59, 59, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .cta-website-btn {
+      display: flex;
+      width: 100%;
+      background: var(--grad-accent);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 10px;
+      border-radius: 8px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 15px rgba(0, 237, 255, 0.25);
+    }
+
+    .cta-website-btn:hover {
+      background: linear-gradient(135deg, #00f0ff, #33a1ff);
+      box-shadow: 0 6px 20px rgba(0, 237, 255, 0.45);
+      transform: translateY(-2px);
+      color: #000;
+    }
+
+    /* Carousel controls */
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(10, 20, 40, 0.6);
+      border: 1px solid var(--border);
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 5;
+      transition: all 0.2s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    .carousel-arrow:hover {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+
+    .carousel-arrow.arrow-left {
+      left: 16px;
+    }
+
+    .carousel-arrow.arrow-right {
+      right: 16px;
+    }
+
+    .carousel-arrow svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.5;
+    }
+
+    /* Carousel dots */
+    .carousel-dots {
+      position: absolute;
+      bottom: 16px;
+      display: flex;
+      gap: 6px;
+      z-index: 5;
+    }
+
+    .carousel-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      transition: all 0.25s ease;
+    }
+
+    .carousel-dot.active {
+      background: var(--accent);
+      transform: scale(1.3);
+      box-shadow: 0 0 8px var(--accent);
+    }
+
+    /* ── RESPONSIVE DESIGN ──────────────────────────────────── */
+    @media (max-width: 768px) {
+      .instagram-wrapper {
+        padding-top: 80px;
+        padding-bottom: 40px;
+      }
+
+      .profile-header {
+        display: grid;
+        grid-template-columns: 86px 1fr; /* Columna fija para el avatar evita que se ovalice */
+        grid-template-areas:
+          "username username"
+          "avatar meta"
+          "avatar actions"
+          "bio bio";
+        gap: 12px 16px;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+
+      .profile-username-container {
+        grid-area: username;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 8px;
+      }
+
+      .profile-desktop-actions {
+        display: none;
+      }
+
+      .avatar-wrapper {
+        grid-area: avatar;
+        display: flex;
+        justify-content: center;
+        align-self: start;
+        flex-shrink: 0;
+      }
+
+      .avatar-ring {
+        width: 86px;
+        height: 86px;
+        padding: 2px;
+        flex-shrink: 0;
+      }
+
+      .live-badge {
+        font-size: 0.55rem;
+        padding: 1px 5px;
+        bottom: -4px;
+        border-width: 1px;
+      }
+
+      .profile-meta-container {
+        grid-area: meta;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        width: 100%;
+        align-items: flex-start;
+      }
+
+      .profile-name-mobile {
+        display: block;
+        font-weight: 700;
+        color: var(--text-primary);
+        font-size: 1rem;
+        margin-bottom: 2px;
+        text-align: left;
+      }
+
+      .profile-stats-row {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        gap: 6px;
+        margin-top: 4px;
+      }
+
+      .profile-stats-row > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        min-width: 0;
+      }
+
+      .stat-number-ig {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        white-space: nowrap;
+      }
+
+      .stat-label-ig {
+        font-size: 0.65rem;
+        color: var(--text-secondary);
+        white-space: nowrap;
+      }
+
+      .profile-bio-container {
+        grid-area: bio;
+        border-left: none;
+        padding-left: 0;
+        margin-top: 4px;
+        width: 100%;
+      }
+
+      .profile-name-desktop {
+        display: none;
+      }
+
+      .profile-actions-mobile {
+        grid-area: actions;
+        display: flex;
+        gap: 8px;
+        width: 100%;
+      }
+
+      .profile-actions-mobile .profile-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+      }
+
+      .grid-container {
+        gap: 3px;
+      }
+
+      .grid-item {
+        border-radius: 0;
+        border: none;
+      }
+
+      .reel-indicator,
+      .carousel-indicator {
+        top: 6px;
+        right: 6px;
+        width: 22px;
+        height: 22px;
+      }
+
+      .reel-indicator svg,
+      .carousel-indicator svg {
+        width: 10px;
+        height: 10px;
+      }
+
+      .cv-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .cv-card {
+        padding: 20px;
+      }
+
+      /* Tab bar scrollable en móvil */
+      .tab-bar {
+        justify-content: flex-start;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 24px;
+        padding: 0 16px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .tab-bar::-webkit-scrollbar {
+        display: none;
+      }
+
+      .tab-button {
+        flex-shrink: 0;
+      }
+
+      /* Lightbox Modal Responsive */
+      .modal-box {
+        flex-direction: column;
+        height: 85vh;
+        max-height: 90vh;
+      }
+
+      .modal-media-panel {
+        flex: 1;
+        min-height: 260px;
+      }
+
+      .modal-sidebar {
+        flex: 1;
+        border-left: none;
+        border-top: 1px solid var(--border);
+        min-height: 0;
+      }
+
+      .sidebar-header {
+        padding: 10px 16px;
+      }
+
+      .sidebar-content {
+        padding: 12px 16px;
+        gap: 12px;
+        min-height: 0;
+      }
+
+      .sidebar-footer {
+        padding: 12px 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .profile-header {
+        align-items: center;
+      }
+      .instagram-container {
+        padding: 0 12px; /* Más espacio para columnas en móviles */
+      }
+    }
+
+    @media (max-width: 380px) {
+      .profile-header {
+        grid-template-columns: 76px 1fr; /* Columna de avatar más compacta */
+        grid-template-areas:
+          "username username"
+          "avatar meta"
+          "bio bio"
+          "actions actions";
+        gap: 8px 12px;
+      }
+
+      .avatar-ring {
+        width: 76px;
+        height: 76px;
+      }
+
+      .profile-stats-row {
+        gap: 4px;
+      }
+
+      .stat-number-ig {
+        font-size: 0.88rem;
+      }
+
+      .stat-label-ig {
+        font-size: 0.58rem;
+        letter-spacing: -0.2px;
+      }
+
+      .profile-actions-mobile {
+        grid-area: actions;
+        margin-top: 8px;
+      }
+
+      .profile-actions-mobile .profile-btn {
+        padding: 6px 8px;
+        font-size: 0.75rem;
+      }
+    }
+  
+    /* Highlights Image clip */
+    .highlight-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    /* Stories Modal Styling */
+    .stories-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 10, 15, 0.98);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .stories-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+    
+    .stories-modal-content {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      height: 100%;
+      max-height: 800px;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+    }
+    
+    @media (max-width: 480px) {
+      .stories-modal-content {
+        max-width: 100%;
+        height: 100%;
+        max-height: 100%;
+        border-radius: 0;
+      }
+    }
+    
+    /* Progress Bar */
+    .story-progress-bar-container {
+      position: absolute;
+      top: 12px;
+      left: 10px;
+      right: 10px;
+      display: flex;
+      gap: 4px;
+      z-index: 10;
+    }
+    
+    .story-progress-track {
+      height: 3px;
+      background: rgba(255, 255, 255, 0.3);
+      flex: 1;
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .story-progress-fill {
+      height: 100%;
+      background: #fff;
+      width: 0%;
+    }
+    
+    /* Header */
+    .story-header {
+      position: absolute;
+      top: 24px;
+      left: 15px;
+      right: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+      color: #fff;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    }
+    
+    .story-user-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .story-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.5);
+      object-fit: cover;
+    }
+    
+    .story-username {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+    
+    .story-time {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+    }
+    
+    .story-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .story-controls button {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+    
+    .story-controls button:hover {
+      opacity: 1;
+    }
+    
+    /* Media Container */
+    .story-media-container {
+      position: relative;
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+    }
+    
+    .story-media-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+    
+    /* Overlay split-tap navigation areas */
+    .story-nav-prev, .story-nav-next {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      z-index: 5;
+      cursor: pointer;
+    }
+    
+    .story-nav-prev {
+      left: 0;
+      width: 30%;
+    }
+    
+    .story-nav-next {
+      right: 0;
+      width: 70%;
+    }
+</style>
+</head>
+
+<body>
+
+  <!-- -- NAVIGATION -------------------------------------------- -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo logo-text-container" id="navLogoContainer">
+          <canvas class="logo-particles-canvas logo-particles-back"></canvas>
+          <span class="logo-words">
+            <span class="logo-word">DAVID</span>
+            <span class="logo-word">MU<span class="glow-char" id="glowÑ">Ñ</span>OZ</span>
+          </span>
+          <span class="logo-subtext">DISEÑADOR</span>
+          <canvas class="logo-particles-canvas logo-particles-front"></canvas>
+        </a>
+
+        <ul class="nav-links">
+          <li class="nav-dropdown">
+            <a class="nav-dropdown-toggle" href="#">
+              Planes
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="planes-diseno.html">🎨 Diseño Gráfico Pro</a>
+              <a href="planes-instagrowth.html">📱📸 InstaGrowth Pro</a>
+            </div>
+          </li>
+          <li><a href="produccion.html">Fotografía &amp; Video</a></li>
+          <li><a href="automatizacion.html">Automatizaciones</a></li>
+          <li><a href="web-premium.html">Web Premium</a></li>
+          <li><a href="portafolio.html" class="active">Portafolio</a></li>
+          <li>
+            <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios"
+              target="_blank" class="nav-cta btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                style="margin-right: 6px; vertical-align: middle;">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+              Cotizar Gratis
+            </a>
+          </li>
+        </ul>
+
+        <button class="nav-toggle" aria-label="Abrir menú" id="navToggle">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Mobile Nav -->
+  <div class="nav-mobile" id="navMobile">
+    <a href="planes-diseno.html">Diseño Gráfico Pro</a>
+    <a href="planes-instagrowth.html">InstaGrowth Pro</a>
+    <a href="produccion.html">Fotografía &amp; Video</a>
+    <a href="automatizacion.html">Automatizaciones</a>
+    <a href="web-premium.html">Web Premium</a>
+    <a href="portafolio.html" class="active">Portafolio</a>
+    <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20informaci%C3%B3n" target="_blank"
+      class="btn btn-primary mt-24">Cotizar Gratis</a>
+  </div>
+
+  <!-- -- PORTFOLIO CONTENT -------------------------------------- -->
+  <div class="instagram-wrapper">
+    <div class="instagram-container">
+
+      <!-- Cabecera de Perfil -->
+      <header class="profile-header">
+        <div class="profile-username-container">
+          <h2 class="profile-handle">davidesign.co</h2>
+          <svg class="instagram-verified-badge" viewBox="0 0 24 24" width="20" height="20">
+            <path
+              d="M12.003 2.001c.53 0 1.05.15 1.5.43l1.83 1.13c.27.17.59.25.92.23l2.13-.15c.53-.04 1.05.13 1.47.48.42.34.69.83.76 1.36l.29 2.13c.04.33.2.63.43.86l1.53 1.5c.38.37.61.88.63 1.41.02.53-.17 1.05-.53 1.44l-1.53 1.5c-.23.23-.39.53-.43.86l-.29 2.13c-.07.53-.34 1.02-.76 1.36-.42.35-.94.52-1.47.48l-2.13-.15c-.33-.02-.65.06-.92.23l-1.83 1.13c-.45.28-.97.43-1.5.43s-1.05-.15-1.5-.43l-1.83-1.13c-.27-.17-.59-.25-.92-.23l-2.13.15c-.53.04-1.05-.13-1.47-.48-.42-.34-.69-.83-.76-1.36l-.29-2.13c-.04-.33-.2-.63-.43-.86l-1.53-1.5c-.38-.37-.61-.88-.63-1.41-.02-.53.17-1.05.53-1.44l1.53-1.5c.23-.23.39-.53.43-.86l.29-2.13c.07-.53.34-1.02.76-1.36.42-.35.94-.52 1.47-.48l2.13.15c.33.02.65-.06.92-.23l1.83-1.13c.45-.28.97-.43 1.5-.43zm-2.002 14l6.002-6.002-1.414-1.414-4.588 4.588-2.176-2.176-1.414 1.414 3.59 3.59z" />
+          </svg>
+          <div class="profile-desktop-actions">
+            <a href="https://wa.me/573169642159?text=Hola%20David%2C%20vi%20tu%20portafolio%20y%20quiero%20cotizar%20un%20proyecto"
+              target="_blank" class="profile-btn btn-cta-ig">Contactar</a>
+            <a href="javascript:void(0)" onclick="switchTab('cv-tab'); document.querySelector('.tab-bar').scrollIntoView({ behavior: 'smooth' });" class="profile-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              Currículum
+            </a>
+          </div>
+        </div>
+
+        <div class="avatar-wrapper">
+          <div class="avatar-ring" id="profileAvatarRing">
+            <img src="portafolio/img_perfil_reducida.png" alt="David Muñoz Torres" loading="lazy">
+            <span class="live-badge">En Vivo</span>
+          </div>
+        </div>
+
+        <div class="profile-meta-container">
+          <div class="profile-name-mobile">David Muñoz Torres</div>
+          
+          <div class="profile-stats-row">
+            <div><span class="stat-number-ig">35</span> <span class="stat-label-ig">publicaciones</span></div>
+            <div><span class="stat-number-ig">320+</span> <span class="stat-label-ig">clientes</span></div>
+            <div><span class="stat-number-ig">10</span> <span class="stat-label-ig">años exp.</span></div>
+          </div>
+        </div>
+
+        <div class="profile-bio-container">
+          <span class="profile-name-desktop">David Muñoz Torres</span>
+          <div class="profile-bio-text">Diseñador Gráfico · Consultor Digital · E-commerce Specialist
+Amazon Account Manager 🚀
+Experiencia internacional en España 🇪🇸 y Latinoamérica 🇨🇴
+Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.</div>
+          <a href="https://wa.me/573169642159" target="_blank" class="profile-bio-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" style="vertical-align: middle;">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+            </svg>
+            linktr.ee/davidesign.co
+          </a>
+        </div>
+
+        <div class="profile-actions-mobile">
+          <a href="https://wa.me/573169642159?text=Hola%20David%2C%20vi%20tu%20portafolio%20y%20quiero%20cotizar%20un%20proyecto"
+            target="_blank" class="profile-btn btn-cta-ig">Contactar</a>
+          <a href="javascript:void(0)" onclick="switchTab('cv-tab'); document.querySelector('.tab-bar').scrollIntoView({ behavior: 'smooth' });" class="profile-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            Currículum
+          </a>
+        </div>
+
+      </header>
+
+      <!-- Highlights Stories -->
+      <div class="highlights-container">
+        <div class="highlight-item" onclick="openStories('sobre-mi')">
+          <div class="highlight-circle">
+            <div class="highlight-inner">
+              <img src="portafolio/historias/Yportada.png" alt="Sobre Mí" loading="lazy">
+            </div>
+          </div>
+          <div class="highlight-label">Sobre Mí</div>
+        </div>
+        <div class="highlight-item" onclick="openStories('familia')">
+          <div class="highlight-circle">
+            <div class="highlight-inner">
+              <img src="portafolio/historias/Faportada.png" alt="Familia" loading="lazy">
+            </div>
+          </div>
+          <div class="highlight-label">Familia</div>
+        </div>
+        <div class="highlight-item" onclick="openStories('friends')">
+          <div class="highlight-circle">
+            <div class="highlight-inner">
+              <img src="portafolio/historias/Fportada.png" alt="Friends" loading="lazy">
+            </div>
+          </div>
+          <div class="highlight-label">Friends</div>
+        </div>
+        <div class="highlight-item" onclick="openStories('momentos')">
+          <div class="highlight-circle">
+            <div class="highlight-inner">
+              <img src="portafolio/historias/Mportada.png" alt="Momentos" loading="lazy">
+            </div>
+          </div>
+          <div class="highlight-label">Momentos</div>
+        </div>
+        <div class="highlight-item" onclick="openCurriculumQuickView()">
+          <div class="highlight-circle">
+            <div class="highlight-inner">📄</div>
+          </div>
+          <div class="highlight-label">Curriculum</div>
+        </div>
+      </div>
+
+      <!-- Tab bar de Instagram -->
+      <div class="tab-bar">
+        <button class="tab-button active" id="grid-btn" onclick="switchTab('grid-tab')">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="3" width="5" height="5" />
+            <rect x="11" y="3" width="5" height="5" />
+            <rect x="19" y="3" width="5" height="5" />
+            <rect x="3" y="11" width="5" height="5" />
+            <rect x="11" y="11" width="5" height="5" />
+            <rect x="19" y="11" width="5" height="5" />
+            <rect x="3" y="19" width="5" height="5" />
+            <rect x="11" y="19" width="5" height="5" />
+            <rect x="19" y="19" width="5" height="5" />
+          </svg>
+          Publicaciones
+        </button>
+        <button class="tab-button" id="reels-btn" onclick="switchTab('reels-tab')">
+          <svg viewBox="0 0 24 24">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
+            <polygon points="10 8 16 12 10 16 10 8" />
+          </svg>
+          Reels
+        </button>
+        <button class="tab-button" id="web-btn" onclick="switchTab('web-tab')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          Web
+        </button>
+        <button class="tab-button" id="cv-btn" onclick="switchTab('cv-tab')">
+          <svg viewBox="0 0 24 24">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+          Sobre Mí
+        </button>
+      </div>
+
+      <!-- Contenido de las pestañas -->
+
+      <!-- Pestaña 1: Cuadrícula General (Posts) -->
+      <div class="tab-content active" id="grid-tab">
+        <div class="grid-container" id="portfolioGrid">
+          <!-- Renderizado dinámicamente mediante JS -->
+        </div>
+      </div>
+
+      <!-- Pestaña 2: Reels (Solo Videos) -->
+      <div class="tab-content" id="reels-tab">
+        <div class="grid-container" id="reelsGrid">
+          <!-- Renderizado dinámicamente mediante JS -->
+        </div>
+      </div>
+
+      <!-- Pestaña 3: Sitios Web (Sólo Proyectos Web) -->
+      <div class="tab-content" id="web-tab">
+        <div class="grid-container" id="webGrid">
+          <!-- Renderizado dinámicamente mediante JS -->
+        </div>
+      </div>
+
+      <!-- Pestaña 3: Sobre Mí (Resume de David) -->
+      <div class="tab-content" id="cv-tab">
+        <div class="cv-container">
+          <!-- Columna Principal -->
+          <div style="display:flex; flex-direction:column; gap:24px;">
+            <!-- Extracto Profesional -->
+            <div class="cv-card">
+            <p style="font-size:0.95rem; line-height:1.6; color:var(--text-secondary);">
+              <strong style="color:var(--text-primary);">Profesional multidisciplinario</strong> con amplia experiencia en marketing digital, diseño gráfico, comercio electrónico y gestión de cuentas Amazon.<br><br>
+              Apasionado por la innovación y la optimización constante, integro herramientas de automatización, analítica y publicidad digital para maximizar el rendimiento de cada campaña. Mi objetivo es aportar soluciones efectivas que conecten las marcas con su público y generen crecimiento sostenible.
+            </p>
+          </div>
+
+          <!-- Experiencia -->
+          <div class="cv-card">
+            <h3 class="cv-section-title">
+              <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+              Experiencia Laboral
+            </h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-header">
+                  <div>
+                    <span class="timeline-role">Director de Marketing Digital</span><br>
+                    <span class="timeline-company">Grupo Oralteck — Madrid, España</span>
+                  </div>
+                  <span class="timeline-date">May 2025 – Oct 2025</span>
+                </div>
+                <ul class="timeline-desc">
+                  <li>Dirección estratégica de campañas digitales en Meta Ads, Google Ads y Amazon Ads.</li>
+                  <li>Gestión integral de catálogos, precios y Buy Box en Amazon Seller Central (España, Francia e Italia).</li>
+                  <li>Coordinación de contenido audiovisual y diseño de materiales publicitarios.</li>
+                  <li>Análisis de rentabilidad, control de stock y seguimiento de métricas clave.</li>
+                </ul>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-header">
+                  <div>
+                    <span class="timeline-role">Diseñador y Gestor de E-commerce</span><br>
+                    <span class="timeline-company">JBS Fitness — Madrid, España</span>
+                  </div>
+                  <span class="timeline-date">Feb 2024 – Mar 2025</span>
+                </div>
+                <ul class="timeline-desc">
+                  <li>Creación del sitio web y tienda online desde cero (estructura, diseño y funcionalidad).</li>
+                  <li>Implementación de estrategias de SEO, SEM y remarketing.</li>
+                  <li>Diseño de recursos gráficos y publicitarios para redes y web.</li>
+                  <li>Optimización de la conversión mediante análisis en Google Analytics.</li>
+                </ul>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-header">
+                  <div>
+                    <span class="timeline-role">Creador de Contenido y Diseñador Gráfico</span><br>
+                    <span class="timeline-company">Rotulaciones El Duende — Murcia, España</span>
+                  </div>
+                  <span class="timeline-date">Sep 2023 – Feb 2024</span>
+                </div>
+                <ul class="timeline-desc">
+                  <li>Diseño de piezas gráficas para impresión y rotulación comercial.</li>
+                  <li>Producción de contenido visual adaptado a campañas locales.</li>
+                  <li>Apoyo en la instalación de materiales y control de calidad de impresión.</li>
+                </ul>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-header">
+                  <div>
+                    <span class="timeline-role">Creador de Contenido y Diseñador Gráfico</span><br>
+                    <span class="timeline-company">Más Vinilos — Elxe, España</span>
+                  </div>
+                  <span class="timeline-date">May 2023 – Ago 2023</span>
+                </div>
+                <ul class="timeline-desc">
+                  <li>Diseño de materiales publicitarios y rotulación personalizada.</li>
+                  <li>Creación de contenido visual para redes sociales y catálogos.</li>
+                  <li>Participación en la impresión e instalación de piezas gráficas.</li>
+                </ul>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-header">
+                  <div>
+                    <span class="timeline-role">Diseñador Gráfico y Gestor de Campañas</span><br>
+                    <span class="timeline-company">Tu Marca Digital — Ibagué, Colombia</span>
+                  </div>
+                  <span class="timeline-date">Feb 2022 – Dic 2022</span>
+                </div>
+                <ul class="timeline-desc">
+                  <li>Creación de contenido visual para medios digitales e impresos.</li>
+                  <li>Diseño de identidad visual y material promocional.</li>
+                  <li>Ejecución de campañas publicitarias en redes sociales.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Columna Lateral: Habilidades e Info Académica -->
+          <div style="display:flex; flex-direction:column; gap:24px;">
+            <div class="cv-card">
+              <h3 class="cv-section-title">
+                <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                Herramientas
+              </h3>
+              <div class="skills-grid">
+                <div class="skill-bar-wrapper">
+                  <div class="skill-info"><span>Illustrator</span><span>90%</span></div>
+                  <div class="skill-track"><div class="skill-fill" data-width="90%"></div></div>
+                </div>
+                <div class="skill-bar-wrapper">
+                  <div class="skill-info"><span>Photoshop</span><span>85%</span></div>
+                  <div class="skill-track"><div class="skill-fill" data-width="85%"></div></div>
+                </div>
+                <div class="skill-bar-wrapper">
+                  <div class="skill-info"><span>After Effects & Video</span><span>89%</span></div>
+                  <div class="skill-track"><div class="skill-fill" data-width="89%"></div></div>
+                </div>
+                <div class="skill-bar-wrapper">
+                  <div class="skill-info"><span>Diseño Web (WordPress/Woo)</span><span>93%</span></div>
+                  <div class="skill-track"><div class="skill-fill" data-width="93%"></div></div>
+                </div>
+                <div class="skill-bar-wrapper">
+                  <div class="skill-info"><span>Amazon Account Manager</span><span>87%</span></div>
+                  <div class="skill-track"><div class="skill-fill" data-width="87%"></div></div>
+                </div>
+                <div class="skill-bar-wrapper">
+                  <div class="skill-info"><span>Plotter, Láser & Rotulación</span><span>95%</span></div>
+                  <div class="skill-track"><div class="skill-fill" data-width="95%"></div></div>
+                </div>
+              </div>
+              
+              <div style="margin-top: 32px;">
+                <h4 style="font-size:0.9rem; margin-bottom:16px; color:var(--text-primary); font-family:var(--font-head); font-weight:600;">Habilidades Principales</h4>
+                <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                  <span style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">Amazon Seller Central</span>
+                  <span style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">E-commerce (Shopify/Woo)</span>
+                  <span style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">Meta & Google Ads</span>
+                  <span style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">Diseño Gráfico Pro</span>
+                  <span style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">Google Analytics & SEO</span>
+                  <span style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">Optimización CRO</span>
+                  <span style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">Gestión de Proyectos</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="cv-card">
+              <h3 class="cv-section-title">
+                <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                Educación
+              </h3>
+              <div class="timeline" style="border-left:none; padding-left:0; margin-left:0;">
+                <div style="margin-bottom:16px;">
+                  <div class="timeline-role" style="font-size:0.9rem;">Dpl. Universitario Diseño de Productos Gráficos</div>
+                  <div class="timeline-company" style="font-size:0.82rem; margin-bottom:4px;">Univ. Antonio de Nebrija (España) · 2025</div>
+                  <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.4;">350h (14 ECTS). Certificación Apto, centrado en diseño, creatividad y producción visual.</div>
+                </div>
+                
+                <div style="margin-bottom:16px;">
+                  <div class="timeline-role" style="font-size:0.9rem;">Dpl. Universitario DOQ-CLEA-UAIII Diseño Gráfico</div>
+                  <div class="timeline-company" style="font-size:0.82rem; margin-bottom:4px;">Univ. CLEA (México) / Agencia Univ. DQ · 2025</div>
+                  <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.4;">350h. Enfoque en diseño profesional y productos gráficos digitales.</div>
+                </div>
+
+                <div style="margin-bottom:16px;">
+                  <div class="timeline-role" style="font-size:0.9rem;">Máster en Marketing Digital y Analítica Web</div>
+                  <div class="timeline-company" style="font-size:0.82rem; margin-bottom:4px;">Neetwork Business School (España) · 2019</div>
+                  <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.4;">950h. Módulos de SEO, Social Media, Analytics, WordPress y Ads.</div>
+                </div>
+
+                <div style="margin-bottom:16px;">
+                  <div class="timeline-role" style="font-size:0.9rem;">Certificado Profesional en Posicionamiento SEO</div>
+                  <div class="timeline-company" style="font-size:0.82rem;">Acción Laboral (España) · 2024</div>
+                </div>
+
+                <div style="margin-bottom:16px;">
+                  <div class="timeline-role" style="font-size:0.9rem;">Curso de Google AdWords</div>
+                  <div class="timeline-company" style="font-size:0.82rem;">Inst. Economía Internacional - Univ. d'Alacant · 2019</div>
+                </div>
+
+                <div>
+                  <div class="timeline-role" style="font-size:0.9rem;">Curso de Desarrollo Web</div>
+                  <div class="timeline-company" style="font-size:0.82rem;">Inst. Economía Internacional - Univ. d'Alacant · 2015</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal de Historias Destacadas (Instagram Stories Viewer) -->
+  <div id="stories-modal" class="stories-modal">
+    <div class="stories-modal-content">
+      <!-- Barra de progreso superior -->
+      <div class="story-progress-bar-container" id="story-progress-container">
+        <!-- Generado dinámicamente -->
+      </div>
+      
+      <!-- Cabecera de la historia -->
+      <div class="story-header">
+        <div class="story-user-info">
+          <img src="portafolio/img_perfil_reducida.png" alt="David Muñoz" class="story-avatar" loading="lazy">
+          <span class="story-username">davidesign.co</span>
+        </div>
+        <div class="story-controls">
+          <button id="story-play-btn" onclick="toggleStoryPlay()">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+          </button>
+          <button class="story-close-btn" onclick="closeStories()">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Imagen/Video de la historia -->
+      <div class="story-media-container" onclick="handleStoryTap(event)">
+        <img id="story-img" src="" alt="Story Media" style="display: none;" loading="lazy">
+        <video id="story-video" src="" playsinline style="display: none; width: 100%; height: 100%; object-fit: contain;"></video>
+        <div class="story-nav-prev"></div>
+        <div class="story-nav-next"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- -- LIGHTBOX MODAL DE PROYECTO ----------------------------- -->
+  <div class="instagram-modal" id="instagramModal">
+    <button class="modal-close-btn" onclick="closeModal()">
+      <svg viewBox="0 0 24 24">
+        <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+    
+    <button class="post-nav-btn post-prev" onclick="prevPost(event)">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
+    </button>
+    <button class="post-nav-btn post-next" onclick="nextPost(event)">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" /></svg>
+    </button>
+
+    <div class="modal-box">
+      <!-- Panel de Media (Izquierda) -->
+      <div class="modal-media-panel" id="modalMediaPanel">
+        <!-- Renders media (img/video) via JS -->
+        <button class="carousel-arrow arrow-left" id="prevMediaBtn" onclick="prevMedia()">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
+        </button>
+        <button class="carousel-arrow arrow-right" id="nextMediaBtn" onclick="nextMedia()">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" /></svg>
+        </button>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+
+      <!-- Panel de Sidebar (Derecha) -->
+      <div class="modal-sidebar">
+        <!-- Header -->
+        <div class="sidebar-header">
+          <div class="sidebar-header-left">
+            <div class="sidebar-avatar">
+              <img src="portafolio/img_perfil_reducida.png" alt="David Muñoz" loading="lazy">
+            </div>
+            <div class="sidebar-user-info">
+              <span class="sidebar-username">
+                davidesign.co
+                <svg class="instagram-verified-badge" viewBox="0 0 24 24" width="14" height="14" style="margin-left:4px;">
+                  <path d="M12.003 2.001c.53 0 1.05.15 1.5.43l1.83 1.13c.27.17.59.25.92.23l2.13-.15c.53-.04 1.05.13 1.47.48.42.34.69.83.76 1.36l.29 2.13c.04.33.2.63.43.86l1.53 1.5c.38.37.61.88.63 1.41.02.53-.17 1.05-.53 1.44l-1.53 1.5c-.23.23-.39.53-.43.86l-.29 2.13c-.07.53-.34 1.02-.76 1.36-.42.35-.94.52-1.47.48l-2.13-.15c-.33-.02-.65.06-.92.23l-1.83 1.13c-.45.28-.97.43-1.5.43s-1.05-.15-1.5-.43l-1.83-1.13c-.27-.17-.59-.25-.92-.23l-2.13.15c-.53.04-1.05-.13-1.47-.48-.42-.34-.69-.83-.76-1.36l-.29-2.13c-.04-.33-.2-.63-.43-.86l-1.53-1.5c-.38-.37-.61-.88-.63-1.41-.02-.53.17-1.05.53-1.44l1.53-1.5c.23-.23.39-.53.43-.86l.29-2.13c.07-.53.34-1.02.76-1.36.42-.35.94-.52 1.47-.48l2.13.15c.33.02.65-.06.92-.23l1.83-1.13c.45-.28.97-.43 1.5-.43zm-2.002 14l6.002-6.002-1.414-1.414-4.588 4.588-2.176-2.176-1.414 1.414 3.59 3.59z" />
+                </svg>
+              </span>
+              <span class="sidebar-category" id="modalCategory">Branding</span>
+            </div>
+          </div>
+          <button class="sidebar-action-btn" onclick="followDirect()">Siguiendo</button>
+        </div>
+
+        <!-- Scrollable content -->
+        <div class="sidebar-content">
+          <!-- Caption principal -->
+          <div class="post-caption-box">
+            <div class="caption-text-container" style="margin-left: 0;">
+              <span class="caption-body" id="modalDescription">Detalle del proyecto de diseño...</span>
+              <div class="caption-tools" id="modalTools">
+                <!-- Tags de herramientas usadas -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Comentarios de clientes (Dinámicos) -->
+          <div class="comments-section" id="modalComments">
+            <!-- Renderizado por JS -->
+          </div>
+        </div>
+
+        <!-- Footer Actions -->
+        <div class="sidebar-footer">
+          <div class="footer-actions-row">
+            <div class="footer-actions-left">
+              <button class="action-icon-btn" id="likeBtn" onclick="toggleLike()">
+                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>
+              </button>
+              <button class="action-icon-btn" onclick="focusCommentInput()">
+                <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
+              </button>
+            </div>
+            <button class="action-icon-btn">
+              <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /></svg>
+            </button>
+          </div>
+
+          <div>
+            <div class="post-likes-count" id="modalLikesCount">142 Me gusta</div>
+            <span class="post-date-tag" id="modalDateTag">HACE 2 DÍAS</span>
+          </div>
+
+          <!-- CTA WhatsApp Directo -->
+          <div class="cta-whatsapp-bar">
+            <a href="#" target="_blank" class="cta-website-btn" id="modalWebsiteBtn" style="display: none; margin-bottom: 8px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              Visitar Sitio Web
+            </a>
+            <a href="#" target="_blank" class="cta-whatsapp-btn" id="modalWhatsAppBtn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+              Preguntar por este servicio
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- -- FOOTER ---------------------------------------------------- -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">
+            <a href="index.html" class="logo-text-container static-logo">
+              <span class="logo-words">
+                <span class="logo-word">DAVID</span>
+                <span class="logo-word">MU<span class="glow-char">Ñ</span>OZ</span>
+              </span>
+              <span class="logo-subtext">DISEÑADOR</span>
+            </a>
+          </div>
+          <p class="footer-brand-desc">Diseño, producción audiovisual y automatizaciones para marcas que quieren liderar en Ibagué, Tolima y Colombia.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/davidesign.co?igsh=YXJwempvMGxid2gz" class="social-link" title="Instagram" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/share/1GdNCi94S1/" class="social-link" title="Facebook" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="https://tiktok.com/@davidesign.co" class="social-link" title="TikTok" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+              </svg>
+            </a>
+            <a href="https://wa.me/573169642159" class="social-link" title="WhatsApp" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Servicios</div>
+          <ul class="footer-links">
+            <li><a href="planes-diseno.html">Diseño Gráfico Pro</a></li>
+            <li><a href="planes-instagrowth.html">InstaGrowth Pro</a></li>
+            <li><a href="produccion.html">Fotografía & Video</a></li>
+            <li><a href="automatizacion.html">Automatizaciones n8n</a></li>
+            <li><a href="web-premium.html">Web & Tech Premium</a></li>
+            <li><a href="portafolio.html">Portafolio</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Empresa</div>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/573169642159" target="_blank">WhatsApp</a></li>
+            <li><a href="https://www.instagram.com/davidesign.co?igsh=YXJwempvMGxid2gz" target="_blank">Instagram</a></li>
+            <li><a href="https://www.facebook.com/share/1GdNCi94S1/" target="_blank">Facebook</a></li>
+            <li><a href="https://tiktok.com/@davidesign.co" target="_blank">TikTok</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Ubicación</div>
+          <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.8;">
+            Ibagué, Tolima<br>Colombia<br><br>
+            Lun – Vie<br>8:00 am – 6:00 pm
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 <span class="footer-accent">David Muñoz Diseñador</span>. Todos los derechos reservados.</p>
+        <p class="footer-copy">Diseño <span class="footer-accent">Tech-Premium</span> · Ibagué, Colombia</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20una%20auditor%C3%ADa%20de%20marca%20gratuita"
+    target="_blank" class="floating-cta" id="floatingCTA">
+    <span>Auditoría Gratuita</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/logo-particles.js"></script>
+
+  <script>
+    // ── DATA DE PROYECTOS (PORTAFOLIO) ──────────────────────────
+    const projectsData = [
+      {
+        id: 0,
+        title: "Dra. Andrea Cardona",
+        category: "Desarrollo Web Premium",
+        description: "Diseño, maquetación y desarrollo completo del sitio web premium para la Dra. Andrea Cardona. Un sitio enfocado en medicina estética que incluye secciones detalladas de servicios, galería de antes y después interactiva, y agendamiento directo por WhatsApp. Totalmente optimizado para SEO local en Ibagué y velocidad de carga ultra rápida.",
+        likes: 312,
+        commentsCount: 28,
+        tools: ["WordPress","CSS Custom","SEO Local","Responsive Design"],
+        date: "HACE 1 SEMANA",
+        media: [
+                  "portafolio/web andrea cardona.webp"
+        ],
+        isWebsite: true,
+        websiteUrl: "https://draandreacardona.com/",
+        clientComments: [
+          { user: "dra.andreacardona", text: "Increíble el trabajo con mi sitio web. Mis pacientes ahora agendan directamente por WhatsApp y el SEO local en Ibagué ha sido un éxito rotundo." },
+          { user: "clinic_design", text: "Una de las mejores webs médicas que he visto en Colombia, limpia y muy rápida." }
+        ]
+      },
+      {
+        id: 1,
+        title: "Reel Cavitación - Dra. Andrea Cardona",
+        category: "Producción Audiovisual",
+        description: "Producción y edición de reel publicitario en formato vertical explicando los beneficios y el procedimiento médico de la cavitación corporal para reducción de medidas. Incluye locución (voz en off) profesional y subtitulado dinámico.",
+        likes: 234,
+        commentsCount: 18,
+        tools: ["Premiere Pro","Edición Dinámica","Voz en Off","Marketing Médico"],
+        date: "HACE 1 SEMANA",
+        media: [
+                  "portafolio/Dra Andrea Cardona/reel  voz en off cavitacion.mp4"
+        ],
+        clientComments: [
+          { user: "dra.andreacardona", text: "Excelente explicación del tratamiento, los pacientes entendieron súper fácil de qué se trata." },
+          { user: "carol_estetica", text: "Me encanta la voz en off y la edición limpia." }
+        ]
+      },
+      {
+        id: 2,
+        title: "MotoSuper Alicante",
+        category: "Desarrollo Web Premium",
+        description: "Tienda online y catálogo digital premium para MotoSuper Alicante en España. Desarrollado con una interfaz enfocada a la experiencia de usuario (UX) móvil, integración de pasarelas de pago seguro, y optimización de velocidad de carga y bases de datos para albergar repuestos y motocicletas de alta gama.",
+        likes: 284,
+        commentsCount: 34,
+        tools: ["WooCommerce","WordPress","E-commerce SEO","Payment Gateways"],
+        date: "HACE 2 SEMANAS",
+        media: [
+                  "portafolio/web moto super.webp"
+        ],
+        isWebsite: true,
+        websiteUrl: "https://motosuperalicante.es/",
+        clientComments: [
+          { user: "motosuperalicante", text: "Nuestra tienda online en Alicante funciona al 100%. Los clientes pueden ver el stock de motos y repuestos y pagar de forma segura. Excelente maquetación." },
+          { user: "ecommerce_pro", text: "Carga rapidísimo para tener un catálogo tan grande. Gran trabajo en la optimización." }
+        ]
+      },
+      {
+        id: 3,
+        title: "Cocina Oculta",
+        category: "Branding & Fotografía",
+        description: "Sesión de fotografía de producto en estudio para el lanzamiento de Cocina Oculta, diseño de empaques con códigos QR interactivos, y plantillas dinámicas de Instagram para la promoción de menús de hamburguesas. Un branding rústico, moderno y muy llamativo.",
+        likes: 198,
+        commentsCount: 15,
+        tools: ["Studio Lighting","Branding","Packaging QR","Photoshop"],
+        date: "HACE 1 MES",
+        media: [
+                  "portafolio/Cocina oculta/template hamburguesaB.webp",
+                  "portafolio/Cocina oculta/template hamburguesa916b.webp",
+                  "portafolio/Cocina oculta/canasta-ranche-d.webp",
+                  "portafolio/Cocina oculta/IMG_20220712_111953.webp",
+                  "portafolio/Cocina oculta/IMG_20220712_112052.webp"
+        ],
+        clientComments: [
+          { user: "cocinaocultabg", text: "La sesión en estudio fue súper ágil y los templates de historias nos ahorran horas de diseño." },
+          { user: "esteban_brand", text: "Qué buen branding, el empaque con QR facilitó los pedidos directo al WhatsApp." }
+        ]
+      },
+      {
+        id: 4,
+        title: "JBS - Prensa Inclinada Pro",
+        category: "Producción Audiovisual",
+        description: "Video demostrativo y promocional de la prensa inclinada para piernas de la marca de maquinaria JBS en Madrid, España. Enfocado en detallar el diseño ergonómico, la resistencia de materiales y la biomecánica del ejercicio para su catálogo digital de ventas y redes sociales.",
+        likes: 176,
+        commentsCount: 15,
+        tools: ["Video de Producto","Premiere Pro","Fitness Marketing","Madrid España"],
+        date: "HACE 6 MESES",
+        media: [
+                  "portafolio/JBS prensa inclinada.mp4"
+        ],
+        clientComments: [
+          { user: "jbs_fitness", text: "Perfecta demostración de la estabilidad de la prensa. Los clientes captan de inmediato la calidad del equipo." },
+          { user: "gym_builder", text: "Gran toma de detalle de las poleas y soldaduras. Se ve muy robusta para uso comercial." }
+        ]
+      },
+      {
+        id: 5,
+        title: "Campaña Black Friday - Dra. Andrea Cardona",
+        category: "Diseño Publicitario",
+        description: "Diseño y desarrollo de piezas publicitarias estéticas para la campaña de Black Friday de la Dra. Andrea Cardona en Ibagué. Incluye folletos promocionales digitales para redes sociales enfocados en tratamientos estéticos avanzados con descuentos de temporada.",
+        likes: 184,
+        commentsCount: 24,
+        tools: ["Photoshop","Branding","Redes Sociales","Marketing Estético"],
+        date: "HACE 2 SEMANAS",
+        media: [
+                  "portafolio/Dra Andrea Cardona/black-friday-andrea.webp",
+                  "portafolio/Dra Andrea Cardona/black-friday-andrea-1.webp"
+        ],
+        clientComments: [
+          { user: "dra.andreacardona", text: "La estética de los posts de Black Friday captó perfectamente el tono premium de la clínica." },
+          { user: "marcela_estetica", text: "El diseño en carrusel quedó impecable, la paleta de colores es súper limpia." }
+        ]
+      },
+      {
+        id: 6,
+        title: "Recetas Caninas Premium - Reel 1",
+        category: "Producción Audiovisual & IA",
+        description: "Video promocional dinámico de alta conversión creado con herramientas de Inteligencia Artificial para el lanzamiento de un libro digital de recetas saludables para perros. Incluye generación de imágenes ultra realistas de comida canina y edición ágil en formato vertical.",
+        likes: 342,
+        commentsCount: 28,
+        tools: ["Generative AI","Midjourney","Premiere Pro","Video Marketing"],
+        date: "HACE 1 SEMANA",
+        media: [
+                  "portafolio/recetas para perros/Reel 2.mp4"
+        ],
+        clientComments: [
+          { user: "dog_lover_academy", text: "Excelente calidad de imagen! La generación de las recetas con IA quedó increíble." },
+          { user: "recetas_caninas", text: "El gancho del video es buenísimo, ya compré mi libro!" }
+        ]
+      },
+      {
+        id: 7,
+        title: "Inver Miller",
+        category: "Producción Audiovisual",
+        description: "Producción audiovisual automotriz comercial premium para la marca Inver Miller. Rodaje y postproducción de videos promocionales dinámicos de vehículos de alto desempeño (Porsche 911 y McLaren) enfocados a redes sociales, combinando música de alto ritmo y edición acelerada de planos de detalle.",
+        likes: 423,
+        commentsCount: 62,
+        tools: ["Premiere Pro","Gimbal 3-Ejes","Audiovisual","Automotive Video"],
+        date: "HACE 3 MESES",
+        media: [
+                  "portafolio/Inver miller/porsche.mp4",
+                  "portafolio/Inver miller/mclaren.mp4"
+        ],
+        clientComments: [
+          { user: "invermiller_auto", text: "El alcance del reel en Instagram fue espectacular. La velocidad de edición y planos de detalle del McLaren quedaron brutales." },
+          { user: "porsche_fans", text: "Ese plano secuencia persiguiendo al 911 está para comercial oficial de televisión." },
+          { user: "sound_editing", text: "La sincronización de los cambios de plano con el sonido del motor quedó perfecta." }
+        ]
+      },
+      {
+        id: 8,
+        title: "El Gaucho Asados",
+        category: "Fotografía & Menú",
+        description: "Edición digital y fotografía gastronómica profesional de cortes de carne premium en asador para El Gaucho. Diseño de menús impresos rústicos de alta calidad, material publicitario digital para transmisiones de partidos de fútbol y cartelería impresa física para el local comercial.",
+        likes: 215,
+        commentsCount: 22,
+        tools: ["Food Photography","Indesign","Banner Design","Outdoor Poster"],
+        date: "HACE 2 MESES",
+        media: [
+                  "portafolio/el gaucho/asado.webp",
+                  "portafolio/el gaucho/choripan.webp",
+                  "portafolio/el gaucho/choripapa.webp",
+                  "portafolio/el gaucho/churrasco.webp",
+                  "portafolio/el gaucho/maradoniana.webp",
+                  "portafolio/el gaucho/partido final.webp",
+                  "portafolio/el gaucho/cara impresa.webp",
+                  "portafolio/el gaucho/cara impresa2.webp"
+        ],
+        clientComments: [
+          { user: "elgaucho_asados", text: "El menú impreso quedó perfecto con el estilo rústico de nuestro restaurante, muy buena calidad." },
+          { user: "carne_ibague", text: "Ese choripán se ve tremendo en las fotos del menú físico. ¡Muy buena luz!" }
+        ]
+      },
+      {
+        id: 9,
+        title: "Reel Radiesse - Dra. Andrea Cardona",
+        category: "Producción Audiovisual",
+        description: "Edición de video dinámico explicativo sobre la aplicación de Radiesse, un bioestimulador de colágeno premium. Edición ágil de primeros planos e inyección de gráficos explicativos para educar a los pacientes en redes sociales.",
+        likes: 289,
+        commentsCount: 24,
+        tools: ["Premiere Pro","Color Grading","Social Media Video","Medicina Estética"],
+        date: "HACE 2 SEMANAS",
+        media: [
+                  "portafolio/Dra Andrea Cardona/reel  voz en off radiesse.mp4"
+        ],
+        clientComments: [
+          { user: "dra.andreacardona", text: "El Radiesse es uno de nuestros tratamientos estrella y este reel captó su esencia premium." },
+          { user: "estetica_avanzada", text: "Súper explicativo, la iluminación y el color quedaron impecables." }
+        ]
+      },
+      {
+        id: 10,
+        title: "Fotogrametría & Drones",
+        category: "Modelado 3D & Drones",
+        description: "Vuelo de mapeo técnico y fotogrametría aérea con dron DJI para modelado 3D de terreno y acopios de materiales industriales. Procesamiento de ortofotomapas georreferenciados de alta resolución espacial para análisis topográfico, cálculo de volúmenes y diseño vial técnico.",
+        likes: 210,
+        commentsCount: 19,
+        tools: ["DJI Phantom","Pix4D","Topografía","Ortofotomapa 3D"],
+        date: "HACE 4 MESES",
+        media: [
+                  "portafolio/Fotogrametria/vuelo-acopio_transparent_mosaic_group1.webp",
+		  "portafolio/Fotogrametria/vuelo-panelela_transparent_mosaic_group1.webp"
+        ],
+        clientComments: [
+          { user: "ing_civil_col", text: "Excelente resolución y precisión en el cálculo de volúmenes de material de acopio." },
+          { user: "drone_mapping", text: "Mapeo súper limpio, el ortomosaico no tiene distorsiones en los bordes." }
+        ]
+      },
+      {
+        id: 11,
+        title: "Promociones Estéticas - Historias",
+        category: "Diseño Publicitario",
+        description: "Piezas gráficas publicitarias en formato vertical (Stories 9:16) para la promoción de tratamientos estéticos de moldeado corporal y criolipólisis de la Dra. Andrea Cardona. Diseñado bajo la línea de marca sobria y elegante del consultorio médico para capturar clientes potenciales.",
+        likes: 212,
+        commentsCount: 15,
+        tools: ["Instagram Stories","Photoshop","Diseño de Ofertas","Branding"],
+        date: "HACE 1 MES",
+        media: [
+                  "portafolio/Dra Andrea Cardona/promo-moldeado-corporal-historia.webp",
+                  "portafolio/Dra Andrea Cardona/promo-crio-historia.webp"
+        ],
+        clientComments: [
+          { user: "dra.andreacardona", text: "Las historias promocionales aumentaron significativamente las preguntas directas al WhatsApp de citas." },
+          { user: "fit_ibague", text: "Diseño muy claro, se lee súper fácil en el celular mientras pasas historias." }
+        ]
+      },
+      {
+        id: 12,
+        title: "JBS Maquinaria - Presentación",
+        category: "Producción Audiovisual",
+        description: "Video promocional e institucional de presentación de marca para JBS, fabricante y distribuidor de máquinas de gimnasio profesionales en Madrid, España. Un recorrido dinámico que muestra la variedad de maquinaria de fuerza y cardio de alta gama en un ambiente deportivo de alto rendimiento.",
+        likes: 230,
+        commentsCount: 22,
+        tools: ["Video Corporativo","Branding","Edición Dinámica","Madrid España"],
+        date: "HACE 6 MESES",
+        media: [
+                  "portafolio/JBS general.mp4"
+        ],
+        clientComments: [
+          { user: "jbs_fitness", text: "Este video refleja exactamente la potencia y calidad que queremos transmitir como marca de fitness profesional." },
+          { user: "fit_madrid", text: "Vídeo de alta energía, la música y el ritmo de edición están muy bien coordinados para motivar." }
+        ]
+      },
+      {
+        id: 13,
+        title: "Tin Tin Fachada",
+        category: "Branding & Rotulación",
+        description: "Diseño conceptual de fachada comercial, rediseño de logotipo y rotulación para el establecimiento Tin Tin. Modelado y fotomontaje del antes y después para aprobación municipal del aviso exterior, garantizando cumplimiento de normativas de espacio público y visibilidad comercial óptima.",
+        likes: 189,
+        commentsCount: 14,
+        tools: ["Fotomontaje","Logotipo","Fachada 3D","Rotulación Exterior"],
+        date: "HACE 3 MESES",
+        media: [
+                  "portafolio/fachada tintin/despues1.webp",
+                  "portafolio/fachada tintin/antes.webp",
+                  "portafolio/fachada tintin/despues2.webp",
+                  "portafolio/fachada tintin/despues3.webp",
+                  "portafolio/fachada tintin/despues4.webp"
+        ],
+        clientComments: [
+          { user: "tintin_oficial", text: "Ver el fotomontaje antes de mandar a fabricar el letrero nos ahorró cometer un error costoso de escala." },
+          { user: "arquicomp", text: "Muy bien manejado el contraste de la luz LED en el fotomontaje nocturno, quedó idéntico." }
+        ]
+      },
+      {
+        id: 14,
+        title: "Nutrición Canina - Reel 2",
+        category: "Producción Audiovisual & IA",
+        description: "Segundo Reel de la campaña publicitaria del libro de recetas para perros. Enfocado en educar sobre los beneficios de la comida natural versus el alimento procesado, utilizando avatares e ilustraciones generadas por IA y subtítulos atractivos.",
+        likes: 295,
+        commentsCount: 19,
+        tools: ["Generative AI","CapCut","Midjourney","Social Media Ads"],
+        date: "HACE 2 SEMANAS",
+        media: [
+                  "portafolio/recetas para perros/reel 3.mp4"
+        ],
+        clientComments: [
+          { user: "pet_wellness", text: "Muy informativa la comparación. La edición capta la atención de inmediato." },
+          { user: "toby_the_pug", text: "Guau! Mi humano ya me está preparando la primera receta." }
+        ]
+      },
+      {
+        id: 15,
+        title: "Hablador QR Google Maps",
+        category: "Branding & Diseño Local",
+        description: "Diseño de hablador impreso para la recepción del consultorio físico de la Dra. Andrea Cardona con código QR personalizado enlazado a la ficha de Google Maps. Facilita que los pacientes califiquen su experiencia en el consultorio, aumentando la reputación local en búsquedas orgánicas.",
+        likes: 156,
+        commentsCount: 9,
+        tools: ["Print Design","QR Integration","Folleto Acrílico","Google Maps SEO"],
+        date: "HACE 3 MESES",
+        media: [
+                  "portafolio/Dra Andrea Cardona/hablador-google-maps.webp"
+        ],
+        clientComments: [
+          { user: "dra.andreacardona", text: "El acrílico en la recepción se ve lindísimo y ya hemos subido bastante la cantidad de calificaciones en Google Maps." },
+          { user: "marketing_medico", text: "Excelente estrategia offline para mejorar el SEO local, muy recomendado." }
+        ]
+      },
+      {
+        id: 16,
+        title: "Fotografía Social",
+        category: "Fotografía Social",
+        description: "Sesión de fotografía social profesional en exteriores e iglesia para cobertura de evento de renovación de votos matrimoniales. Fotografía artística con control de luz natural en exteriores (Sunset lighting) y luz de apoyo en interiores de iglesia, retratando emociones y momentos espontáneos.",
+        likes: 295,
+        commentsCount: 48,
+        tools: ["Portrait Photo","Sunset Lighting","Reflector","Lightroom CC"],
+        date: "HACE 4 MESES",
+        media: [
+                  "portafolio/Fotos Matrimonio/renovacion_votos_ (1).webp",
+                  "portafolio/Fotos Matrimonio/renovacion_votos_ (2).webp",
+                  "portafolio/Fotos Matrimonio/renovacion_votos_ (5).webp",
+                  "portafolio/Fotos Matrimonio/renovacion_votos_ (7).webp",
+                  "portafolio/Fotos Matrimonio/renovacion_votos_ (9).webp",
+                  "portafolio/Fotos Matrimonio/renovacion_votos_ (10).webp",
+                  "portafolio/Fotos Matrimonio/renovacion_votos_ (12).webp",
+                  "portafolio/Fotos Matrimonio/renovacion_votos_ (14).webp",
+                  "portafolio/Fotos Matrimonio/renovacion_votos_ (15).webp"
+        ],
+        clientComments: [
+          { user: "andrea_y_luis", text: "Las fotos capturaron toda la emoción de nuestra renovación de votos de una forma muy natural y mágica." },
+          { user: "portrait_world", text: "La edición de color y la calidez del atardecer le dan un toque súper romántico a la sesión." }
+        ]
+      },
+      {
+        id: 17,
+        title: "Campaña Verano 2023 - MotoSuper",
+        category: "Producción Audiovisual",
+        description: "Dirección, grabación y producción de la campaña audiovisual de verano 2023 para MotoSuper Alicante en España. Campaña publicitaria centrada en la prevención de averías y mantenimiento de motocicletas para viajes de larga distancia. Se implementó una estrategia en redes sociales que incrementó el flujo de visitantes físicos al taller en un 200% durante la temporada.",
+        likes: 342,
+        commentsCount: 29,
+        tools: ["Premiere Pro","After Effects","Dirección de Video","Marketing Digital"],
+        date: "HACE 2 MESES",
+        media: [
+                  "portafolio/MotoSuper averias español.mp4"
+        ],
+        clientComments: [
+          { user: "motosuperalicante", text: "La campaña de verano fue un éxito brutal. ¡Tuvimos que contratar personal extra para el taller de Alicante!" },
+          { user: "biker_life", text: "El video es excelente, dan ganas de salir a rodar ya mismo con la moto a punto." }
+        ]
+      },
+      {
+        id: 18,
+        title: "Campaña Criolipólisis Avanzada",
+        category: "Diseño Publicitario",
+        description: "Diseño publicitario en alta resolución (folleto/banner premium) enfocado en la promoción de tratamientos avanzados de criolipólisis para reducción de grasa localizada de la Dra. Andrea Cardona. Muestra de forma limpia e informativa los beneficios médicos del procedimiento.",
+        likes: 168,
+        commentsCount: 12,
+        tools: ["Flyer Design","Photoshop","Diseño Editorial","Infografía"],
+        date: "HACE 3 MESES",
+        media: [
+                  "portafolio/Dra Andrea Cardona/8mb.webp"
+        ],
+        clientComments: [
+          { user: "dra.andreacardona", text: "Un folleto informativo de gran resolución, ideal para enviar a los pacientes interesados." },
+          { user: "valeria_medicina", text: "Muy limpio el diseño y la información es sumamente clara para el paciente." }
+        ]
+      },
+      {
+        id: 19,
+        title: "Moto Super",
+        category: "Branding & Rediseño",
+        description: "Rediseño completo de logotipo y manual de identidad corporativa para MotoSuper. Definición de la paleta de colores corporativa para talleres y oficinas, guías de uso tipográfico en diferentes medios y adaptaciones cromáticas en un tono y negativos para uniformes e impresos.",
+        likes: 167,
+        commentsCount: 11,
+        tools: ["Illustrator CC","Manual Identidad","Logo Redesign","Vector"],
+        date: "HACE 3 MESES",
+        media: [
+                  "portafolio/Logo moto super/resultado.png",
+                  "portafolio/Logo moto super/maquetacion.png",
+                  "portafolio/Logo moto super/logo-inicial.png",
+                  "portafolio/Logo moto super/un-tono.png",
+                  "portafolio/Logo moto super/usos.png"
+        ],
+        clientComments: [
+          { user: "motosuperalicante", text: "El logo en una tinta nos facilitó un montón el bordado de los overoles de los mecánicos en Alicante." },
+          { user: "identity_design", text: "Un rediseño súper dinámico, transmite velocidad y profesionalismo de taller." }
+        ]
+      },
+      {
+        id: 20,
+        title: "Claudia - Quince Años",
+        category: "Producción Audiovisual",
+        description: "Video conmemorativo y resumen cinematográfico de la fiesta de quince años de Claudia, celebrada en Murcia, España. Captura los momentos más emotivos y alegres del evento con un ritmo dinámico y edición detallada que preserva los recuerdos de manera inolvidable.",
+        likes: 287,
+        commentsCount: 42,
+        tools: ["Videografía Social","Premiere Pro","Color Grading","Murcia España"],
+        date: "HACE 1 AÑO",
+        media: [
+                  "portafolio/Claudia 15.mp4"
+        ],
+        clientComments: [
+          { user: "claudia_m", text: "¡Me encantó el video! Lo veo una y otra vez y me vuelvo a emocionar. Gracias David por capturar cada detalle." },
+          { user: "familia_murcia", text: "Un recuerdo precioso, capturaste la esencia de la fiesta de una forma hermosa." }
+        ]
+      },
+      {
+        id: 21,
+        title: "Invitación de Eventos Estéticos",
+        category: "Branding & Diseño de Eventos",
+        description: "Diseño de invitación digital e impresa premium para eventos especiales e inauguración del consultorio de la Dra. Andrea Cardona. Colores sobrios y tipografía elegante pensados para médicos y cirujanos colaboradores del área estética.",
+        likes: 145,
+        commentsCount: 7,
+        tools: ["Graphic Design","Typography","Branding","Print Design"],
+        date: "HACE 4 MESES",
+        media: [
+                  "portafolio/Dra Andrea Cardona/invitacion.webp"
+        ],
+        clientComments: [
+          { user: "dra.andreacardona", text: "Muchos colegas me felicitaron por el diseño de la tarjeta de invitación del evento." },
+          { user: "eventos_ibague", text: "Elegante y minimalista, la elección tipográfica fue excelente." }
+        ]
+      },
+      {
+        id: 22,
+        title: "Cocina Natural para Perros - Reel 3",
+        category: "Producción Audiovisual & IA",
+        description: "Video final de la campaña promocional del Ebook de recetas saludables para mascotas. Diseñado para redes sociales con Inteligencia Artificial, combinando un ritmo dinámico y tomas de alta calidad que destacan los ingredientes naturales y el bienestar de los perros.",
+        likes: 318,
+        commentsCount: 22,
+        tools: ["Generative AI","After Effects","Food Styling AI","Ebook Promo"],
+        date: "HACE 3 SEMANAS",
+        media: [
+                  "portafolio/recetas para perros/Reel 4.mp4"
+        ],
+        clientComments: [
+          { user: "chef_canino", text: "El montaje del video es excelente. El libro de recetas está súper completo!" },
+          { user: "lucia_pets", text: "Mi perrito ama las galletas de avena de este libro, súper recomendado el video." }
+        ]
+      },
+      {
+        id: 23,
+        title: "Hooligans Fight",
+        category: "Fotografía Deportiva",
+        description: "Cobertura de acción en vivo y diseño de afiches promocionales oficiales para el evento Hooligans Fight. Fotografía de alta velocidad para capturar golpes y movimientos en el ring bajo luces complejas de escenario. Creación de piezas dinámicas en photoshop para feeds de competidores y el póster publicitario del evento principal.",
+        likes: 334,
+        commentsCount: 51,
+        tools: ["Action Photo","High-speed shutter","Póster Design","Photoshop CC"],
+        date: "HACE 4 MESES",
+        media: [
+                  "portafolio/Hooligans fitgh/Pelea-1-HF-feed.png",
+                  "portafolio/Hooligans fitgh/Pelea-1-HF.png",
+                  "portafolio/Hooligans fitgh/Pelea-2-HF-feed.png",
+                  "portafolio/Hooligans fitgh/Pelea-2-HF.png",
+                  "portafolio/Hooligans fitgh/Pelea-3-HF-feed.png",
+                  "portafolio/Hooligans fitgh/Pelea-3-HF.png",
+                  "portafolio/Hooligans fitgh/cartel-30-nov-HF.png"
+        ],
+        clientComments: [
+          { user: "hooligansfight", text: "Los pósters oficiales y las fotos de acción en el ring le dieron un nivel profesional al evento." },
+          { user: "mma_colombia", text: "Espectacular toma de la patada media. Detuvo el tiempo en el segundo exacto." },
+          { user: "box_murcia", text: "La textura y contraste de las fotos transmiten toda la fuerza de la pelea." }
+        ]
+      },
+      {
+        id: 24,
+        title: "Cumpleaños Dra. Andrea Cardona",
+        category: "Producción Audiovisual",
+        description: "Edición y producción del video conmemorativo y la tarjeta digital de felicitaciones de cumpleaños para la Dra. Andrea Cardona. Formato dinámico que celebra la trayectoria de la doctora con un ritmo jovial y edición estéticamente cuidada para sus redes sociales.",
+        likes: 298,
+        commentsCount: 38,
+        tools: ["Video Editing","Premiere Pro","Color Grading","Social Card Design"],
+        date: "HACE 2 MESES",
+        media: [
+                  "portafolio/Dra Andrea Cardona/cumple andrea cardona.mp4",
+                  "portafolio/Dra Andrea Cardona/Felicidades.webp"
+        ],
+        clientComments: [
+          { user: "dra.andreacardona", text: "¡Me encantó el video de cumpleaños! Un recuerdo muy lindo de parte de todo mi equipo de trabajo." },
+          { user: "estetica_pro", text: "El video transmite muchísima calidez y cercanía, la edición quedó genial." }
+        ]
+      },
+      {
+        id: 25,
+        title: "Dra. Andrea Cardona (Automatización)",
+        category: "Automatización & n8n",
+        description: "Desarrollo de un sistema automatizado para atención al cliente y gestión de citas de la Dra. Andrea Cardona. Conecta a los pacientes que escriben por WhatsApp con un asistente virtual inteligente que responde dudas frecuentes, agenda citas automáticamente sincronizándolas con Google Calendar, procesa pagos/cobros recurrentes y envía recordatorios automáticos de citas por WhatsApp, logrando reducir el absentismo en un 40%.",
+        likes: 245,
+        commentsCount: 18,
+        tools: ["n8n","WhatsApp API","Google Calendar","Reminders API"],
+        date: "HACE 1 SEMANA",
+        media: [
+                  "portafolio/Automatizacion.webp"
+        ],
+        clientComments: [
+          { user: "dra.andreacardona", text: "Ha sido un cambio de 180 grados en el consultorio. Los recordatorios automáticos han salvado muchas citas que antes se perdían." },
+          { user: "n8n_master", text: "Excelente arquitectura en n8n, muy estable e inteligente la sincronización." }
+        ]
+      },
+      {
+        id: 26,
+        title: "Promocional Boston Tech",
+        category: "Producción Audiovisual",
+        description: "Comercial de producto y video promocional para el exprimidor de naranjas profesional de Boston Tech. Enfatiza la facilidad de uso, la potencia del motor y la limpieza del dispositivo mediante planos macro en cámara lenta (slow motion) de la extracción de jugo y tomas limpias de estudio.",
+        likes: 318,
+        commentsCount: 31,
+        tools: ["Comercial Producto","Slow Motion","Iluminación Estudio","Boston Tech"],
+        date: "HACE 1 AÑO",
+        media: [
+                  "portafolio/Boston tech exprimidor de naranja.mp4"
+        ],
+        clientComments: [
+          { user: "bostontech_oficial", text: "Un video excelente que describe de forma muy estética la potencia de nuestro exprimidor. ¡Gran trabajo de iluminación!" },
+          { user: "healthy_kitchen", text: "Qué buena calidad de imagen, dan ganas de tomarse un jugo de naranja helado ya mismo con ese slow motion." }
+        ]
+      },
+      {
+        id: 27,
+        title: "Campaña Día sin Carro",
+        category: "Diseño de Redes Sociales",
+        description: "Diseño de post informativo y de concientización para el Día sin Carro, alineando la marca médica de la Dra. Andrea Cardona con iniciativas ecológicas locales en la ciudad de Ibagué de forma estética.",
+        likes: 132,
+        commentsCount: 6,
+        tools: ["Social Media Post","Vector Design","Branding","SEO Ibagué"],
+        date: "HACE 3 MESES",
+        media: [
+                  "portafolio/Dra Andrea Cardona/dia-sin-carro.webp"
+        ],
+        clientComments: [
+          { user: "dra.andreacardona", text: "Un post muy acorde al día y que mantuvo activa nuestra comunidad con temas de salud y ambiente." },
+          { user: "eco_ibague", text: "Excelente aporte de concientización corporativa." }
+        ]
+      },
+      {
+        id: 28,
+        title: "Video Institucional - Fidko",
+        category: "Producción Audiovisual",
+        description: "Video promocional e institucional desarrollado para la empresa Fidko. Fue uno de mis primeros proyectos utilizando tecnología de drones DJI para capturar tomas aéreas cinemáticas e impactantes del establecimiento, logrando presentar las instalaciones y procesos industriales con una narrativa corporativa pulida.",
+        likes: 198,
+        commentsCount: 12,
+        tools: ["Drone DJI","DaVinci Resolve","Tomas Aéreas","Video Corporativo"],
+        date: "HACE 3 AÑOS",
+        media: [
+                  "portafolio/fidko empresarial.mp4"
+        ],
+        clientComments: [
+          { user: "fidko_admin", text: "Excelente video de presentación. Las tomas aéreas le dieron una perspectiva muy profesional a nuestras instalaciones." },
+          { user: "drone_hobbyist", text: "Para ser de tus inicios con drones, el control de cámara y estabilidad está muy bien logrado." }
+        ]
+      },
+      {
+        id: 29,
+        title: "Reel Equipamiento Médico - Dra. Andrea Cardona",
+        category: "Producción Audiovisual",
+        description: "Producción de video institucional tipo Reel presentando la tecnología de punta y aparatología médica del consultorio de la Dra. Andrea Cardona en Ibagué. Locución explicativa que genera confianza y demuestra la calidad de los tratamientos.",
+        likes: 312,
+        commentsCount: 29,
+        tools: ["Premiere Pro","Tomas de Detalle","Voz en Off","Branding Médico"],
+        date: "HACE 1 MES",
+        media: [
+                  "portafolio/Dra Andrea Cardona/reel  voz en off todas las maquinas.mp4"
+        ],
+        clientComments: [
+          { user: "dra.andreacardona", text: "Un recorrido tecnológico fantástico por nuestro consultorio. ¡Excelente producción!" },
+          { user: "paciente_feliz", text: "Tienen las mejores máquinas de Ibagué, doy fe de los resultados." }
+        ]
+      },
+      {
+        id: 30,
+        title: "Invitación Matrimonial Mágica",
+        category: "Diseño & Video Creativo",
+        description: "Invitación matrimonial audiovisual interactiva diseñada con temática de Harry Potter para una pareja que contrajo matrimonio en Alicante, España. Recrea elementos mágicos del universo de la saga con animaciones y efectos especiales digitales, logrando una pieza única y muy comentada por los invitados.",
+        likes: 412,
+        commentsCount: 56,
+        tools: ["After Effects","Ilustración Digital","Efectos Especiales","Alicante España"],
+        date: "HACE 1 AÑO",
+        media: [
+                  "portafolio/Invitacion matrimonial.mp4"
+        ],
+        clientComments: [
+          { user: "boda_alicante", text: "Los invitados quedaron locos con la invitación. ¡Fue el tema de conversación por semanas y todos querían ir!" },
+          { user: "potterhead_forever", text: "¡Espectacular! La tipografía y las transiciones mágicas quedaron idénticas a las películas." }
+        ]
+      },
+      {
+        id: 31,
+        title: "Reel Rendimiento Deportivo - Dra. Andrea Cardona",
+        category: "Producción Audiovisual",
+        description: "Video dinámico promocional enfocado en la recuperación y tratamientos estéticos para deportistas de alto rendimiento. Edición enérgica con transiciones rápidas y sincronización musical para captar la atención del público fitness.",
+        likes: 215,
+        commentsCount: 14,
+        tools: ["Edición Dinámica","After Effects","Música de Ritmo","Fitness Video"],
+        date: "HACE 2 MESES",
+        media: [
+                  "portafolio/Dra Andrea Cardona/video deportista2.mp4"
+        ],
+        clientComments: [
+          { user: "dra.andreacardona", text: "Muy dinámico el enfoque deportivo, excelente ritmo." },
+          { user: "ironman_ibague", text: "Buenísimo, la medicina estética también es clave para los que entrenamos duro." }
+        ]
+      },
+      {
+        id: 32,
+        title: "Acquapik 100 - Grupo Oralteck",
+        category: "Producción Audiovisual",
+        description: "Video promocional e institucional desarrollado para el irrigador dental Acquapik 100 del Grupo Oralteck. Presenta los beneficios del cuidado bucal y la tecnología de microburbujas del irrigador a través de tomas en detalle de estudio y explicaciones de salud bucodental de forma estética.",
+        likes: 264,
+        commentsCount: 27,
+        tools: ["Video de Producto","Modelado de Luz","Edición Comercial","Oralteck"],
+        date: "HACE 1 AÑO",
+        media: [
+                  "portafolio/Acquapick irrigador dental.mp4"
+        ],
+        clientComments: [
+          { user: "oralteck_salud", text: "Excelente video comercial, explica de manera muy clara el funcionamiento y beneficios clínicos del Acquapik 100." },
+          { user: "dentist_review", text: "Buenísimo el enfoque en la salud oral y el uso del irrigador, muy didáctico para los pacientes." }
+        ]
+      },
+      {
+        id: 33,
+        title: "Reel Contour Shape - Dra. Andrea Cardona",
+        category: "Producción Audiovisual",
+        description: "Producción y locución de video promocional para el tratamiento de moldeado corporal no invasivo Contour Shape. Muestra paso a paso la aplicación del procedimiento con detalles gráficos y explicaciones sobre la reducción de celulitis y flacidez.",
+        likes: 198,
+        commentsCount: 11,
+        tools: ["Premiere Pro","Voz en Off","Moldeado Corporal","Diseño Gráfico"],
+        date: "HACE 2 MESES",
+        media: [
+                  "portafolio/Dra Andrea Cardona/voz en of contorushape.mp4"
+        ],
+        clientComments: [
+          { user: "dra.andreacardona", text: "El Contour Shape es el favorito de muchas, y este video detalla súper bien el paso a paso." },
+          { user: "valeria_salud", text: "Qué bien se ve el procedimiento, muy profesional la explicación." }
+        ]
+      },
+      {
+        id: 34,
+        title: "West Burger",
+        category: "Fotografía & Redes Sociales",
+        description: "Producción de fotografía gastronómica profesional de alta resolución, diseño de menús interactivos y plantillas estéticas para el feed e historias de Instagram de West Burger. Resalta los ingredientes y la jugosidad de sus productos, aumentando el engagement y atrayendo clientes locales.",
+        likes: 245,
+        commentsCount: 18,
+        tools: ["Canon EOS","Lightroom","Menú Design","Social Templates"],
+        date: "HACE 2 SEMANAS",
+        media: [
+                  "portafolio/west burguer/muestra.png",
+                  "portafolio/west burguer/muestra 2.png",
+                  "portafolio/west burguer/Hamburguesa con PaPas.png",
+                  "portafolio/west burguer/promo burguer ranch.png",
+                  "portafolio/west burguer/ranch 1 feed.png",
+                  "portafolio/west burguer/ranch 1.png",
+                  "portafolio/west burguer/historia 1.png"
+        ],
+        clientComments: [
+          { user: "westburger.co", text: "Las fotos quedaron brutales, las ventas de la Burger Ranch subieron muchísimo tras publicar." },
+          { user: "burger_lover_ibg", text: "¡Esa foto de la hamburguesa con papas me dio un hambre increíble!" },
+          { user: "gabriel_marketing", text: "Excelente iluminación de producto. El menú quedó súper limpio." }
+        ]
+      }
+    ];
+
+    // ── LOGIC AND EVENTS ──────────────────────────────────────────
+    let activeProjectId = null;
+    let activeSlideIndex = 0;
+
+    // Configura el hover dinámico para que el video se cargue y reproduzca SOLO al pasar el cursor
+    function setupVideoHover(element, videoUrl) {
+      element.addEventListener("mouseenter", () => {
+        let videoEl = element.querySelector(".video-hover-element");
+        if (!videoEl) {
+          videoEl = document.createElement("video");
+          videoEl.className = "grid-item-media video-hover-element";
+          videoEl.src = videoUrl;
+          videoEl.muted = true;
+          videoEl.loop = true;
+          videoEl.playsInline = true;
+          videoEl.style.position = "absolute";
+          videoEl.style.top = "0";
+          videoEl.style.left = "0";
+          videoEl.style.width = "100%";
+          videoEl.style.height = "100%";
+          videoEl.style.objectFit = "cover";
+          videoEl.style.zIndex = "1";
+          element.appendChild(videoEl);
+        }
+        videoEl.play().catch(() => {});
+      });
+
+      element.addEventListener("mouseleave", () => {
+        const videoEl = element.querySelector(".video-hover-element");
+        if (videoEl) {
+          videoEl.pause();
+          videoEl.src = "";
+          videoEl.load();
+          videoEl.remove();
+        }
+      });
+    }
+
+    // Render Grid
+    function renderGrids() {
+      const gridContainer = document.getElementById("portfolioGrid");
+      const reelsContainer = document.getElementById("reelsGrid");
+      const webContainer = document.getElementById("webGrid");
+      
+      gridContainer.innerHTML = "";
+      reelsContainer.innerHTML = "";
+      if (webContainer) webContainer.innerHTML = "";
+
+      projectsData.forEach(proj => {
+        // Grid Item principal
+        const item = document.createElement("div");
+        item.className = "grid-item";
+        item.setAttribute("onclick", `openModal(${proj.id})`);
+
+        // Check if video first slide or video available
+        const isVideo = proj.media[0].endsWith(".mp4");
+        
+        // Elemento de Media: sólo cargamos imágenes ligeras (póster) para los videos en la cuadrícula
+        let mediaHtml = "";
+        if (isVideo) {
+          const posterPath = proj.media[0].replace(/\.mp4$/i, "_poster.jpg");
+          mediaHtml = `<img class="grid-item-media" src="${posterPath}" alt="${proj.title}" loading="lazy">`;
+        } else {
+          mediaHtml = `<img class="grid-item-media" src="${proj.media[0]}" alt="${proj.title}" loading="lazy">`;
+        }
+
+        // Indicators (reel/carousel)
+        let indicatorHtml = "";
+        if (isVideo) {
+          indicatorHtml = `
+            <div class="reel-indicator" title="Este post es un video (Reel)">
+              <svg viewBox="0 0 24 24"><polygon points="8 5 8 19 19 12 8 5" /></svg>
+            </div>`;
+        } else if (proj.media.length > 1) {
+          indicatorHtml = `
+            <div class="carousel-indicator" title="Carrusel de imágenes">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="3" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M7 17h10a2 2 0 0 0 2-2V7" fill="none" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>`;
+        }
+
+        item.innerHTML = `
+          ${mediaHtml}
+          ${indicatorHtml}
+          <div class="grid-item-overlay">
+            <div class="overlay-metric">
+              <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>${proj.likes}</span>
+            </div>
+            <div class="overlay-metric">
+              <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              <span>${proj.commentsCount}</span>
+            </div>
+          </div>
+        `;
+
+        if (isVideo) {
+          setupVideoHover(item, proj.media[0]);
+        }
+
+        gridContainer.appendChild(item);
+
+        // Si contiene video, agregarlo a la pestaña de Reels
+        const hasVideo = proj.media.some(m => m.endsWith(".mp4"));
+        if (hasVideo) {
+          const reelItem = item.cloneNode(true);
+          reelItem.setAttribute("onclick", `openModal(${proj.id})`);
+          setupVideoHover(reelItem, proj.media[0]);
+          reelsContainer.appendChild(reelItem);
+        }
+
+        // Si es un sitio web, agregarlo a la pestaña de Web
+        if (proj.isWebsite && webContainer) {
+          const webItem = item.cloneNode(true);
+          webItem.setAttribute("onclick", `openModal(${proj.id})`);
+          if (isVideo) {
+            setupVideoHover(webItem, proj.media[0]);
+          }
+          webContainer.appendChild(webItem);
+        }
+      });
+    }
+
+    // Switch Tabs
+    function switchTab(tabId) {
+      // Hide all contents
+      document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+      // Deactivate all buttons
+      document.querySelectorAll(".tab-button").forEach(b => b.classList.remove("active"));
+
+      // Show specific
+      document.getElementById(tabId).classList.add("active");
+      
+      // Select button
+      if (tabId === "grid-tab") {
+        document.getElementById("grid-btn").classList.add("active");
+      } else if (tabId === "reels-tab") {
+        document.getElementById("reels-btn").classList.add("active");
+      } else if (tabId === "web-tab") {
+        document.getElementById("web-btn").classList.add("active");
+      } else if (tabId === "cv-tab") {
+        document.getElementById("cv-btn").classList.add("active");
+        animateSkillBars();
+      }
+    }
+
+    // Animate skill bars when tab is loaded
+    function animateSkillBars() {
+      setTimeout(() => {
+        document.querySelectorAll(".skill-fill").forEach(fill => {
+          const w = fill.getAttribute("data-width");
+          fill.style.width = w;
+        });
+      }, 100);
+    }
+
+    // Modal Operations
+    function openModal(projId) {
+      activeProjectId = projId;
+      activeSlideIndex = 0;
+      const proj = projectsData.find(p => p.id === projId);
+      if (!proj) return;
+
+      const modal = document.getElementById("instagramModal");
+      
+      // Text details
+      document.getElementById("modalCategory").textContent = proj.category;
+      document.getElementById("modalDescription").textContent = proj.description;
+      document.getElementById("modalLikesCount").textContent = `${proj.likes} Me gusta`;
+      document.getElementById("modalDateTag").textContent = proj.date;
+      
+      // Like button reset
+      const likeBtn = document.getElementById("likeBtn");
+      likeBtn.classList.remove("liked");
+
+      // Tools tags
+      const toolsContainer = document.getElementById("modalTools");
+      toolsContainer.innerHTML = "";
+      proj.tools.forEach(t => {
+        const tag = document.createElement("span");
+        tag.className = "tool-tag-ig";
+        tag.textContent = t;
+        toolsContainer.appendChild(tag);
+      });
+
+      // Comments section
+      const commentsContainer = document.getElementById("modalComments");
+      commentsContainer.innerHTML = "";
+      proj.clientComments.forEach(comm => {
+        const item = document.createElement("div");
+        item.className = "comment-item";
+        // Get initials for mock avatar
+        const initials = comm.user.substring(0, 2).toUpperCase();
+        item.innerHTML = `
+          <div class="comment-avatar">${initials}</div>
+          <div>
+            <span class="comment-author">${comm.user}</span>
+            <span class="comment-text">${comm.text}</span>
+          </div>
+        `;
+        commentsContainer.appendChild(item);
+      });
+
+      // Setup WhatsApp button
+      const waBtn = document.getElementById("modalWhatsAppBtn");
+      const waText = encodeURIComponent(`Hola David, estuve viendo tu portafolio y me gustó mucho el proyecto de "${proj.title}" (${proj.category}). Me gustaría recibir cotización para un trabajo similar.`);
+      waBtn.setAttribute("href", `https://wa.me/573169642159?text=${waText}`);
+
+      // Setup Website button
+      const webBtn = document.getElementById("modalWebsiteBtn");
+      if (proj.websiteUrl) {
+        webBtn.setAttribute("href", proj.websiteUrl);
+        webBtn.style.display = "flex";
+      } else {
+        webBtn.style.display = "none";
+      }
+
+      // Media rendering
+      renderModalMedia();
+
+      // Show modal
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function renderModalMedia() {
+      const proj = projectsData.find(p => p.id === activeProjectId);
+      const mediaPanel = document.getElementById("modalMediaPanel");
+      
+      // Remove previous media elements
+      const prevMedia = mediaPanel.querySelectorAll(".modal-media-element");
+      prevMedia.forEach(el => el.remove());
+
+      // Render all slides
+      proj.media.forEach((path, idx) => {
+        const isVideo = path.endsWith(".mp4");
+        let mediaEl;
+
+        if (isVideo) {
+          mediaEl = document.createElement("video");
+          mediaEl.className = "modal-media-element";
+          mediaEl.src = path;
+          mediaEl.controls = true;
+          mediaEl.loop = true;
+          mediaEl.setAttribute("poster", path.replace(/\.mp4$/i, "_poster.jpg"));
+          mediaEl.setAttribute("preload", "none");
+          mediaEl.autoplay = idx === activeSlideIndex;
+          if (idx === activeSlideIndex) mediaEl.play().catch(() => {});
+        } else {
+          mediaEl = document.createElement("img");
+          mediaEl.className = "modal-media-element";
+          mediaEl.src = path;
+          mediaEl.alt = proj.title;
+        }
+
+        if (idx === activeSlideIndex) {
+          mediaEl.classList.add("active");
+        }
+
+        // Insert before arrows
+        mediaPanel.insertBefore(mediaEl, document.getElementById("prevMediaBtn"));
+      });
+
+      // Arrows visibility
+      const leftArrow = document.getElementById("prevMediaBtn");
+      const rightArrow = document.getElementById("nextMediaBtn");
+      const dotsContainer = document.getElementById("carouselDots");
+      dotsContainer.innerHTML = "";
+
+      if (proj.media.length > 1) {
+        leftArrow.style.display = "flex";
+        rightArrow.style.display = "flex";
+        
+        // Render dots
+        proj.media.forEach((_, idx) => {
+          const dot = document.createElement("div");
+          dot.className = `carousel-dot ${idx === activeSlideIndex ? 'active' : ''}`;
+          dot.setAttribute("onclick", `goToSlide(${idx})`);
+          dotsContainer.appendChild(dot);
+        });
+      } else {
+        leftArrow.style.display = "none";
+        rightArrow.style.display = "none";
+      }
+    }
+
+    function prevMedia() {
+      const proj = projectsData.find(p => p.id === activeProjectId);
+      if (!proj) return;
+
+      // Stop current video
+      stopCurrentVideo();
+
+      activeSlideIndex = (activeSlideIndex - 1 + proj.media.length) % proj.media.length;
+      updateActiveSlide();
+    }
+
+    function nextMedia() {
+      const proj = projectsData.find(p => p.id === activeProjectId);
+      if (!proj) return;
+
+      // Stop current video
+      stopCurrentVideo();
+
+      activeSlideIndex = (activeSlideIndex + 1) % proj.media.length;
+      updateActiveSlide();
+    }
+
+    function goToSlide(idx) {
+      stopCurrentVideo();
+      activeSlideIndex = idx;
+      updateActiveSlide();
+    }
+
+    function stopCurrentVideo() {
+      const mediaPanel = document.getElementById("modalMediaPanel");
+      const activeVideo = mediaPanel.querySelector("video.active");
+      if (activeVideo) {
+        activeVideo.pause();
+      }
+    }
+
+    function updateActiveSlide() {
+      const mediaPanel = document.getElementById("modalMediaPanel");
+      const elements = mediaPanel.querySelectorAll(".modal-media-element");
+      
+      elements.forEach((el, idx) => {
+        if (idx === activeSlideIndex) {
+          el.classList.add("active");
+          if (el.tagName === "VIDEO") {
+            el.currentTime = 0;
+            el.play().catch(() => {});
+          }
+        } else {
+          el.classList.remove("active");
+          if (el.tagName === "VIDEO") {
+            el.pause();
+          }
+        }
+      });
+
+      // Update dots
+      const dots = mediaPanel.querySelectorAll(".carousel-dot");
+      dots.forEach((dot, idx) => {
+        if (idx === activeSlideIndex) {
+          dot.classList.add("active");
+        } else {
+          dot.classList.remove("active");
+        }
+      });
+    }
+
+    function nextPost(e) {
+      if (e) e.stopPropagation();
+      let idx = projectsData.findIndex(p => p.id === activeProjectId);
+      if (idx !== -1) {
+        idx = (idx + 1) % projectsData.length;
+        openModal(projectsData[idx].id);
+      }
+    }
+
+    function prevPost(e) {
+      if (e) e.stopPropagation();
+      let idx = projectsData.findIndex(p => p.id === activeProjectId);
+      if (idx !== -1) {
+        idx = (idx - 1 + projectsData.length) % projectsData.length;
+        openModal(projectsData[idx].id);
+      }
+    }
+
+    function closeModal() {
+      if (typeof stopCurrentVideo === 'function') stopCurrentVideo();
+      const modal = document.getElementById("instagramModal");
+      modal.classList.remove("open");
+      document.body.style.overflow = "";
+      activeProjectId = null;
+    }
+
+    // Close on background click
+    document.getElementById("instagramModal").addEventListener("click", function(e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    });
+
+    // Like toggle
+    function toggleLike() {
+      const likeBtn = document.getElementById("likeBtn");
+      const isLiked = likeBtn.classList.toggle("liked");
+      const proj = projectsData.find(p => p.id === activeProjectId);
+      if (!proj) return;
+
+      const likesCount = isLiked ? proj.likes + 1 : proj.likes;
+      document.getElementById("modalLikesCount").textContent = `${likesCount} Me gusta`;
+    }
+
+    // Action buttons simulation
+    function followDirect() {
+      const btn = document.querySelector(".sidebar-action-btn");
+      if (btn.textContent === "Siguiendo") {
+        btn.textContent = "Seguir";
+        btn.style.color = "var(--accent)";
+      } else {
+        btn.textContent = "Siguiendo";
+        btn.style.color = "var(--text-secondary)";
+      }
+    }
+
+    function focusCommentInput() {
+      alert("Para dejar un comentario real sobre el portafolio de David, haz clic en el botón de WhatsApp abajo y escríbele directamente. 💬🚀");
+    }
+
+    // Profile ring action (Simulation of story click)
+    document.getElementById("profileAvatarRing").addEventListener("click", function() {
+      // Switch to Sobro Mí or show CV
+      alert("¡Hola! Soy David Muñoz Torres. Estás viendo mi portafolio. Si quieres ver mi curriculum completo o contactarme, haz clic en los botones de mi perfil. 🎨");
+    });
+
+    function openProfilePictureModal() {
+      alert("Foto de perfil cargada desde portafolio/img_perfil_reducida.png. ¡Gracias por explorar!");
+    }
+
+    // ── HISTORIAS DESTACADAS (STORIES VIEWER) ──
+    const highlightsData = {
+      "sobre-mi": {
+        label: "Sobre Mí 🙋‍♂️",
+        cover: "portafolio/historias/Yportada.png",
+        items: [
+          "portafolio/historias/y1.jpg",
+          "portafolio/historias/y2.jpg",
+          "portafolio/historias/y3.png",
+          "portafolio/historias/y4.jpeg",
+          "portafolio/historias/y5.jpg",
+          "portafolio/historias/y6.jpg",
+          "portafolio/historias/y7.jpg",
+          "portafolio/historias/y8.jpg"
+        ],
+        dates: ["Hoy", "Hoy", "Ayer", "Ayer", "Hace 3 días", "Hace 4 días", "Hace 5 días", "Hace 6 días"]
+      },
+      "familia": {
+        label: "Familia 👨‍👩‍👧‍👦",
+        cover: "portafolio/historias/Faportada.png",
+        items: [
+          "portafolio/historias/fa1.webp",
+          "portafolio/historias/fa2.webp",
+          "portafolio/historias/fa3.jpg",
+          "portafolio/historias/fa4.jpg",
+          "portafolio/historias/fa5.jpg",
+          "portafolio/historias/fa6.jpg"
+        ],
+        dates: ["Navidad", "Vacaciones", "Cumpleaños", "Fin de año", "Paseo", "Reunión"]
+      },
+      "friends": {
+        label: "Friends 👥",
+        cover: "portafolio/historias/Fportada.png",
+        items: [
+          "portafolio/historias/f1.webp",
+          "portafolio/historias/f2.webp",
+          "portafolio/historias/f3.webp"
+        ],
+        dates: ["Hace 1 mes", "Hace 2 meses", "Hace 3 meses"]
+      },
+      "momentos": {
+        label: "Momentos ✨",
+        cover: "portafolio/historias/Mportada.png",
+        items: [
+          "portafolio/historias/M1.jpg",
+          "portafolio/historias/M2.mp4",
+          "portafolio/historias/M3.mp4",
+          "portafolio/historias/M4.mp4",
+          "portafolio/historias/M5.MP4"
+        ],
+        dates: ["Amanecer", "Vuelo Dron", "Edición", "Estudio", "Grabación"]
+      }
+    };
+
+    let activeStoryKey = null;
+    let activeStoryIndex = 0;
+    let storyTimer = null;
+    let storyDuration = 4000; // default 4 seconds per story slide
+    let storyIsPlaying = false;
+    let lastTickTime = 0;
+    let elapsedInSlide = 0;
+
+    function openStories(storyKey) {
+      activeStoryKey = storyKey;
+      activeStoryIndex = 0;
+      elapsedInSlide = 0;
+      storyIsPlaying = true;
+      
+      const modal = document.getElementById("stories-modal");
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden"; // Disable background scrolling
+      
+      // Update UI for the first slide
+      renderProgressBars();
+      showStorySlide();
+      
+      // Start the timer loop
+      lastTickTime = performance.now();
+      requestAnimationFrame(storyTick);
+    }
+
+    function renderProgressBars() {
+      const container = document.getElementById("story-progress-container");
+      container.innerHTML = "";
+      const story = highlightsData[activeStoryKey];
+      
+      story.items.forEach((_, idx) => {
+        const track = document.createElement("div");
+        track.className = "story-progress-track";
+        
+        const fill = document.createElement("div");
+        fill.className = "story-progress-fill";
+        fill.id = `story-progress-${idx}`;
+        
+        // If it's a completed slide, set to 100%
+        if (idx < activeStoryIndex) {
+          fill.style.width = "100%";
+        } else {
+          fill.style.width = "0%";
+        }
+        
+        track.appendChild(fill);
+        container.appendChild(track);
+      });
+    }
+
+    function showStorySlide() {
+      const story = highlightsData[activeStoryKey];
+      const img = document.getElementById("story-img");
+      const video = document.getElementById("story-video");
+      
+      const path = story.items[activeStoryIndex];
+      const isVideo = path.toLowerCase().endsWith(".mp4");
+      
+      // Reset play button state
+      const playBtn = document.getElementById("story-play-btn");
+      playBtn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+      
+      // Reset video element
+      video.pause();
+      video.src = "";
+      video.style.display = "none";
+      img.style.display = "none";
+      
+      if (isVideo) {
+        video.style.display = "block";
+        video.src = path;
+        
+        // Wait for metadata to set actual video duration
+        video.onloadedmetadata = () => {
+          storyDuration = video.duration * 1000 || 4000;
+          elapsedInSlide = 0;
+          if (storyIsPlaying) {
+            video.play().catch(() => {});
+          }
+        };
+        video.load();
+      } else {
+        img.style.display = "block";
+        img.src = path;
+        storyDuration = 4000;
+        elapsedInSlide = 0;
+      }
+      
+      // Reset width of the current progress fill
+      const currentFill = document.getElementById(`story-progress-${activeStoryIndex}`);
+      if (currentFill) {
+        currentFill.style.width = "0%";
+      }
+    }
+
+    function storyTick(timestamp) {
+      if (!storyIsPlaying || activeStoryKey === null) return;
+      
+      const delta = timestamp - lastTickTime;
+      lastTickTime = timestamp;
+      
+      elapsedInSlide += delta;
+      
+      if (elapsedInSlide >= storyDuration) {
+        elapsedInSlide = 0;
+        // Mark current bar as 100%
+        const currentFill = document.getElementById(`story-progress-${activeStoryIndex}`);
+        if (currentFill) currentFill.style.width = "100%";
+        
+        nextStorySlide();
+      } else {
+        // Update current progress bar width
+        const pct = (elapsedInSlide / storyDuration) * 100;
+        const currentFill = document.getElementById(`story-progress-${activeStoryIndex}`);
+        if (currentFill) {
+          currentFill.style.width = `${pct}%`;
+        }
+        requestAnimationFrame(storyTick);
+      }
+    }
+
+    function nextStorySlide() {
+      const story = highlightsData[activeStoryKey];
+      
+      // Complete current bar before moving
+      const currentFill = document.getElementById(`story-progress-${activeStoryIndex}`);
+      if (currentFill) currentFill.style.width = "100%";
+      
+      if (activeStoryIndex < story.items.length - 1) {
+        activeStoryIndex++;
+        elapsedInSlide = 0;
+        showStorySlide();
+        requestAnimationFrame(storyTick);
+      } else {
+        // Go to next highlight category if available
+        const keys = Object.keys(highlightsData);
+        const currentKeyIdx = keys.indexOf(activeStoryKey);
+        if (currentKeyIdx < keys.length - 1) {
+          openStories(keys[currentKeyIdx + 1]);
+        } else {
+          closeStories();
+        }
+      }
+    }
+
+    function prevStorySlide() {
+      if (activeStoryIndex > 0) {
+        // Reset current progress fill
+        const currentFill = document.getElementById(`story-progress-${activeStoryIndex}`);
+        if (currentFill) currentFill.style.width = "0%";
+        
+        activeStoryIndex--;
+        elapsedInSlide = 0;
+        
+        // Reset previous progress fill (the one we are going back to)
+        const prevFill = document.getElementById(`story-progress-${activeStoryIndex}`);
+        if (prevFill) prevFill.style.width = "0%";
+        
+        showStorySlide();
+        requestAnimationFrame(storyTick);
+      } else {
+        // Go to previous highlight category if available
+        const keys = Object.keys(highlightsData);
+        const currentKeyIdx = keys.indexOf(activeStoryKey);
+        if (currentKeyIdx > 0) {
+          const prevKey = keys[currentKeyIdx - 1];
+          openStories(prevKey);
+          // Set to the last slide of the previous story
+          activeStoryIndex = highlightsData[prevKey].items.length - 1;
+          renderProgressBars();
+          showStorySlide();
+        } else {
+          // just restart current slide
+          elapsedInSlide = 0;
+          showStorySlide();
+          requestAnimationFrame(storyTick);
+        }
+      }
+    }
+
+    function toggleStoryPlay() {
+      const playBtn = document.getElementById("story-play-btn");
+      const video = document.getElementById("story-video");
+      const path = highlightsData[activeStoryKey].items[activeStoryIndex];
+      const isVideo = path.toLowerCase().endsWith(".mp4");
+
+      if (storyIsPlaying) {
+        storyIsPlaying = false;
+        playBtn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+        if (isVideo) video.pause();
+      } else {
+        storyIsPlaying = true;
+        playBtn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+        if (isVideo) video.play().catch(() => {});
+        lastTickTime = performance.now();
+        requestAnimationFrame(storyTick);
+      }
+    }
+
+    function closeStories() {
+      storyIsPlaying = false;
+      activeStoryKey = null;
+      const video = document.getElementById("story-video");
+      video.pause();
+      video.src = "";
+      document.getElementById("stories-modal").classList.remove("active");
+      document.body.style.overflow = ""; // Re-enable background scrolling
+    }
+
+    function handleStoryTap(event) {
+      const containerRect = event.currentTarget.getBoundingClientRect();
+      const clickX = event.clientX - containerRect.left;
+      const width = containerRect.width;
+      
+      if (clickX < width * 0.3) {
+        prevStorySlide();
+      } else {
+        nextStorySlide();
+      }
+    }
+
+    function openCurriculumQuickView() {
+      window.open("portafolio/curriculum-David_Muñoz_Torres.pdf", "_blank");
+    }
+
+    // Load
+    window.addEventListener("DOMContentLoaded", () => {
+      renderGrids();
+    });
+  </script>
+</body>
+
+</html>

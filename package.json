@@ -1,0 +1,14 @@
+{
+  "name": "david-munoz-informes",
+  "version": "1.0.0",
+  "description": "Sistema de automatización de informes de presencia visual",
+  "main": "scripts/publish.js",
+  "scripts": {
+    "publish": "node scripts/publish.js"
+  },
+  "dependencies": {
+    "basic-ftp": "^5.0.4",
+    "dotenv": "^16.4.5"
+  },
+  "type": "module"
+}
