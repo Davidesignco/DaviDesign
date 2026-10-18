@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio Pre-ITV y Gestión Integral | MotoSuper Alicante</title>
+    <meta name="description"
+        content="Asegura tu ITV favorable en Alicante. Revisión técnica completa y servicio de gestión: llevamos tu moto a la inspección por ti.">
+    <link rel="icon" type="image/svg+xml" href="Logos/ico-logo.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="Logos/logotipo-header.svg" alt="MotoSuper Logo" style="height: 45px; display: block;">
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html">Inicio</a>
+                <div class="nav-item-dropdown">
+                    <a href="#" class="dropdown-trigger active">Servicios <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="revisiones.html"><i class="fas fa-wrench"></i> Revisiones de Mantenimiento</a>
+                        <a href="itv.html" class="active"><i class="fas fa-clipboard-check"></i> Servicio Pre-ITV</a>
+                        <a href="siniestros.html"><i class="fas fa-car-crash"></i> Gestión de Siniestros</a>
+                        <a href="reparaciones.html"><i class="fas fa-cogs"></i> Taller y Reparación</a>
+                    </div>
+                </div>
+                <a href="contacto.html" class="btn btn-primary"
+                    style="color: white; padding: 10px 20px; font-size: 0.9rem; margin-top: 0;">Contactar</a>
+            </nav>
+
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section 1: HERO -->
+        <section class="hero-wrapper">
+            <div class="hero-ring-container">
+                <div class="hero-deco-ring"></div>
+            </div>
+            <div class="hero-mechanic-visual hero-visual-itv"></div>
+
+            <div class="container hero-grid">
+                <div class="hero-content animate-on-scroll fade-right">
+                    <h1>Servicio Pre-ITV <br><span class="highlight">Favorable Garantizado</span></h1>
+                    <p>
+                        Olvídate de las colas y los trámites. Revisamos tu moto a fondo y nos encargamos de llevarla a la inspección por ti.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="https://wa.me/34613355880" class="btn btn-primary">Reservar Mi Cita</a>
+                        <a href="#proceso" class="btn btn-outline">¿Cómo funciona?</a>
+                    </div>
+                </div>
+                <div class="hero-visual"></div>
+            </div>
+        </section>
+
+        <!-- Section 2: TRUST -->
+        <section id="ventajas" class="value-prop">
+            <div class="container">
+                <div class="section-title animate-on-scroll fade-up">
+                    <span class="badge">SEGURIDAD Y TRANQUILIDAD</span>
+                    <h2>Detectamos lo que <span class="text-red">otros pasan por alto</span></h2>
+                    <p>Un diagnóstico exhaustivo para evitar sorpresas desagradables en la estación de ITV.</p>
+                </div>
+
+                <div class="trust-grid">
+                    <div class="trust-visual animate-on-scroll fade-right">
+                         <img src="Imagenes/10e9042a85.jpg" alt="Inspección ITV Moto" style="border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg);">
+                    </div>
+                    <div class="trust-content animate-on-scroll fade-left">
+                        <div class="trust-item">
+                            <div class="trust-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div>
+                                <h3>Control de Emisiones y Fluidos</h3>
+                                <p>Medimos los niveles de CO2 y ruidos para asegurar que cumples con la normativa medioambiental vigente.</p>
+                            </div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="trust-icon"><i class="fas fa-lightbulb"></i></div>
+                            <div>
+                                <h3>Sistema Eléctrico y Luces</h3>
+                                <p>Verificamos cada iluminación y sensor para que no te rechacen por un simple bombillo fundido o desajustado.</p>
+                            </div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="trust-icon"><i class="fas fa-truck-fast"></i></div>
+                            <div>
+                                <h3>Gestión de Desplazamiento</h3>
+                                <p>Si no tienes tiempo, nosotros llevamos la moto, pasamos la inspección y te la entregamos ya aprobada.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: EXPERIENCE -->
+        <section class="history-section" style="background: var(--bg-light);">
+            <div class="history-ring-container">
+                <div class="history-deco-ring"></div>
+            </div>
+            <div class="history-team-visual"></div>
+
+            <div class="container relative-container">
+                <div class="grid-2" style="align-items: center;">
+                    <div class="spacer-div"></div>
+                    <div class="history-content animate-on-scroll fade-left">
+                        <h2 class="section-title-left">Cero Riesgos, <br><span class="text-red">100% Eficacia</span></h2>
+                        <p class="history-lead">La ITV no tiene por qué ser un dolor de cabeza. Nuestro equipo conoce cada detalle técnico que miran los inspectores.</p>
+                        <p>Realizamos un pre-chequeo riguroso antes de tu cita, permitiéndonos subsanar cualquier defecto leve antes de que se convierta en un rechazo.</p>
+                        <p>Tu moto volverá a ti con la pegatina puesta y la tranquilidad de saber que ruedas con seguridad.</p>
+                        <a href="https://wa.me/34613355880" class="btn btn-primary btn-history-tablet">Contactar Ahora</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: STATS -->
+        <section id="estadisticas" class="stats-section">
+            <div class="container relative-container">
+                <div class="stats-grid animate-on-scroll fade-up">
+                    <div class="stat-item">
+                        <div class="stat-number-wrapper"><h4 class="stat-number counter" data-target="1120" data-speed="10" data-increment="5">0</h4></div>
+                        <span class="stat-label">ITV Aprobadas</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number-wrapper"><span class="prefix">+</span><h4 class="stat-number counter" data-target="180" data-speed="40" data-increment="2">0</h4></div>
+                        <span class="stat-label">Gestiones Realizadas/Mes</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number-wrapper"><h4 class="stat-number counter" data-target="100" data-speed="30" data-increment="1">0</h4><span class="suffix">%</span></div>
+                        <span class="stat-label">Éxito en Re-inspección</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number-wrapper"><h4 class="stat-number counter" data-target="24" data-speed="20" data-increment="1">0</h4></div>
+                        <span class="stat-label">Horas Promedio Gestión</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: HOW IT WORKS -->
+        <section id="proceso" class="process-section">
+            <div class="container">
+                <div class="section-title animate-on-scroll fade-up">
+                    <h2>Tu ITV en Manos Profesionales</h2>
+                    <p>Un servicio diseñado para que tú no tengas que ocuparte de nada.</p>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step animate-on-scroll fade-up">
+                        <div class="step-number">1</div>
+                        <h3>Pre-Diagnóstico</h3>
+                        <p>Revisamos luces, frenos, neumáticos, emisiones y escapes homologados en nuestro taller.</p>
+                    </div>
+                    <div class="process-step animate-on-scroll fade-up">
+                        <div class="step-number">2</div>
+                        <h3>Puesta a Punto</h3>
+                        <p>Si detectamos algún fallo, te avisamos y lo corregimos de inmediato para asegurar el aprobado.</p>
+                    </div>
+                    <div class="process-step animate-on-scroll fade-up">
+                        <div class="step-number">3</div>
+                        <h3>Gestión y Trámite</h3>
+                        <p>Llevamos tu moto a la estación (si eliges este servicio) y nos encargamos de todo el proceso técnico.</p>
+                    </div>
+                    <div class="process-step animate-on-scroll fade-up">
+                        <div class="step-number">4</div>
+                        <h3>Entrega Final</h3>
+                        <p>Recoges tu moto con la ITV ya en vigor y lista para circular.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: WHY US -->
+        <section class="comparative">
+            <div class="container">
+                <div class="section-title animate-on-scroll fade-up">
+                    <h2>¿Por qué confiar en nosotros?</h2>
+                </div>
+                <div class="grid-3">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <h3>Disponibilidad Inmediata</h3>
+                        <p>Gestionamos tu cita de Pre-ITV rápidamente, adaptándonos a tus horarios.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-magic"></i></div>
+                        <h3>Gestión Llave en Mano</h3>
+                        <p>Nos encargamos del desplazamiento y la revisión sin que tengas que pisar la estación ITV.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                        <h3>Compromiso</h3>
+                        <p>Si por algún motivo no pasas la ITV tras nuestro aviso, cubrimos la re-inspección.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: REVIEWS -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-title animate-on-scroll fade-up">
+                    <h2>Valoración 5 Estrellas en Google</h2>
+                    <p>No te fíes solo de nuestra palabra. Lee lo que dicen los motoristas de Alicante.</p>
+                </div>
+                <div class="carousel-container animate-on-scroll fade-up">
+                    <div class="carousel-track">
+                        <!-- Google Review Card 1 -->
+                        <div class="google-review-card">
+                            <div class="review-header">
+                                <div class="reviewer-avatar" style="background-color: #4285F4;">C</div>
+                                <div class="reviewer-info">
+                                    <h4>Carlos M.</h4>
+                                    <span class="review-date">Hace 2 semanas</span>
+                                </div>
+                                <div class="google-icon"><i class="fab fa-google"></i></div>
+                            </div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p>"Espectacular el servicio. Fui sin cita para cambiar aceite y tensar cadena, en 40
+                                minutos estaba fuera. Trato de 10. Muy recomendables para cualquier moto gorda."</p>
+                        </div>
+
+                        <!-- Google Review Card 2 -->
+                        <div class="google-review-card">
+                            <div class="review-header">
+                                <div class="reviewer-avatar" style="background-color: #EA4335;">L</div>
+                                <div class="reviewer-info">
+                                    <h4>Laura S.</h4>
+                                    <span class="review-date">Hace 1 mes</span>
+                                </div>
+                                <div class="google-icon"><i class="fab fa-google"></i></div>
+                            </div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p>"Tuve una caída leve, ellos se encargaron del peritaje con Mapfre y me devolvieron la
+                                moto pintada entera y revisada. Increíbles profesionales."</p>
+                        </div>
+
+                        <!-- Google Review Card 3 -->
+                        <div class="google-review-card">
+                            <div class="review-header">
+                                <div class="reviewer-avatar" style="background-color: #FBBC05;">D</div>
+                                <div class="reviewer-info">
+                                    <h4>David G.</h4>
+                                    <span class="review-date">Hace 3 meses</span>
+                                </div>
+                                <div class="google-icon"><i class="fab fa-google"></i></div>
+                            </div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p>"El único taller en Alicante donde confío mi BMW para el mantenimiento riguroso. Precios
+                                transparentes y el taller lo tienen súper limpio. Repetiré seguro."</p>
+                        </div>
+
+                        <!-- Google Review Card 4 -->
+                        <div class="google-review-card">
+                            <div class="review-header">
+                                <div class="reviewer-avatar" style="background-color: #34A853;">M</div>
+                                <div class="reviewer-info">
+                                    <h4>Miguel A.</h4>
+                                    <span class="review-date">Hace 4 meses</span>
+                                </div>
+                                <div class="google-icon"><i class="fab fa-google"></i></div>
+                            </div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p>"Unos cracks. Me solucionaron un problema eléctrico en la Kawasaki que en otros sitios no
+                                daban con la tecla. 100% sinceros con el presupuesto."</p>
+                        </div>
+
+                        <!-- Google Review Card 5 -->
+                        <div class="google-review-card">
+                            <div class="review-header">
+                                <div class="reviewer-avatar" style="background-color: #673AB7;">S</div>
+                                <div class="reviewer-info">
+                                    <h4>Silvia R.</h4>
+                                    <span class="review-date">Hace 5 meses</span>
+                                </div>
+                                <div class="google-icon"><i class="fab fa-google"></i></div>
+                            </div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p>"Trato excelente, rápidos y te explican exactamente lo que han hecho. Fui por el cambio
+                                de neumáticos y me revisaron niveles sin coste extra."</p>
+                        </div>
+
+                        <!-- Google Review Card 6 -->
+                        <div class="google-review-card">
+                            <div class="review-header">
+                                <div class="reviewer-avatar" style="background-color: #00BCD4;">P</div>
+                                <div class="reviewer-info">
+                                    <h4>Pedro J.</h4>
+                                    <span class="review-date">Hace 6 meses</span>
+                                </div>
+                                <div class="google-icon"><i class="fab fa-google"></i></div>
+                            </div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p>"Honestidad por encima de todo. Iba dispuesto a cambiar un disco de freno doblado y ellos
+                                lograron enderezarlo ahorrándome mucho dinero. Ya no cambio de taller."</p>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <button class="carousel-btn prev-btn" aria-label="Anterior Reseña"><i
+                            class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next-btn" aria-label="Siguiente Reseña"><i
+                            class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="https://www.google.com/maps/place/MotoSuper/@38.3562775,-0.4797228,17z/data=!4m8!3m7!1s0xd6237f0f8c283b1:0xbff719c53b0a4db6!8m2!3d38.3562733!4d-0.4771479!9m1!1b1!16s%2Fg%2F11pkc88cb6"
+                        target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-outline-white">
+                        <i class="fab fa-google"></i> Ver Todas Nuestras Reseñas Reales
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: MAPS -->
+        <section id="ubicacion" class="locations-section">
+            <div class="container">
+                <div class="section-title animate-on-scroll fade-up">
+                    <h2>Encuentra tu centro más cercano</h2>
+                </div>
+                <div class="locations-grid">
+                    <div class="location-cards">
+                        <!-- Sede 1 Card -->
+                        <div class="location-card active" data-lat="38.35631" data-lng="-0.47716" data-index="0">
+                            <div class="card-status">Sede 1</div>
+                            <h3>MotoSuper Alicante</h3>
+                            <p class="address"><i class="fas fa-map-marker-alt"></i> C/ Ingeniero Canales, 6, 03013, Alicante</p>
+                            <p class="phone"><i class="fas fa-phone"></i> 965598615</p>
+                            <p class="schedule"><i class="fas fa-clock"></i> L - V: 09:30 - 14:30 | 16:30 - 20:30</p>
+                            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=C/%20Ingeniero%20Canales%206,%20Alicante" target="_blank" class="btn btn-secondary btn-sm">
+                                    <i class="fas fa-directions"></i> Cómo llegar
+                                </a>
+                                <a href="https://wa.me/34613355880" target="_blank" class="btn btn-primary btn-sm">
+                                    <i class="fab fa-whatsapp"></i> Contactar
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Sede 2 Card -->
+                        <div class="location-card" data-lat="38.35386" data-lng="-0.48698" data-index="1">
+                            <div class="card-status">Sede 2</div>
+                            <h3>MotoSuper Alicante</h3>
+                            <p class="address"><i class="fas fa-map-marker-alt"></i> C/ Teniente Llorca, 3, 03012, Alicante</p>
+                            <p class="phone"><i class="fas fa-phone"></i> 865821061</p>
+                            <p class="schedule"><i class="fas fa-clock"></i> L - V: 09:30 - 14:30 | 16:30 - 20:30</p>
+                            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=C/%20Teniente%20Llorca%203,%20Alicante" target="_blank" class="btn btn-secondary btn-sm">
+                                    <i class="fas fa-directions"></i> Cómo llegar
+                                </a>
+                                <a href="https://wa.me/34611206826" target="_blank" class="btn btn-primary btn-sm">
+                                    <i class="fab fa-whatsapp"></i> Contactar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-wrapper"><div id="map"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: FORM -->
+        <section id="contacto" class="contact-final-section">
+            <div class="container">
+                <div class="contact-cta-wrapper animate-on-scroll fade-up">
+                    <div class="contact-cta-content">
+                        <span class="badge">ASEGURA TU APROBADO</span>
+                        <h2>Reserva tu Pre-ITV Ahora</h2>
+                        <p>Completa el formulario y te daremos cita lo antes posible.</p>
+                        <div class="contact-whatsapp-cta">
+                            <p class="cta-subtitle">Atención inmediata por WhatsApp</p>
+                            <a href="https://wa.me/34613355880" class="btn btn-primary btn-lg w-100">
+                                <i class="fab fa-whatsapp"></i> SOLICITAR PRE-ITV
+                            </a>
+                            <p class="form-disclaimer">Horario de atención: L - V: 09:30 - 14:30 | 16:30 - 20:30</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <img src="Logos/logotipo-footer.svg" alt="MotoSuper Logo" style="height: 35px; margin-bottom: 20px;">
+                <p>Tu taller multimarca de confianza en Alicante. Transparencia, velocidad y recambios originales.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Menú</h4>
+                <a href="index.html">Inicio</a>
+                <a href="revisiones.html">Revisiones de Mantenimiento</a>
+                <a href="itv.html">Servicio Pre-ITV</a>
+                <a href="siniestros.html">Gestión Siniestros</a>
+                <a href="reparaciones.html">Taller y Reparaciones</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="aviso-legal.html">Aviso Legal</a>
+                <a href="politica-privacidad.html">Política de Privacidad</a>
+                <a href="politica-cookies.html">Política de Cookies</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Sede 1: C/ Ingeniero Canales 6</p>
+                <p><i class="fas fa-map-marker-alt"></i> Sede 2: C/ Teniente Llorca 3</p>
+                <p><i class="fas fa-phone"></i> 613355880</p>
+                <p><i class="fas fa-envelope"></i> motosuperalicante@gmail.com</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/motosuper.alicante/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://www.facebook.com/MotoSuper.alicante" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="https://wa.me/34613355880" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2024 MotoSuper Alicante. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Floating CTA for Mobile -->
+    <a href="https://wa.me/34613355880" class="floating-cta-mobile">
+        <i class="fab fa-whatsapp"></i> Contactar
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

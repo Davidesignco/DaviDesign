@@ -1,0 +1,2995 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cobertura de Eventos y Festividades — David Muñoz Diseñador | Fotografía y Video en Ibagué</title>
+  <link rel="icon" type="image/svg+xml" href="Logos/iso-logo-davidmunoz.svg?v=1.2">
+  <meta name="description"
+    content="Producción audiovisual profesional para eventos en Ibagué: bodas, renovación de votos, fiestas y eventos especiales. Fotografía de alta resolución, video cinematográfico 4K, tomas con dron y edición digital profesional.">
+  <meta name="keywords"
+    content="fotografía de bodas en Ibagué, video para eventos infantiles, cobertura audiovisual profesional, edición y corrección de color, fotógrafo de matrimonios tolima, video con dron ibagué">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cobertura Audiovisual Profesional para Eventos | David Muñoz Diseñador">
+  <meta property="og:description"
+    content="Capturamos y editamos los momentos más especiales de tus celebraciones con calidad profesional, narrativa visual y acabado cinematográfico.">
+  <meta property="og:image" content="portafolio/Fotos%20Matrimonio/renovacion_votos_%20(1).webp">
+  <meta property="og:type" content="website">
+
+  <style>
+    /* ── EVENTOS PAGE SPECIFIC ENHANCEMENTS ─────────────────────── */
+    .hero-eventos {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 120px 20px 80px;
+      text-align: center;
+    }
+
+    .hero-eventos-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* ── SEO EVENTS TICKER / TOP BAR (SIN FONDO) ───────────── */
+    .events-seo-bar {
+      position: relative;
+      z-index: 3;
+      background: transparent;
+      border-top: none;
+      border-bottom: none;
+      padding: 20px 0 10px;
+      overflow: hidden;
+    }
+
+    .events-seo-track {
+      display: flex;
+      width: max-content;
+      gap: 16px;
+      animation: seoTickerScroll 85s linear infinite;
+    }
+
+    .events-seo-track:hover {
+      animation-play-state: paused;
+    }
+
+    .events-seo-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background: rgba(0, 237, 255, 0.04);
+      border: 1px solid rgba(0, 237, 255, 0.16);
+      border-radius: 999px;
+      color: var(--text-secondary);
+      font-size: 0.86rem;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+      cursor: default;
+    }
+
+    .events-seo-pill strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .events-seo-pill .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+    }
+
+    .events-seo-pill:hover {
+      background: rgba(0, 237, 255, 0.12);
+      border-color: var(--accent);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 237, 255, 0.2);
+    }
+
+    @keyframes seoTickerScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ── VALUE PROPOSITION GRID ────────────────────────────────── */
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .value-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s var(--ease);
+      backdrop-filter: blur(12px);
+    }
+
+    .value-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 35px rgba(0, 237, 255, 0.15);
+    }
+
+    .value-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: var(--accent-dim);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      border: 1px solid rgba(0, 237, 255, 0.25);
+    }
+
+    /* ── 3D INFINITE LOOP CAROUSEL GALLERY ─────────────────────── */
+    .gallery-3d-section {
+      padding: var(--section-pad) 0;
+      background: radial-gradient(circle at 50% 50%, rgba(0, 237, 255, 0.05) 0%, rgba(5, 10, 21, 0.6) 70%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-3d-viewport {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      margin: 40px auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1200px;
+      user-select: none;
+      touch-action: pan-y;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-3d-viewport {
+        height: 380px;
+        margin: 28px auto 6px;
+        perspective: none;
+        overflow: hidden;
+      }
+    }
+
+    .gallery-3d-track {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform-style: preserve-3d;
+    }
+
+    .gallery-3d-card {
+      position: absolute;
+      width: min(500px, 46vw);
+      aspect-ratio: 4/3;
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+      will-change: transform, opacity, filter;
+      transition: transform 0.65s cubic-bezier(0.2, 0.9, 0.3, 1),
+        opacity 0.65s ease,
+        filter 0.65s ease,
+        box-shadow 0.65s ease,
+        border-color 0.4s ease;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-3d-card {
+        width: calc(100% - 64px);
+        max-width: 400px;
+        border-radius: 16px;
+      }
+    }
+
+    .gallery-3d-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    /* Gradient overlay and Expand Pill Button inside each card */
+    .gallery-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(5, 10, 21, 0.7) 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 22px;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .expand-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(10, 20, 40, 0.88);
+      border: 1.5px solid var(--accent);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 30px;
+      font-family: var(--font-head);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      pointer-events: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 18px rgba(0, 237, 255, 0.35);
+      backdrop-filter: blur(12px);
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+      overflow: hidden;
+      white-space: nowrap;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .expand-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      flex-shrink: 0;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    /* En Ordenador: Solo la lupa visible por defecto; al pasar el mouse se desliza el texto */
+    @media (min-width: 769px) {
+      .expand-pill-btn {
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        justify-content: center;
+        border-radius: 50%;
+      }
+
+      .expand-text {
+        max-width: 0;
+        opacity: 0;
+        transform: translateX(-15px);
+        margin-left: 0;
+        transition: max-width 0.45s cubic-bezier(0.2, 0.9, 0.3, 1),
+          opacity 0.35s ease,
+          transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1),
+          margin 0.35s ease;
+        pointer-events: none;
+        letter-spacing: 0.03em;
+        font-size: 0.88rem;
+      }
+
+      /* Hover sobre la tarjeta activa o sobre el botón: despliega el texto deslizándose */
+      .gallery-3d-card.is-active:hover .expand-pill-btn,
+      .expand-pill-btn:hover {
+        width: auto;
+        padding: 9px 18px 9px 14px;
+        border-radius: 30px;
+        background: rgba(0, 237, 255, 0.22);
+        border-color: #fff;
+        box-shadow: 0 6px 25px rgba(0, 237, 255, 0.55);
+      }
+
+      .gallery-3d-card.is-active:hover .expand-icon,
+      .expand-pill-btn:hover .expand-icon {
+        transform: scale(1.18) rotate(-10deg);
+        color: #fff;
+      }
+
+      .gallery-3d-card.is-active:hover .expand-text,
+      .expand-pill-btn:hover .expand-text {
+        max-width: 180px;
+        opacity: 1;
+        transform: translateX(0);
+        margin-left: 8px;
+      }
+    }
+
+    /* En Móvil: Botón compacto con lupa y texto visible para toque fácil */
+    @media (max-width: 768px) {
+      .expand-pill-btn {
+        padding: 7px 14px;
+        gap: 6px;
+        font-size: 0.8rem;
+      }
+
+      .expand-text {
+        display: inline;
+        opacity: 1;
+        margin-left: 4px;
+      }
+    }
+
+    /* Edge Gradient Fades on Desktop */
+    .gallery-fade-edge {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 180px;
+      z-index: 9;
+      pointer-events: none;
+    }
+
+    .gallery-fade-left {
+      left: 0;
+      background: linear-gradient(90deg, var(--bg-deep) 0%, rgba(5, 10, 21, 0.8) 40%, transparent 100%);
+    }
+
+    .gallery-fade-right {
+      right: 0;
+      background: linear-gradient(-90deg, var(--bg-deep) 0%, rgba(5, 10, 21, 0.8) 40%, transparent 100%);
+    }
+
+    @media (max-width: 768px) {
+      .gallery-fade-edge {
+        display: none;
+      }
+    }
+
+    /* Navigation Arrows */
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(10, 20, 40, 0.85);
+      border: 1px solid var(--border-strong);
+      backdrop-filter: blur(12px);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 15;
+      transition: all 0.3s var(--ease);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .gallery-arrow:hover {
+      background: var(--accent);
+      color: var(--bg-deep);
+      border-color: var(--accent);
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 0 25px rgba(0, 237, 255, 0.5);
+    }
+
+    .gallery-arrow-prev {
+      left: 20px;
+    }
+
+    .gallery-arrow-next {
+      right: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-arrow {
+        width: 40px;
+        height: 40px;
+      }
+
+      .gallery-arrow-prev {
+        left: 8px;
+      }
+
+      .gallery-arrow-next {
+        right: 8px;
+      }
+    }
+
+    /* Dots Pagination */
+    .gallery-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .gallery-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+    }
+
+    .gallery-dot.active {
+      width: 28px;
+      border-radius: 10px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(0, 237, 255, 0.6);
+    }
+
+    .gallery-hint {
+      display: inline-block;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .gallery-hint .hint-desktop {
+      display: inline;
+    }
+
+    .gallery-hint .hint-mobile {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-hint .hint-desktop {
+        display: none;
+      }
+
+      .gallery-hint .hint-mobile {
+        display: inline;
+      }
+    }
+
+    /* Active Card Enhancements */
+    .gallery-3d-card.is-active {
+      border-color: var(--accent);
+      box-shadow: 0 25px 65px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 237, 255, 0.35);
+      cursor: zoom-in;
+    }
+
+    .gallery-3d-card.is-active:hover {
+      border-color: #fff;
+    }
+
+    /* Side Cards Vignette Gradient */
+    .gallery-3d-card:not(.is-active)::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(5, 10, 21, 0.4);
+      backdrop-filter: blur(0.5px);
+      transition: background 0.4s ease;
+      pointer-events: none;
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(5, 10, 21, 0.96);
+      backdrop-filter: blur(18px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s var(--ease);
+      padding: 24px;
+      cursor: zoom-out;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: default;
+      pointer-events: auto;
+    }
+
+    .lightbox-img {
+      max-width: 88vw;
+      max-height: 78vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 15px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 237, 255, 0.2);
+      border: 1px solid var(--border);
+      display: block;
+      cursor: default;
+      user-select: none;
+    }
+
+    /* Botón X Naranja Prominente para Salir */
+    .lightbox-close {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      background: linear-gradient(135deg, #FF6B35, #FF3B3B);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      color: #fff;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10005;
+      box-shadow: 0 6px 25px rgba(255, 107, 53, 0.6);
+      transition: all 0.25s var(--ease);
+    }
+
+    .lightbox-close:hover {
+      transform: scale(1.12) rotate(90deg);
+      background: #FF3B3B;
+      box-shadow: 0 8px 30px rgba(255, 59, 59, 0.85);
+    }
+
+    /* Flechas de Navegación */
+    .lightbox-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(10, 20, 40, 0.9);
+      border: 1.5px solid var(--border-strong);
+      color: #fff;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.25s var(--ease);
+      user-select: none;
+      z-index: 10004;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(12px);
+    }
+
+    .lightbox-nav:hover,
+    .lightbox-nav:active {
+      background: var(--accent);
+      color: var(--bg-deep);
+      border-color: var(--accent);
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 0 25px rgba(0, 237, 255, 0.7);
+    }
+
+    .lightbox-prev {
+      left: 28px;
+    }
+
+    .lightbox-next {
+      right: 28px;
+    }
+
+    .lightbox-counter {
+      color: var(--accent);
+      font-family: var(--font-head);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(0, 237, 255, 0.12);
+      border: 1px solid rgba(0, 237, 255, 0.25);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .lightbox-caption {
+      color: #fff;
+      font-family: var(--font-head);
+      margin-top: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .lightbox-close {
+        top: 16px;
+        right: 16px;
+        width: 44px;
+        height: 44px;
+      }
+
+      .lightbox-nav {
+        width: 44px;
+        height: 44px;
+      }
+
+      .lightbox-prev {
+        left: 10px;
+      }
+
+      .lightbox-next {
+        right: 10px;
+      }
+
+      .lightbox-img {
+        max-width: 94vw;
+        max-height: 72vh;
+      }
+    }
+
+    /* ── BEFORE / AFTER COMPARISON SLIDER ──────────────────────── */
+    .slider-section {
+      background: linear-gradient(180deg, var(--bg-deep) 0%, rgba(10, 20, 40, 0.4) 50%, var(--bg-deep) 100%);
+    }
+
+    .compare-container {
+      position: relative;
+      max-width: min(560px, calc(82vh * 2 / 3), 100%);
+      margin: 36px auto 0;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 50px rgba(0, 237, 255, 0.1);
+      user-select: none;
+      touch-action: none;
+      background: #000;
+    }
+
+    .compare-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      /* Formato vertical nativo de las fotos (1080x1620) */
+    }
+
+    .compare-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+    }
+
+    .compare-clipped {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      clip-path: inset(0 50% 0 0);
+      will-change: clip-path;
+    }
+
+    .compare-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: #fff;
+      box-shadow: 0 0 14px rgba(0, 237, 255, 0.8), 0 0 28px rgba(0, 237, 255, 0.4);
+      cursor: ew-resize;
+      transform: translateX(-50%);
+      z-index: 10;
+      will-change: left;
+    }
+
+    .compare-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg-deep);
+      border: 2px solid #fff;
+      box-shadow: 0 0 20px rgba(0, 237, 255, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.1rem;
+      pointer-events: none;
+    }
+
+    .compare-badge {
+      position: absolute;
+      top: 16px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      font-family: var(--font-head);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      z-index: 5;
+      backdrop-filter: blur(8px);
+      pointer-events: none;
+    }
+
+    .badge-raw {
+      left: 16px;
+      background: rgba(0, 0, 0, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #cbd5e1;
+    }
+
+    .badge-edited {
+      right: 16px;
+      background: rgba(0, 237, 255, 0.2);
+      border: 1px solid var(--accent);
+      color: #fff;
+      box-shadow: 0 0 15px rgba(0, 237, 255, 0.3);
+    }
+
+    /* ── PROCESS TIMELINE ──────────────────────────────────────── */
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 24px;
+      position: relative;
+      text-align: center;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--grad-cta);
+      color: #fff;
+      font-family: var(--font-head);
+      font-size: 1.25rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 4px 18px var(--cta-glow);
+    }
+
+    /* ── GEAR SECTION ─────────────────────────────────────────── */
+    .gear-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .gear-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .gear-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-5px);
+    }
+
+    .gear-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    /* ── TESTIMONIALS ─────────────────────────────────────────── */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .review-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      position: relative;
+    }
+
+    .review-stars {
+      color: #ffb703;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+
+    .review-text {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .review-author {
+      font-family: var(--font-head);
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .review-event {
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    .reviews-dots {
+      display: none;
+    }
+
+    /* Selector Sí / No (viáticos) */
+    .yesno-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .yesno-option {
+      flex: 1;
+      cursor: pointer;
+    }
+
+    .yesno-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .yesno-option span {
+      display: block;
+      text-align: center;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-secondary);
+      font-family: var(--font-head);
+      font-weight: 700;
+      transition: all 0.25s var(--ease);
+    }
+
+    .yesno-option:hover span {
+      border-color: var(--border-strong);
+      color: #fff;
+    }
+
+    .yesno-option input:checked+span {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+      color: #fff;
+      box-shadow: 0 0 16px rgba(0, 237, 255, 0.25);
+    }
+
+    .yesno-option input:focus-visible+span {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* Móvil: reseñas en carrusel deslizable horizontal */
+    @media (max-width: 768px) {
+
+      .reviews-grid,
+      .timeline-grid,
+      .gear-grid {
+        display: flex;
+        gap: 14px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        margin: 32px -20px 0;
+        padding: 4px 20px 8px;
+        scroll-padding: 0 20px;
+      }
+
+      .reviews-grid::-webkit-scrollbar,
+      .timeline-grid::-webkit-scrollbar,
+      .gear-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .review-card,
+      .step-card,
+      .gear-card {
+        flex: 0 0 86%;
+        scroll-snap-align: start;
+        padding: 24px;
+      }
+
+      .reviews-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 18px;
+      }
+
+      .reviews-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: all 0.3s var(--ease);
+      }
+
+      .reviews-dot.active {
+        width: 24px;
+        background: var(--accent);
+        box-shadow: 0 0 10px rgba(0, 237, 255, 0.6);
+      }
+    }
+
+    /* ── INTERACTIVE CALCULATOR ────────────────────────────────── */
+    .calc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      border-radius: 20px;
+      padding: clamp(24px, 4vw, 44px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 35px rgba(0, 237, 255, 0.08);
+      max-width: 900px;
+      margin: 40px auto 0;
+      position: relative;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-label {
+      display: block;
+      font-family: var(--font-head);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .form-label span.req {
+      color: var(--cta);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 13px 16px;
+      background: rgba(5, 10, 21, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition: all 0.25s;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 15px rgba(0, 237, 255, 0.25);
+      background: rgba(5, 10, 21, 0.9);
+    }
+
+    .form-control option {
+      background: #0A1428;
+      color: #fff;
+    }
+
+    .service-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .service-option {
+      position: relative;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      background: rgba(0, 237, 255, 0.02);
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .service-option:hover {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    .service-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .service-option.selected {
+      border-color: var(--accent);
+      background: rgba(0, 237, 255, 0.12);
+      box-shadow: 0 0 15px rgba(0, 237, 255, 0.2);
+    }
+
+    .service-option-title {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .service-option-price {
+      font-size: 0.82rem;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+
+    .time-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .time-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .phone-grid {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 12px;
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      cursor: pointer;
+    }
+
+    .checkbox-container input[type="checkbox"] {
+      margin-top: 3px;
+      accent-color: var(--accent);
+      width: 17px;
+      height: 17px;
+    }
+
+    /* Results Card */
+    .quote-result-card {
+      display: none;
+      margin-top: 32px;
+      padding: 28px;
+      border-radius: 16px;
+      background: linear-gradient(145deg, rgba(0, 237, 255, 0.08) 0%, rgba(10, 20, 40, 0.95) 100%);
+      border: 1px solid var(--accent);
+      box-shadow: 0 10px 40px rgba(0, 237, 255, 0.2);
+      animation: fadeInScale 0.4s var(--ease-spring);
+    }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.96);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .result-price-highlight {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      font-weight: 800;
+      color: var(--accent);
+      text-shadow: 0 0 25px rgba(0, 237, 255, 0.4);
+      margin: 8px 0;
+    }
+
+    .result-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+      padding: 16px;
+      background: rgba(5, 10, 21, 0.6);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .result-meta-item {
+      font-size: 0.85rem;
+    }
+
+    .result-meta-label {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .result-meta-value {
+      color: #fff;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .notice-viaticos {
+      padding: 12px 16px;
+      background: rgba(255, 179, 0, 0.1);
+      border-left: 3px solid #ffb703;
+      border-radius: 6px;
+      color: #ffdd80;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin: 16px 0;
+    }
+
+    .btn-wa-quote {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px 24px;
+      border-radius: 12px;
+      background: #25D366;
+      color: #fff;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.35);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-wa-quote:hover {
+      background: #20BA5A;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+    }
+
+    .btn-calculate {
+      width: 100%;
+      padding: 16px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo logo-text-container" id="navLogoContainer">
+          <canvas class="logo-particles-canvas logo-particles-back"></canvas>
+          <span class="logo-words">
+            <span class="logo-word">DAVID</span>
+            <span class="logo-word">MU<span class="glow-char" id="glowÑ">Ñ</span>OZ</span>
+          </span>
+          <span class="logo-subtext">DISEÑADOR</span>
+          <canvas class="logo-particles-canvas logo-particles-front"></canvas>
+        </a>
+
+        <ul class="nav-links">
+          <li class="nav-dropdown">
+            <a class="nav-dropdown-toggle" href="#">
+              Planes
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="planes-diseno.html">🎨 Diseño Gráfico Pro</a>
+              <a href="planes-instagrowth.html">📱📸 InstaGrowth Pro</a>
+            </div>
+          </li>
+          <li class="nav-dropdown">
+            <a class="nav-dropdown-toggle active" href="#">
+              Fotografía y Video
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="eventos.html" class="active">🎉 Cobertura de Eventos</a>
+              <a href="produccion.html">📹 Producción con Operador</a>
+            </div>
+          </li>
+          <li><a href="automatizacion.html">Automatizaciones</a></li>
+          <li><a href="web-premium.html">Web Premium</a></li>
+          <li><a href="portafolio.html">Portafolio</a></li>
+          <li>
+            <a href="#calculadora" class="nav-cta btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                style="margin-right: 6px; vertical-align: middle;">
+                <rect x="4" y="2" width="16" height="20" rx="2" />
+                <line x1="8" y1="6" x2="16" y2="6" />
+                <line x1="16" y1="14" x2="16" y2="18" />
+                <path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01" />
+              </svg>
+              Cotizar Evento
+            </a>
+          </li>
+        </ul>
+
+        <button class="nav-toggle" aria-label="Abrir menú" id="navToggle">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="nav-mobile" id="navMobile">
+    <a href="planes-diseno.html">Diseño Gráfico Pro</a>
+    <a href="planes-instagrowth.html">InstaGrowth Pro</a>
+    <a href="eventos.html" class="active" style="color:var(--accent);">🎉 Cobertura de Eventos</a>
+    <a href="produccion.html">📹 Producción con Operador</a>
+    <a href="automatizacion.html">Automatizaciones</a>
+    <a href="web-premium.html">Web Premium</a>
+    <a href="portafolio.html">Portafolio</a>
+    <a href="#calculadora" class="btn btn-primary mt-24">Cotizar Evento</a>
+  </div>
+
+  <!-- SECCIÓN 1: HERO SECTION -->
+  <section class="page-hero section-alt hero-eventos">
+    <div class="hero-grid" style="opacity:0.5;"></div>
+    <div class="hero-orb hero-orb-1" style="opacity:0.5;"></div>
+    <div class="hero-eventos-content">
+      <div class="hero-badge" style="margin: 0 auto 24px;">
+        <span class="hero-badge-dot"></span> COBERTURA PROFESIONAL · FOTOGRAFÍA + VIDEO + DRON · EDICIÓN TOTAL
+      </div>
+      <h1 class="page-hero-title">
+        Producción Audiovisual Profesional para <span class="text-accent">Eventos en Ibagué y alrededores</span>
+      </h1>
+      <p class="page-hero-subtitle" style="max-width: 760px; margin: 0 auto 32px;">
+        Capturamos y editamos los momentos más especiales de tus celebraciones con calidad profesional, narrativa visual
+        y acabado cinematográfico.
+      </p>
+      <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+        <a href="#calculadora" class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            style="margin-right:8px;">
+            <rect x="4" y="2" width="16" height="20" rx="2" />
+            <line x1="8" y1="6" x2="16" y2="6" />
+            <line x1="16" y1="14" x2="16" y2="18" />
+          </svg>
+          Conoce el precio de tu evento
+        </a>
+        <a href="#galeria" class="btn btn-secondary">Ver Galería de Trabajos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOP BAR SEO: COBERTURA INTEGRAL DE EVENTOS EN IBAGUÉ -->
+  <aside class="events-seo-bar" aria-label="Tipos de eventos que cubrimos en Ibagué y Tolima">
+    <div class="events-seo-track">
+      <!-- Track set 1 -->
+      <span class="events-seo-pill"><span class="pill-dot"></span> 💍 <strong>Bodas & Matrimonios</strong> en Ibagué</span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 👑 <strong>Fiestas de Quince Años (15 Años)</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🎂 <strong>Cumpleaños & Fiestas Infantiles</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🕊️ <strong>Bautizos & Primeras Comuniones</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 💖 <strong>Renovación de Votos & Aniversarios</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🎓 <strong>Grados & Graduaciones Universitarias</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🏢 <strong>Eventos Corporativos & Empresariales</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🎤 <strong>Congresos, Seminarios & Foros</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🚀 <strong>Lanzamientos de Marca & Producto</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🍸 <strong>Cocteles, Galas & Fiestas de Fin de Año</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🎸 <strong>Conciertos, Festivales & Shows en Vivo</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🏆 <strong>Torneos Deportivos & Maratones</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 💃 <strong>Presentaciones de Baile & Arte Escénico</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> ⛪ <strong>Retiros Espirituales & Convenciones</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 👶 <strong>Baby Showers & Gender Reveal</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🏡 <strong>Integraciones Campestres en Tolima</strong></span>
+
+      <!-- Track set 2 (duplicado para scroll infinito y continuo) -->
+      <span class="events-seo-pill"><span class="pill-dot"></span> 💍 <strong>Bodas & Matrimonios</strong> en Ibagué</span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 👑 <strong>Fiestas de Quince Años (15 Años)</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🎂 <strong>Cumpleaños & Fiestas Infantiles</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🕊️ <strong>Bautizos & Primeras Comuniones</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 💖 <strong>Renovación de Votos & Aniversarios</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🎓 <strong>Grados & Graduaciones Universitarias</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🏢 <strong>Eventos Corporativos & Empresariales</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🎤 <strong>Congresos, Seminarios & Foros</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🚀 <strong>Lanzamientos de Marca & Producto</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🍸 <strong>Cocteles, Galas & Fiestas de Fin de Año</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🎸 <strong>Conciertos, Festivales & Shows en Vivo</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🏆 <strong>Torneos Deportivos & Maratones</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 💃 <strong>Presentaciones de Baile & Arte Escénico</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> ⛪ <strong>Retiros Espirituales & Convenciones</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 👶 <strong>Baby Showers & Gender Reveal</strong></span>
+      <span class="events-seo-pill"><span class="pill-dot"></span> 🏡 <strong>Integraciones Campestres en Tolima</strong></span>
+    </div>
+  </aside>
+
+  <!-- SECCIÓN 2: POR QUÉ SOMOS LA MEJOR OPCIÓN (SEO & VALOR AGREGADO) -->
+  <section style="padding: var(--section-pad) 0;">
+    <div class="container">
+      <div class="section-header reveal" style="text-align: center; max-width: 780px; margin: 0 auto 40px;">
+        <span class="section-label">Excelencia &amp; Estilo</span>
+        <h2 class="section-title">¿Por qué confiar la producción de tu evento en nosotros?</h2>
+        <p style="color: var(--text-secondary); margin-top: 14px; font-size: 1rem; line-height: 1.7;">
+          Somos especialistas en <strong>fotografía de bodas en Ibagué</strong>, celebraciones de quince años,
+          aniversarios y <strong>video para eventos infantiles</strong> y corporativos. Ofrecemos una <strong>cobertura
+            audiovisual profesional</strong> integral que fusiona tecnología cinematográfica con una meticulosa
+          <strong>edición y corrección de color</strong> para revivir cada emoción como una obra de arte.
+        </p>
+      </div>
+
+      <div class="value-grid reveal">
+        <div class="value-card">
+          <div class="value-icon">✨</div>
+          <h3
+            style="font-family: var(--font-head); font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 12px;">
+            Narrativa Emotiva
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
+            No solo tomamos fotos, contamos la historia de tu evento cuidando cada emoción sincera, miradas cómplices y
+            detalles espontáneos que perdurarán en el tiempo.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🎨</div>
+          <h3
+            style="font-family: var(--font-head); font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 12px;">
+            Edición Profesional Incluida
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
+            Revelado digital minucioso, balance de blancos, estilizado cinematográfico, corrección de color y montaje de
+            video con musicalización listos para compartir con tus seres queridos.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🚀</div>
+          <h3
+            style="font-family: var(--font-head); font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 12px;">
+            Tecnología de Vanguardia
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
+            Equipamiento de alto rendimiento con sensores de alta fidelidad, estabilización gimbal de 3 ejes y tomas
+            aéreas en 4K con dron para una perspectiva espectacular.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: GALERÍA DINÁMICA 3D EN BUCLE (PORTAFOLIO DE EVENTOS) -->
+  <section id="galeria" class="gallery-3d-section">
+    <div class="container" style="max-width: 1300px; position: relative;">
+      <div class="section-header reveal" style="text-align: center;">
+        <span class="section-label">Momentos Reales</span>
+        <h2 class="section-title">Momentos Inolvidables: <span class="text-accent">Galería de Trabajos</span></h2>
+        <p style="color: var(--text-secondary); margin-top: 10px; font-size: 1rem;">
+          Fechas &amp; Celebraciones Especiales.
+        </p>
+      </div>
+
+      <!-- 3D SLIDER VIEWPORT -->
+      <div class="gallery-3d-viewport reveal" id="gallery3dViewport">
+        <!-- Degradados en bordes para escritorio -->
+        <div class="gallery-fade-edge gallery-fade-left"></div>
+        <div class="gallery-fade-edge gallery-fade-right"></div>
+
+        <!-- Track con las 9 fotos en bucle -->
+        <div class="gallery-3d-track" id="gallery3dTrack">
+          <div class="gallery-3d-card" data-index="0"
+            data-full="portafolio/Fotos Matrimonio/renovacion_votos_ (1).webp">
+            <img src="portafolio/Fotos Matrimonio/renovacion_votos_ (1).webp" alt="Renovación de Votos" loading="lazy">
+            <div class="gallery-card-overlay">
+              <button type="button" class="expand-pill-btn" aria-label="Clic para ampliar">
+                <span class="expand-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                </span>
+                <span class="expand-text">Clic para ampliar</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="gallery-3d-card" data-index="1"
+            data-full="portafolio/Fotos Matrimonio/renovacion_votos_ (2).webp">
+            <img src="portafolio/Fotos Matrimonio/renovacion_votos_ (2).webp" alt="Renovación de Votos" loading="lazy">
+            <div class="gallery-card-overlay">
+              <button type="button" class="expand-pill-btn" aria-label="Clic para ampliar">
+                <span class="expand-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                </span>
+                <span class="expand-text">Clic para ampliar</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="gallery-3d-card" data-index="2"
+            data-full="portafolio/Fotos Matrimonio/renovacion_votos_ (5).webp">
+            <img src="portafolio/Fotos Matrimonio/renovacion_votos_ (5).webp" alt="Renovación de Votos" loading="lazy">
+            <div class="gallery-card-overlay">
+              <button type="button" class="expand-pill-btn" aria-label="Clic para ampliar">
+                <span class="expand-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                </span>
+                <span class="expand-text">Clic para ampliar</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="gallery-3d-card" data-index="3"
+            data-full="portafolio/Fotos Matrimonio/renovacion_votos_ (7).webp">
+            <img src="portafolio/Fotos Matrimonio/renovacion_votos_ (7).webp" alt="Renovación de Votos" loading="lazy">
+            <div class="gallery-card-overlay">
+              <button type="button" class="expand-pill-btn" aria-label="Clic para ampliar">
+                <span class="expand-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                </span>
+                <span class="expand-text">Clic para ampliar</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="gallery-3d-card" data-index="4"
+            data-full="portafolio/Fotos Matrimonio/renovacion_votos_ (9).webp">
+            <img src="portafolio/Fotos Matrimonio/renovacion_votos_ (9).webp" alt="Renovación de Votos" loading="lazy">
+            <div class="gallery-card-overlay">
+              <button type="button" class="expand-pill-btn" aria-label="Clic para ampliar">
+                <span class="expand-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                </span>
+                <span class="expand-text">Clic para ampliar</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="gallery-3d-card" data-index="5"
+            data-full="portafolio/Fotos Matrimonio/renovacion_votos_ (10).webp">
+            <img src="portafolio/Fotos Matrimonio/renovacion_votos_ (10).webp" alt="Renovación de Votos" loading="lazy">
+            <div class="gallery-card-overlay">
+              <button type="button" class="expand-pill-btn" aria-label="Clic para ampliar">
+                <span class="expand-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                </span>
+                <span class="expand-text">Clic para ampliar</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="gallery-3d-card" data-index="6"
+            data-full="portafolio/Fotos Matrimonio/renovacion_votos_ (12).webp">
+            <img src="portafolio/Fotos Matrimonio/renovacion_votos_ (12).webp" alt="Renovación de Votos" loading="lazy">
+            <div class="gallery-card-overlay">
+              <button type="button" class="expand-pill-btn" aria-label="Clic para ampliar">
+                <span class="expand-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                </span>
+                <span class="expand-text">Clic para ampliar</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="gallery-3d-card" data-index="7"
+            data-full="portafolio/Fotos Matrimonio/renovacion_votos_ (14).webp">
+            <img src="portafolio/Fotos Matrimonio/renovacion_votos_ (14).webp" alt="Renovación de Votos" loading="lazy">
+            <div class="gallery-card-overlay">
+              <button type="button" class="expand-pill-btn" aria-label="Clic para ampliar">
+                <span class="expand-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                </span>
+                <span class="expand-text">Clic para ampliar</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="gallery-3d-card" data-index="8"
+            data-full="portafolio/Fotos Matrimonio/renovacion_votos_ (15).webp">
+            <img src="portafolio/Fotos Matrimonio/renovacion_votos_ (15).webp" alt="Renovación de Votos" loading="lazy">
+            <div class="gallery-card-overlay">
+              <button type="button" class="expand-pill-btn" aria-label="Clic para ampliar">
+                <span class="expand-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                </span>
+                <span class="expand-text">Clic para ampliar</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botones de navegación con flechas -->
+        <button class="gallery-arrow gallery-arrow-prev" id="gallery3dPrev" aria-label="Foto anterior">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+        <button class="gallery-arrow gallery-arrow-next" id="gallery3dNext" aria-label="Foto siguiente">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Dots de paginación -->
+      <div class="gallery-dots" id="galleryDots"></div>
+
+      <!-- Indicaciones de interacción -->
+      <div style="text-align: center; margin-top: 18px;">
+        <span class="gallery-hint">
+          <span class="hint-desktop">💡 Clic en las fotos laterales o flechas · Clic en la foto central
+            para ver en pantalla completa</span>
+          <span class="hint-mobile">👆 Desliza hacia los lados para explorar las fotos</span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox-modal" id="galleryLightbox" role="dialog" aria-modal="true"
+    aria-label="Visualizador de imágenes">
+    <!-- Botón X Naranja Visible -->
+    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar modal (Esc)">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Flecha Anterior -->
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Foto anterior">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <!-- Contenido Central -->
+    <div class="lightbox-content" id="lightboxContent">
+      <div id="lightboxCounter" class="lightbox-counter">1 / 9</div>
+      <img src="" alt="Ampliación fotografía evento" class="lightbox-img" id="lightboxImg">
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+
+    <!-- Flecha Siguiente -->
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Foto siguiente">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>
+
+  <!-- SECCIÓN 4: MUESTRA DE EDICIÓN (SLIDER INTERACTIVO ANTES / DESPUÉS) -->
+  <section class="slider-section" style="padding: var(--section-pad) 0;">
+    <div class="container">
+      <div class="section-header reveal" style="text-align: center; max-width: 760px; margin: 0 auto;">
+        <span class="section-label">Acabado Cinematográfico</span>
+        <h2 class="section-title">El Poder de la <span class="text-accent">Edición y Corrección de Color</span></h2>
+        <p style="color: var(--text-secondary); margin-top: 12px; font-size: 1rem;">
+          Arrastra el divisor para comparar el archivo plano original (RAW) frente al resultado final procesado y
+          editado con colorimetría profesional.
+        </p>
+      </div>
+
+      <div class="compare-container reveal" id="imageCompare">
+        <span class="compare-badge badge-raw">Original RAW (Sin Revelar)</span>
+        <span class="compare-badge badge-edited">Resultado Final (Edición Pro)</span>
+
+        <div class="compare-wrapper">
+          <!-- Capa 1: Resultado Editado (Fondo Completo) -->
+          <img src="portafolio/Slider/resultado-slider.png" alt="Foto editada resultado profesional"
+            class="compare-img">
+
+          <!-- Capa 2: Archivo Base Original (Clipped) -->
+          <div class="compare-clipped" id="compareClipped">
+            <img src="portafolio/Slider/base-slider.png" alt="Foto original plano RAW" class="compare-img">
+          </div>
+
+          <!-- Divisor Vertical y Handle -->
+          <div class="compare-handle" id="compareHandle">
+            <div class="compare-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6" />
+                <polyline points="9 18 3 12 9 6" style="display:none;" />
+                <polyline points="8 18 2 12 8 6" />
+                <polyline points="16 6 22 12 16 18" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p style="text-align:center; font-size:0.85rem; color:var(--text-muted); margin-top:14px;">
+        💡 Arrastra el divisor o toca sobre la imagen para inspeccionar el detalle
+      </p>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 5: PROCESO FÁCIL DE CONTRATACIÓN & CTA -->
+  <section style="padding: var(--section-pad) 0;">
+    <div class="container">
+      <div class="section-header reveal" style="text-align: center;">
+        <span class="section-label">Sin Complicaciones</span>
+        <h2 class="section-title">Contratar tu cubrimiento es muy sencillo</h2>
+        <p style="color: var(--text-secondary); margin-top: 10px;">
+          Planificación transparente y atención personalizada desde el primer instante.
+        </p>
+      </div>
+
+      <div class="timeline-grid reveal" id="stepsGrid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3
+            style="font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 10px;">
+            Cotiza en línea
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+            Usa nuestra calculadora en tiempo real y conoce el valor estimado exacto para las horas y servicios de tu
+            evento en segundos.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3
+            style="font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 10px;">
+            Reserva la fecha
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+            Nos contactas por WhatsApp para confirmar la fecha, coordinar el cronograma y definir los momentos clave que
+            deseas inmortalizar.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3
+            style="font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 10px;">
+            Disfruta y Recibe
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+            Vive tu celebración con total tranquilidad. Nosotros nos encargamos de la captura y te entregamos el
+            material 100% editado en alta resolución.
+          </p>
+        </div>
+      </div>
+      <div class="reviews-dots" id="stepsDots" aria-label="Navegación de pasos"></div>
+
+      <div style="text-align: center; margin-top: 36px;" class="reveal">
+        <a href="#calculadora" class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            style="margin-right:8px;">
+            <rect x="4" y="2" width="16" height="20" rx="2" />
+            <line x1="8" y1="6" x2="16" y2="6" />
+          </svg>
+          Calcular Cotización Ahora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 6: EQUIPAMIENTO PROFESIONAL -->
+  <section style="padding: var(--section-pad) 0; background: rgba(5, 10, 21, 0.4);">
+    <div class="container">
+      <div class="section-header reveal" style="text-align: center;">
+        <span class="section-label">Equipos de Vanguardia</span>
+        <h2 class="section-title">Equipamiento Profesional para una <span class="text-accent">Cobertura Impecable</span>
+        </h2>
+        <p style="color: var(--text-secondary); margin-top: 10px;">
+          Garantizamos nitidez óptica, audio cristalino y perspectivas aéreas con tecnología líder en la industria
+          audiovisual.
+        </p>
+      </div>
+
+      <div class="gear-grid reveal" id="gearGrid">
+        <div class="gear-card">
+          <span class="gear-badge">Fotografía Fija</span>
+          <div style="font-size: 2.8rem; margin-bottom: 16px;">📸</div>
+          <h3
+            style="font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 10px;">
+            Cámara Fotográfica de Alta Resolución
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+            Detalle milimétrico, nitidez y excelente rendimiento en condiciones de baja iluminación con ópticas
+            luminosas profesionales.
+          </p>
+        </div>
+
+        <div class="gear-card">
+          <span class="gear-badge">Video Dinámico</span>
+          <div style="font-size: 2.8rem; margin-bottom: 16px;">🎥</div>
+          <h3
+            style="font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 10px;">
+            Video 4K con Estabilización Profesional
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+            Estabilización mecánica de 3 ejes para tomas cinematográficas fluidas en movimiento, grabación 4K de alta
+            definición y seguimiento inteligente de los protagonistas.
+          </p>
+        </div>
+
+        <div class="gear-card">
+          <span class="gear-badge">Tomas Aéreas</span>
+          <div style="font-size: 2.8rem; margin-bottom: 16px;">🚁</div>
+          <h3
+            style="font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 10px;">
+            Drone
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+            Perspectiva aérea de impacto, fotografía aérea y video en resolución 4K HDR para capturar la grandeza de la
+            locación y tus invitados.
+          </p>
+        </div>
+      </div>
+      <div class="reviews-dots" id="gearDots" aria-label="Navegación de equipos"></div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 7: PRUEBA SOCIAL / RESEÑAS DE CLIENTES -->
+  <section style="padding: var(--section-pad) 0;">
+    <div class="container">
+      <div class="section-header reveal" style="text-align: center;">
+        <span class="section-label">Opiniones</span>
+        <h2 class="section-title">Lo que dicen quienes han celebrado con nosotros</h2>
+      </div>
+
+      <div class="reviews-grid reveal" id="reviewsGrid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            “La calidad del video del matrimonio superó cualquier expectativa. El color y los momentos que capturaron
+            nos hicieron revivir las lágrimas y las risas. ¡Recomendadísimo el servicio integral!”
+          </p>
+          <div class="review-author">Camila &amp; Sebastián</div>
+          <div class="review-event">Boda Campestre · Ibagué</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            “Puntuales, discretos durante la ceremonia y con una edición de fotos y video maravillosa. Las tomas del
+            dron en la hacienda le dieron un toque de película cinematográfica inolvidable.”
+          </p>
+          <div class="review-author">Andrea Morales</div>
+          <div class="review-event">Renovación de Votos</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            “Excelente cobertura en los 15 años de mi hija. Nos entregaron tanto las fotografías reveladas digitalmente
+            como un reel resumen que todos nuestros familiares elogiaron muchísimo.”
+          </p>
+          <div class="review-author">Carlos H. Restrepo</div>
+          <div class="review-event">Celebración de 15 Años</div>
+        </div>
+      </div>
+      <div class="reviews-dots" id="reviewsDots" aria-label="Navegación de reseñas"></div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 8: CALCULADORA INTERACTIVA DE COTIZACIÓN -->
+  <section id="calculadora"
+    style="padding: var(--section-pad) 0; background: linear-gradient(180deg, var(--bg-deep) 0%, rgba(10, 20, 40, 0.6) 100%);">
+    <div class="container">
+      <div class="section-header reveal" style="text-align: center; max-width: 760px; margin: 0 auto;">
+        <span class="section-label">Cotización en Tiempo Real</span>
+        <h2 class="section-title">Calculadora de Cotización</h2>
+        <p style="color: var(--text-secondary); margin-top: 10px;">
+          Configura los detalles de tu evento y obtén un estimado inmediato con desglose profesional.
+        </p>
+      </div>
+
+      <div class="calc-card reveal">
+        <form id="quoteCalculatorForm" onsubmit="return false;">
+
+          <!-- 1. Tipo de Cubrimiento -->
+          <div class="form-group">
+            <label class="form-label">1. Tipo de Cubrimiento <span class="req">*</span></label>
+            <div class="service-options">
+              <label class="service-option selected" id="optA">
+                <input type="radio" name="tipoServicio" value="foto" data-base="250000" checked>
+                <div class="service-option-title">📸 Solo Fotografía</div>
+              </label>
+
+              <label class="service-option" id="optB">
+                <input type="radio" name="tipoServicio" value="foto_video" data-base="320000">
+                <div class="service-option-title">📸 + 🎥 Fotografía + Video</div>
+              </label>
+
+              <label class="service-option" id="optC">
+                <input type="radio" name="tipoServicio" value="completo" data-base="380000">
+                <div class="service-option-title">📸 + 🎥 + 🚁 Foto + Video + Dron</div>
+              </label>
+            </div>
+          </div>
+
+          <!-- 2. Fecha del Evento -->
+          <div class="form-group">
+            <label class="form-label" for="calcFecha">2. Fecha del Evento <span class="req">*</span></label>
+            <input type="date" id="calcFecha" class="form-control" required>
+          </div>
+
+          <!-- 3. Horario del Evento -->
+          <div class="form-group">
+            <label class="form-label">3. Horario del Evento <span class="req">*</span></label>
+            <div class="time-grid">
+              <div>
+                <label style="font-size:0.82rem; color:var(--text-secondary); display:block; margin-bottom:4px;">Hora de
+                  Inicio</label>
+                <input type="time" id="calcHoraInicio" class="form-control" value="17:00" required>
+              </div>
+              <div>
+                <label style="font-size:0.82rem; color:var(--text-secondary); display:block; margin-bottom:4px;">Hora de
+                  Fin</label>
+                <input type="time" id="calcHoraFin" class="form-control" value="22:00" required>
+              </div>
+            </div>
+            <div id="calcDuracionLabel"
+              style="font-size:0.85rem; color:var(--accent); margin-top:8px; font-weight:600;">
+              ⏱️ Duración estimada: 5 horas
+            </div>
+          </div>
+
+          <!-- 4. Ubicación del Evento -->
+          <div class="form-group">
+            <label class="form-label" for="calcUbicacion">4. Ubicación del Evento <span class="req">*</span></label>
+            <select id="calcUbicacion" class="form-control">
+              <option value="ibague">Ibagué (Zona Urbana)</option>
+              <option value="fuera">Fuera de Ibagué / Municipios aledaños</option>
+            </select>
+
+            <div id="viaticosWrapper"
+              style="display:none; margin-top:14px; padding:14px 16px; background:rgba(0,237,255,0.04); border-radius:10px; border:1px dashed var(--border);">
+              <div style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:10px;">
+                ¿Incluyes viáticos de transporte y alimentación para el equipo?
+              </div>
+              <div class="yesno-group" role="radiogroup" aria-label="Incluye viáticos">
+                <label class="yesno-option">
+                  <input type="radio" name="viaticos" id="calcViaticos" value="si">
+                  <span>Sí</span>
+                </label>
+                <label class="yesno-option">
+                  <input type="radio" name="viaticos" id="calcViaticosNo" value="no" checked>
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Datos del Cliente -->
+          <div style="border-top: 1px solid var(--border); padding-top: 22px; margin-top: 24px;">
+            <h4 style="font-family: var(--font-head); font-size: 1.05rem; color: #fff; margin-bottom: 16px;">
+              5. Datos de Contacto para recibir tu cotización
+            </h4>
+
+            <div class="form-group">
+              <label class="form-label" for="calcNombre">Nombre Completo <span class="req">*</span></label>
+              <input type="text" id="calcNombre" class="form-control" placeholder="Ej. Camila Morales" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="calcTel">Número de WhatsApp <span class="req">*</span></label>
+              <div class="phone-grid">
+                <select id="calcPais" class="form-control">
+                  <option value="+57" selected>🇨🇴 +57</option>
+                  <option value="+1">🇺🇸 +1</option>
+                  <option value="+34">🇪🇸 +34</option>
+                  <option value="+52">🇲🇽 +52</option>
+                  <option value="+507">🇵🇦 +507</option>
+                  <option value="+593">🇪🇨 +593</option>
+                  <option value="+56">🇨🇱 +56</option>
+                </select>
+                <input type="tel" id="calcTel" class="form-control" placeholder="Ej. 316 964 2159" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="checkbox-container">
+                <input type="checkbox" id="calcTerminos" required>
+                <span>Acepto los <a href="terminos-condiciones.html" target="_blank" style="color:var(--accent);text-decoration:underline;">términos, condiciones</a> y la <a href="terminos-condiciones.html#art8" target="_blank" style="color:var(--accent);text-decoration:underline;">política de privacidad (Habeas Data)</a> para recibir la cotización. <span class="req">*</span></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Botón Calcular -->
+          <button type="submit" id="btnCotizarSubmit" class="btn btn-primary btn-calculate">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+              style="margin-right:8px; vertical-align:middle;">
+              <rect x="4" y="2" width="16" height="20" rx="2" />
+              <line x1="8" y1="6" x2="16" y2="6" />
+              <line x1="16" y1="14" x2="16" y2="18" />
+              <path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01" />
+            </svg>
+            Obtener Cotización Estimada
+          </button>
+        </form>
+
+        <!-- Contenedor Desglose del Resultado -->
+        <div class="quote-result-card" id="quoteResultCard">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+            <span
+              style="font-size:0.85rem; font-weight:700; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.05em;">
+              🎉 Resumen de Cotización
+            </span>
+            <span
+              style="background:var(--accent-dim); color:var(--accent); font-size:0.75rem; font-weight:700; padding:4px 10px; border-radius:20px;">
+              Cálculo en Tiempo Real
+            </span>
+          </div>
+
+          <div style="margin-top:16px;">
+            <div style="font-size:0.9rem; color:var(--text-secondary);">Precio Total Estimado:</div>
+            <div class="result-price-highlight" id="resPrecioTotal">$ 0 COP</div>
+          </div>
+
+          <div class="result-meta-grid">
+            <div class="result-meta-item">
+              <div class="result-meta-label">Servicio</div>
+              <div class="result-meta-value" id="resServicio">—</div>
+            </div>
+            <div class="result-meta-item">
+              <div class="result-meta-label">Duración</div>
+              <div class="result-meta-value" id="resDuracion">—</div>
+            </div>
+            <div class="result-meta-item">
+              <div class="result-meta-label">Fecha &amp; Horario</div>
+              <div class="result-meta-value" id="resHorario">—</div>
+            </div>
+            <div class="result-meta-item">
+              <div class="result-meta-label">Ubicación</div>
+              <div class="result-meta-value" id="resUbicacion">—</div>
+            </div>
+          </div>
+
+          <div id="viaticosNotice" class="notice-viaticos" style="display:none;">
+            <strong>Nota importante:</strong> El valor mostrado no incluye gastos de desplazamiento y viáticos fuera de
+            la ciudad de Ibagué, por lo que el precio final puede variar según la ubicación exacta del evento.
+          </div>
+
+          <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:16px;">
+            ¡Todo listo, <span id="resNombreCliente" style="color:#fff; font-weight:600;"></span>! Haz clic abajo para
+            enviarnos tu solicitud directa por WhatsApp y reservar la disponibilidad de tu fecha.
+          </p>
+
+          <a href="#" id="btnWhatsAppDirect" target="_blank" class="btn-wa-quote">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            Confirmar Disponibilidad por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">
+            <a href="index.html" class="logo-text-container static-logo">
+              <span class="logo-words">
+                <span class="logo-word">DAVID</span>
+                <span class="logo-word">MU<span class="glow-char">Ñ</span>OZ</span>
+              </span>
+              <span class="logo-subtext">DISEÑADOR</span>
+            </a>
+          </div>
+          <p class="footer-brand-desc">Diseño, producción audiovisual y automatizaciones para marcas que quieren liderar
+            en Ibagué, Tolima y Colombia.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/davidesign.co?igsh=YXJwempvMGxid2gz" class="social-link"
+              title="Instagram" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/share/1GdNCi94S1/" class="social-link" title="Facebook" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="https://tiktok.com/@davidesign.co" class="social-link" title="TikTok" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+              </svg>
+            </a>
+            <a href="https://wa.me/573169642159" class="social-link" title="WhatsApp" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Servicios</div>
+          <ul class="footer-links">
+            <li><a href="planes-diseno.html">Diseño Gráfico Pro</a></li>
+            <li><a href="planes-instagrowth.html">InstaGrowth Pro</a></li>
+            <li><a href="eventos.html">Cobertura de Eventos</a></li>
+            <li><a href="produccion.html">Producción con Operador</a></li>
+            <li><a href="automatizacion.html">Automatizaciones n8n</a></li>
+            <li><a href="web-premium.html">Web &amp; Tech Premium</a></li>
+            <li><a href="portafolio.html">Portafolio</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Empresa y Legal</div>
+          <ul class="footer-links">
+            <li><a href="terminos-condiciones.html" style="color:var(--accent);">Términos y Condiciones</a></li>
+            <li><a href="terminos-condiciones.html#art8">Política de Privacidad</a></li>
+            <li><a href="https://wa.me/573169642159" target="_blank">WhatsApp</a></li>
+            <li><a href="https://www.instagram.com/davidesign.co?igsh=YXJwempvMGxid2gz" target="_blank">Instagram</a>
+            </li>
+            <li><a href="https://www.facebook.com/share/1GdNCi94S1/" target="_blank">Facebook</a></li>
+            <li><a href="https://tiktok.com/@davidesign.co" target="_blank">TikTok</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Ubicación</div>
+          <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.8;">
+            Ibagué, Tolima<br>Colombia<br><br>
+            Lun – Sáb<br>8:00 am – 8:00 pm
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 <span class="footer-accent">David Muñoz Diseñador</span>. Todos los derechos
+          reservados.</p>
+        <p class="footer-copy"><a href="terminos-condiciones.html" style="color:var(--text-secondary);text-decoration:underline;">Términos & Privacidad</a> · Ibagué, Colombia</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE MÓVIL A CALCULADORA -->
+  <a href="#calculadora" id="floatingCTA" class="floating-cta">
+    <span>Cotizar Evento</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="2" width="16" height="20" rx="2" />
+      <line x1="8" y1="6" x2="16" y2="6" />
+      <line x1="16" y1="14" x2="16" y2="18" />
+    </svg>
+  </a>
+
+  <!-- SCRIPTS -->
+  <script src="js/main.js"></script>
+  <script src="js/logo-particles.js"></script>
+
+  <script>
+    /* ============================================================
+       EVENTOS.HTML — SCRIPTS INTERACTIVOS
+       1. Lightbox de Galería
+       2. Image Compare Slider (Autoplay + Drag)
+       3. Calculadora de Cotización en Tiempo Real
+       ============================================================ */
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+      /* ── 1. GALERÍA 3D INTERACTIVA EN BUCLE CONTINUO ───────────── */
+      const viewport = document.getElementById('gallery3dViewport');
+      const cards = Array.from(document.querySelectorAll('.gallery-3d-card'));
+      const dotsContainer = document.getElementById('galleryDots');
+      const btnPrev = document.getElementById('gallery3dPrev');
+      const btnNext = document.getElementById('gallery3dNext');
+
+      // Lightbox elements
+      const lightbox = document.getElementById('galleryLightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const closeBtn = document.getElementById('lightboxClose');
+      const lboxPrev = document.getElementById('lightboxPrev');
+      const lboxNext = document.getElementById('lightboxNext');
+
+      const totalCards = cards.length;
+      let currentIndex = 0;
+      let autoplayTimer = null;
+      let isUserInteracting = false;
+
+      // Crear dots indicadores
+      cards.forEach((_, idx) => {
+        const dot = document.createElement('div');
+        dot.className = 'gallery-dot' + (idx === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', `Ir a foto ${idx + 1}`);
+        dot.addEventListener('click', () => {
+          goToSlide(idx);
+          resetAutoplay();
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      const dots = Array.from(document.querySelectorAll('.gallery-dot'));
+
+      function update3DGallery() {
+        const isMobile = window.innerWidth <= 768;
+
+        cards.forEach((card, i) => {
+          // Diferencia circular signed en bucle infinito
+          let diff = (i - currentIndex) % totalCards;
+          if (diff > totalCards / 2) diff -= totalCards;
+          if (diff < -totalCards / 2) diff += totalCards;
+
+          const absDiff = Math.abs(diff);
+
+          if (isMobile) {
+            /* ── COMPORTAMIENTO MÓVIL (Bordes asomados para deslizar) ── */
+            if (diff === 0) {
+              card.style.transform = 'translateX(0%) scale(1) translateZ(0)';
+              card.style.opacity = '1';
+              card.style.filter = 'brightness(1)';
+              card.style.zIndex = '10';
+              card.style.pointerEvents = 'auto';
+              card.classList.add('is-active');
+            } else if (diff === 1) {
+              card.style.transform = 'translateX(calc(100% + 14px)) scale(0.92) translateZ(0)';
+              card.style.opacity = '0.75';
+              card.style.filter = 'brightness(0.7)';
+              card.style.zIndex = '8';
+              card.style.pointerEvents = 'auto';
+              card.classList.remove('is-active');
+            } else if (diff === -1) {
+              card.style.transform = 'translateX(calc(-100% - 14px)) scale(0.92) translateZ(0)';
+              card.style.opacity = '0.75';
+              card.style.filter = 'brightness(0.7)';
+              card.style.zIndex = '8';
+              card.style.pointerEvents = 'auto';
+              card.classList.remove('is-active');
+            } else {
+              const dir = diff > 0 ? '220%' : '-220%';
+              card.style.transform = `translateX(${dir}) scale(0.8) translateZ(0)`;
+              card.style.opacity = '0';
+              card.style.zIndex = '1';
+              card.style.pointerEvents = 'none';
+              card.classList.remove('is-active');
+            }
+          } else {
+            /* ── COMPORTAMIENTO ORDENADOR (3D Coverflow con Profundidad y Degradado) ── */
+            if (diff === 0) {
+              card.style.transform = 'translateX(0%) scale(1.08) translateZ(0) rotateY(0deg)';
+              card.style.opacity = '1';
+              card.style.filter = 'brightness(1) blur(0px)';
+              card.style.zIndex = '10';
+              card.style.pointerEvents = 'auto';
+              card.classList.add('is-active');
+            } else if (absDiff === 1) {
+              const xPercent = diff > 0 ? 74 : -74;
+              const rotY = diff > 0 ? -28 : 28;
+              card.style.transform = `translateX(${xPercent}%) scale(0.84) translateZ(-130px) rotateY(${rotY}deg)`;
+              card.style.opacity = '0.72';
+              card.style.filter = 'brightness(0.65) blur(0.6px)';
+              card.style.zIndex = '8';
+              card.style.pointerEvents = 'auto';
+              card.classList.remove('is-active');
+            } else if (absDiff === 2) {
+              const xPercent = diff > 0 ? 132 : -132;
+              const rotY = diff > 0 ? -42 : 42;
+              card.style.transform = `translateX(${xPercent}%) scale(0.68) translateZ(-260px) rotateY(${rotY}deg)`;
+              card.style.opacity = '0.35';
+              card.style.filter = 'brightness(0.4) blur(2px)';
+              card.style.zIndex = '6';
+              card.style.pointerEvents = 'auto';
+              card.classList.remove('is-active');
+            } else {
+              const xPercent = diff > 0 ? 180 : -180;
+              const rotY = diff > 0 ? -50 : 50;
+              card.style.transform = `translateX(${xPercent}%) scale(0.5) translateZ(-360px) rotateY(${rotY}deg)`;
+              card.style.opacity = '0';
+              card.style.zIndex = '1';
+              card.style.pointerEvents = 'none';
+              card.classList.remove('is-active');
+            }
+          }
+        });
+
+        // Actualizar dots
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === currentIndex);
+        });
+      }
+
+      function goToSlide(index) {
+        currentIndex = (index + totalCards) % totalCards;
+        update3DGallery();
+      }
+
+      function nextSlide() {
+        goToSlide(currentIndex + 1);
+      }
+
+      function prevSlide() {
+        goToSlide(currentIndex - 1);
+      }
+
+      // Eventos flechas
+      btnNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nextSlide();
+        resetAutoplay();
+      });
+
+      btnPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        prevSlide();
+        resetAutoplay();
+      });
+
+      // Clics en tarjetas y botones de ampliación
+      cards.forEach((card, idx) => {
+        card.addEventListener('click', (e) => {
+          if (idx === currentIndex) {
+            e.stopPropagation();
+            openLightbox(currentIndex);
+          } else {
+            goToSlide(idx);
+            resetAutoplay();
+          }
+        });
+
+        // Clic directo en el botón de la lupa / ampliar
+        const expandBtn = card.querySelector('.expand-pill-btn');
+        if (expandBtn) {
+          expandBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            if (idx === currentIndex) {
+              openLightbox(currentIndex);
+            } else {
+              goToSlide(idx);
+              resetAutoplay();
+            }
+          });
+        }
+      });
+      // Autoplay sutil (cada 4.5 segundos avanza en bucle infinito)
+      function startGalleryAutoplay() {
+        stopGalleryAutoplay();
+        autoplayTimer = setInterval(() => {
+          if (!isUserInteracting && !lightbox.classList.contains('active')) {
+            nextSlide();
+          }
+        }, 4500);
+      }
+
+      function stopGalleryAutoplay() {
+        if (autoplayTimer) {
+          clearInterval(autoplayTimer);
+          autoplayTimer = null;
+        }
+      }
+
+      function resetAutoplay() {
+        stopGalleryAutoplay();
+        startGalleryAutoplay();
+      }
+
+      viewport.addEventListener('mouseenter', () => { isUserInteracting = true; });
+      viewport.addEventListener('mouseleave', () => { isUserInteracting = false; });
+
+      // Soporte Gestos Táctiles y Arrastre con Ratón
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let isDraggingTrack = false;
+
+      viewport.addEventListener('touchstart', (e) => {
+        isUserInteracting = true;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      viewport.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+
+        // Solo activar si el gesto fue horizontal y > 35px
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
+          if (diffX < 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+          resetAutoplay();
+        }
+        setTimeout(() => { isUserInteracting = false; }, 1500);
+      }, { passive: true });
+
+      // Mouse drag en escritorio
+      viewport.addEventListener('mousedown', (e) => {
+        if (e.target.closest('.gallery-arrow')) return;
+        isDraggingTrack = true;
+        touchStartX = e.clientX;
+      });
+
+      window.addEventListener('mouseup', (e) => {
+        if (!isDraggingTrack) return;
+        isDraggingTrack = false;
+        const diffX = e.clientX - touchStartX;
+        if (Math.abs(diffX) > 45) {
+          if (diffX < 0) nextSlide();
+          else prevSlide();
+          resetAutoplay();
+        }
+      });
+
+      // Teclado (Flechas izquierda / derecha)
+      document.addEventListener('keydown', (e) => {
+        if (lightbox.classList.contains('active')) return;
+        const rect = viewport.getBoundingClientRect();
+        const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+        if (!isInView) return;
+
+        if (e.key === 'ArrowLeft') {
+          prevSlide();
+          resetAutoplay();
+        } else if (e.key === 'ArrowRight') {
+          nextSlide();
+          resetAutoplay();
+        }
+      });
+
+      // Resize listener
+      window.addEventListener('resize', update3DGallery);
+
+      // Iniciar galería
+      update3DGallery();
+      startGalleryAutoplay();
+
+
+      /* ── LIGHTBOX INTEGRADO CON LA GALERÍA ── */
+      const lightboxCounter = document.getElementById('lightboxCounter');
+      let isLightboxJustOpened = false;
+
+      function openLightbox(index) {
+        currentIndex = (index + totalCards) % totalCards;
+        const card = cards[currentIndex];
+        if (!card) return;
+
+        lightboxImg.src = card.dataset.full;
+        if (lightboxCounter) {
+          lightboxCounter.textContent = `${currentIndex + 1} / ${totalCards}`;
+        }
+
+        // Marcar que acaba de abrir para que el mismo clic no lo cierre
+        isLightboxJustOpened = true;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        setTimeout(() => {
+          isLightboxJustOpened = false;
+        }, 250);
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function handlePrev(e) {
+        if (e) {
+          e.stopPropagation();
+          e.preventDefault();
+        }
+        openLightbox(currentIndex - 1);
+        goToSlide(currentIndex);
+      }
+
+      function handleNext(e) {
+        if (e) {
+          e.stopPropagation();
+          e.preventDefault();
+        }
+        openLightbox(currentIndex + 1);
+        goToSlide(currentIndex);
+      }
+
+      // Eventos de botones del Lightbox
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeLightbox();
+      });
+
+      lboxPrev.addEventListener('click', handlePrev);
+      lboxNext.addEventListener('click', handleNext);
+
+      // Clic por fuera de la imagen cierra el visor
+      lightbox.addEventListener('click', (e) => {
+        if (isLightboxJustOpened) return;
+        // Si el clic fue en la imagen misma o en los botones de navegación, no cerrar
+        if (e.target.closest('#lightboxImg') || e.target.closest('.lightbox-nav') || e.target.closest('.lightbox-counter')) {
+          return;
+        }
+        closeLightbox();
+      });
+
+      // Teclado (Esc para salir, flechas para navegar)
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') handlePrev(e);
+        if (e.key === 'ArrowRight') handleNext(e);
+      });
+
+      // Gestos táctiles de deslizamiento (Swipe) dentro del Lightbox en móviles
+      let lbTouchX = 0;
+      let lbTouchY = 0;
+
+      lightbox.addEventListener('touchstart', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        lbTouchX = e.touches[0].clientX;
+        lbTouchY = e.touches[0].clientY;
+      }, { passive: true });
+
+      lightbox.addEventListener('touchend', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        const endX = e.changedTouches[0].clientX;
+        const endY = e.changedTouches[0].clientY;
+        const diffX = endX - lbTouchX;
+        const diffY = endY - lbTouchY;
+
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
+          if (diffX < 0) {
+            handleNext(e);
+          } else {
+            handlePrev(e);
+          }
+        }
+      }, { passive: true });
+
+
+      /* ── 2. IMAGE COMPARE SLIDER (AUTOPLAY + DRAG) ──────────── */
+      const compareContainer = document.getElementById('imageCompare');
+      const compareClipped = document.getElementById('compareClipped');
+      const compareHandle = document.getElementById('compareHandle');
+
+      let isDragging = false;
+      let autoplayActive = true;
+      let autoplayDirection = 1;
+      let currentPos = 50; // percentage
+      let animationFrameId = null;
+      let lastTime = performance.now();
+
+      function updateSlider(percentage) {
+        const clamped = Math.max(0, Math.min(100, percentage));
+        currentPos = clamped;
+        compareClipped.style.clipPath = `inset(0 ${100 - clamped}% 0 0)`;
+        compareHandle.style.left = `${clamped}%`;
+      }
+
+      // Autoplay Animation (suave oscilación entre 20% y 80%)
+      function autoplayLoop(now) {
+        if (!autoplayActive) return;
+        const delta = (now - lastTime) / 1000;
+        lastTime = now;
+
+        // Velocidad: recorre el ancho en aprox 4 segundos
+        const speed = 25; // % per second
+        currentPos += autoplayDirection * speed * delta;
+
+        if (currentPos >= 80) {
+          currentPos = 80;
+          autoplayDirection = -1;
+        } else if (currentPos <= 20) {
+          currentPos = 20;
+          autoplayDirection = 1;
+        }
+
+        updateSlider(currentPos);
+        animationFrameId = requestAnimationFrame(autoplayLoop);
+      }
+
+      animationFrameId = requestAnimationFrame(autoplayLoop);
+
+      let isHoveringCompare = false;
+      let resumeTimer = null;
+
+      function stopCompareAutoplay() {
+        clearTimeout(resumeTimer);
+        if (!autoplayActive) return;
+        autoplayActive = false;
+        if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      }
+
+      function startCompareAutoplay() {
+        if (autoplayActive || isDragging || isHoveringCompare) return;
+        // Continuar desde la posición actual, dentro del rango 20%-80%
+        currentPos = Math.max(20, Math.min(80, currentPos));
+        autoplayDirection = currentPos >= 50 ? -1 : 1;
+        autoplayActive = true;
+        lastTime = performance.now();
+        animationFrameId = requestAnimationFrame(autoplayLoop);
+      }
+
+      function scheduleCompareResume(delay) {
+        clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(startCompareAutoplay, delay);
+      }
+
+      // Manual interaction events
+      function handlePointerMove(clientX) {
+        const rect = compareContainer.getBoundingClientRect();
+        const offsetX = clientX - rect.left;
+        const percent = (offsetX / rect.width) * 100;
+        updateSlider(percent);
+      }
+
+      // Mouse events
+      let lastTouchTime = 0;
+      compareContainer.addEventListener('mouseenter', () => {
+        if (Date.now() - lastTouchTime < 1000) return; // evento emulado tras un toque en móvil
+        isHoveringCompare = true;
+        stopCompareAutoplay();
+      });
+      compareContainer.addEventListener('mouseleave', () => {
+        isHoveringCompare = false;
+        if (!isDragging) startCompareAutoplay();
+      });
+      compareContainer.addEventListener('mousedown', (e) => {
+        stopCompareAutoplay();
+        isDragging = true;
+        handlePointerMove(e.clientX);
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        handlePointerMove(e.clientX);
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (!isDragging) return;
+        isDragging = false;
+        // Si soltó el clic fuera de la imagen, reanudar de inmediato
+        if (!isHoveringCompare) startCompareAutoplay();
+      });
+
+      // Touch events (Mobile)
+      compareContainer.addEventListener('touchstart', (e) => {
+        lastTouchTime = Date.now();
+        stopCompareAutoplay();
+        isDragging = true;
+        if (e.touches[0]) handlePointerMove(e.touches[0].clientX);
+      }, { passive: true });
+
+      window.addEventListener('touchmove', (e) => {
+        if (!isDragging || !e.touches[0]) return;
+        handlePointerMove(e.touches[0].clientX);
+      }, { passive: true });
+
+      window.addEventListener('touchend', () => {
+        if (!isDragging) return;
+        isDragging = false;
+        lastTouchTime = Date.now();
+        isHoveringCompare = false; // en táctil no hay "hover" real
+        scheduleCompareResume(1500);
+      });
+
+
+      /* ── CARRUSELES DESLIZABLES EN MÓVIL (RESEÑAS + PASOS) ─────── */
+      function setupSwipeDots(gridId, dotsId, cardSelector, label) {
+        const grid = document.getElementById(gridId);
+        const dotsWrap = document.getElementById(dotsId);
+        if (!grid || !dotsWrap) return;
+        const items = Array.from(grid.querySelectorAll(cardSelector));
+        items.forEach((card, i) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'reviews-dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', `${label} ${i + 1}`);
+          dot.addEventListener('click', () => {
+            grid.scrollTo({ left: card.offsetLeft - grid.offsetLeft - 20, behavior: 'smooth' });
+          });
+          dotsWrap.appendChild(dot);
+        });
+        const dotEls = Array.from(dotsWrap.children);
+        grid.addEventListener('scroll', () => {
+          const step = items[1] ? items[1].offsetLeft - items[0].offsetLeft : 1;
+          const idx = Math.min(items.length - 1, Math.round(grid.scrollLeft / step));
+          dotEls.forEach((d, i) => d.classList.toggle('active', i === idx));
+        }, { passive: true });
+      }
+
+      setupSwipeDots('reviewsGrid', 'reviewsDots', '.review-card', 'Ver reseña');
+      setupSwipeDots('stepsGrid', 'stepsDots', '.step-card', 'Ver paso');
+      setupSwipeDots('gearGrid', 'gearDots', '.gear-card', 'Ver equipo');
+
+
+      /* ── 3. CALCULADORA DE COTIZACIÓN EN TIEMPO REAL ─────────── */
+      const calcForm = document.getElementById('quoteCalculatorForm');
+      const radioOptions = document.querySelectorAll('.service-option');
+      const inputFecha = document.getElementById('calcFecha');
+      const inputHoraInicio = document.getElementById('calcHoraInicio');
+      const inputHoraFin = document.getElementById('calcHoraFin');
+      const duracionLabel = document.getElementById('calcDuracionLabel');
+      const selectUbicacion = document.getElementById('calcUbicacion');
+      const viaticosWrapper = document.getElementById('viaticosWrapper');
+      const checkViaticos = document.getElementById('calcViaticos');
+      const inputNombre = document.getElementById('calcNombre');
+      const selectPais = document.getElementById('calcPais');
+      const inputTel = document.getElementById('calcTel');
+      const checkTerminos = document.getElementById('calcTerminos');
+
+      // Result elements
+      const resultCard = document.getElementById('quoteResultCard');
+      const resPrecioTotal = document.getElementById('resPrecioTotal');
+      const resServicio = document.getElementById('resServicio');
+      const resDuracion = document.getElementById('resDuracion');
+      const resHorario = document.getElementById('resHorario');
+      const resUbicacion = document.getElementById('resUbicacion');
+      const resNombreCliente = document.getElementById('resNombreCliente');
+      const viaticosNotice = document.getElementById('viaticosNotice');
+      const btnWhatsAppDirect = document.getElementById('btnWhatsAppDirect');
+
+      // ── Captura de datos ──
+      const WEB3FORMS_KEY = 'c4008f12-f2eb-4dda-bf62-8492b923f1c5';
+      const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzlSTL51D1Q4uNmMvE-KRP9ZJbVqer9cG_Vc1ODbZFk10yd1OoFxfgMbZKZE9FqM7JY/exec';
+
+      function enviarLead(lead) {
+        // 1) Correo vía Web3Forms
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_KEY,
+            subject: `Nueva cotización de evento - ${lead.nombre}`,
+            from_name: 'Web David Muñoz - Eventos',
+            ...lead
+          })
+        }).catch(err => console.warn('Web3Forms error:', err));
+
+        // 2) Fila en Google Sheets
+        if (GOOGLE_SHEETS_URL) {
+          fetch(GOOGLE_SHEETS_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(lead)
+          }).catch(err => console.warn('Sheets error:', err));
+        }
+      }
+
+      // Set min date to today
+      const todayISO = new Date().toISOString().split('T')[0];
+      inputFecha.min = todayISO;
+      inputFecha.value = todayISO;
+
+      // Servicio Selector Card clicks
+      radioOptions.forEach(opt => {
+        opt.addEventListener('click', function () {
+          radioOptions.forEach(o => o.classList.remove('selected'));
+          this.classList.add('selected');
+          const radio = this.querySelector('input[type="radio"]');
+          if (radio) {
+            radio.checked = true;
+            recalculateDurationOnly();
+          }
+        });
+      });
+
+      // Ubicación change
+      selectUbicacion.addEventListener('change', function () {
+        if (this.value === 'fuera') {
+          viaticosWrapper.style.display = 'block';
+        } else {
+          viaticosWrapper.style.display = 'none';
+          checkViaticos.checked = false;
+          document.getElementById('calcViaticosNo').checked = true;
+        }
+      });
+
+      // Cálculo de Duración en Horas
+      function calculateHoursDuration() {
+        const start = inputHoraInicio.value || "17:00";
+        const end = inputHoraFin.value || "22:00";
+
+        const [startH, startM] = start.split(':').map(Number);
+        const [endH, endM] = end.split(':').map(Number);
+
+        let startDecimal = startH + (startM / 60);
+        let endDecimal = endH + (endM / 60);
+
+        if (endDecimal <= startDecimal) {
+          // Cruza la medianoche (ej. 20:00 a 02:00)
+          endDecimal += 24;
+        }
+
+        const totalHours = Math.max(1, Math.round(endDecimal - startDecimal));
+        return { totalHours, startH, endH };
+      }
+
+      function recalculateDurationOnly() {
+        const { totalHours } = calculateHoursDuration();
+        duracionLabel.textContent = `⏱️ Duración estimada: ${totalHours} ${totalHours === 1 ? 'hora' : 'horas'}`;
+      }
+
+      inputHoraInicio.addEventListener('change', recalculateDurationOnly);
+      inputHoraFin.addEventListener('change', recalculateDurationOnly);
+
+      // Lista de Festivos Oficiales Colombia (2025 - 2027)
+      const colombianHolidays = new Set([
+        // 2025
+        "2025-01-01", "2025-01-06", "2025-03-24", "2025-04-17", "2025-04-18", "2025-05-01",
+        "2025-06-02", "2025-06-23", "2025-06-30", "2025-07-20", "2025-08-07", "2025-08-18",
+        "2025-10-13", "2025-11-03", "2025-11-17", "2025-12-08", "2025-12-25",
+        // 2026
+        "2026-01-01", "2026-01-12", "2026-03-23", "2026-04-02", "2026-04-03", "2026-05-01",
+        "2026-05-18", "2026-06-08", "2026-06-15", "2026-06-29", "2026-07-20", "2026-08-07",
+        "2026-08-17", "2026-10-12", "2026-11-02", "2026-11-16", "2026-12-08", "2026-12-25",
+        // 2027
+        "2027-01-01", "2027-01-11", "2027-03-22", "2027-03-25", "2027-03-26", "2027-05-01",
+        "2027-05-10", "2027-05-31", "2027-06-07", "2027-07-05", "2027-07-20", "2027-08-07",
+        "2027-08-16", "2027-10-18", "2027-11-01", "2027-11-15", "2027-12-08", "2027-12-25"
+      ]);
+
+      function isWeekendOrHoliday(dateString) {
+        if (!dateString) return false;
+        const [year, month, day] = dateString.split('-').map(Number);
+        const d = new Date(year, month - 1, day);
+        const dayOfWeek = d.getDay(); // 0 is Sunday, 6 is Saturday
+        if (dayOfWeek === 0 || dayOfWeek === 6) return true;
+        return colombianHolidays.has(dateString);
+      }
+
+      function formatCOP(num) {
+        return '$ ' + Math.round(num).toLocaleString('es-CO') + ' COP';
+      }
+
+      // Algoritmo de Cotización
+      function calculateQuote() {
+        const selectedRadio = document.querySelector('input[name="tipoServicio"]:checked');
+        const tarifaBase = Number(selectedRadio ? selectedRadio.dataset.base : 250000);
+        let nombreServicio = "Solo Fotografía";
+        if (selectedRadio && selectedRadio.value === 'foto_video') nombreServicio = "Fotografía + Video";
+        if (selectedRadio && selectedRadio.value === 'completo') nombreServicio = "Fotografía + Video + Dron";
+
+        const { totalHours, startH } = calculateHoursDuration();
+        const dateVal = inputFecha.value;
+
+        // Paso 1: Cálculo Base Progresivo por Horas
+        // Factores progresivos: h1=1.00, h2=0.85, h3=0.70, h4=0.65, h5+=0.50
+        const progressiveRates = [1.00, 0.85, 0.70, 0.65];
+        let subtotalHoras = 0;
+        let sumaValorHorasNocturnas = 0;
+
+        for (let i = 0; i < totalHours; i++) {
+          const factor = i < progressiveRates.length ? progressiveRates[i] : 0.50;
+          const valorHoraActual = tarifaBase * factor;
+          subtotalHoras += valorHoraActual;
+
+          // Paso 3: Recargo Nocturno Proporcional (+10%)
+          // Franja Nocturna con Recargo: 19:00 PM a 09:00 AM
+          const clockHour = (startH + i) % 24;
+          const isNight = (clockHour >= 19 || clockHour < 9);
+          if (isNight) {
+            sumaValorHorasNocturnas += valorHoraActual;
+          }
+        }
+
+        // Paso 2: Recargo Fin de Semana / Festivo (+10% sobre subtotal)
+        let recargoFinDeSemana = 0;
+        if (isWeekendOrHoliday(dateVal)) {
+          recargoFinDeSemana = subtotalHoras * 0.10;
+        }
+
+        const recargoNocturno = sumaValorHorasNocturnas * 0.10;
+
+        // Paso 4: Suma Total
+        const precioTotal = subtotalHoras + recargoFinDeSemana + recargoNocturno;
+
+        return {
+          nombreServicio,
+          tarifaBase,
+          totalHours,
+          dateVal,
+          subtotalHoras,
+          recargoFinDeSemana,
+          recargoNocturno,
+          precioTotal
+        };
+      }
+
+      // Procesamiento al Enviar el Formulario
+      calcForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Validaciones obligatorias
+        const nombre = inputNombre.value.trim();
+        const tel = inputTel.value.trim();
+        const terms = checkTerminos.checked;
+
+        if (!nombre) {
+          alert("Por favor ingresa tu Nombre Completo para generar la cotización.");
+          inputNombre.focus();
+          return;
+        }
+
+        if (!tel) {
+          alert("Por favor ingresa tu número de WhatsApp para poder enviarte los detalles.");
+          inputTel.focus();
+          return;
+        }
+
+        if (!terms) {
+          alert("Por favor acepta los términos y condiciones para continuar.");
+          checkTerminos.focus();
+          return;
+        }
+
+        const quote = calculateQuote();
+        const isFuera = selectUbicacion.value === 'fuera';
+        const incluyeViaticos = checkViaticos.checked;
+
+        // Desplegar Valores en el UI
+        resPrecioTotal.textContent = formatCOP(quote.precioTotal);
+        resServicio.textContent = quote.nombreServicio;
+        resDuracion.textContent = `${quote.totalHours} ${quote.totalHours === 1 ? 'hora' : 'horas'}`;
+        resHorario.textContent = `${quote.dateVal} (${inputHoraInicio.value} a ${inputHoraFin.value})`;
+        resUbicacion.textContent = isFuera ? 'Fuera de Ibagué' : 'Ibagué Urbana';
+        resNombreCliente.textContent = nombre;
+
+        // Condición Viáticos
+        if (isFuera && !incluyeViaticos) {
+          viaticosNotice.style.display = 'block';
+        } else {
+          viaticosNotice.style.display = 'none';
+        }
+
+        // Configuración de Enlace Directo a WhatsApp
+        const waText = `Hola, mi nombre es ${nombre}, coticé en la web para un evento de ${quote.nombreServicio} el día ${quote.dateVal} de ${inputHoraInicio.value} a ${inputHoraFin.value}. Mi total estimado fue ${formatCOP(quote.precioTotal)}. Quisiera confirmar la disponibilidad.`;
+        const waUrl = `https://wa.me/573169642159?text=${encodeURIComponent(waText)}`;
+        btnWhatsAppDirect.href = waUrl;
+
+        // ── Envío de datos (Web3Forms → correo, Google Sheets → hoja) ──
+        const lead = {
+          hoja: 'Eventos',
+          fecha_registro: new Date().toLocaleString('es-CO'),
+          nombre: nombre,
+          telefono: `${selectPais.value} ${tel}`,
+          servicio: quote.nombreServicio,
+          fecha_evento: quote.dateVal,
+          hora_inicio: inputHoraInicio.value,
+          hora_fin: inputHoraFin.value,
+          duracion_horas: quote.totalHours,
+          ubicacion: isFuera ? 'Fuera de Ibagué' : 'Ibagué Urbana',
+          incluye_viaticos: isFuera ? (incluyeViaticos ? 'Sí' : 'No') : 'N/A',
+          total_estimado: formatCOP(quote.precioTotal)
+        };
+        enviarLead(lead);
+
+        // Mostrar Contenedor con Desglose
+        resultCard.style.display = 'block';
+        resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+
+    });
+  </script>
+</body>
+
+</html>

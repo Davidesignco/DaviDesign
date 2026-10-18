@@ -8,3 +8,15 @@ node_modules/
 informes/*.html
 !informes/template.html
 informes/data/test-cliente.json
+
+# Archivos de diseño en bruto y temporales
+*.psd
+*.ai
+*_backup.*
+*_original_raw.*
+*_1_1.mp4
+navbars_report.txt
+.system_generated/
+brain/
+
+

@@ -15,6 +15,268 @@
     <meta property="og:title" content="InstaGrowth Pro | David Muñoz Diseñador">
     <meta property="og:description" content="Gestión 360° de Instagram: estrategia, producción y crecimiento.">
     <meta property="og:type" content="website">
+    <style>
+        .ig-form-section {
+            padding: var(--section-pad, 80px) 0;
+            position: relative;
+        }
+
+        .ig-form-container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 24px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(10, 20, 40, 0.6) 100%);
+            border: 1px solid var(--border-strong, rgba(0, 237, 255, 0.25));
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 237, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .ig-form-header {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .ig-form-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(0, 237, 255, 0.08);
+            border: 1px solid rgba(0, 237, 255, 0.25);
+            font-size: 0.78rem;
+            color: var(--accent, #00edff);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .ig-form-title {
+            font-family: var(--font-head);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.25;
+            margin-bottom: 10px;
+        }
+
+        .ig-form-subtitle {
+            color: var(--text-secondary, #a8b8d0);
+            font-size: 0.95rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .ig-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .ig-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-primary, #fff);
+        }
+
+        .ig-label .req {
+            color: var(--accent, #00edff);
+        }
+
+        .ig-input {
+            width: 100%;
+            padding: 13px 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border, rgba(255, 255, 255, 0.12));
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-primary, #fff);
+            font: inherit;
+            font-size: 0.92rem;
+            transition: border-color .25s, box-shadow .25s;
+        }
+
+        .ig-input:focus {
+            outline: none;
+            border-color: var(--accent, #00edff);
+            box-shadow: 0 0 0 3px var(--accent-dim, rgba(0, 237, 255, 0.15));
+        }
+
+        .ig-input option {
+            background: #0a1428;
+            color: #fff;
+        }
+
+        .ig-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        /* Redes Sociales Checklist Interactivo */
+        .ig-social-checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .ig-social-item {
+            border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
+            border-radius: 14px;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.02);
+            transition: all 0.25s ease;
+        }
+
+        .ig-social-item.active {
+            border-color: rgba(0, 237, 255, 0.4);
+            background: rgba(0, 237, 255, 0.05);
+            box-shadow: 0 4px 20px -8px rgba(0, 237, 255, 0.2);
+        }
+
+        .ig-social-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .ig-social-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .ig-social-label input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent, #00edff);
+            cursor: pointer;
+        }
+
+        .ig-social-url-box {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            animation: fadeInSocial 0.25s ease;
+        }
+
+        .ig-social-url-box[hidden] {
+            display: none !important;
+        }
+
+        @keyframes fadeInSocial {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ig-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--text-secondary, #aaa);
+            cursor: pointer;
+            line-height: 1.5;
+        }
+
+        .ig-check input {
+            accent-color: var(--accent, #00edff);
+            margin-top: 3px;
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 640px) {
+            .ig-form-container {
+                padding: 24px 20px;
+            }
+
+            .ig-grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── SEO INSTAGROWTH TICKER / TOP BAR (SIN FONDO) ──────── */
+        .ig-seo-bar {
+            position: relative;
+            z-index: 3;
+            background: transparent;
+            border-top: none;
+            border-bottom: none;
+            padding: 20px 0 10px;
+            overflow: hidden;
+        }
+
+        .ig-seo-track {
+            display: flex;
+            width: max-content;
+            gap: 16px;
+            animation: igSeoTickerScroll 85s linear infinite;
+        }
+
+        .ig-seo-track:hover {
+            animation-play-state: paused;
+        }
+
+        .ig-seo-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: rgba(0, 237, 255, 0.04);
+            border: 1px solid rgba(0, 237, 255, 0.16);
+            border-radius: 999px;
+            color: var(--text-secondary, #a8b8d0);
+            font-size: 0.86rem;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.25s ease;
+            cursor: default;
+        }
+
+        .ig-seo-pill strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .ig-seo-pill .pill-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent, #00edff);
+            box-shadow: 0 0 8px var(--accent, #00edff);
+        }
+
+        .ig-seo-pill:hover {
+            background: rgba(0, 237, 255, 0.12);
+            border-color: var(--accent, #00edff);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 237, 255, 0.2);
+        }
+
+        @keyframes igSeoTickerScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -47,13 +309,24 @@
               <a href="planes-instagrowth.html">📱📸 InstaGrowth Pro</a>
             </div>
           </li>
-          <li><a href="produccion.html">Fotografía &amp; Video</a></li>
+          <li class="nav-dropdown">
+            <a class="nav-dropdown-toggle" href="#">
+              Fotografía y Video
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="eventos.html">🎉 Cobertura de Eventos</a>
+              <a href="produccion.html">📹 Producción con Operador</a>
+            </div>
+          </li>
           <li><a href="automatizacion.html">Automatizaciones</a></li>
           <li><a href="web-premium.html">Web Premium</a></li>
           <li><a href="portafolio.html">Portafolio</a></li>
           <li>
-            <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios"
-              target="_blank" class="nav-cta btn">
+            <a href="#solicitud" class="nav-cta btn">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                 style="margin-right: 6px; vertical-align: middle;">
                 <path
@@ -76,12 +349,12 @@
   <div class="nav-mobile" id="navMobile">
     <a href="planes-diseno.html">Diseño Gráfico Pro</a>
     <a href="planes-instagrowth.html">InstaGrowth Pro</a>
-    <a href="produccion.html">Fotografía &amp; Video</a>
+    <a href="eventos.html">🎉 Cobertura de Eventos</a>
+    <a href="produccion.html">📹 Producción con Operador</a>
     <a href="automatizacion.html">Automatizaciones</a>
     <a href="web-premium.html">Web Premium</a>
     <a href="portafolio.html">Portafolio</a>
-    <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20informaci%C3%B3n" target="_blank"
-      class="btn btn-primary mt-24">Cotizar Gratis</a>
+    <a href="#solicitud" class="btn btn-primary mt-24">Cotizar Gratis</a>
   </div>
 
     <!-- HERO -->
@@ -98,12 +371,52 @@
             <p class="page-hero-subtitle">Delegue la estrategia, producción audiovisual y crecimiento de su comunidad en
                 manos expertas. Usted dirija su negocio — nosotros lo hacemos famoso.</p>
             <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
-                <a href="https://wa.me/573169642159?text=Quiero%20solicitar%20mi%20cupo%20en%20InstaGrowth%20Pro"
-                    target="_blank" class="btn btn-primary">Solicitar Cupo Prioritario</a>
+                <a href="#solicitud" class="btn btn-primary">Solicitar Cupo Prioritario</a>
                 <a href="#servicios" class="btn btn-secondary">Ver qué incluye</a>
             </div>
         </div>
     </section>
+
+    <!-- TOP BAR SEO: GESTIÓN DE INSTAGRAM, CONTENIDO Y ADS EN IBAGUÉ -->
+    <aside class="ig-seo-bar" aria-label="Servicios de gestión de Instagram, producción de contenido y pauta digital en Ibagué">
+        <div class="ig-seo-track">
+            <!-- Track set 1 -->
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 📱 <strong>Gestión 360° de Instagram</strong> en Ibagué</span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 🎬 <strong>Grabación de Reels Profesionales</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 🚀 <strong>Community Manager & Estrategia Digital</strong> Tolima</span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 💃 <strong>Modelos & Casting para Marcas</strong> Incluido</span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 📢 <strong>Campañas en Meta Ads & TikTok Ads</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 🎯 <strong>Segmentación & Filtros Demográficos</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 📹 <strong>Producción Audiovisual con Cámara Sony 4K</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> ✍️ <strong>Copywriting Persuasivo & Storytelling</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 🚁 <strong>Tomas Aéreas con Drone para Marcas</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 📅 <strong>Planificación & Calendario Editorial Mensual</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 🛍️ <strong>Estrategias de Conversión & Ventas por DM</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 📊 <strong>Reporte Mensual de Alcance & Retorno (ROI)</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 🎨 <strong>Diseño de Portadas & Plantillas para Stories</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 🎙️ <strong>Microfonía Inalámbrica DJI para Audio Impecable</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 📈 <strong>Crecimiento Orgánico & Viralidad de Marca</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 🤝 <strong>Departamento de Marketing Externo</strong> en Ibagué</span>
+
+            <!-- Track set 2 (duplicado para scroll continuo) -->
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 📱 <strong>Gestión 360° de Instagram</strong> en Ibagué</span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 🎬 <strong>Grabación de Reels Profesionales</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 🚀 <strong>Community Manager & Estrategia Digital</strong> Tolima</span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 💃 <strong>Modelos & Casting para Marcas</strong> Incluido</span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 📢 <strong>Campañas en Meta Ads & TikTok Ads</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 🎯 <strong>Segmentación & Filtros Demográficos</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 📹 <strong>Producción Audiovisual con Cámara Sony 4K</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> ✍️ <strong>Copywriting Persuasivo & Storytelling</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 🚁 <strong>Tomas Aéreas con Drone para Marcas</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 📅 <strong>Planificación & Calendario Editorial Mensual</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 🛍️ <strong>Estrategias de Conversión & Ventas por DM</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 📊 <strong>Reporte Mensual de Alcance & Retorno (ROI)</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 🎨 <strong>Diseño de Portadas & Plantillas para Stories</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 🎙️ <strong>Microfonía Inalámbrica DJI para Audio Impecable</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 📈 <strong>Crecimiento Orgánico & Viralidad de Marca</strong></span>
+            <span class="ig-seo-pill"><span class="pill-dot"></span> 🤝 <strong>Departamento de Marketing Externo</strong> en Ibagué</span>
+        </div>
+    </aside>
 
     <!-- THE BIG IDEA -->
     <section style="overflow:hidden;">
@@ -344,8 +657,7 @@
                     </ul>
                     <p style="font-size:0.75rem;color:var(--text-muted);margin-top:-20px;margin-bottom:20px;">* No
                         incluye Identidad de Marca ni Web.</p>
-                    <a href="https://wa.me/573169642159?text=Quiero%20agendar%20mi%20entrevista%20de%20diagnóstico%20para%20InstaGrowth%20Pro"
-                        target="_blank" class="btn btn-primary"
+                    <a href="#solicitud" class="btn btn-primary"
                         style="width:100%;justify-content:center;font-size:1rem;">Agendar Entrevista de Diagnóstico</a>
                 </div>
             </div>
@@ -388,26 +700,156 @@
         </div>
     </section>
 
-    <!-- CTA URGENCIA -->
-    <section id="urgencia">
+    <!-- FORMULARIO DE CAPTURA & DIAGNÓSTICO INSTAGROWTH -->
+    <section class="ig-form-section" id="solicitud">
         <div class="container">
-            <div class="cta-block reveal">
-                <div
-                    style="display:inline-block;background:var(--cta-glow);border:1px solid var(--cta);border-radius:50px;padding:6px 20px;font-size:0.8rem;font-weight:700;color:var(--cta);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px;">
-                    ⭐ Solo 3 nuevos clientes por trimestre
+            <div class="ig-form-container reveal">
+                <div class="ig-form-header">
+                    <span class="ig-form-badge">Diagnóstico Estratégico Sin Costo</span>
+                    <h2 class="ig-form-title">Impulsa tu Marca con <span class="text-accent">InstaGrowth Pro</span></h2>
+                    <p class="ig-form-subtitle">Completa los datos de tu negocio y tus canales digitales actuales. Analizaremos tu presencia y te presentaremos un plan de contenido y pauta adaptado a tu nicho.</p>
                 </div>
-                <div class="cta-title">¡Su Marca Merece Ser <span class="text-accent">Reconocida</span>!</div>
-                <p class="cta-subtitle">Solo aceptamos 3 nuevos clientes por trimestre para garantizar la máxima calidad
-                    y atención. Si está leyendo esto, aún hay cupos disponibles.</p>
-                <a href="https://wa.me/573169642159?text=Quiero%20agendar%20mi%20entrevista%20de%20diagnóstico%20para%20InstaGrowth%20Pro"
-                    target="_blank" class="btn btn-primary" style="font-size:1rem;padding:16px 40px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                        fill="currentColor">
-                        <path
-                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                    </svg>
-                    Agendar Entrevista de Diagnóstico
-                </a>
+
+                <form id="instaGrowthForm">
+                    <!-- Fila 1: Marca y Sector -->
+                    <div class="ig-grid-2">
+                        <div class="ig-form-group">
+                            <label class="ig-label" for="igMarca">Nombre de tu Marca o Negocio <span class="req">*</span></label>
+                            <input type="text" id="igMarca" class="ig-input" placeholder="Ej. Restaurante Sabor / Estética Nova" required>
+                        </div>
+                        <div class="ig-form-group">
+                            <label class="ig-label" for="igSector">Sector o Nicho Comercial <span class="req">*</span></label>
+                            <select id="igSector" class="ig-input" required>
+                                <option value="" disabled selected>Selecciona tu sector...</option>
+                                <option value="Gastronomía / Restaurantes / Bares">🍽️ Gastronomía / Restaurantes / Bares</option>
+                                <option value="Salud / Medicina / Belleza / Spa">✨ Salud / Medicina / Estética / Spa</option>
+                                <option value="Moda / Ropa / Calzado / Accesorios">👗 Moda / Ropa / Accesorios</option>
+                                <option value="Inmobiliario / Construcción / Arquitectura">🏢 Inmobiliario / Construcción</option>
+                                <option value="Servicios Profesionales / Consultoría">💼 Servicios Profesionales / Consultoría</option>
+                                <option value="Fitness / Deporte / Gimnasios">💪 Fitness / Deporte / Gimnasios</option>
+                                <option value="E-commerce / Tienda Online">🛒 Tienda Online / E-commerce</option>
+                                <option value="Otro">Otro sector</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Redes Sociales Actuales (Checklist Dinámico con URLs) -->
+                    <div class="ig-form-group" style="margin-top:10px;">
+                        <label class="ig-label">¿En qué redes sociales tiene presencia actualmente tu marca? <span class="req">*</span></label>
+                        <p style="font-size:0.82rem;color:var(--text-secondary);margin:0 0 6px;">
+                            Marca las plataformas que tengas activas e ingresa el enlace o usuario para revisarlas:
+                        </p>
+
+                        <div class="ig-social-checklist">
+                            <!-- Instagram -->
+                            <div class="ig-social-item" id="itemSocialIG">
+                                <label class="ig-social-header" for="chkSocialIG">
+                                    <span class="ig-social-label">
+                                        <input type="checkbox" id="chkSocialIG" name="socialPlat" value="Instagram" checked>
+                                        <span>📸 Instagram (Principal)</span>
+                                    </span>
+                                </label>
+                                <div class="ig-social-url-box" id="boxSocialIG">
+                                    <input type="text" id="urlSocialIG" class="ig-input" placeholder="Ej. https://instagram.com/tumarca o @tumarca" required>
+                                </div>
+                            </div>
+
+                            <!-- Facebook -->
+                            <div class="ig-social-item" id="itemSocialFB">
+                                <label class="ig-social-header" for="chkSocialFB">
+                                    <span class="ig-social-label">
+                                        <input type="checkbox" id="chkSocialFB" name="socialPlat" value="Facebook">
+                                        <span>📘 Facebook Fanpage</span>
+                                    </span>
+                                </label>
+                                <div class="ig-social-url-box" id="boxSocialFB" hidden>
+                                    <input type="text" id="urlSocialFB" class="ig-input" placeholder="Ej. https://facebook.com/tumarca">
+                                </div>
+                            </div>
+
+                            <!-- TikTok -->
+                            <div class="ig-social-item" id="itemSocialTT">
+                                <label class="ig-social-header" for="chkSocialTT">
+                                    <span class="ig-social-label">
+                                        <input type="checkbox" id="chkSocialTT" name="socialPlat" value="TikTok">
+                                        <span>🎵 TikTok</span>
+                                    </span>
+                                </label>
+                                <div class="ig-social-url-box" id="boxSocialTT" hidden>
+                                    <input type="text" id="urlSocialTT" class="ig-input" placeholder="Ej. https://tiktok.com/@tumarca o @tumarca">
+                                </div>
+                            </div>
+
+                            <!-- LinkedIn o Web -->
+                            <div class="ig-social-item" id="itemSocialWeb">
+                                <label class="ig-social-header" for="chkSocialWeb">
+                                    <span class="ig-social-label">
+                                        <input type="checkbox" id="chkSocialWeb" name="socialPlat" value="Web / LinkedIn">
+                                        <span>🌐 Sitio Web o LinkedIn Corporativo</span>
+                                    </span>
+                                </label>
+                                <div class="ig-social-url-box" id="boxSocialWeb" hidden>
+                                    <input type="text" id="urlSocialWeb" class="ig-input" placeholder="Ej. https://tumarca.com o linkedin.com/company/tumarca">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Objetivo Principal -->
+                    <div class="ig-form-group" style="margin-top:10px;">
+                        <label class="ig-label" for="igObjetivo">¿Cuál es tu principal objetivo para los próximos 90 días?</label>
+                        <select id="igObjetivo" class="ig-input">
+                            <option value="Aumentar ventas directas y captación de clientes por WhatsApp">Aumentar ventas directas y clientes por WhatsApp</option>
+                            <option value="Mejorar calidad visual y estética premium del perfil">Mejorar la calidad visual y estética del perfil</option>
+                            <option value="Crecer en seguidores cualificados y alcance local en Ibagué / Colombia">Crecer en seguidores cualificados y alcance local</option>
+                            <option value="Delegar completamente la producción y publicación de contenido">Delegar completamente la producción (fotos, reels y pauta)</option>
+                        </select>
+                    </div>
+
+                    <!-- Fila 2: Nombre de Contacto y Teléfono WhatsApp -->
+                    <div class="ig-grid-2" style="margin-top:8px;">
+                        <div class="ig-form-group">
+                            <label class="ig-label" for="igNombre">Tu Nombre y Apellido <span class="req">*</span></label>
+                            <input type="text" id="igNombre" class="ig-input" placeholder="Ej. Carolina Gómez" required>
+                        </div>
+                        <div class="ig-form-group">
+                            <label class="ig-label" for="igTel">WhatsApp de Contacto <span class="req">*</span></label>
+                            <div style="display:flex;gap:8px;">
+                                <select id="igPais" class="ig-input" style="width:115px;flex-shrink:0;">
+                                    <option value="+57">🇨🇴 +57</option>
+                                    <option value="+1">🇺🇸 +1</option>
+                                    <option value="+34">🇪🇸 +34</option>
+                                    <option value="+52">🇲🇽 +52</option>
+                                    <option value="+507">🇵🇦 +507</option>
+                                    <option value="+56">🇨🇱 +56</option>
+                                </select>
+                                <input type="tel" id="igTel" class="ig-input" placeholder="316 964 2159" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Checkbox Legal -->
+                    <label class="ig-check" style="margin-top:12px;">
+                        <input type="checkbox" id="igTerminos" required>
+                        <span>Acepto los <a href="terminos-condiciones.html" target="_blank" style="color:var(--accent);text-decoration:underline;">términos y condiciones</a> y autorizo el tratamiento de mis datos personales para coordinar el diagnóstico de mi marca. <span class="req">*</span></span>
+                    </label>
+
+                    <button type="submit" id="btnIgSubmit" class="btn btn-primary" style="width:100%;justify-content:center;padding:16px;font-size:1rem;margin-top:10px;">
+                        Agendar Diagnóstico Gratuito
+                    </button>
+
+                    <!-- Tarjeta de Confirmación -->
+                    <div id="igResultCard" style="display:none;margin-top:20px;padding:22px;border-radius:14px;background:rgba(0,237,255,0.08);border:1px solid rgba(0,237,255,0.3);text-align:center;">
+                        <div style="font-size:1.8rem;margin-bottom:8px;">🎉</div>
+                        <h4 style="color:#fff;font-size:1.2rem;margin-bottom:6px;">¡Solicitud de Diagnóstico Recibida!</h4>
+                        <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:16px;line-height:1.5;">
+                            Hemos registrado los datos de tu marca. Para agilizar la respuesta y revisar tus redes de inmediato, haz clic a continuación:
+                        </p>
+                        <a href="#" id="btnIgWaDirect" target="_blank" class="btn btn-secondary" style="display:inline-flex;">
+                            Continuar por WhatsApp
+                        </a>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -456,15 +898,18 @@
           <ul class="footer-links">
             <li><a href="planes-diseno.html">Diseño Gráfico Pro</a></li>
             <li><a href="planes-instagrowth.html">InstaGrowth Pro</a></li>
-            <li><a href="produccion.html">Fotografía & Video</a></li>
+            <li><a href="eventos.html">Cobertura de Eventos</a></li>
+            <li><a href="produccion.html">Producción con Operador</a></li>
             <li><a href="automatizacion.html">Automatizaciones n8n</a></li>
             <li><a href="web-premium.html">Web & Tech Premium</a></li>
             <li><a href="portafolio.html">Portafolio</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer-heading">Empresa</div>
+          <div class="footer-heading">Empresa y Legal</div>
           <ul class="footer-links">
+            <li><a href="terminos-condiciones.html" style="color:var(--accent);">Términos y Condiciones</a></li>
+            <li><a href="terminos-condiciones.html#art8">Política de Privacidad</a></li>
             <li><a href="https://wa.me/573169642159" target="_blank">WhatsApp</a></li>
             <li><a href="https://www.instagram.com/davidesign.co?igsh=YXJwempvMGxid2gz" target="_blank">Instagram</a></li>
             <li><a href="https://www.facebook.com/share/1GdNCi94S1/" target="_blank">Facebook</a></li>
@@ -481,22 +926,149 @@
       </div>
       <div class="footer-bottom">
         <p class="footer-copy">© 2025 <span class="footer-accent">David Muñoz Diseñador</span>. Todos los derechos reservados.</p>
-        <p class="footer-copy">Diseño <span class="footer-accent">Tech-Premium</span> · Ibagué, Colombia</p>
+        <p class="footer-copy"><a href="terminos-condiciones.html" style="color:var(--text-secondary);text-decoration:underline;">Términos & Privacidad</a> · Ibagué, Colombia</p>
       </div>
     </div>
   </footer>
-    <!-- Botón Flotante CTA con Icono (Smart Flow) -->
-    <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20agendar%20mi%20entrevista%20de%20diagnóstico%20para%20InstaGrowth%20Pro"
-        target="_blank" id="floatingCTA" class="floating-cta">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    <!-- Botón Flotante CTA al Formulario de Diagnóstico -->
+    <a href="#solicitud" id="floatingCTA" class="floating-cta">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
         </svg>
-        Agendar Entrevista
+        <span>Diagnóstico Gratis</span>
     </a>
 
     <script src="js/main.js"></script>
     <script src="js/logo-particles.js"></script>
+    <script>
+        /* ── CAPTURA Y ENVÍO DE DATOS - INSTAGROWTH PRO ── */
+        document.addEventListener('DOMContentLoaded', function () {
+            const WEB3FORMS_KEY = 'c4008f12-f2eb-4dda-bf62-8492b923f1c5';
+            const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzlSTL51D1Q4uNmMvE-KRP9ZJbVqer9cG_Vc1ODbZFk10yd1OoFxfgMbZKZE9FqM7JY/exec';
+
+            // Redes Sociales Checklist dinámico
+            const socialConfigs = [
+                { chk: 'chkSocialIG', box: 'boxSocialIG', input: 'urlSocialIG', item: 'itemSocialIG' },
+                { chk: 'chkSocialFB', box: 'boxSocialFB', input: 'urlSocialFB', item: 'itemSocialFB' },
+                { chk: 'chkSocialTT', box: 'boxSocialTT', input: 'urlSocialTT', item: 'itemSocialTT' },
+                { chk: 'chkSocialWeb', box: 'boxSocialWeb', input: 'urlSocialWeb', item: 'itemSocialWeb' }
+            ];
+
+            socialConfigs.forEach(cfg => {
+                const chkEl = document.getElementById(cfg.chk);
+                const boxEl = document.getElementById(cfg.box);
+                const inputEl = document.getElementById(cfg.input);
+                const itemEl = document.getElementById(cfg.item);
+
+                if (chkEl && boxEl) {
+                    // Estado inicial
+                    boxEl.hidden = !chkEl.checked;
+                    if (itemEl) itemEl.classList.toggle('active', chkEl.checked);
+                    if (inputEl) inputEl.required = chkEl.checked;
+
+                    chkEl.addEventListener('change', function () {
+                        boxEl.hidden = !this.checked;
+                        if (itemEl) itemEl.classList.toggle('active', this.checked);
+                        if (inputEl) {
+                            inputEl.required = this.checked;
+                            if (this.checked) inputEl.focus();
+                        }
+                    });
+                }
+            });
+
+            // Enviar formulario
+            const form = document.getElementById('instaGrowthForm');
+            const btnSubmit = document.getElementById('btnIgSubmit');
+            const resultCard = document.getElementById('igResultCard');
+            const btnWaDirect = document.getElementById('btnIgWaDirect');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const marca = document.getElementById('igMarca').value.trim();
+                const sector = document.getElementById('igSector').value;
+                const objetivo = document.getElementById('igObjetivo').value;
+                const nombre = document.getElementById('igNombre').value.trim();
+                const pais = document.getElementById('igPais').value;
+                const tel = document.getElementById('igTel').value.trim();
+                const checkTerms = document.getElementById('igTerminos');
+
+                // Recopilar enlaces de redes marcadas
+                const redesList = [];
+                socialConfigs.forEach(cfg => {
+                    const chkEl = document.getElementById(cfg.chk);
+                    const inputEl = document.getElementById(cfg.input);
+                    if (chkEl && chkEl.checked && inputEl) {
+                        const val = inputEl.value.trim();
+                        if (val) redesList.push(`${chkEl.value}: ${val}`);
+                    }
+                });
+
+                if (redesList.length === 0) {
+                    alert('Por favor selecciona al menos una red social e ingresa el enlace o usuario.');
+                    return;
+                }
+
+                if (!checkTerms.checked) {
+                    alert('Por favor acepta los términos y condiciones para continuar.');
+                    return;
+                }
+
+                const lead = {
+                    hoja: 'InstaGrowth',
+                    fecha_registro: new Date().toLocaleString('es-CO'),
+                    marca: marca,
+                    sector: sector,
+                    redes_sociales: redesList.join(' | '),
+                    objetivo_90_dias: objetivo,
+                    nombre_contacto: nombre,
+                    telefono: `${pais} ${tel}`
+                };
+
+                btnSubmit.disabled = true;
+                btnSubmit.textContent = 'Enviando Diagnóstico...';
+
+                // 1) Envío a Web3Forms (Correo)
+                const { hoja, ...correoPayload } = lead;
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        access_key: WEB3FORMS_KEY,
+                        subject: `[InstaGrowth Pro] Nuevo diagnóstico para ${marca} (${nombre})`,
+                        from_name: 'Web David Muñoz - InstaGrowth',
+                        ...correoPayload
+                    })
+                }).catch(err => console.warn('Web3Forms error:', err));
+
+                // 2) Envío a Google Sheets (pestaña 'InstaGrowth')
+                fetch(GOOGLE_SHEETS_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(lead)
+                }).catch(err => console.warn('Sheets error:', err));
+
+                // 3) Enlace directo de WhatsApp con mensaje estructurado
+                const igUrlVal = document.getElementById('urlSocialIG').value.trim() || 'mi perfil';
+                const waMsg = `Hola David, registré mi marca "${marca}" (${igUrlVal}) para el diagnóstico de InstaGrowth Pro. Soy ${nombre}. Quisiera agendar la entrevista.`;
+                btnWaDirect.href = `https://wa.me/573169642159?text=${encodeURIComponent(waMsg)}`;
+
+                // 4) Mostrar tarjeta de confirmación
+                resultCard.style.display = 'block';
+                resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                btnSubmit.textContent = '✔ Diagnóstico Enviado';
+
+                setTimeout(() => {
+                    btnSubmit.disabled = false;
+                    btnSubmit.textContent = 'Agendar Diagnóstico Gratuito';
+                }, 4000);
+            });
+        });
+    </script>
 </body>
 
 </html>

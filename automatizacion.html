@@ -214,6 +214,308 @@
                 border-top: none;
             }
         }
+
+        /* ── SEO AUTOMATIZACIONES TICKER / TOP BAR (SIN FONDO) ── */
+        .auto-seo-bar {
+            position: relative;
+            z-index: 3;
+            background: transparent;
+            border-top: none;
+            border-bottom: none;
+            padding: 20px 0 10px;
+            overflow: hidden;
+        }
+
+        .auto-seo-track {
+            display: flex;
+            width: max-content;
+            gap: 16px;
+            animation: autoSeoTickerScroll 85s linear infinite;
+        }
+
+        .auto-seo-track:hover {
+            animation-play-state: paused;
+        }
+
+        .auto-seo-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: rgba(0, 237, 255, 0.04);
+            border: 1px solid rgba(0, 237, 255, 0.16);
+            border-radius: 999px;
+            color: var(--text-secondary, #a8b8d0);
+            font-size: 0.86rem;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.25s ease;
+            cursor: default;
+        }
+
+        .auto-seo-pill strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .auto-seo-pill .pill-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent, #00edff);
+            box-shadow: 0 0 8px var(--accent, #00edff);
+        }
+
+        .auto-seo-pill:hover {
+            background: rgba(0, 237, 255, 0.12);
+            border-color: var(--accent, #00edff);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 237, 255, 0.2);
+        }
+
+        @keyframes autoSeoTickerScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ── FORMULARIO DE DIAGNÓSTICO DE AUTOMATIZACIÓN ───────── */
+        .auto-form-section {
+            padding: var(--section-pad, 80px) 0;
+            position: relative;
+        }
+
+        .auto-form-container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 44px;
+            border-radius: 24px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(10, 20, 40, 0.65) 100%);
+            border: 1px solid var(--border-strong, rgba(0, 237, 255, 0.25));
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 237, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .auto-form-header {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .auto-form-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(0, 237, 255, 0.08);
+            border: 1px solid rgba(0, 237, 255, 0.25);
+            font-size: 0.78rem;
+            color: var(--accent, #00edff);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .auto-form-title {
+            font-family: var(--font-head);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.25;
+            margin-bottom: 10px;
+        }
+
+        .auto-form-subtitle {
+            color: var(--text-secondary, #a8b8d0);
+            font-size: 0.95rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .auto-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .auto-form-group[hidden],
+        .auto-form-group.is-hidden {
+            display: none !important;
+        }
+
+        .auto-label {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--text-primary, #fff);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .auto-label .req {
+            color: var(--accent, #00edff);
+        }
+
+        .auto-label-hint {
+            font-size: 0.78rem;
+            font-weight: normal;
+            color: var(--text-muted, #718096);
+        }
+
+        .auto-input {
+            width: 100%;
+            padding: 13px 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border, rgba(255, 255, 255, 0.12));
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-primary, #fff);
+            font: inherit;
+            font-size: 0.92rem;
+            transition: border-color .25s, box-shadow .25s;
+        }
+
+        .auto-input:focus {
+            outline: none;
+            border-color: var(--accent, #00edff);
+            box-shadow: 0 0 0 3px var(--accent-dim, rgba(0, 237, 255, 0.15));
+        }
+
+        .auto-input option {
+            background: #0a1428;
+            color: #fff;
+        }
+
+        textarea.auto-input {
+            resize: vertical;
+            min-height: 110px;
+            line-height: 1.6;
+        }
+
+        .auto-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        /* Chips interactivos de herramientas */
+        .auto-chips-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .auto-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            border-radius: 50px;
+            border: 1.5px solid var(--border, rgba(255, 255, 255, 0.14));
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-secondary, #a8b8d0);
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.22s ease;
+            position: relative;
+        }
+
+        .auto-chip:hover {
+            border-color: rgba(0, 237, 255, 0.5);
+            color: #fff;
+            background: rgba(0, 237, 255, 0.06);
+        }
+
+        .auto-chip:has(input:checked),
+        .auto-chip.active {
+            border-color: var(--accent, #00edff) !important;
+            background: rgba(0, 237, 255, 0.18) !important;
+            color: #ffffff !important;
+            font-weight: 600;
+            box-shadow: 0 0 16px rgba(0, 237, 255, 0.3) !important;
+            transform: translateY(-1px);
+        }
+
+        .auto-chip input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            width: 1px;
+            height: 1px;
+            margin: 0;
+        }
+
+        .chip-check-box {
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            background: rgba(0, 0, 0, 0.4);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .chip-check-svg {
+            width: 12px;
+            height: 12px;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .auto-chip:has(input:checked) .chip-check-box,
+        .auto-chip.active .chip-check-box {
+            border-color: var(--accent, #00edff);
+            background: var(--accent, #00edff);
+        }
+
+        .auto-chip:has(input:checked) .chip-check-svg,
+        .auto-chip.active .chip-check-svg {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .auto-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--text-secondary, #aaa);
+            cursor: pointer;
+            line-height: 1.5;
+        }
+
+        .auto-check input {
+            accent-color: var(--accent, #00edff);
+            margin-top: 3px;
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 640px) {
+            .auto-form-container {
+                padding: 26px 20px;
+            }
+
+            .auto-grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -247,13 +549,24 @@
               <a href="planes-instagrowth.html">📱📸 InstaGrowth Pro</a>
             </div>
           </li>
-          <li><a href="produccion.html">Fotografía &amp; Video</a></li>
+          <li class="nav-dropdown">
+            <a class="nav-dropdown-toggle" href="#">
+              Fotografía y Video
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="eventos.html">🎉 Cobertura de Eventos</a>
+              <a href="produccion.html">📹 Producción con Operador</a>
+            </div>
+          </li>
           <li><a href="automatizacion.html" class="active">Automatizaciones</a></li>
           <li><a href="web-premium.html">Web Premium</a></li>
           <li><a href="portafolio.html">Portafolio</a></li>
           <li>
-            <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios"
-              target="_blank" class="nav-cta btn">
+            <a href="#diagnostico" class="nav-cta btn">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                 style="margin-right: 6px; vertical-align: middle;">
                 <path
@@ -276,12 +589,12 @@
   <div class="nav-mobile" id="navMobile">
     <a href="planes-diseno.html">Diseño Gráfico Pro</a>
     <a href="planes-instagrowth.html">InstaGrowth Pro</a>
-    <a href="produccion.html">Fotografía &amp; Video</a>
+    <a href="eventos.html">🎉 Cobertura de Eventos</a>
+    <a href="produccion.html">📹 Producción con Operador</a>
     <a href="automatizacion.html" class="active">Automatizaciones</a>
     <a href="web-premium.html">Web Premium</a>
     <a href="portafolio.html">Portafolio</a>
-    <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20informaci%C3%B3n" target="_blank"
-      class="btn btn-primary mt-24">Cotizar Gratis</a>
+    <a href="#diagnostico" class="btn btn-primary mt-24">Cotizar Gratis</a>
   </div>
 
     <!-- HERO -->
@@ -297,10 +610,46 @@
                     Pro.</span></h1>
             <p class="page-hero-subtitle">Diseñamos ecosistemas inteligentes que trabajan 24/7 por usted. Conectamos su
                 software, IA y datos para eliminar el trabajo manual y escalar su negocio.</p>
-            <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20un%20diagnóstico%20de%20automatización%20para%20mi%20empresa"
-                target="_blank" class="btn btn-primary">Solicitar Diagnóstico Gratis</a>
+            <a href="#diagnostico" class="btn btn-primary">Solicitar Diagnóstico Gratis</a>
         </div>
     </section>
+
+    <!-- TOP BAR SEO: AUTOMATIZACIONES N8N, IA, CHATBOTS Y PROCESOS EN COLOMBIA -->
+    <aside class="auto-seo-bar" aria-label="Servicios de automatización con n8n, inteligencia artificial y optimización de procesos en Colombia">
+        <div class="auto-seo-track">
+            <!-- Track set 1 -->
+            <span class="auto-seo-pill"><span class="pill-dot"></span> ⚙️ <strong>Automatizaciones con n8n</strong> en Colombia</span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 🤖 <strong>Chatbots con Inteligencia Artificial</strong> para WhatsApp</span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 📈 <strong>Optimización de Procesos Empresariales</strong></span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 🏥 <strong>Agendamiento Automatizado de Citas</strong> Clínicas</span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 🏢 <strong>Calificación de Leads 24/7</strong> con IA</span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 📄 <strong>Integración con Google Sheets & Drive</strong></span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 🎯 <strong>Conexión de CRMs (HubSpot, Salesforce, Kommo)</strong></span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 💳 <strong>Automatización de Cobros, Facturación & Pagos</strong></span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 🛒 <strong>Notificaciones de Pedidos & Logística</strong></span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> ⚡ <strong>Workflows a la Medida & Cero Errores</strong></span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> ⏳ <strong>Ahorro de Cientos de Horas Hombre</strong></span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 💬 <strong>WhatsApp Cloud API Oficial</strong></span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 🛡️ <strong>Ecosistemas Digitales Escalables</strong></span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 🤝 <strong>Consultoría Técnica de Procesos</strong> en Ibagué</span>
+
+            <!-- Track set 2 (duplicado para scroll continuo) -->
+            <span class="auto-seo-pill"><span class="pill-dot"></span> ⚙️ <strong>Automatizaciones con n8n</strong> en Colombia</span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 🤖 <strong>Chatbots con Inteligencia Artificial</strong> para WhatsApp</span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 📈 <strong>Optimización de Procesos Empresariales</strong></span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 🏥 <strong>Agendamiento Automatizado de Citas</strong> Clínicas</span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 🏢 <strong>Calificación de Leads 24/7</strong> con IA</span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 📄 <strong>Integración con Google Sheets & Drive</strong></span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 🎯 <strong>Conexión de CRMs (HubSpot, Salesforce, Kommo)</strong></span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 💳 <strong>Automatización de Cobros, Facturación & Pagos</strong></span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 🛒 <strong>Notificaciones de Pedidos & Logística</strong></span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> ⚡ <strong>Workflows a la Medida & Cero Errores</strong></span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> ⏳ <strong>Ahorro de Cientos de Horas Hombre</strong></span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 💬 <strong>WhatsApp Cloud API Oficial</strong></span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 🛡️ <strong>Ecosistemas Digitales Escalables</strong></span>
+            <span class="auto-seo-pill"><span class="pill-dot"></span> 🤝 <strong>Consultoría Técnica de Procesos</strong> en Ibagué</span>
+        </div>
+    </aside>
 
     <section>
         <div class="container">
@@ -481,9 +830,7 @@
                                     <polyline points="20 6 9 17 4 12" />
                                 </svg></span>Capacitación & Handover</li>
                     </ul>
-                    <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20agendar%20mi%20diagnóstico%20de%20automatización%20gratuito"
-                        target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;">Diagnóstico
-                        Gratis</a>
+                    <a href="#diagnostico" class="btn btn-primary" style="width:100%;justify-content:center;">Diagnóstico Gratis</a>
                 </div>
 
                 <div class="pricing-card">
@@ -500,22 +847,21 @@
                         <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12" />
-                                </svg></span>Monitoreo 24/7 de errores</li>
+                                    </svg></span>Monitoreo 24/7 de errores</li>
                         <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12" />
-                                </svg></span>Nuevas integraciones ligeras</li>
+                                    </svg></span>Nuevas integraciones ligeras</li>
                         <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12" />
-                                </svg></span>Soporte técnico prioritario</li>
+                                    </svg></span>Soporte técnico prioritario</li>
                         <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12" />
-                                </svg></span>Data Quality & Analytics</li>
+                                    </svg></span>Data Quality & Analytics</li>
                     </ul>
-                    <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20agendar%20mi%20diagnóstico%20de%20automatización%20gratuito"
-                        target="_blank" class="btn btn-outline"
+                    <a href="#diagnostico" class="btn btn-outline"
                         style="width:100%;justify-content:center;border-color:var(--border);">Diagnóstico Gratis</a>
                 </div>
 
@@ -568,23 +914,181 @@
         </div>
     </section>
 
-    <!-- CTA -->
-    <section>
+    <!-- FORMULARIO DE DIAGNÓSTICO DE AUTOMATIZACIÓN & PROCESOS -->
+    <section class="auto-form-section" id="diagnostico">
         <div class="container">
-            <div class="cta-block reveal">
-                <div class="cta-title">¿Cuánto dinero está perdiendo<br>por <span class="text-accent">procesos
-                        manuales</span> lentos?</div>
-                <p class="cta-subtitle">Agende una consultoría técnica gratuita. Analizamos sus procesos y le decimos
-                    exactamente qué y cuánto podemos automatizar — sin costo.</p>
-                <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20agendar%20mi%20diagnóstico%20de%20automatización%20gratuito"
-                    target="_blank" class="btn btn-primary" style="font-size:1rem;padding:16px 40px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                        fill="currentColor" style="margin-right:8px;">
-                        <path
-                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                    </svg>
-                    Diagnóstico Gratis
-                </a>
+            <div class="auto-form-container reveal">
+                <div class="auto-form-header">
+                    <span class="auto-form-badge">⚡ Diagnóstico Técnico 100% Gratuito</span>
+                    <h2 class="auto-form-title">Cuéntanos qué proceso quieres <span class="text-accent">automatizar</span></h2>
+                    <p class="auto-form-subtitle">Sin tecnicismos complicados. Dinos qué tarea repetitiva le quita tiempo a tu equipo hoy y diseñaremos la arquitectura adecuada para tu negocio.</p>
+                </div>
+
+                <form id="autoQuoteForm">
+                    <!-- Fila 1: Marca y Sector -->
+                    <div class="auto-grid-2">
+                        <div class="auto-form-group">
+                            <label class="auto-label" for="autoMarca">Nombre de tu Empresa o Marca <span class="req">*</span></label>
+                            <input type="text" id="autoMarca" class="auto-input" placeholder="Ej. Odontología San Marcos / Inmobiliaria Andina" required>
+                        </div>
+                        <div class="auto-form-group">
+                            <label class="auto-label" for="autoSector">Sector o Actividad <span class="req">*</span></label>
+                            <select id="autoSector" class="auto-input" required>
+                                <option value="" disabled selected>Selecciona una opción...</option>
+                                <option value="Salud y Estética">🏥 Salud, Clínicas o Consultorios</option>
+                                <option value="Inmobiliaria y Construcción">🏢 Inmobiliaria, Fincas o Construcción</option>
+                                <option value="E-Commerce y Retail">🛍️ E-Commerce, Tienda o Comercio</option>
+                                <option value="Restaurantes y Gastronomía">🍽️ Restaurante, Café o Bar</option>
+                                <option value="Servicios Profesionales">💼 Servicios Profesionales o Agencia</option>
+                                <option value="Educación y Cursos">📚 Educación, Cursos o Academia</option>
+                                <option value="Otro">⚙️ Otro sector</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Campo dinámico si escoge 'Otro' sector -->
+                    <div class="auto-form-group" id="blockSectorOtro" hidden style="display: none; animation: fadeInSocial 0.25s ease;">
+                        <label class="auto-label" for="autoSectorOtro">¿A qué sector o actividad se dedica tu empresa? <span class="req">*</span></label>
+                        <input type="text" id="autoSectorOtro" class="auto-input" placeholder="Ej. Laboratorio farmacéutico / Logística y transporte">
+                    </div>
+
+                    <!-- Fila 2: BOX DE TEXTO PRINCIPAL -->
+                    <div class="auto-form-group">
+                        <label class="auto-label" for="autoProceso">
+                            <span>¿Qué proceso o tarea repetitiva te gustaría automatizar? <span class="req">*</span></span>
+                            <span class="auto-label-hint">En tus propias palabras</span>
+                        </label>
+                        <textarea id="autoProceso" class="auto-input" rows="4" placeholder="Ej. 'Todos los días nos escriben muchas personas a WhatsApp con las mismas preguntas y pasamos sus datos a mano a un Excel. Queremos que un asistente IA responda 24/7, califique los clientes y agende citas automáticamente en nuestro calendario...'" required></textarea>
+                    </div>
+
+                    <!-- Fila 3: Herramientas actuales (Chips de un solo clic con casilla visible) -->
+                    <div class="auto-form-group">
+                        <label class="auto-label">
+                            <span>¿Qué herramientas o programas utilizan hoy?</span>
+                            <span class="auto-label-hint">Opcional · Haz clic para marcar</span>
+                        </label>
+                        <div class="auto-chips-container" id="autoChipsContainer">
+                            <label class="auto-chip" for="tool_wa">
+                                <input type="checkbox" id="tool_wa" name="autoTools" value="WhatsApp">
+                                <span class="chip-check-box">
+                                    <svg class="chip-check-svg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="#050a15" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                                <span>💬 WhatsApp / Business</span>
+                            </label>
+                            <label class="auto-chip" for="tool_sheets">
+                                <input type="checkbox" id="tool_sheets" name="autoTools" value="Google Sheets/Excel">
+                                <span class="chip-check-box">
+                                    <svg class="chip-check-svg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="#050a15" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                                <span>📊 Google Sheets / Excel</span>
+                            </label>
+                            <label class="auto-chip" for="tool_web">
+                                <input type="checkbox" id="tool_web" name="autoTools" value="Página Web / E-Commerce">
+                                <span class="chip-check-box">
+                                    <svg class="chip-check-svg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="#050a15" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                                <span>🌐 Página Web / Tienda Online</span>
+                            </label>
+                            <label class="auto-chip" for="tool_crm">
+                                <input type="checkbox" id="tool_crm" name="autoTools" value="CRM">
+                                <span class="chip-check-box">
+                                    <svg class="chip-check-svg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="#050a15" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                                <span>🎯 CRM (HubSpot, Kommo, etc.)</span>
+                            </label>
+                            <label class="auto-chip" for="tool_pagos">
+                                <input type="checkbox" id="tool_pagos" name="autoTools" value="Facturación/Pagos">
+                                <span class="chip-check-box">
+                                    <svg class="chip-check-svg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="#050a15" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                                <span>💳 Pasarelas de Pago / Facturación</span>
+                            </label>
+                            <label class="auto-chip" for="tool_ads">
+                                <input type="checkbox" id="tool_ads" name="autoTools" value="Redes Sociales">
+                                <span class="chip-check-box">
+                                    <svg class="chip-check-svg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="#050a15" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                                <span>📱 Instagram / Facebook Ads</span>
+                            </label>
+                            <label class="auto-chip" for="tool_otro">
+                                <input type="checkbox" id="tool_otro" name="autoTools" value="Otro Software">
+                                <span class="chip-check-box">
+                                    <svg class="chip-check-svg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="#050a15" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                                <span>⚡ Otro Software Interno</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Campo dinámico si escoge 'Otro Software Interno' -->
+                    <div class="auto-form-group" id="blockToolOtro" hidden style="display: none; animation: fadeInSocial 0.25s ease;">
+                        <label class="auto-label" for="autoToolOtro">¿Qué otro software o herramienta utilizan? <span class="req">*</span></label>
+                        <input type="text" id="autoToolOtro" class="auto-input" placeholder="Ej. SAP, Siigo Nube, Zoho Creator, software propio en Python...">
+                    </div>
+
+                    <!-- Fila 4: Contacto y WhatsApp -->
+                    <div class="auto-grid-2">
+                        <div class="auto-form-group">
+                            <label class="auto-label" for="autoNombre">Tu Nombre o Responsable <span class="req">*</span></label>
+                            <input type="text" id="autoNombre" class="auto-input" placeholder="Ej. Carlos Mendoza" required>
+                        </div>
+                        <div class="auto-form-group">
+                            <label class="auto-label" for="autoTel">Teléfono / WhatsApp <span class="req">*</span></label>
+                            <div style="display:flex;gap:10px;">
+                                <select id="autoPais" class="auto-input" style="max-width:110px;padding:13px 8px;">
+                                    <option value="+57">🇨🇴 +57</option>
+                                    <option value="+1">🇺🇸 +1</option>
+                                    <option value="+34">🇪🇸 +34</option>
+                                    <option value="+52">🇲🇽 +52</option>
+                                    <option value="+54">🇦🇷 +54</option>
+                                    <option value="+56">🇨🇱 +56</option>
+                                    <option value="+507">🇵🇦 +507</option>
+                                </select>
+                                <input type="tel" id="autoTel" class="auto-input" placeholder="316 964 2159" required style="flex:1;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Términos y Condiciones -->
+                    <label class="auto-check">
+                        <input type="checkbox" id="autoTerminos" required>
+                        <span>Acepto los <a href="terminos-condiciones.html" target="_blank" style="color:var(--accent);text-decoration:underline;">términos y condiciones</a> y autorizo el tratamiento de mis datos para recibir la propuesta de automatización. <span class="req">*</span></span>
+                    </label>
+
+                    <!-- Botón de Envío -->
+                    <button type="submit" id="btnAutoSubmit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1.05rem;padding:16px;">
+                        Solicitar Diagnóstico Gratuito
+                    </button>
+                </form>
+
+                <!-- Tarjeta de Confirmación Post-Envío -->
+                <div id="autoResultCard" style="display:none;background:rgba(0, 237, 255, 0.08);border:1px solid var(--accent);border-radius:18px;padding:30px;text-align:center;animation:fadeInSocial 0.3s ease;">
+                    <div style="font-size:3rem;margin-bottom:12px;">🚀</div>
+                    <h3 style="font-family:var(--font-head);font-size:1.5rem;color:#fff;margin-bottom:8px;">¡Diagnóstico Recibido con Éxito!</h3>
+                    <p style="color:var(--text-secondary);font-size:0.95rem;max-width:540px;margin:0 auto 20px;line-height:1.6;">
+                        Hemos registrado los detalles del proceso que deseas automatizar. Para acelerar la respuesta y coordinar una sesión de revisión, escríbenos directamente por WhatsApp:
+                    </p>
+                    <a href="#" id="btnAutoWaDirect" target="_blank" class="btn btn-primary" style="font-size:1rem;padding:14px 28px;display:inline-flex;align-items:center;gap:10px;background:#25D366;border-color:#25D366;box-shadow:0 6px 25px rgba(37,211,102,0.35);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        <span>Continuar por WhatsApp</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -633,15 +1137,18 @@
           <ul class="footer-links">
             <li><a href="planes-diseno.html">Diseño Gráfico Pro</a></li>
             <li><a href="planes-instagrowth.html">InstaGrowth Pro</a></li>
-            <li><a href="produccion.html">Fotografía & Video</a></li>
+            <li><a href="eventos.html">Cobertura de Eventos</a></li>
+            <li><a href="produccion.html">Producción con Operador</a></li>
             <li><a href="automatizacion.html">Automatizaciones n8n</a></li>
             <li><a href="web-premium.html">Web & Tech Premium</a></li>
             <li><a href="portafolio.html">Portafolio</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer-heading">Empresa</div>
+          <div class="footer-heading">Empresa y Legal</div>
           <ul class="footer-links">
+            <li><a href="terminos-condiciones.html" style="color:var(--accent);">Términos y Condiciones</a></li>
+            <li><a href="terminos-condiciones.html#art8">Política de Privacidad</a></li>
             <li><a href="https://wa.me/573169642159" target="_blank">WhatsApp</a></li>
             <li><a href="https://www.instagram.com/davidesign.co?igsh=YXJwempvMGxid2gz" target="_blank">Instagram</a></li>
             <li><a href="https://www.facebook.com/share/1GdNCi94S1/" target="_blank">Facebook</a></li>
@@ -658,21 +1165,182 @@
       </div>
       <div class="footer-bottom">
         <p class="footer-copy">© 2025 <span class="footer-accent">David Muñoz Diseñador</span>. Todos los derechos reservados.</p>
-        <p class="footer-copy">Diseño <span class="footer-accent">Tech-Premium</span> · Ibagué, Colombia</p>
+        <p class="footer-copy"><a href="terminos-condiciones.html" style="color:var(--text-secondary);text-decoration:underline;">Términos & Privacidad</a> · Ibagué, Colombia</p>
       </div>
     </div>
   </footer>
-    <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20agendar%20mi%20diagnóstico%20de%20automatización%20gratuito"
-        target="_blank" class="floating-cta" id="floatingCTA">
+    <a href="#diagnostico" class="floating-cta" id="floatingCTA">
         <span>Diagnóstico Gratis</span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
         </svg>
     </a>
 
     <script src="js/main.js"></script>
     <script src="js/logo-particles.js"></script>
+    <script>
+        /* ── CAPTURA Y ENVÍO DE DATOS - AUTOMATIZACIONES (N8N / IA) ── */
+        document.addEventListener('DOMContentLoaded', function () {
+            const WEB3FORMS_KEY = 'c4008f12-f2eb-4dda-bf62-8492b923f1c5';
+            const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzlSTL51D1Q4uNmMvE-KRP9ZJbVqer9cG_Vc1ODbZFk10yd1OoFxfgMbZKZE9FqM7JY/exec';
+
+            // Sector dinámico 'Otro'
+            const selectSector = document.getElementById('autoSector');
+            const blockSectorOtro = document.getElementById('blockSectorOtro');
+            const inputSectorOtro = document.getElementById('autoSectorOtro');
+
+            function toggleSectorOtro() {
+                const isOtro = selectSector.value === 'Otro';
+                if (blockSectorOtro) {
+                    blockSectorOtro.style.display = isOtro ? 'flex' : 'none';
+                    blockSectorOtro.hidden = !isOtro;
+                }
+                if (inputSectorOtro) {
+                    inputSectorOtro.required = isOtro;
+                    if (isOtro) setTimeout(() => inputSectorOtro.focus(), 60);
+                }
+            }
+
+            if (selectSector) {
+                selectSector.addEventListener('change', toggleSectorOtro);
+                toggleSectorOtro();
+            }
+
+            // Comportamiento de Chips de Herramientas
+            const chipLabels = document.querySelectorAll('#autoChipsContainer .auto-chip');
+            const blockToolOtro = document.getElementById('blockToolOtro');
+            const inputToolOtro = document.getElementById('autoToolOtro');
+
+            function syncChipState(chip) {
+                const input = chip.querySelector('input[type="checkbox"]');
+                if (!input) return;
+                chip.classList.toggle('active', input.checked);
+
+                if (input.value === 'Otro Software' && blockToolOtro) {
+                    blockToolOtro.style.display = input.checked ? 'flex' : 'none';
+                    blockToolOtro.hidden = !input.checked;
+                    if (inputToolOtro) {
+                        inputToolOtro.required = input.checked;
+                        if (input.checked) setTimeout(() => inputToolOtro.focus(), 60);
+                    }
+                }
+            }
+
+            chipLabels.forEach(chip => {
+                const input = chip.querySelector('input[type="checkbox"]');
+                if (!input) return;
+
+                input.addEventListener('change', function () {
+                    syncChipState(chip);
+                });
+
+                chip.addEventListener('click', function () {
+                    setTimeout(() => syncChipState(chip), 10);
+                });
+
+                syncChipState(chip);
+            });
+
+            // Enviar formulario
+            const form = document.getElementById('autoQuoteForm');
+            const btnSubmit = document.getElementById('btnAutoSubmit');
+            const resultCard = document.getElementById('autoResultCard');
+            const btnWaDirect = document.getElementById('btnAutoWaDirect');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const marca = document.getElementById('autoMarca').value.trim();
+                let sector = document.getElementById('autoSector').value;
+                if (sector === 'Otro') {
+                    const sectorOtroVal = inputSectorOtro ? inputSectorOtro.value.trim() : '';
+                    if (sectorOtroVal) sector = `Otro: ${sectorOtroVal}`;
+                }
+
+                const proceso = document.getElementById('autoProceso').value.trim();
+                const nombre = document.getElementById('autoNombre').value.trim();
+                const pais = document.getElementById('autoPais').value;
+                const tel = document.getElementById('autoTel').value.trim();
+                const checkTerms = document.getElementById('autoTerminos');
+
+                if (!proceso) {
+                    alert('Por favor descríbenos brevemente qué proceso o tarea te gustaría automatizar.');
+                    document.getElementById('autoProceso').focus();
+                    return;
+                }
+
+                if (!checkTerms.checked) {
+                    alert('Por favor acepta los términos y condiciones para continuar.');
+                    return;
+                }
+
+                // Recopilar herramientas marcadas
+                const herramientasList = [];
+                toolInputs.forEach(chk => {
+                    if (chk.checked) {
+                        if (chk.value === 'Otro Software') {
+                            const valOtro = inputToolOtro ? inputToolOtro.value.trim() : '';
+                            herramientasList.push(valOtro ? `Otro Software (${valOtro})` : 'Otro Software');
+                        } else {
+                            herramientasList.push(chk.value);
+                        }
+                    }
+                });
+                const herramientasStr = herramientasList.length > 0 ? herramientasList.join(', ') : 'No especificó herramientas previas';
+
+                const lead = {
+                    hoja: 'Automatizacion',
+                    fecha_registro: new Date().toLocaleString('es-CO'),
+                    marca: marca,
+                    sector: sector,
+                    proceso_a_automatizar: proceso,
+                    herramientas_actuales: herramientasStr,
+                    nombre_contacto: nombre,
+                    telefono: `${pais} ${tel}`
+                };
+
+                btnSubmit.disabled = true;
+                btnSubmit.textContent = 'Enviando Diagnóstico...';
+
+                // 1) Envío a Web3Forms (Correo)
+                const { hoja, ...correoPayload } = lead;
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        access_key: WEB3FORMS_KEY,
+                        subject: `[Automatización n8n/IA] Nuevo diagnóstico para ${marca} (${nombre})`,
+                        from_name: 'Web David Muñoz - Automatizaciones',
+                        ...correoPayload
+                    })
+                }).catch(err => console.warn('Web3Forms error:', err));
+
+                // 2) Envío a Google Sheets (pestaña 'Automatizacion')
+                fetch(GOOGLE_SHEETS_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(lead)
+                }).catch(err => console.warn('Sheets error:', err));
+
+                // 3) Enlace directo de WhatsApp con mensaje estructurado
+                const resumenProceso = proceso.length > 80 ? proceso.substring(0, 77) + '...' : proceso;
+                const waMsg = `Hola David, envié el diagnóstico de automatización para "${marca}". Soy ${nombre}. Queremos automatizar: "${resumenProceso}". ¿Cuándo podríamos revisarlo?`;
+                btnWaDirect.href = `https://wa.me/573169642159?text=${encodeURIComponent(waMsg)}`;
+
+                // 4) Mostrar confirmación
+                resultCard.style.display = 'block';
+                resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                btnSubmit.textContent = '✔ Diagnóstico Enviado';
+
+                setTimeout(() => {
+                    btnSubmit.disabled = false;
+                    btnSubmit.textContent = 'Solicitar Diagnóstico Gratuito';
+                }, 4000);
+            });
+        });
+    </script>
 </body>
 
 </html>
