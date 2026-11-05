@@ -1,0 +1,5 @@
+[0208/052108.791:INFO:CONSOLE(1)] "Long rAF frame-time", source: file:///C:/Program%20Files/Adobe/Adobe%20Photoshop%202020/Required/www-rich-tooltips/build/external.js (1)
+[0218/120032.600:ERROR:angle_platform_impl.cc(47)] reset(615): Could not create additional swap chains or offscreen surfaces, HRESULT: 0x8007000E
+[0218/120032.600:ERROR:gl_surface_egl.cc(537)] EGL Driver message (Critical) eglCreateWindowSurface: Bad allocation.
+[0218/120032.600:ERROR:gl_surface_egl.cc(1057)] eglCreateWindowSurface failed with error EGL_BAD_ALLOC
+[0218/120032.600:ERROR:gles2_command_buffer_stub.cc(238)] ContextResult::kSurfaceFailure: Failed to create surface.

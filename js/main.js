@@ -36,6 +36,22 @@
       }
     });
 
+    // Acordeón de submenús móviles
+    mobileNav.querySelectorAll('.mobile-dropdown-toggle').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const parent = btn.closest('.mobile-dropdown');
+        if (parent) {
+          const wasOpen = parent.classList.contains('open');
+          mobileNav.querySelectorAll('.mobile-dropdown').forEach(d => d.classList.remove('open'));
+          if (!wasOpen) {
+            parent.classList.add('open');
+          }
+        }
+      });
+    });
+
     mobileNav.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         mobileNav.classList.remove('open');
@@ -162,6 +178,8 @@
     const href = a.getAttribute('href');
     if (href === currentPage || (currentPage === '' && href === 'index.html')) {
       a.classList.add('active');
+      const mobileParent = a.closest('.mobile-dropdown');
+      if (mobileParent) mobileParent.classList.add('open');
     }
   });
 

@@ -10,7 +10,7 @@
         content="Desarrollo Web Premium en Ibagué. Sitios ultra-rápidos, SEO optimizado y diseño de lujo. El estándar más alto de David Muñoz Diseñador.">
     <meta name="keywords"
         content="desarrollo web Ibagué, paginas web premium Colombia, diseño web profesional, sitios rápidos, SEO Ibagué">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=20261105c">
     <!-- Open Graph -->
     <meta property="og:title" content="Web & Tech Premium | David Muñoz Diseñador">
     <meta property="og:description" content="Sitios de alto rendimiento, diseño de lujo y SEO estratégico.">
@@ -81,9 +81,16 @@
         /* --- SECCIÓN PORTAFOLIO / CASOS DE ÉXITO --- */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
             margin-top: 50px;
+        }
+
+        @media (max-width: 1080px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+                gap: 24px;
+            }
         }
 
         .portfolio-card {
@@ -223,6 +230,37 @@
             opacity: 0.1;
         }
 
+        .screen-tecmd {
+            background: linear-gradient(135deg, #081329 0%, #030814 100%);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .screen-tecmd::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 35%, rgba(245, 179, 36, 0.18) 0%, transparent 68%);
+            pointer-events: none;
+        }
+
+        .screen-tecmd::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 18px 18px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
         .screen-logo-text {
             font-family: var(--font-head);
             font-weight: 900;
@@ -318,13 +356,662 @@
             padding: 12px;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 768px) {
             .portfolio-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 24px;
             }
         }
+
+        /* ── SEO WEB & TECH TICKER / TOP BAR CON BURBUJAS (PILLS) ── */
+        .web-seo-bar {
+            position: relative;
+            z-index: 3;
+            background: transparent;
+            border-top: none;
+            border-bottom: none;
+            padding: 20px 0 10px;
+            overflow: hidden;
+        }
+
+        .web-seo-track {
+            display: flex;
+            width: max-content;
+            gap: 16px;
+            animation: webSeoTickerScroll 85s linear infinite;
+        }
+
+        .web-seo-track:hover {
+            animation-play-state: paused;
+        }
+
+        .web-seo-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: rgba(0, 237, 255, 0.04);
+            border: 1px solid rgba(0, 237, 255, 0.16);
+            border-radius: 999px;
+            color: var(--text-secondary);
+            font-size: 0.86rem;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.25s ease;
+            cursor: default;
+        }
+
+        .web-seo-pill strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .web-seo-pill .pill-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 8px var(--accent);
+        }
+
+        .web-seo-pill:hover {
+            background: rgba(0, 237, 255, 0.12);
+            border-color: var(--accent);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 237, 255, 0.2);
+        }
+
+        @keyframes webSeoTickerScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ── FORMULARIO / COTIZADOR WEB PREMIUM ── */
+        .web-form-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 44px;
+            max-width: 840px;
+            margin: 0 auto;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+            position: relative;
+        }
+
+        .web-form-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .web-form-badge {
+            display: inline-block;
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-dim);
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(0, 237, 255, 0.3);
+            margin-bottom: 12px;
+        }
+
+        .web-form-title {
+            font-family: var(--font-head);
+            font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+            font-weight: 800;
+            margin-bottom: 10px;
+            line-height: 1.25;
+            color: #fff;
+        }
+
+        .web-form-subtitle {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .web-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .web-label {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--text-primary, #fff);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .web-label .req {
+            color: var(--accent, #00edff);
+        }
+
+        .web-label-hint {
+            font-size: 0.78rem;
+            font-weight: normal;
+            color: var(--text-muted, #718096);
+        }
+
+        .web-input {
+            width: 100%;
+            padding: 13px 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border, rgba(255, 255, 255, 0.12));
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-primary, #fff);
+            font: inherit;
+            font-size: 0.92rem;
+            transition: border-color .25s, box-shadow .25s;
+        }
+
+        .web-input:focus {
+            outline: none;
+            border-color: var(--accent, #00edff);
+            box-shadow: 0 0 0 3px var(--accent-dim, rgba(0, 237, 255, 0.15));
+        }
+
+        .web-input option {
+            background: #0a1428;
+            color: #fff;
+        }
+
+        textarea.web-input {
+            resize: vertical;
+            min-height: 115px;
+            line-height: 1.6;
+        }
+
+        .web-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .web-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--text-secondary, #aaa);
+            margin: 16px 0 24px;
+            cursor: pointer;
+            line-height: 1.5;
+        }
+
+        .web-check input[type="checkbox"] {
+            margin-top: 3px;
+            accent-color: var(--accent, #00edff);
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .web-form-card {
+                padding: 24px 18px;
+            }
+            .web-grid-2 {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+
+        /* ── 3D SLIDER DE PLANES Y MODALIDADES WEB ── */
+        .web-plans-3d-section {
+            padding: var(--section-pad, 100px) 0;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 30%, rgba(0, 237, 255, 0.05) 0%, transparent 70%);
+        }
+
+        .web-plans-viewport {
+            position: relative;
+            width: 100%;
+            height: 650px;
+            margin: 40px auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1200px;
+            user-select: none;
+            touch-action: pan-y;
+        }
+
+        .web-plans-track {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-style: preserve-3d;
+        }
+
+        .web-plan-card-3d {
+            position: absolute;
+            width: min(430px, 88vw);
+            border-radius: 24px;
+            background: linear-gradient(145deg, #111e38 0%, #0a1224 100%);
+            border: 1.5px solid var(--border);
+            padding: 34px 28px;
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6);
+            cursor: pointer;
+            transition: transform 0.55s cubic-bezier(0.2, 0.9, 0.3, 1),
+                        opacity 0.55s ease,
+                        box-shadow 0.55s ease,
+                        border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+
+        .web-plan-card-3d.featured {
+            border-color: rgba(0, 237, 255, 0.4);
+            background: linear-gradient(145deg, #142444 0%, #0c162b 100%);
+        }
+
+        .web-plan-card-3d.is-active {
+            border-color: var(--accent);
+            box-shadow: 0 22px 60px rgba(0, 237, 255, 0.25);
+            filter: none !important;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .web-plan-header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .web-plan-icon {
+            font-size: 2.2rem;
+            line-height: 1;
+        }
+
+        .web-plan-tag {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-dim);
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(0, 237, 255, 0.3);
+        }
+
+        .web-plan-badge-top {
+            font-size: 0.66rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #050a15;
+            background: var(--accent);
+            padding: 3px 9px;
+            border-radius: 999px;
+            align-self: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .web-plan-name {
+            font-family: var(--font-head);
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .web-plan-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin-bottom: 16px;
+            min-height: 48px;
+        }
+
+        .web-plan-price {
+            font-family: var(--font-head);
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .web-plan-price sup {
+            font-size: 1rem;
+            color: var(--accent);
+        }
+
+        .web-plan-price span {
+            font-size: 0.85rem;
+            font-weight: normal;
+            color: var(--text-muted);
+        }
+
+        .web-plan-price .custom-price {
+            font-size: 1.35rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .web-plan-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex-grow: 1;
+        }
+
+        .web-plan-feature {
+            font-size: 0.82rem;
+            color: #cbd5e1;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.45;
+        }
+
+        .web-plan-feature .chk-icon {
+            color: var(--accent);
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* Controles: Flechas y Dots */
+        .web-plans-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(10, 20, 38, 0.85);
+            border: 1px solid rgba(0, 237, 255, 0.3);
+            color: #fff;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            z-index: 20;
+            backdrop-filter: blur(8px);
+            transition: all 0.25s ease;
+        }
+
+        .web-plans-arrow:hover {
+            background: var(--accent);
+            color: #050a15;
+            box-shadow: 0 0 20px rgba(0, 237, 255, 0.5);
+            transform: translateY(-50%) scale(1.08);
+        }
+
+        .web-plans-prev { left: 16px; }
+        .web-plans-next { right: 16px; }
+
+        .web-plans-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .web-plans-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .web-plans-dot.active {
+            width: 28px;
+            border-radius: 999px;
+            background: var(--accent);
+            box-shadow: 0 0 10px rgba(0, 237, 255, 0.6);
+        }
+
+        .web-plans-hint {
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 14px;
+            letter-spacing: 0.05em;
+        }
+
+        @media (max-width: 768px) {
+            .web-plans-viewport {
+                height: 620px;
+                margin: 20px auto 10px;
+                perspective: none;
+            }
+            .web-plan-card-3d {
+                width: calc(100% - 40px);
+                max-width: 360px;
+                padding: 24px 18px;
+            }
+            .web-plans-arrow {
+                width: 38px;
+                height: 38px;
+            }
+            .web-plans-prev { left: 4px; }
+            .web-plans-next { right: 4px; }
+        }
     </style>
+  <style id="mobile-nav-styles">
+  /* ── MOBILE NAV ACORDEÓN DIRECT EMBED ── */
+  .nav-mobile {
+    display: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background: rgba(5, 10, 21, 0.98) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    z-index: 1500 !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 100px 20px 50px !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    box-sizing: border-box !important;
+  }
+
+  .nav-mobile.open {
+    display: flex !important;
+  }
+
+  .nav-mobile-inner {
+    width: 100% !important;
+    max-width: 380px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .mobile-dropdown {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-dropdown-toggle {
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 14px !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    color: #e2e8f0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 14px 18px !important;
+    cursor: pointer !important;
+    outline: none !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    box-sizing: border-box !important;
+    transition: all 0.25s ease !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .mobile-dropdown-toggle:hover,
+  .mobile-dropdown.open .mobile-dropdown-toggle {
+    color: #00edff !important;
+    background: rgba(0, 237, 255, 0.07) !important;
+    border-color: rgba(0, 237, 255, 0.35) !important;
+    box-shadow: 0 0 20px rgba(0, 237, 255, 0.15) !important;
+  }
+
+  .mobile-dropdown-toggle svg {
+    width: 18px !important;
+    height: 18px !important;
+    stroke: #00edff !important;
+    stroke-width: 2.5 !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    flex-shrink: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .mobile-dropdown.open .mobile-dropdown-toggle svg {
+    transform: rotate(180deg) !important;
+  }
+
+  .mobile-dropdown-menu {
+    display: none !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    padding: 10px 10px !important;
+    background: rgba(10, 16, 30, 0.75) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-radius: 12px !important;
+    margin-top: 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-dropdown.open .mobile-dropdown-menu {
+    display: flex !important;
+    animation: mobileSlideIn 0.25s ease !important;
+  }
+
+  @keyframes mobileSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .mobile-dropdown-menu a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    color: #94a3b8 !important;
+    padding: 11px 14px !important;
+    border-radius: 9px !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-dropdown-menu a:hover,
+  .mobile-dropdown-menu a.active {
+    color: #ffffff !important;
+    background: rgba(0, 237, 255, 0.12) !important;
+    font-weight: 600 !important;
+  }
+
+  .mobile-nav-link {
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 14px !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    color: #e2e8f0 !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 14px 18px !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+    transition: all 0.25s ease !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .mobile-nav-link:hover,
+  .mobile-nav-link.active {
+    color: #00edff !important;
+    background: rgba(0, 237, 255, 0.07) !important;
+    border-color: rgba(0, 237, 255, 0.35) !important;
+  }
+
+  .mobile-nav-cta {
+    width: 100% !important;
+    background: linear-gradient(135deg, #00edff 0%, #00a8ff 100%) !important;
+    color: #050a15 !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 1.05rem !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    padding: 15px 20px !important;
+    border-radius: 14px !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+    margin-top: 8px !important;
+    box-shadow: 0 0 25px rgba(0, 237, 255, 0.35) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  .mobile-nav-cta:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 0 35px rgba(0, 237, 255, 0.55) !important;
+  }
+</style>
 </head>
 
 <body>
@@ -346,7 +1033,7 @@
         <ul class="nav-links">
           <li class="nav-dropdown">
             <a class="nav-dropdown-toggle" href="#">
-              Planes
+              Servicios Digitales
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2.5">
                 <polyline points="6 9 12 15 18 9" />
@@ -355,15 +1042,40 @@
             <div class="nav-dropdown-menu">
               <a href="planes-diseno.html">🎨 Diseño Gráfico Pro</a>
               <a href="planes-instagrowth.html">📱📸 InstaGrowth Pro</a>
+              <a href="web-premium.html" class="active">🌐 Web &amp; Tech Premium</a>
+              <a href="automatizacion.html">⚙️ Automatizaciones n8n</a>
             </div>
           </li>
-          <li><a href="produccion.html">Fotografía &amp; Video</a></li>
-          <li><a href="automatizacion.html">Automatizaciones</a></li>
-          <li><a href="web-premium.html" class="active">Web Premium</a></li>
+          <li class="nav-dropdown">
+            <a class="nav-dropdown-toggle" href="#">
+              Fotografía y Video
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="eventos.html">🎉 Cobertura de Eventos</a>
+              <a href="produccion.html">📹 Alquiler de Operador</a>
+            </div>
+          </li>
+          <li class="nav-dropdown">
+            <a class="nav-dropdown-toggle" href="#">
+              Personalizados
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="etiquetas_escolares.html">🏷️ Etiquetas Escolares</a>
+              <a href="bolas_navidad.html">🎄 Bolas de Navidad</a>
+            </div>
+          </li>
+
           <li><a href="portafolio.html">Portafolio</a></li>
           <li>
-            <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios"
-              target="_blank" class="nav-cta btn">
+            <a href="#cotizador-web" class="nav-cta btn">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                 style="margin-right: 6px; vertical-align: middle;">
                 <path
@@ -380,21 +1092,63 @@
       </div>
     </div>
   </nav>
-
-
-  <!-- Mobile Nav -->
+  <!-- Mobile Nav (Acordeón Organizado) -->
   <div class="nav-mobile" id="navMobile">
-    <a href="planes-diseno.html">Diseño Gráfico Pro</a>
-    <a href="planes-instagrowth.html">InstaGrowth Pro</a>
-    <a href="produccion.html">Fotografía &amp; Video</a>
-    <a href="automatizacion.html">Automatizaciones</a>
-    <a href="web-premium.html" class="active">Web Premium</a>
-    <a href="portafolio.html">Portafolio</a>
-    <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20informaci%C3%B3n" target="_blank"
-      class="btn btn-primary mt-24">Cotizar Gratis</a>
+    <div class="nav-mobile-inner">
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-toggle" type="button">
+          <span>Servicios Digitales</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+        <div class="mobile-dropdown-menu">
+          <a href="planes-diseno.html">🎨 Diseño Gráfico Pro</a>
+          <a href="planes-instagrowth.html">📱📸 InstaGrowth Pro</a>
+          <a href="web-premium.html">🌐 Web &amp; Tech Premium</a>
+          <a href="automatizacion.html">⚙️ Automatizaciones n8n</a>
+        </div>
+      </div>
+
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-toggle" type="button">
+          <span>Fotografía y Video</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+        <div class="mobile-dropdown-menu">
+          <a href="eventos.html">🎉 Cobertura de Eventos</a>
+          <a href="produccion.html">📹 Alquiler de Operador</a>
+        </div>
+      </div>
+
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-toggle" type="button">
+          <span>Personalizados</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+        <div class="mobile-dropdown-menu">
+          <a href="etiquetas_escolares.html">🏷️ Etiquetas Escolares</a>
+          <a href="bolas_navidad.html">🎄 Bolas de Navidad</a>
+        </div>
+      </div>
+
+      <a href="portafolio.html" class="mobile-nav-link">💼 Portafolio</a>
+
+      <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20informaci%C3%B3n" target="_blank"
+        class="mobile-nav-cta">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Cotizar Gratis
+      </a>
+    </div>
   </div>
 
-    <!-- HERO -->
+  <!-- HERO -->
     <section class="page-hero section-alt" style="position:relative;overflow:hidden;">
         <div class="hero-grid" style="opacity:0.4;"></div>
         <div class="hero-orb hero-orb-1"
@@ -408,10 +1162,46 @@
             <p class="page-hero-subtitle">No creamos simples páginas, diseñamos activos digitales de alto rendimiento.
                 Velocidad extrema, SEO de élite y una estética premium que posiciona su marca por encima de la
                 competencia.</p>
-            <a href="https://wa.me/573169642159?text=Quiero%20una%20auditoría%20web%20gratuita%20para%20mi%20marca"
-                target="_blank" class="btn btn-primary">Solicitar Auditoría Web Gratis</a>
+            <a href="#cotizador-web" class="btn btn-primary">Solicitar Cotización Web Gratis</a>
         </div>
     </section>
+
+    <!-- TOP BAR SEO: TICKER INFINITO CON BURBUJAS (PILLS) -->
+    <aside class="web-seo-bar" aria-label="Desarrollo web y tecnología de alto rendimiento en Ibagué y Colombia">
+        <div class="web-seo-track">
+            <!-- Track set 1 -->
+            <span class="web-seo-pill"><span class="pill-dot"></span> ⚡ <strong>Desarrollo Web Premium</strong> en Ibagué</span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 🚀 <strong>Carga Ultra Rápida (&lt; 2 Segundos)</strong></span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 💎 <strong>Diseño Dark-Premium</strong> Exclusivo</span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 🔍 <strong>SEO Técnico &amp; Posicionamiento en Google</strong></span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 📱 <strong>Responsive 100% Mobile First</strong></span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 🛍️ <strong>Tiendas Online &amp; Pasarelas de Pago</strong> (Wompi/PSE)</span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 🎯 <strong>Landing Pages de Alta Conversión</strong></span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 💬 <strong>Embudos Directos a WhatsApp</strong></span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> ⚛️ <strong>Stack Moderno React / Vite / HTML5</strong></span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 🏢 <strong>Páginas Web Corporativas</strong> en Tolima</span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 🔒 <strong>Seguridad SSL &amp; Arquitectura Limpia</strong></span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 📊 <strong>Integración con Google Analytics &amp; Meta Pixel</strong></span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 🔄 <strong>Rediseño &amp; Optimización de Velocidad</strong></span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 🌐 <strong>Ibagué · Bogotá · Tolima · Colombia · Internacional</strong></span>
+
+            <!-- Track set 2 (duplicado para scroll continuo) -->
+            <span class="web-seo-pill"><span class="pill-dot"></span> ⚡ <strong>Desarrollo Web Premium</strong> en Ibagué</span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 🚀 <strong>Carga Ultra Rápida (&lt; 2 Segundos)</strong></span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 💎 <strong>Diseño Dark-Premium</strong> Exclusivo</span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 🔍 <strong>SEO Técnico &amp; Posicionamiento en Google</strong></span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 📱 <strong>Responsive 100% Mobile First</strong></span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 🛍️ <strong>Tiendas Online &amp; Pasarelas de Pago</strong> (Wompi/PSE)</span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 🎯 <strong>Landing Pages de Alta Conversión</strong></span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 💬 <strong>Embudos Directos a WhatsApp</strong></span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> ⚛️ <strong>Stack Moderno React / Vite / HTML5</strong></span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 🏢 <strong>Páginas Web Corporativas</strong> en Tolima</span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 🔒 <strong>Seguridad SSL &amp; Arquitectura Limpia</strong></span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 📊 <strong>Integración con Google Analytics &amp; Meta Pixel</strong></span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 🔄 <strong>Rediseño &amp; Optimización de Velocidad</strong></span>
+            <span class="web-seo-pill"><span class="pill-dot"></span> 🌐 <strong>Ibagué · Bogotá · Tolima · Colombia · Internacional</strong></span>
+        </div>
+    </aside>
 
     <!-- THE CONCEPT -->
     <section>
@@ -596,106 +1386,298 @@
                             <span class="portfolio-tag">Leaflet API</span>
                             <span class="portfolio-tag">WhatsApp Funnel</span>
                         </div>
-                        <a href="https://motosuperalicante.es/" target="_blank" class="btn btn-ghost portfolio-btn">Ver Web en Vivo ↗</a>
+                        <a href="portafolio/Motosuper/index.html" target="_blank" class="btn btn-ghost portfolio-btn">Ver Web en Vivo ↗</a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3: Instituto Técnico Minuto de Dios -->
+                <div class="portfolio-card">
+                    <div class="portfolio-visual">
+                        <div class="browser-mockup">
+                            <div class="browser-header">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                                <span class="browser-url">tecmd.edu.co</span>
+                            </div>
+                            <div class="browser-screen screen-tecmd">
+                                <img src="portafolio/minuto de dios/tecmd/assets/logos-TEC-MD-white_pq.png" alt="TEC MD Logo" style="height: 38px; width: auto; margin-bottom: 8px; z-index: 2; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.7));" onerror="this.style.display='none'">
+                                <span class="screen-logo-text" style="color:#f5b324; border-bottom: 2px solid #f5b324; padding-bottom: 3px; font-size: 1rem;">TEC MD</span>
+                                <span class="screen-logo-sub" style="color: #94a3b8; font-size: 0.52rem; letter-spacing: 2.5px;">MINUTO DE DIOS · ADMISIONES</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-perf">
+                            <span class="perf-badge">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                100% Conversión
+                            </span>
+                            <span class="perf-badge">Carga 0.9s</span>
+                        </div>
+                        <h3 class="portfolio-title">Landing Page de Alta Conversión</h3>
+                        <p class="portfolio-client">Instituto Técnico Minuto de Dios (TEC MD)</p>
+                        <p class="portfolio-desc">Plataforma y landing page institucional orientada a la captación de inscritos para diplomados y carreras técnicas. Diseñada con enfoque Mobile-First, wireframe responsivo, simulador de admisiones y optimización SEO.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Landing Page</span>
+                            <span class="portfolio-tag">Mobile First</span>
+                            <span class="portfolio-tag">Captación Leads</span>
+                            <span class="portfolio-tag">SEO Educativo</span>
+                        </div>
+                        <a href="portafolio/minuto de dios/tecmd/landing.html" target="_blank" class="btn btn-ghost portfolio-btn">Ver Web en Vivo ↗</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PLANES -->
-    <section id="planes">
+    <!-- PLANES: 3D COVERFLOW INTERACTIVO -->
+    <section id="planes" class="web-plans-3d-section">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-label">Inversión</span>
-                <h2 class="section-title">Nuestros Planes <span class="text-accent">Web</span></h2>
-                <p class="section-subtitle">Soluciones escalables para cada etapa de su negocio.</p>
+                <span class="section-label">Modalidades & Planes</span>
+                <h2 class="section-title">Soluciones Web de <span class="text-accent">Alto Rendimiento</span></h2>
+                <p class="section-subtitle">Desde páginas de aterrizaje enfocadas en conversión hasta plataformas complejas a la medida y optimización técnica. Desliza para explorar cada solución.</p>
             </div>
 
-            <div class="pricing-grid-auto reveal">
+            <div class="web-plans-viewport reveal" id="webPlansViewport">
+                <!-- Flechas de navegación -->
+                <button class="web-plans-arrow web-plans-prev" id="webPlansPrev" aria-label="Plan anterior">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <button class="web-plans-arrow web-plans-next" id="webPlansNext" aria-label="Plan siguiente">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
 
-                <!-- Plan One-Page -->
-                <div class="pricing-card">
-                    <div class="pricing-plan-name">Web Landing</div>
-                    <p class="pricing-desc">Perfecto para lanzamientos de productos o servicios específicos con alta
-                        conversión.</p>
-                    <div class="pricing-price"><sup>$</sup>1.200.000<span>/único</span></div>
-                    <ul class="pricing-features">
-                        <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg></span>Diseño de una sola página (Landing)</li>
-                        <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg></span>Secciones de Ventas Optimizadas</li>
-                        <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg></span>Integración con WhatsApp</li>
-                        <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg></span>SEO Básico</li>
-                    </ul>
-                    <a href="https://wa.me/573169642159?text=Quiero%20el%20plan%20Web%20Landing" target="_blank"
-                        class="btn btn-ghost" style="width:100%;justify-content:center;">Empezar</a>
+                <!-- Pista 3D con las 5 tarjetas -->
+                <div class="web-plans-track" id="webPlansTrack">
+
+                    <!-- Tarjeta 0: Web Landing -->
+                    <div class="web-plan-card-3d" data-index="0">
+                        <div class="web-plan-header-top">
+                            <span class="web-plan-icon">🚀</span>
+                            <span class="web-plan-tag">Venta Directa & Pauta</span>
+                        </div>
+                        <h3 class="web-plan-name">Web Landing Pro</h3>
+                        <p class="web-plan-desc">Diseño One-Page estructurado estratégicamente para convertir visitantes de pauta en clientes por WhatsApp.</p>
+                        <div class="web-plan-price"><sup>$</sup>1.200.000 <span>/base</span></div>
+                        <ul class="web-plan-features">
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Diseño de una sola página enfocado en conversión (AIDA)</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Carga ultra rápida (&lt; 1.5s) y 100% Mobile First</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Embudos directos a WhatsApp & llamadas de acción</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Formulario interactivo con alertas a Sheets y correo</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>SEO básico e instalación de Pixel de Meta & Analytics</span></li>
+                        </ul>
+                        <a href="#cotizador-web" data-web-plan="Web Landing (Una sola página)" class="btn btn-primary btn-plan-select" style="width:100%;justify-content:center;">Cotizar Landing Page</a>
+                    </div>
+
+                    <!-- Tarjeta 1: Web Full Pro (Destacado) -->
+                    <div class="web-plan-card-3d featured" data-index="1">
+                        <span class="web-plan-badge-top">⭐ Más Popular</span>
+                        <div class="web-plan-header-top">
+                            <span class="web-plan-icon">🏢</span>
+                            <span class="web-plan-tag">Autoridad Corporativa</span>
+                        </div>
+                        <h3 class="web-plan-name">Web Full Pro</h3>
+                        <p class="web-plan-desc">Presencia corporativa multi-página completa para posicionar tu marca con autoridad y dominar Google.</p>
+                        <div class="web-plan-price"><sup>$</sup>2.500.000 <span>/base</span></div>
+                        <ul class="web-plan-features">
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Sitio multi-página completo (4 a 7 secciones dedicadas)</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Diseño exclusivo Dark-Premium con animaciones fluidas</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Blog corporativo & sistema de contenidos escalable</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>SEO Avanzado On-Page para destacar en Google local</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Integración con CRM y automatizaciones n8n</span></li>
+                        </ul>
+                        <a href="#cotizador-web" data-web-plan="Web Full Pro (Multi-página Corporativa)" class="btn btn-primary btn-plan-select" style="width:100%;justify-content:center;">Cotizar Web Corporativa</a>
+                    </div>
+
+                    <!-- Tarjeta 2: Tienda Online / E-Commerce -->
+                    <div class="web-plan-card-3d" data-index="2">
+                        <div class="web-plan-header-top">
+                            <span class="web-plan-icon">🛍️</span>
+                            <span class="web-plan-tag">Ventas 24/7 sin Comisiones</span>
+                        </div>
+                        <h3 class="web-plan-name">Tienda Online / E-Commerce</h3>
+                        <p class="web-plan-desc">Tu propia tienda online profesional para vender productos físicos o digitales con pagos en línea automáticos.</p>
+                        <div class="web-plan-price"><span class="custom-price">A la Medida</span> <span>/según catálogo</span></div>
+                        <ul class="web-plan-features">
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Catálogo interactivo con filtros, categorías y buscador</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Pasarelas de pago integradas (Wompi, PayU, PSE, Tarjetas)</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Carrito de compras flash y checkout ultra optimizado</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Notificación automática de pedidos por WhatsApp y email</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Panel fácil para autoadministrar productos y precios</span></li>
+                        </ul>
+                        <a href="#cotizador-web" data-web-plan="Tienda Online / E-Commerce" class="btn btn-primary btn-plan-select" style="width:100%;justify-content:center;">Cotizar Tienda Online</a>
+                    </div>
+
+                    <!-- Tarjeta 3: Plataforma a la Medida -->
+                    <div class="web-plan-card-3d" data-index="3">
+                        <div class="web-plan-header-top">
+                            <span class="web-plan-icon">⚙️</span>
+                            <span class="web-plan-tag">Ingeniería & Funciones</span>
+                        </div>
+                        <h3 class="web-plan-name">Plataforma Web a la Medida</h3>
+                        <p class="web-plan-desc">Soluciones con lógica personalizada: agendamiento médico, portales de clientes, cotizadores o buscadores.</p>
+                        <div class="web-plan-price"><span class="custom-price">A la Medida</span> <span>/según funciones</span></div>
+                        <ul class="web-plan-features">
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Sistema de reservas o agendamiento sincronizado con calendario</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Calculadoras, cotizadores interactivos y filtros dinámicos</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Conexión con APIs externas, bases de datos y sistemas ERP</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Flujos automáticos con n8n e Inteligencia Artificial</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Arquitectura escalable y código limpio a prueba de fallos</span></li>
+                        </ul>
+                        <a href="#cotizador-web" data-web-plan="Plataforma Web a Medida" class="btn btn-primary btn-plan-select" style="width:100%;justify-content:center;">Cotizar Plataforma</a>
+                    </div>
+
+                    <!-- Tarjeta 4: Rediseño & Optimización -->
+                    <div class="web-plan-card-3d" data-index="4">
+                        <div class="web-plan-header-top">
+                            <span class="web-plan-icon">🔄</span>
+                            <span class="web-plan-tag">Renovación & Velocidad</span>
+                        </div>
+                        <h3 class="web-plan-name">Rediseño & Optimización</h3>
+                        <p class="web-plan-desc">Transformamos tu web lenta, anticuada o ineficiente en un activo moderno, veloz y de alto impacto comercial.</p>
+                        <div class="web-plan-price"><span class="custom-price">Diagnóstico Previo</span> <span>/evaluación técnica</span></div>
+                        <ul class="web-plan-features">
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Auditoría completa de velocidad, código y SEO actual</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Transformación visual a estética Dark-Premium moderna</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Optimización extrema de velocidad (Google PageSpeed 95+)</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Reestructuración de embudos hacia WhatsApp y llamadas</span></li>
+                            <li class="web-plan-feature"><span class="chk-icon">✓</span><span>Migración limpia sin perder enlaces ni tráfico previo</span></li>
+                        </ul>
+                        <a href="#cotizador-web" data-web-plan="Rediseño Web Actual" class="btn btn-primary btn-plan-select" style="width:100%;justify-content:center;">Solicitar Diagnóstico</a>
+                    </div>
+
                 </div>
+            </div>
 
-                <!-- Plan Corporativo -->
-                <div class="pricing-card featured">
-                    <div class="pricing-badge">Más Popular</div>
-                    <div class="pricing-plan-name">Web Full Pro</div>
-                    <p class="pricing-desc">La presencia digital completa que su marca necesita para dominar el mercado.
-                    </p>
-                    <div class="pricing-price"><sup>$</sup>2.500.000<span>/único</span></div>
-                    <ul class="pricing-features">
-                        <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg></span>Sitio Multi-página Completo</li>
-                        <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg></span>Arquitectura de Datos Premium</li>
-                        <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg></span>Blog & Sistema de Contenidos</li>
-                        <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg></span>SEO Avanzado + Analítica</li>
-                        <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg></span>Integración de Automatizaciones</li>
-                    </ul>
-                    <a href="https://wa.me/573169642159?text=Quiero%20el%20plan%20Web%20Full%20Pro" target="_blank"
-                        class="btn btn-primary" style="width:100%;justify-content:center;">Comenzar</a>
-                </div>
+            <!-- Dots indicadores -->
+            <div class="web-plans-dots" id="webPlansDots"></div>
 
+            <div class="web-plans-hint">
+                <span>← Desliza o usa las flechas para explorar cada solución web →</span>
             </div>
         </div>
     </section>
 
-    <!-- CTA FINAL -->
-    <section class="section-alt">
+    <!-- SECCIÓN: COTIZADOR & DIAGNÓSTICO WEB INTERACTIVO -->
+    <section class="section-alt" id="cotizador-web">
         <div class="container">
-            <div class="cta-block reveal">
-                <div class="cta-title">¿Su marca se ve igual que<br>la de la <span
-                        class="text-accent">competencia</span>?</div>
-                <p class="cta-subtitle">Deje de usar herramientas genéricas. Construya un activo digital que trabaje por
-                    usted 24/7 con tecnología de élite.</p>
-                <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20cotizar%20mi%20nueva%20web%20premium"
-                    target="_blank" class="btn btn-primary" style="font-size:1.1rem;padding:18px 45px;">
-                    Solicitar Cotización Web Express
-                </a>
+            <div class="web-form-card reveal">
+                <div class="web-form-header">
+                    <span class="web-form-badge">⚡ Cotización & Diagnóstico Web</span>
+                    <h2 class="web-form-title">Cuéntanos sobre tu <span class="text-accent">Proyecto Web</span></h2>
+                    <p class="web-form-subtitle">Sin tecnicismos aburridos. Explícanos en tus propias palabras qué necesitas y diseñaremos la arquitectura digital de alto rendimiento para tu marca.</p>
+                </div>
+
+                <form id="webQuoteForm">
+                    <!-- Fila 1: Marca y Tipo de Proyecto -->
+                    <div class="web-grid-2">
+                        <div class="web-form-group">
+                            <label class="web-label" for="webMarca">Nombre de tu Empresa o Marca <span class="req">*</span></label>
+                            <input type="text" id="webMarca" class="web-input" placeholder="Ej. Dra. Andrea Cardona / Inmobiliaria Tolima" required>
+                        </div>
+                        <div class="web-form-group">
+                            <label class="web-label" for="webTipo">Tipo de Proyecto Web <span class="req">*</span></label>
+                            <select id="webTipo" class="web-input" required>
+                                <option value="" disabled selected>Selecciona una opción...</option>
+                                <option value="Web Landing (Una sola página)">🚀 Web Landing (Una sola página — Desde $1.200.000)</option>
+                                <option value="Web Full Pro (Multi-página Corporativa)">🏢 Web Full Pro (Multi-página Corporativa — Desde $2.500.000)</option>
+                                <option value="Tienda Online / E-Commerce">🛍️ Tienda Online / E-Commerce (Catálogo y Pagos)</option>
+                                <option value="Plataforma Web a Medida">⚙️ Plataforma Web a la Medida / Sistema</option>
+                                <option value="Rediseño Web Actual">🔄 Rediseño y Optimización de Sitio Web Actual</option>
+                                <option value="Asesoría Previa">💡 Aún no lo tengo claro (Requiero Asesoría)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Fila 2: Dominio & Hosting + Presupuesto Estimado -->
+                    <div class="web-grid-2">
+                        <div class="web-form-group">
+                            <label class="web-label" for="webHosting">Dominio & Hosting</label>
+                            <select id="webHosting" class="web-input">
+                                <option value="Ya tengo Dominio y Hosting">Ya tengo Dominio y Hosting propios</option>
+                                <option value="Tengo Dominio pero no Hosting">Tengo el dominio, me falta hosting</option>
+                                <option value="No tengo nada, requiero gestión completa" selected>No tengo nada (Requiero gestión desde cero)</option>
+                            </select>
+                        </div>
+                        <div class="web-form-group">
+                            <label class="web-label" for="webPresupuesto">Rango de Inversión Estimado</label>
+                            <select id="webPresupuesto" class="web-input">
+                                <option value="De $1.200.000 a $2.000.000 COP">$1.200.000 a $2.000.000 COP</option>
+                                <option value="De $2.000.000 a $3.500.000 COP">$2.000.000 a $3.500.000 COP</option>
+                                <option value="Más de $3.500.000 COP (Avanzado)">Más de $3.500.000 COP (Proyecto Avanzado)</option>
+                                <option value="Recibir propuesta según alcance" selected>Prefiero recibir propuesta según el alcance</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Fila 3: BOX DE TEXTO PRINCIPAL -->
+                    <div class="web-form-group">
+                        <label class="web-label" for="webRequerimientos">
+                            <span>¿Qué secciones, funciones o requerimientos específicos necesitas? <span class="req">*</span></span>
+                            <span class="web-label-hint">En tus propias palabras</span>
+                        </label>
+                        <textarea id="webRequerimientos" class="web-input" rows="4" placeholder="Ej. 'Somos una clínica estética y queremos una web con 4 secciones: Inicio, Tratamientos, Casos de Éxito y Contacto. Necesitamos botón directo a WhatsApp para agendar citas, formulario de valoración y que cargue súper rápido en celulares. Además nos gustaría aparecer en Google cuando busquen tratamientos en Ibagué...'" required></textarea>
+                    </div>
+
+                    <!-- Fila 4: Contacto -->
+                    <div class="web-grid-2">
+                        <div class="web-form-group">
+                            <label class="web-label" for="webNombre">Tu Nombre o Responsable <span class="req">*</span></label>
+                            <input type="text" id="webNombre" class="web-input" placeholder="Ej. Andrea Cardona" required>
+                        </div>
+                        <div class="web-form-group">
+                            <label class="web-label" for="webTel">Teléfono / WhatsApp <span class="req">*</span></label>
+                            <div style="display:flex;gap:10px;">
+                                <select id="webPais" class="web-input" style="max-width:110px;padding:13px 8px;">
+                                    <option value="+57">🇨🇴 +57</option>
+                                    <option value="+1">🇺🇸 +1</option>
+                                    <option value="+34">🇪🇸 +34</option>
+                                    <option value="+52">🇲🇽 +52</option>
+                                    <option value="+54">🇦🇷 +54</option>
+                                    <option value="+56">🇨🇱 +56</option>
+                                    <option value="+507">🇵🇦 +507</option>
+                                </select>
+                                <input type="tel" id="webTel" class="web-input" placeholder="316 964 2159" required style="flex:1;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Términos y Condiciones -->
+                    <label class="web-check">
+                        <input type="checkbox" id="webTerminos" required>
+                        <span>Acepto los <a href="terminos-condiciones.html" target="_blank" style="color:var(--accent);text-decoration:underline;">términos y condiciones</a> y autorizo el tratamiento de mis datos para recibir la propuesta de desarrollo web. <span class="req">*</span></span>
+                    </label>
+
+                    <!-- Botón de Envío -->
+                    <button type="submit" id="btnWebSubmit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1.05rem;padding:16px;">
+                        Solicitar Cotización Web Express
+                    </button>
+                </form>
+
+                <!-- Tarjeta de Confirmación Post-Envío -->
+                <div id="webResultCard" style="display:none;background:rgba(0, 237, 255, 0.08);border:1px solid var(--accent);border-radius:18px;padding:32px;text-align:center;animation:fadeInSocial 0.3s ease;">
+                    <div style="font-size:3rem;margin-bottom:12px;">🚀</div>
+                    <h3 style="font-family:var(--font-head);font-size:1.4rem;color:#fff;margin-bottom:8px;">¡Solicitud de Cotización Recibida!</h3>
+                    <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin-bottom:20px;max-width:540px;margin-left:auto;margin-right:auto;">
+                        Hemos registrado los requerimientos de tu proyecto web. Para coordinar los detalles técnicos y recibir tu propuesta más rápido, haz clic aquí:
+                    </p>
+                    <a href="#" id="btnWebWaDirect" target="_blank" class="btn btn-primary" style="display:inline-flex;padding:14px 28px;font-size:0.95rem;">
+                        Continuar por WhatsApp
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-      <footer>
+        <footer>
     <div class="container">
       <div class="footer-grid">
         <div>
@@ -739,15 +1721,20 @@
           <ul class="footer-links">
             <li><a href="planes-diseno.html">Diseño Gráfico Pro</a></li>
             <li><a href="planes-instagrowth.html">InstaGrowth Pro</a></li>
-            <li><a href="produccion.html">Fotografía & Video</a></li>
+            <li><a href="eventos.html">Cobertura de Eventos</a></li>
+            <li><a href="produccion.html">Producción con Operador</a></li>
+            <li><a href="etiquetas_escolares.html">Etiquetas Escolares</a></li>
+            <li><a href="bolas_navidad.html">Bolas de Navidad</a></li>
             <li><a href="automatizacion.html">Automatizaciones n8n</a></li>
             <li><a href="web-premium.html">Web & Tech Premium</a></li>
             <li><a href="portafolio.html">Portafolio</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer-heading">Empresa</div>
+          <div class="footer-heading">Empresa y Legal</div>
           <ul class="footer-links">
+            <li><a href="terminos-condiciones.html" style="color:var(--accent);">Términos y Condiciones</a></li>
+            <li><a href="terminos-condiciones.html#art8">Política de Privacidad</a></li>
             <li><a href="https://wa.me/573169642159" target="_blank">WhatsApp</a></li>
             <li><a href="https://www.instagram.com/davidesign.co?igsh=YXJwempvMGxid2gz" target="_blank">Instagram</a></li>
             <li><a href="https://www.facebook.com/share/1GdNCi94S1/" target="_blank">Facebook</a></li>
@@ -763,15 +1750,14 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">© 2025 <span class="footer-accent">David Muñoz Diseñador</span>. Todos los derechos reservados.</p>
-        <p class="footer-copy">Diseño <span class="footer-accent">Tech-Premium</span> · Ibagué, Colombia</p>
+        <p class="footer-copy">© 2026 <span class="footer-accent">David Muñoz Diseñador</span>. Todos los derechos reservados.</p>
+        <p class="footer-copy"><a href="terminos-condiciones.html" style="color:var(--text-secondary);text-decoration:underline;">Términos & Privacidad</a> · Ibagué, Colombia</p>
       </div>
     </div>
   </footer>
 
 
-    <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20cotizar%20mi%20nueva%20web%20premium"
-        target="_blank" class="floating-cta" id="floatingCTA">
+    <a href="#cotizador-web" class="floating-cta" id="floatingCTA">
         <span>Cotizar Web</span>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
             <path
@@ -779,8 +1765,355 @@
         </svg>
     </a>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=20261105c"></script>
     <script src="js/logo-particles.js"></script>
+    <script>
+        /* ── CAPTURA Y ENVÍO DE DATOS - COTIZADOR WEB & TECH PREMIUM ── */
+        document.addEventListener('DOMContentLoaded', function () {
+            const WEB3FORMS_KEY = 'c4008f12-f2eb-4dda-bf62-8492b923f1c5';
+            const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzlSTL51D1Q4uNmMvE-KRP9ZJbVqer9cG_Vc1ODbZFk10yd1OoFxfgMbZKZE9FqM7JY/exec';
+
+            /* ── SLIDER 3D INTERACTIVO DE PLANES Y MODALIDADES ── */
+            const viewportPlans = document.getElementById('webPlansViewport');
+            const cardsPlans = Array.from(document.querySelectorAll('.web-plan-card-3d'));
+            const dotsContainerPlans = document.getElementById('webPlansDots');
+            const btnPrevPlans = document.getElementById('webPlansPrev');
+            const btnNextPlans = document.getElementById('webPlansNext');
+
+            if (viewportPlans && cardsPlans.length > 0) {
+                const totalCards = cardsPlans.length;
+                let currentIndex = 1; // Iniciar centrado en la tarjeta destacada (Web Full Pro)
+                let autoplayTimer = null;
+                let userHasInteracted = false;
+
+                // Crear dots dinámicos
+                if (dotsContainerPlans) {
+                    dotsContainerPlans.innerHTML = '';
+                    cardsPlans.forEach((_, idx) => {
+                        const dot = document.createElement('div');
+                        dot.className = 'web-plans-dot' + (idx === currentIndex ? ' active' : '');
+                        dot.setAttribute('aria-label', `Ir a plan ${idx + 1}`);
+                        dot.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            userHasInteracted = true;
+                            stopAutoplay();
+                            goToSlide(idx);
+                        });
+                        dotsContainerPlans.appendChild(dot);
+                    });
+                }
+
+                const dots = Array.from(document.querySelectorAll('.web-plans-dot'));
+
+                function update3DPlans() {
+                    const isMobile = window.innerWidth <= 768;
+
+                    cardsPlans.forEach((card, i) => {
+                        let diff = (i - currentIndex) % totalCards;
+                        if (diff > totalCards / 2) diff -= totalCards;
+                        if (diff < -totalCards / 2) diff += totalCards;
+
+                        const absDiff = Math.abs(diff);
+
+                        if (isMobile) {
+                            // Modo Móvil
+                            if (diff === 0) {
+                                card.style.transform = 'translate3d(0, 0, 0)';
+                                card.style.opacity = '1';
+                                card.style.filter = 'none';
+                                card.style.zIndex = '10';
+                                card.style.pointerEvents = 'auto';
+                                card.classList.add('is-active');
+                            } else if (diff === 1) {
+                                card.style.transform = 'translateX(calc(100% + 14px)) scale(0.92)';
+                                card.style.opacity = '0.7';
+                                card.style.filter = 'brightness(0.65)';
+                                card.style.zIndex = '8';
+                                card.style.pointerEvents = 'auto';
+                                card.classList.remove('is-active');
+                            } else if (diff === -1) {
+                                card.style.transform = 'translateX(calc(-100% - 14px)) scale(0.92)';
+                                card.style.opacity = '0.7';
+                                card.style.filter = 'brightness(0.65)';
+                                card.style.zIndex = '8';
+                                card.style.pointerEvents = 'auto';
+                                card.classList.remove('is-active');
+                            } else {
+                                const dir = diff > 0 ? '220%' : '-220%';
+                                card.style.transform = `translateX(${dir}) scale(0.8)`;
+                                card.style.opacity = '0';
+                                card.style.filter = 'none';
+                                card.style.zIndex = '1';
+                                card.style.pointerEvents = 'none';
+                                card.classList.remove('is-active');
+                            }
+                        } else {
+                            // Modo Escritorio: 3D Coverflow (Centro 100% nítido 1:1 sin blur ni scale artificial)
+                            if (diff === 0) {
+                                card.style.transform = 'translate3d(0, 0, 0)';
+                                card.style.opacity = '1';
+                                card.style.filter = 'none';
+                                card.style.zIndex = '10';
+                                card.style.pointerEvents = 'auto';
+                                card.classList.add('is-active');
+                            } else if (absDiff === 1) {
+                                const xPercent = diff > 0 ? 78 : -78;
+                                const rotY = diff > 0 ? -24 : 24;
+                                card.style.transform = `translateX(${xPercent}%) scale(0.86) translateZ(-120px) rotateY(${rotY}deg)`;
+                                card.style.opacity = '0.75';
+                                card.style.filter = 'brightness(0.7)';
+                                card.style.zIndex = '8';
+                                card.style.pointerEvents = 'auto';
+                                card.classList.remove('is-active');
+                            } else if (absDiff === 2) {
+                                const xPercent = diff > 0 ? 136 : -136;
+                                const rotY = diff > 0 ? -38 : 38;
+                                card.style.transform = `translateX(${xPercent}%) scale(0.70) translateZ(-240px) rotateY(${rotY}deg)`;
+                                card.style.opacity = '0.35';
+                                card.style.filter = 'brightness(0.5)';
+                                card.style.zIndex = '6';
+                                card.style.pointerEvents = 'auto';
+                                card.classList.remove('is-active');
+                            } else {
+                                const dir = diff > 0 ? '240%' : '-240%';
+                                card.style.transform = `translateX(${dir}) scale(0.5) translateZ(-350px) rotateY(0deg)`;
+                                card.style.opacity = '0';
+                                card.style.filter = 'none';
+                                card.style.zIndex = '1';
+                                card.style.pointerEvents = 'none';
+                                card.classList.remove('is-active');
+                            }
+                        }
+                    });
+
+                    // Actualizar dots
+                    dots.forEach((dot, idx) => {
+                        dot.classList.toggle('active', idx === currentIndex);
+                    });
+                }
+
+                function goToSlide(idx) {
+                    currentIndex = (idx + totalCards) % totalCards;
+                    update3DPlans();
+                }
+
+                function nextSlide() {
+                    goToSlide(currentIndex + 1);
+                }
+
+                function prevSlide() {
+                    goToSlide(currentIndex - 1);
+                }
+
+                function startAutoplay() {
+                    stopAutoplay();
+                    if (!userHasInteracted) {
+                        autoplayTimer = setInterval(() => {
+                            if (!userHasInteracted) {
+                                nextSlide();
+                            } else {
+                                stopAutoplay();
+                            }
+                        }, 4200);
+                    }
+                }
+
+                function stopAutoplay() {
+                    if (autoplayTimer) {
+                        clearInterval(autoplayTimer);
+                        autoplayTimer = null;
+                    }
+                }
+
+                // Flechas
+                if (btnNextPlans) {
+                    btnNextPlans.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        userHasInteracted = true;
+                        stopAutoplay();
+                        nextSlide();
+                    });
+                }
+                if (btnPrevPlans) {
+                    btnPrevPlans.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        userHasInteracted = true;
+                        stopAutoplay();
+                        prevSlide();
+                    });
+                }
+
+                // Clic en tarjetas laterales para traerlas al centro
+                cardsPlans.forEach((card, idx) => {
+                    card.addEventListener('click', (e) => {
+                        // Si hace clic en el botón de cotizar, dejamos que fluya el enlace
+                        if (e.target.closest('.btn-plan-select')) {
+                            userHasInteracted = true;
+                            stopAutoplay();
+                            return;
+                        }
+                        userHasInteracted = true;
+                        stopAutoplay();
+                        if (idx !== currentIndex) {
+                            goToSlide(idx);
+                        }
+                    });
+                });
+
+                // Swipe táctil en móvil
+                let touchStartX = 0;
+                let touchEndX = 0;
+
+                viewportPlans.addEventListener('touchstart', (e) => {
+                    userHasInteracted = true;
+                    stopAutoplay();
+                    touchStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+
+                viewportPlans.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    const diffX = touchStartX - touchEndX;
+                    if (Math.abs(diffX) > 40) {
+                        if (diffX > 0) nextSlide();
+                        else prevSlide();
+                    }
+                }, { passive: true });
+
+                // Pausar al pasar el mouse por encima
+                viewportPlans.addEventListener('mouseenter', () => {
+                    stopAutoplay();
+                });
+                viewportPlans.addEventListener('mouseleave', () => {
+                    if (!userHasInteracted) startAutoplay();
+                });
+
+                window.addEventListener('resize', update3DPlans);
+
+                // Inicializar
+                update3DPlans();
+                startAutoplay();
+            }
+
+            // Selección rápida desde botones de tarjetas de planes
+            const selectTipo = document.getElementById('webTipo');
+            const planButtons = document.querySelectorAll('.btn-plan-select');
+
+            planButtons.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const planName = this.getAttribute('data-web-plan');
+                    if (planName && selectTipo) {
+                        for (let opt of selectTipo.options) {
+                            if (opt.value.includes(planName) || opt.text.includes(planName)) {
+                                selectTipo.value = opt.value;
+                                break;
+                            }
+                        }
+                    }
+                });
+            });
+
+            // Enviar formulario
+            const form = document.getElementById('webQuoteForm');
+            const btnSubmit = document.getElementById('btnWebSubmit');
+            const resultCard = document.getElementById('webResultCard');
+            const btnWaDirect = document.getElementById('btnWebWaDirect');
+
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    const marca = document.getElementById('webMarca').value.trim();
+                    const tipo = document.getElementById('webTipo').value;
+                    const hosting = document.getElementById('webHosting').value;
+                    const presupuesto = document.getElementById('webPresupuesto').value;
+                    const requerimientos = document.getElementById('webRequerimientos').value.trim();
+                    const nombre = document.getElementById('webNombre').value.trim();
+                    const pais = document.getElementById('webPais').value;
+                    const tel = document.getElementById('webTel').value.trim();
+                    const checkTerms = document.getElementById('webTerminos');
+
+                    if (!requerimientos) {
+                        alert('Por favor descríbenos qué secciones o requerimientos necesitas para tu sitio web.');
+                        document.getElementById('webRequerimientos').focus();
+                        return;
+                    }
+
+                    if (!checkTerms.checked) {
+                        alert('Por favor acepta los términos y condiciones para continuar.');
+                        return;
+                    }
+
+                    const lead = {
+                        hoja: 'WebPremium',
+                        fecha_registro: new Date().toLocaleString('es-CO'),
+                        marca: marca,
+                        tipo_proyecto_web: tipo,
+                        dominio_hosting: hosting,
+                        presupuesto_estimado: presupuesto,
+                        requerimientos_especificos: requerimientos,
+                        nombre_contacto: nombre,
+                        telefono: `${pais} ${tel}`
+                    };
+
+                    btnSubmit.disabled = true;
+                    btnSubmit.textContent = 'Enviando Solicitud...';
+
+                    // 1. Google Sheets
+                    const p1 = fetch(GOOGLE_SHEETS_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(lead)
+                    }).catch(err => console.warn('Error Google Sheets:', err));
+
+                    // 2. Web3Forms
+                    const web3Payload = {
+                        access_key: WEB3FORMS_KEY,
+                        subject: `Nueva Cotización Web: ${marca} (${tipo})`,
+                        from_name: 'David Muñoz Diseñador Web',
+                        message: `🚀 NUEVA SOLICITUD DE DESARROLLO WEB:
+---------------------------------------------
+• Marca/Empresa: ${marca}
+• Tipo de Proyecto: ${tipo}
+• Dominio y Hosting: ${hosting}
+• Presupuesto Estimado: ${presupuesto}
+• Requerimientos Específicos:
+${requerimientos}
+
+• Contacto: ${nombre}
+• Teléfono/WhatsApp: ${pais} ${tel}
+• Fecha: ${lead.fecha_registro}`
+                    };
+
+                    const p2 = fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(web3Payload)
+                    }).catch(err => console.warn('Error Web3Forms:', err));
+
+                    Promise.allSettled([p1, p2]).then(() => {
+                        // Construir mensaje de WhatsApp
+                        const waMsg = `Hola David, acabo de solicitar una cotización para un proyecto web desde la página.%0A%0A` +
+                            `• *Marca:* ${encodeURIComponent(marca)}%0A` +
+                            `• *Tipo de Web:* ${encodeURIComponent(tipo)}%0A` +
+                            `• *Requerimientos:* ${encodeURIComponent(requerimientos)}%0A` +
+                            `• *Contacto:* ${encodeURIComponent(nombre)}%0A` +
+                            `• *WhatsApp:* ${encodeURIComponent(pais + ' ' + tel)}%0A%0A` +
+                            `Quedo atento a la propuesta técnica.`;
+
+                        btnWaDirect.href = `https://wa.me/573169642159?text=${waMsg}`;
+
+                        form.style.display = 'none';
+                        resultCard.style.display = 'block';
+                        resultCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

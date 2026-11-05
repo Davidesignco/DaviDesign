@@ -4,19 +4,422 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fotografía & Video — David Muñoz Diseñador | Producción Audiovisual Ibagué</title>
+    <title>Producción Audiovisual con Operador en Ibagué | David Muñoz Diseñador</title>
     <link rel="icon" type="image/svg+xml" href="Logos/iso-logo-davidmunoz.svg?v=1.2">
     <meta name="description"
-        content="Producción audiovisual de alta fidelidad en Ibagué. Sesiones Pro con Sony A7III y Drone DJI. Resultados de nivel internacional para su marca.">
+        content="Fotografía, video y drone con operador profesional en Ibagué. Sony A7 III, gimbal Ronin, DJI Mini 3, Osmo Pocket 3 y micrófonos DJI. Material en bruto en 24-48 h. Cotiza en línea.">
     <meta name="keywords"
         content="producción audiovisual ibagué, fotografía de alta gama, video publicitario especializado, drone profesional tolima, fotogrametría de precisión">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=20261105c">
     <!-- Open Graph -->
     <meta property="og:title" content="Fotografía & Video Pro | David Muñoz Diseñador">
     <meta property="og:description" content="Producción audiovisual de alta fidelidad con Sony A7III y Drone DJI.">
     <meta property="og:type" content="website">
     <style>
+      .prod-hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+      .section-subtitle{color:var(--text-secondary);max-width:620px;margin:12px auto 0;font-size:.95rem}
+      .prod-notice{display:flex;gap:28px;align-items:flex-start;padding:36px;border-radius:24px;background:linear-gradient(135deg,var(--accent-dim),transparent 70%),var(--surface);border:1px solid var(--border-strong);backdrop-filter:blur(10px)}
+      .prod-notice-icon{font-size:2.6rem;flex-shrink:0;width:72px;height:72px;display:grid;place-items:center;border-radius:20px;background:var(--accent-dim)}
+      .prod-notice-title{font-family:var(--font-head);font-size:clamp(1.3rem,2.6vw,1.8rem);font-weight:800;margin-bottom:12px;line-height:1.25}
+      .prod-notice-text{color:var(--text-secondary);line-height:1.7;font-size:.95rem}
+      .prod-notice-text strong{color:var(--text-primary)}
+      .prod-notice-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+      .prod-notice-pills span{font-size:.78rem;font-weight:600;padding:8px 14px;border-radius:999px;border:1px solid var(--border-strong);color:var(--accent)}
+      /* Cuadrícula limpia y simétrica en PC: 5 columnas en pantallas grandes para Equipos y Pasos */
+      .prod-gear-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+      .prod-uses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+      .prod-deliver-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+      .prod-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+      .prod-gear-card,.prod-use,.prod-deliver,.prod-step{position:relative;padding:26px 20px;border-radius:20px;background:var(--surface);border:1px solid var(--border);transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease;display:flex;flex-direction:column}
+      .prod-gear-card:hover,.prod-use:hover,.prod-deliver:hover,.prod-step:hover{transform:translateY(-6px);border-color:var(--border-strong);box-shadow:0 18px 40px -20px var(--accent)}
+      .prod-gear-icon{font-size:2.4rem;margin-bottom:14px}
+      .prod-gear-tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);padding:4px 10px;border-radius:999px;margin-bottom:10px;align-self:flex-start}
+      .prod-gear-card h3,.prod-use h3,.prod-deliver h3,.prod-step h3{font-family:var(--font-head);font-size:1.08rem;font-weight:700;margin-bottom:8px;color:var(--text-primary)}
+      .prod-gear-card p,.prod-use p,.prod-deliver p,.prod-step p{font-size:.86rem;color:var(--text-secondary);line-height:1.6}
+      .prod-use>span{font-size:1.8rem;display:block;margin-bottom:10px}
+      .prod-pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px}
+      .prod-price-card{text-align:center;display:flex;flex-direction:column}
+      .prod-price-icon{font-size:2.5rem;margin-bottom:12px}
+      .prod-price-card h3{font-family:var(--font-head);font-size:1.6rem;font-weight:700;margin-bottom:8px;color:var(--text-primary)}
+      .prod-price-desc{font-size:.85rem;color:var(--text-secondary);margin-bottom:22px}
+      .prod-tier-list{text-align:left;border-top:1px solid var(--border);padding-top:18px}
+      .prod-tier{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-weight:600;color:var(--text-primary)}
+      .prod-tier strong{color:var(--accent);font-weight:800;font-size:1.1rem}
+      .prod-feature-list{list-style:none;text-align:left;margin:18px 0 24px;padding:0;font-size:.84rem;color:var(--text-secondary)}
+      .prod-feature-list li{padding:6px 0 6px 26px;position:relative}
+      .prod-feature-list li::before{content:'✓';position:absolute;left:0;color:var(--accent);font-weight:800}
+      .prod-addon{margin:14px 0;background:var(--accent-dim);border:1px solid var(--border-strong);border-radius:12px;padding:12px;text-align:left;font-size:.82rem;color:var(--text-secondary)}
+      .prod-addon strong{color:var(--accent)}
+      .prod-warning{margin:0 0 22px;border-radius:12px;padding:12px;text-align:left;font-size:.78rem;line-height:1.55;color:#f5c26b;background:rgba(245,194,107,.08);border:1px solid rgba(245,194,107,.3)}
+      .prod-price-btn{width:100%;justify-content:center;margin-top:auto}
+      .prod-combo{margin-top:32px;display:flex;gap:14px;align-items:center;padding:18px 24px;border-radius:16px;border:1px dashed var(--border-strong);color:var(--text-secondary);font-size:.9rem}
+      .prod-combo>span{font-size:1.5rem}
+      .prod-combo strong{color:var(--text-primary)}
+      .prod-deliver-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+      .prod-deliver-num{font-family:var(--font-head);font-size:2.4rem;font-weight:800;color:var(--accent);opacity:.35;margin-bottom:6px}
+      .prod-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+      .prod-step>span{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:var(--accent);color:#000;margin-bottom:14px}
+      .prod-terms{background:var(--surface);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:24px;padding:32px}
+      .prod-terms h3{font-family:var(--font-head);font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+      .prod-terms h3 span{background:var(--accent-dim);width:34px;height:34px;display:grid;place-items:center;border-radius:8px}
+      .prod-terms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px 24px}
+      .prod-terms-grid p{font-size:.875rem;color:var(--text-secondary);line-height:1.55}
+      .prod-terms-grid strong{color:var(--text-primary)}
+      .prod-faq{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+      .prod-faq details{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 22px;transition:border-color .3s}
+      .prod-faq details[open]{border-color:var(--border-strong)}
+      .prod-faq summary{cursor:pointer;font-weight:700;color:var(--text-primary);list-style:none;display:flex;justify-content:space-between;gap:12px}
+      .prod-faq summary::-webkit-details-marker{display:none}
+      .prod-faq summary::after{content:'+';color:var(--accent);font-size:1.3rem;line-height:1;transition:transform .3s}
+      .prod-faq details[open] summary::after{transform:rotate(45deg)}
+      .prod-faq details p{margin-top:12px;color:var(--text-secondary);font-size:.9rem;line-height:1.65}
+      .prod-form{max-width:860px;margin:0 auto;padding:36px;border-radius:24px;background:var(--surface);border:1px solid var(--border-strong);backdrop-filter:blur(12px);display:flex;flex-direction:column;gap:22px}
+      .prod-form-label{display:block;font-size:.85rem;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+      .prod-input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--text-primary);font:inherit;font-size:.9rem;transition:border-color .25s,box-shadow .25s}
+      .prod-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-dim)}
+      .prod-input option{background:#111;color:#fff}
+      .prod-form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+      .prod-choice-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+      .prod-choice{position:relative;cursor:pointer}
+      .prod-choice input{position:absolute;opacity:0}
+      .prod-choice span{display:block;padding:18px;border-radius:14px;border:1px solid var(--border);text-align:center;font-weight:700;transition:all .25s}
+      .prod-choice input:checked+span{border-color:var(--accent);background:var(--accent-dim);color:var(--accent);box-shadow:0 0 24px -8px var(--accent)}
+      .prod-check{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--text-secondary);cursor:pointer;margin-top:10px}
+      .prod-check input{margin-top:3px;accent-color:var(--accent)}
+      .prod-tel{display:grid;grid-template-columns:110px 1fr;gap:8px}
+      .prod-total-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--border)}
+      .prod-total-bar span{display:block;font-size:.8rem;color:var(--text-secondary)}
+      .prod-total-bar strong{font-family:var(--font-head);font-size:2rem;color:var(--accent)}
+      .prod-result{padding:22px;border-radius:16px;background:var(--accent-dim);border:1px solid var(--border-strong);text-align:center}
+      .prod-result h3{font-family:var(--font-head);margin-bottom:8px}
+      .prod-result p{color:var(--text-secondary);font-size:.9rem;margin-bottom:16px}
+      .reviews-dots{display:none}
+
+      /* Deslizamiento horizontal con snap y dots en pantallas móviles y medianas (<1100px) */
+      @media (max-width:1100px){
+        .prod-notice{flex-direction:column;padding:26px}
+        .prod-form{padding:22px}
+        .prod-total-bar .btn{width:100%;justify-content:center}
+
+        .prod-gear-grid,
+        .prod-uses-grid,
+        .prod-deliver-grid,
+        .prod-steps {
+          display: flex;
+          gap: 16px;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+          margin: 28px -20px 0;
+          padding: 6px 20px 14px;
+          scroll-padding: 0 20px;
+        }
+
+        .prod-gear-grid::-webkit-scrollbar,
+        .prod-uses-grid::-webkit-scrollbar,
+        .prod-deliver-grid::-webkit-scrollbar,
+        .prod-steps::-webkit-scrollbar {
+          display: none;
+        }
+
+        .prod-gear-card,
+        .prod-use,
+        .prod-deliver,
+        .prod-step {
+          flex: 0 0 280px;
+          scroll-snap-align: start;
+          padding: 24px;
+        }
+
+        .reviews-dots {
+          display: flex;
+          justify-content: center;
+          gap: 8px;
+          margin-top: 18px;
+        }
+
+        .reviews-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 8px;
+          background: rgba(255, 255, 255, 0.2);
+          border: none;
+          padding: 0;
+          cursor: pointer;
+          transition: all 0.3s var(--ease, ease);
+        }
+
+        .reviews-dot.active {
+          width: 24px;
+          background: var(--accent);
+          box-shadow: 0 0 10px rgba(0, 237, 255, 0.6);
+        }
+      }
+
+        .prod-gear-card,
+        .prod-use,
+        .prod-deliver,
+        .prod-step {
+          flex: 0 0 85%;
+        }
+      }
+
+      /* ── SEO PRODUCCIÓN & EQUIPOS TICKER / TOP BAR (SIN FONDO) ── */
+      .prod-seo-bar {
+        position: relative;
+        z-index: 3;
+        background: transparent;
+        border-top: none;
+        border-bottom: none;
+        padding: 20px 0 10px;
+        overflow: hidden;
+      }
+
+      .prod-seo-track {
+        display: flex;
+        width: max-content;
+        gap: 16px;
+        animation: prodSeoTickerScroll 85s linear infinite;
+      }
+
+      .prod-seo-track:hover {
+        animation-play-state: paused;
+      }
+
+      .prod-seo-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 18px;
+        background: rgba(0, 237, 255, 0.04);
+        border: 1px solid rgba(0, 237, 255, 0.16);
+        border-radius: 999px;
+        color: var(--text-secondary);
+        font-size: 0.86rem;
+        font-weight: 500;
+        white-space: nowrap;
+        transition: all 0.25s ease;
+        cursor: default;
+      }
+
+      .prod-seo-pill strong {
+        color: #fff;
+        font-weight: 600;
+      }
+
+      .prod-seo-pill .pill-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 8px var(--accent);
+      }
+
+      .prod-seo-pill:hover {
+        background: rgba(0, 237, 255, 0.12);
+        border-color: var(--accent);
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 237, 255, 0.2);
+      }
+
+      @keyframes prodSeoTickerScroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
     </style>
+  <style id="mobile-nav-styles">
+  /* ── MOBILE NAV ACORDEÓN DIRECT EMBED ── */
+  .nav-mobile {
+    display: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background: rgba(5, 10, 21, 0.98) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    z-index: 1500 !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 100px 20px 50px !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    box-sizing: border-box !important;
+  }
+
+  .nav-mobile.open {
+    display: flex !important;
+  }
+
+  .nav-mobile-inner {
+    width: 100% !important;
+    max-width: 380px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .mobile-dropdown {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-dropdown-toggle {
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 14px !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    color: #e2e8f0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 14px 18px !important;
+    cursor: pointer !important;
+    outline: none !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    box-sizing: border-box !important;
+    transition: all 0.25s ease !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .mobile-dropdown-toggle:hover,
+  .mobile-dropdown.open .mobile-dropdown-toggle {
+    color: #00edff !important;
+    background: rgba(0, 237, 255, 0.07) !important;
+    border-color: rgba(0, 237, 255, 0.35) !important;
+    box-shadow: 0 0 20px rgba(0, 237, 255, 0.15) !important;
+  }
+
+  .mobile-dropdown-toggle svg {
+    width: 18px !important;
+    height: 18px !important;
+    stroke: #00edff !important;
+    stroke-width: 2.5 !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    flex-shrink: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .mobile-dropdown.open .mobile-dropdown-toggle svg {
+    transform: rotate(180deg) !important;
+  }
+
+  .mobile-dropdown-menu {
+    display: none !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    padding: 10px 10px !important;
+    background: rgba(10, 16, 30, 0.75) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-radius: 12px !important;
+    margin-top: 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-dropdown.open .mobile-dropdown-menu {
+    display: flex !important;
+    animation: mobileSlideIn 0.25s ease !important;
+  }
+
+  @keyframes mobileSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .mobile-dropdown-menu a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    color: #94a3b8 !important;
+    padding: 11px 14px !important;
+    border-radius: 9px !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-dropdown-menu a:hover,
+  .mobile-dropdown-menu a.active {
+    color: #ffffff !important;
+    background: rgba(0, 237, 255, 0.12) !important;
+    font-weight: 600 !important;
+  }
+
+  .mobile-nav-link {
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 14px !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    color: #e2e8f0 !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 14px 18px !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+    transition: all 0.25s ease !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .mobile-nav-link:hover,
+  .mobile-nav-link.active {
+    color: #00edff !important;
+    background: rgba(0, 237, 255, 0.07) !important;
+    border-color: rgba(0, 237, 255, 0.35) !important;
+  }
+
+  .mobile-nav-cta {
+    width: 100% !important;
+    background: linear-gradient(135deg, #00edff 0%, #00a8ff 100%) !important;
+    color: #050a15 !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 1.05rem !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    padding: 15px 20px !important;
+    border-radius: 14px !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+    margin-top: 8px !important;
+    box-shadow: 0 0 25px rgba(0, 237, 255, 0.35) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  .mobile-nav-cta:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 0 35px rgba(0, 237, 255, 0.55) !important;
+  }
+</style>
 </head>
 
 <body>
@@ -38,7 +441,7 @@
         <ul class="nav-links">
           <li class="nav-dropdown">
             <a class="nav-dropdown-toggle" href="#">
-              Planes
+              Servicios Digitales
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2.5">
                 <polyline points="6 9 12 15 18 9" />
@@ -47,15 +450,40 @@
             <div class="nav-dropdown-menu">
               <a href="planes-diseno.html">🎨 Diseño Gráfico Pro</a>
               <a href="planes-instagrowth.html">📱📸 InstaGrowth Pro</a>
+              <a href="web-premium.html">🌐 Web &amp; Tech Premium</a>
+              <a href="automatizacion.html">⚙️ Automatizaciones n8n</a>
             </div>
           </li>
-          <li><a href="produccion.html" class="active">Fotografía &amp; Video</a></li>
-          <li><a href="automatizacion.html">Automatizaciones</a></li>
-          <li><a href="web-premium.html">Web Premium</a></li>
+          <li class="nav-dropdown">
+            <a class="nav-dropdown-toggle active" href="#">
+              Fotografía y Video
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="eventos.html">🎉 Cobertura de Eventos</a>
+              <a href="produccion.html" class="active">📹 Alquiler de Operador</a>
+            </div>
+          </li>
+          <li class="nav-dropdown">
+            <a class="nav-dropdown-toggle" href="#">
+              Personalizados
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="etiquetas_escolares.html">🏷️ Etiquetas Escolares</a>
+              <a href="bolas_navidad.html">🎄 Bolas de Navidad</a>
+            </div>
+          </li>
+
           <li><a href="portafolio.html">Portafolio</a></li>
           <li>
-            <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios"
-              target="_blank" class="nav-cta btn">
+            <a href="#cotizador" class="nav-cta btn">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                 style="margin-right: 6px; vertical-align: middle;">
                 <path
@@ -72,75 +500,226 @@
       </div>
     </div>
   </nav>
-
-
-  <!-- Mobile Nav -->
+  <!-- Mobile Nav (Acordeón Organizado) -->
   <div class="nav-mobile" id="navMobile">
-    <a href="planes-diseno.html">Diseño Gráfico Pro</a>
-    <a href="planes-instagrowth.html">InstaGrowth Pro</a>
-    <a href="produccion.html" class="active">Fotografía &amp; Video</a>
-    <a href="automatizacion.html">Automatizaciones</a>
-    <a href="web-premium.html">Web Premium</a>
-    <a href="portafolio.html">Portafolio</a>
-    <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20informaci%C3%B3n" target="_blank"
-      class="btn btn-primary mt-24">Cotizar Gratis</a>
+    <div class="nav-mobile-inner">
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-toggle" type="button">
+          <span>Servicios Digitales</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+        <div class="mobile-dropdown-menu">
+          <a href="planes-diseno.html">🎨 Diseño Gráfico Pro</a>
+          <a href="planes-instagrowth.html">📱📸 InstaGrowth Pro</a>
+          <a href="web-premium.html">🌐 Web &amp; Tech Premium</a>
+          <a href="automatizacion.html">⚙️ Automatizaciones n8n</a>
+        </div>
+      </div>
+
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-toggle" type="button">
+          <span>Fotografía y Video</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+        <div class="mobile-dropdown-menu">
+          <a href="eventos.html">🎉 Cobertura de Eventos</a>
+          <a href="produccion.html">📹 Alquiler de Operador</a>
+        </div>
+      </div>
+
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-toggle" type="button">
+          <span>Personalizados</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+        <div class="mobile-dropdown-menu">
+          <a href="etiquetas_escolares.html">🏷️ Etiquetas Escolares</a>
+          <a href="bolas_navidad.html">🎄 Bolas de Navidad</a>
+        </div>
+      </div>
+
+      <a href="portafolio.html" class="mobile-nav-link">💼 Portafolio</a>
+
+      <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20informaci%C3%B3n" target="_blank"
+        class="mobile-nav-cta">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Cotizar Gratis
+      </a>
+    </div>
   </div>
 
-    <!-- HERO -->
+  <!-- HERO -->
     <section class="page-hero section-alt" style="position:relative;overflow:hidden;">
         <div class="hero-grid" style="opacity:0.5;"></div>
         <div class="hero-orb hero-orb-1" style="opacity:0.5;"></div>
         <div class="container" style="position:relative;z-index:2;">
             <div class="hero-badge" style="margin:0 auto 24px;">
-                <span class="hero-badge-dot"></span> EQUIPOS DE VANGUARDIA · RESOLUCIÓN 4K · ALTA FIDELIDAD
+                <span class="hero-badge-dot"></span> OPERADOR INCLUIDO · SONY A7 III · DRONE DJI · AUDIO INALÁMBRICO
             </div>
-            <h1 class="page-hero-title">Producción Audiovisual<br>de <span class="text-accent">Alta Gama.</span></h1>
-            <p class="page-hero-subtitle">Transmitimos la excelencia de su marca con piezas publicitarias de impacto.
-                Fotografía corporativa de lujo y perspectivas aéreas con drones de última generación.</p>
-            <a href="#tarifas" class="btn btn-primary">Ver Tarifas Pro</a>
+            <h1 class="page-hero-title">Producción Audiovisual<br><span class="text-accent">con Operador Profesional.</span></h1>
+            <p class="page-hero-subtitle">Yo llevo el equipo y yo lo opero. Tú te concentras en tu marca, tu evento o tu
+                proyecto, y recibes todo el material en bruto listo para usar o editar.</p>
+            <div class="prod-hero-actions">
+                <a href="#cotizador" class="btn btn-primary">Cotizar Producción</a>
+                <a href="#tarifas" class="btn btn-secondary">Ver Tarifas</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOP BAR SEO: PRODUCCIÓN, CÁMARAS, DRONE Y EQUIPAMIENTO EN IBAGUÉ -->
+    <aside class="prod-seo-bar" aria-label="Servicios de producción audiovisual, cámaras y drone con operador en Ibagué">
+        <div class="prod-seo-track">
+            <!-- Track set 1 -->
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🎥 <strong>Camarógrafo Profesional</strong> en Ibagué</span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🚁 <strong>Tomas Aéreas con Drone 4K</strong> (DJI Mini 4 Pro)</span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 📸 <strong>Cámara Sony FX30 / A7 III</strong> con Operador</span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🔍 <strong>Lentes G Master & Zoom Profesional</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🎙️ <strong>Grabación de Audio DJI Mic 2</strong> con Antirruido</span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🎬 <strong>Producción Audiovisual Corporativa</strong> en Tolima</span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🏗️ <strong>Fotogrametría Aérea & Avance de Obras</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 📱 <strong>Grabación de Reels & Contenido TikTok</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 📺 <strong>Comerciales & Videos Publicitarios</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🏢 <strong>Video Inmobiliario & Tomas de Terrenos</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> ⚖️ <strong>Estabilizador Gimbal DJI RS3 Pro</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🎙️ <strong>Grabación de Podcasts & Entrevistas</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🏎️ <strong>Tracking & Seguimiento de Vehículos</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🎞️ <strong>Entrega de Material RAW / ProRes 10-bit</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 💼 <strong>Servicio Audiovisual para Agencias</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🌿 <strong>Inspección de Fincas & Lotes con Drone</strong></span>
+
+            <!-- Track set 2 (duplicado para scroll continuo) -->
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🎥 <strong>Camarógrafo Profesional</strong> en Ibagué</span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🚁 <strong>Tomas Aéreas con Drone 4K</strong> (DJI Mini 4 Pro)</span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 📸 <strong>Cámara Sony FX30 / A7 III</strong> con Operador</span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🔍 <strong>Lentes G Master & Zoom Profesional</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🎙️ <strong>Grabación de Audio DJI Mic 2</strong> con Antirruido</span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🎬 <strong>Producción Audiovisual Corporativa</strong> en Tolima</span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🏗️ <strong>Fotogrametría Aérea & Avance de Obras</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 📱 <strong>Grabación de Reels & Contenido TikTok</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 📺 <strong>Comerciales & Videos Publicitarios</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🏢 <strong>Video Inmobiliario & Tomas de Terrenos</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> ⚖️ <strong>Estabilizador Gimbal DJI RS3 Pro</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🎙️ <strong>Grabación de Podcasts & Entrevistas</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🏎️ <strong>Tracking & Seguimiento de Vehículos</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🎞️ <strong>Entrega de Material RAW / ProRes 10-bit</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 💼 <strong>Servicio Audiovisual para Agencias</strong></span>
+            <span class="prod-seo-pill"><span class="pill-dot"></span> 🌿 <strong>Inspección de Fincas & Lotes con Drone</strong></span>
+        </div>
+    </aside>
+
+    <!-- CÓMO FUNCIONA (aclaración operador) -->
+    <section>
+        <div class="container">
+            <div class="prod-notice reveal">
+                <div class="prod-notice-icon">🎬</div>
+                <div>
+                    <h2 class="prod-notice-title">No es alquiler de equipos: <span class="text-accent">es captura con
+                            operador</span></h2>
+                    <p class="prod-notice-text">Por seguridad del equipo y para garantizar la calidad del resultado,
+                        <strong>los equipos no se entregan en alquiler</strong>. Yo, David Muñoz, voy a tu locación como
+                        camarógrafo y operador: configuro, grabo, vuelo el drone y capturo el audio. Tú diriges qué
+                        quieres contar; yo me encargo de que se vea y se escuche profesional.</p>
+                    <div class="prod-notice-pills">
+                        <span>✔ Operador incluido en todas las tarifas</span>
+                        <span>✔ Equipo asegurado bajo mi responsabilidad</span>
+                        <span>✔ Material en bruto 100% tuyo</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- EQUIPO -->
-    <section>
+    <section class="section-alt">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Tecnología</span>
-                <h2 class="section-title">Equipo de <span class="text-accent">Nivel Profesional</span></h2>
+                <h2 class="section-title">El Equipo que <span class="text-accent">Llevo a tu Proyecto</span></h2>
+                <p class="section-subtitle">Equipos reales, operados por quien los conoce a fondo.</p>
             </div>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;" class="reveal">
-                <div class="card" style="text-align:center;">
-                    <div style="font-size:3rem;margin-bottom:16px;">📸</div>
-                    <h3 style="font-family:var(--font-head);font-size:1.15rem;font-weight:700;margin-bottom:10px;">Sony
-                        Alpha Pro</h3>
-                    <p style="font-size:0.875rem;color:var(--text-secondary);">Sensores Full-Frame de última generación.
-                        Video 4K RAW,
-                        enfoque híbrido avanzado y texturas de alta fidelidad.</p>
+            <div class="prod-gear-grid reveal" id="gearGrid">
+                <article class="prod-gear-card">
+                    <div class="prod-gear-icon">📸</div>
+                    <span class="prod-gear-tag">Foto + Video</span>
+                    <h3>Sony Alpha 7 III</h3>
+                    <p>Cámara full-frame para fotografía y video 4K. Excelente rendimiento en baja luz, enfoque
+                        preciso y colores naturales.</p>
+                </article>
+                <article class="prod-gear-card">
+                    <div class="prod-gear-icon">🎥</div>
+                    <span class="prod-gear-tag">Estabilización</span>
+                    <h3>Gimbal DJI Ronin</h3>
+                    <p>Estabilizador para la Sony: tomas en movimiento suaves y cinematográficas, sin vibraciones,
+                        ideales para recorridos y publicidad.</p>
+                </article>
+                <article class="prod-gear-card">
+                    <div class="prod-gear-icon">🚁</div>
+                    <span class="prod-gear-tag">Aéreo</span>
+                    <h3>Drone DJI Mini 3</h3>
+                    <p>Tomas aéreas 4K estabilizadas para mostrar espacios, terrenos, eventos y paisajes desde una
+                        perspectiva única.</p>
+                </article>
+                <article class="prod-gear-card">
+                    <div class="prod-gear-icon">📱</div>
+                    <span class="prod-gear-tag">Video ágil</span>
+                    <h3>DJI Osmo Pocket 3</h3>
+                    <p>Cámara compacta estabilizada, perfecta para contenido vertical, detrás de cámaras, reels y
+                        tomas rápidas en espacios reducidos.</p>
+                </article>
+                <article class="prod-gear-card">
+                    <div class="prod-gear-icon">🎙️</div>
+                    <span class="prod-gear-tag">Audio</span>
+                    <h3>DJI Mic + DJI Mic 2 (x2)</h3>
+                    <p>Tres micrófonos inalámbricos compatibles con la Sony y la Osmo: entrevistas, testimonios y
+                        diálogos con audio limpio y claro.</p>
+                </article>
+            </div>
+            <div class="reviews-dots" id="gearDots" aria-label="Navegación de equipos"></div>
+        </div>
+    </section>
+
+    <!-- PARA QUIÉN -->
+    <section>
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Ideal para</span>
+                <h2 class="section-title">¿Para Quién es <span class="text-accent">Este Servicio?</span></h2>
+            </div>
+            <div class="prod-uses-grid reveal" id="usesGrid">
+                <div class="prod-use"><span>🏢</span>
+                    <h3>Marcas y negocios</h3>
+                    <p>Fotos de producto, video institucional y contenido para campañas.</p>
                 </div>
-                <div class="card" style="text-align:center;">
-                    <div style="font-size:3rem;margin-bottom:16px;">🚁</div>
-                    <h3 style="font-family:var(--font-head);font-size:1.15rem;font-weight:700;margin-bottom:10px;">DJI
-                        Mini 3 Pro</h3>
-                    <p style="font-size:0.875rem;color:var(--text-secondary);">Dron especializado 4K/60fps.
-                        Estabilización de 3
-                        ejes para perspectivas aéreas fluidas y envolventes.</p>
+                <div class="prod-use"><span>🏡</span>
+                    <h3>Inmobiliarias y fincas</h3>
+                    <p>Recorridos estabilizados y tomas aéreas de propiedades y terrenos.</p>
                 </div>
-                <div class="card" style="text-align:center;">
-                    <div style="font-size:3rem;margin-bottom:16px;">⚡</div>
-                    <h3 style="font-family:var(--font-head);font-size:1.15rem;font-weight:700;margin-bottom:10px;">
-                        Ópticas de Precisión</h3>
-                    <p style="font-size:0.875rem;color:var(--text-secondary);">Lentes prime de gran apertura para lograr
-                        ese
-                        look publicitario suave, limpio y profesional.</p>
+                <div class="prod-use"><span>📲</span>
+                    <h3>Creadores y redes</h3>
+                    <p>Reels, contenido vertical y material para publicar toda la semana.</p>
                 </div>
-                <div class="card" style="text-align:center;">
-                    <div style="font-size:3rem;margin-bottom:16px;">🎙️</div>
-                    <h3 style="font-family:var(--font-head);font-size:1.15rem;font-weight:700;margin-bottom:10px;">Audio
-                        de Inmersión</h3>
-                    <p style="font-size:0.875rem;color:var(--text-secondary);">Microfonía especializada para captar cada
-                        detalle sonoro con nitidez cristalina y profesional.</p>
+                <div class="prod-use"><span>🎤</span>
+                    <h3>Entrevistas y podcast</h3>
+                    <p>Testimonios y conversaciones con audio inalámbrico profesional.</p>
+                </div>
+                <div class="prod-use"><span>🎪</span>
+                    <h3>Eventos corporativos</h3>
+                    <p>Lanzamientos, ferias y activaciones con cobertura en bruto.</p>
+                </div>
+                <div class="prod-use"><span>🤝</span>
+                    <h3>Agencias y editores</h3>
+                    <p>Captura técnica para que tu equipo edite con material de calidad.</p>
                 </div>
             </div>
+            <div class="reviews-dots" id="usesDots" aria-label="Navegación de casos de uso"></div>
         </div>
     </section>
 
@@ -150,151 +729,310 @@
             <div class="section-header reveal">
                 <span class="section-label">Precios</span>
                 <h2 class="section-title">Tarifas de <span class="text-accent">Producción</span></h2>
+                <p class="section-subtitle">Todas las tarifas incluyen operador, equipo y entrega del material en bruto.
+                </p>
             </div>
 
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;" class="reveal">
+            <div class="prod-pricing-grid reveal">
 
-                <!-- Sesión Pro Cámara -->
-                <div class="pricing-card" style="text-align:center;">
-                    <div style="font-size:2.5rem;margin-bottom:12px;">📸</div>
-                    <h3
-                        style="font-family:var(--font-head);font-size:1.6rem;font-weight:700;margin-bottom:8px;color:var(--text-primary);">
-                        Sesión Pro Alpha</h3>
-                    <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:24px;">Óptica fija y zoom
-                        profesional + estabilización avanzada.</p>
-
-                    <div class="pricing-tier"
-                        style="text-align:left;border-top:1px solid var(--border);padding-top:20px;">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-                            <span style="font-weight:600;color:var(--text-primary);">Bloque 2 Horas</span>
-                            <span style="color:var(--accent);font-weight:800;font-size:1.1rem;">$150.000</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-                            <span style="font-weight:600;color:var(--text-primary);">Bloque 4 Horas</span>
-                            <span style="color:var(--accent);font-weight:800;font-size:1.1rem;">$230.000</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-                            <span style="font-weight:600;color:var(--text-primary);">Jornada 6 Horas</span>
-                            <span style="color:var(--accent);font-weight:800;font-size:1.1rem;">$300.000</span>
-                        </div>
+                <!-- Sesión Cámara -->
+                <div class="pricing-card prod-price-card">
+                    <div class="prod-price-icon">📸</div>
+                    <h3>Sesión Pro Cámara</h3>
+                    <p class="prod-price-desc">Sony A7 III + Gimbal Ronin + Osmo Pocket 3 + micrófonos inalámbricos.</p>
+                    <div class="prod-tier-list">
+                        <div class="prod-tier"><span>Bloque 2 horas</span><strong>$150.000</strong></div>
+                        <div class="prod-tier"><span>Bloque 4 horas</span><strong>$230.000</strong></div>
+                        <div class="prod-tier"><span>Jornada 6 horas</span><strong>$300.000</strong></div>
                     </div>
-
-                    <ul class="pricing-features" style="text-align:left;margin:24px 0;font-size:0.82rem;">
-                        <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg></span>Material RAW (Bruto) Incluido</li>
-                        <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg></span>Iluminación y Audio Pro</li>
-                        <li class="pricing-feature"><span class="check"><svg xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg></span>Dirección de Arte Básica</li>
+                    <ul class="prod-feature-list">
+                        <li>Operador / camarógrafo incluido</li>
+                        <li>Foto y video 4K en la misma sesión</li>
+                        <li>Audio inalámbrico (hasta 3 personas)</li>
+                        <li>Dirección de tomas básica</li>
+                        <li>Material en bruto vía Google Drive</li>
                     </ul>
-                    <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20agendar%20una%20sesión%20de%20cámara"
-                        target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;">Agendar
+                    <a href="#cotizador" class="btn btn-primary prod-price-btn" data-servicio="camara">Cotizar
                         Sesión</a>
                 </div>
 
-                <!-- Vuelo Pro Drone -->
-                <div class="pricing-card" style="text-align:center;">
-                    <div style="font-size:2.5rem;margin-bottom:12px;">🚁</div>
-                    <h3
-                        style="font-family:var(--font-head);font-size:1.6rem;font-weight:700;margin-bottom:8px;color:var(--text-primary);">
-                        Vuelo Pro Drone</h3>
-                    <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:24px;">Perspectivas 4K desde
-                        el aire para impacto masivo.</p>
-
-                    <div class="pricing-tier"
-                        style="text-align:left;border-top:1px solid var(--border);padding-top:20px;">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-                            <span style="font-weight:600;color:var(--text-primary);">1 Batería (~30m)</span>
-                            <span style="color:var(--accent);font-weight:800;font-size:1.1rem;">$200.000</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-                            <span style="font-weight:600;color:var(--text-primary);">2 Baterías (~60m)</span>
-                            <span style="color:var(--accent);font-weight:800;font-size:1.1rem;">$350.000</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-                            <span style="font-weight:600;color:var(--text-primary);">3 Baterías (~90m)</span>
-                            <span style="color:var(--accent);font-weight:800;font-size:1.1rem;">$500.000</span>
-                        </div>
+                <!-- Drone -->
+                <div class="pricing-card prod-price-card">
+                    <div class="prod-price-icon">🚁</div>
+                    <h3>Vuelo Pro Drone</h3>
+                    <p class="prod-price-desc">DJI Mini 3 con piloto incluido. Tomas aéreas 4K estabilizadas.</p>
+                    <div class="prod-tier-list">
+                        <div class="prod-tier"><span>1 batería (~30 min)</span><strong>$200.000</strong></div>
+                        <div class="prod-tier"><span>2 baterías (~60 min)</span><strong>$350.000</strong></div>
+                        <div class="prod-tier"><span>3 baterías (~90 min)</span><strong>$500.000</strong></div>
                     </div>
-
-                    <div
-                        style="margin:20px 0;background:var(--accent-dim);border:1px solid var(--border-strong);border-radius:12px;padding:12px;text-align:left;">
-                        <span style="font-size:0.82rem;font-weight:700;color:var(--accent);">+ Fotogrametría:</span>
-                        <span style="font-size:0.8rem;color:var(--text-secondary);"> $100.000 (Mapas 2D/3D de
-                            precisión)</span>
+                    <div class="prod-addon">
+                        <strong>+ Fotogrametría:</strong> $100.000 (mapas 2D/3D del terreno)
                     </div>
-
-                    <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20agendar%20un%20vuelo%20de%20drone"
-                        target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;">Agendar
-                        Sesión</a>
+                    <div class="prod-warning">
+                        ⚠️ El vuelo está sujeto a las restricciones de la Aerocivil. Algunas zonas requieren permisos
+                        especiales o no son aptas para volar; lo verificamos antes de confirmar.
+                    </div>
+                    <a href="#cotizador" class="btn btn-primary prod-price-btn" data-servicio="drone">Cotizar
+                        Vuelo</a>
                 </div>
 
             </div>
 
-            <!-- Condiciones -->
-            <div class="reveal"
-                style="margin-top:40px;background:var(--surface);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:24px;padding:32px;">
-                <h3
-                    style="font-family:var(--font-head);font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:12px;">
-                    <span
-                        style="font-size:1.2rem;background:var(--accent-dim);color:var(--accent);width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:8px;">⚖️</span>
-                    Términos de Producción
-                </h3>
-                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;">
-                    <div style="display:flex;gap:12px;align-items:flex-start;">
-                        <span style="color:var(--accent);font-weight:700;font-size:1.1rem;">›</span>
-                        <span style="font-size:0.875rem;color:var(--text-secondary);line-height:1.5;">Reserva confirmada
-                            con el **100% de la inversión**.</span>
-                    </div>
-                    <div style="display:flex;gap:12px;align-items:flex-start;">
-                        <span style="color:var(--accent);font-weight:700;font-size:1.1rem;">›</span>
-                        <span style="font-size:0.875rem;color:var(--text-secondary);line-height:1.5;">Agendamiento
-                            mínimo con **1 semana** de antelación.</span>
-                    </div>
-                    <div style="display:flex;gap:12px;align-items:flex-start;">
-                        <span style="color:var(--accent);font-weight:700;font-size:1.1rem;">›</span>
-                        <span style="font-size:0.875rem;color:var(--text-secondary);line-height:1.5;">Viáticos fuera de
-                            Ibagué sujetos a cotización.</span>
-                    </div>
-                    <div style="display:flex;gap:12px;align-items:flex-start;">
-                        <span style="color:var(--accent);font-weight:700;font-size:1.1rem;">›</span>
-                        <span style="font-size:0.875rem;color:var(--text-secondary);line-height:1.5;">Material editado
-                            disponible en planes de suscripción.</span>
-                    </div>
-                </div>
+            <div class="prod-combo reveal">
+                <span>💡</span>
+                <p><strong>¿Necesitas ambos?</strong> Puedes combinar sesión de cámara + drone el mismo día. En el
+                    cotizador selecciona los dos y ves el total al instante.</p>
             </div>
         </div>
     </section>
 
+    <!-- QUÉ RECIBES -->
+    <section>
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Entregables</span>
+                <h2 class="section-title">¿Qué <span class="text-accent">Recibes?</span></h2>
+            </div>
+            <div class="prod-deliver-grid reveal" id="deliverGrid">
+                <div class="prod-deliver">
+                    <div class="prod-deliver-num">01</div>
+                    <h3>Material en bruto completo</h3>
+                    <p>Todas las fotos y clips de video capturados, en su calidad original, sin marcas de agua.</p>
+                </div>
+                <div class="prod-deliver">
+                    <div class="prod-deliver-num">02</div>
+                    <h3>Entrega en 24 – 48 horas</h3>
+                    <p>Recibes un enlace de Google Drive organizado por carpetas (foto, video, drone, audio).</p>
+                </div>
+                <div class="prod-deliver">
+                    <div class="prod-deliver-num">03</div>
+                    <h3>Edición opcional</h3>
+                    <p>Si quieres el material editado (reels, video institucional, retoque fotográfico), se cotiza
+                        aparte según tu necesidad.</p>
+                </div>
+            </div>
+            <div class="reviews-dots" id="deliverDots" aria-label="Navegación de entregables"></div>
+        </div>
+    </section>
 
-    <!-- CTA -->
+    <!-- PROCESO -->
     <section class="section-alt">
         <div class="container">
-            <div class="cta-block reveal">
-                <div class="cta-title">¿Listo para capturar su<br><span class="text-accent">próximo proyecto</span>?
+            <div class="section-header reveal">
+                <span class="section-label">Proceso</span>
+                <h2 class="section-title">Así <span class="text-accent">Trabajamos</span></h2>
+            </div>
+            <div class="prod-steps reveal" id="stepsGrid">
+                <div class="prod-step"><span>1</span>
+                    <h3>Cotizas</h3>
+                    <p>Usas el cotizador y recibes un precio estimado al instante.</p>
                 </div>
-                <p class="cta-subtitle">Asegure su sesión con anticipación. Cupos limitados por semana para garantizar
-                    la excelencia.</p>
-                <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20agendar%20mi%20sesión%20de%20producción"
-                    target="_blank" class="btn btn-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                        fill="currentColor">
-                        <path
-                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                    </svg>
-                    Agendar Sesión
-                </a>
+                <div class="prod-step"><span>2</span>
+                    <h3>Confirmamos</h3>
+                    <p>Revisamos locación, horario y, si hay drone, la viabilidad del vuelo.</p>
+                </div>
+                <div class="prod-step"><span>3</span>
+                    <h3>Reservas</h3>
+                    <p>Con el pago confirmado, la fecha queda bloqueada para ti.</p>
+                </div>
+                <div class="prod-step"><span>4</span>
+                    <h3>Grabamos</h3>
+                    <p>Llego con todo el equipo y opero la producción completa.</p>
+                </div>
+                <div class="prod-step"><span>5</span>
+                    <h3>Entrego</h3>
+                    <p>En 24 a 48 horas tienes tu material en Google Drive.</p>
+                </div>
+            </div>
+            <div class="reviews-dots" id="stepsDots" aria-label="Navegación de pasos"></div>
+        </div>
+    </section>
+
+    <!-- TÉRMINOS -->
+    <section>
+        <div class="container">
+            <div class="prod-terms reveal">
+                <h3><span>⚖️</span> Términos de Producción</h3>
+                <div class="prod-terms-grid">
+                    <p>› Los equipos <strong>no se alquilan sin operador</strong>; siempre van operados por David Muñoz.
+                    </p>
+                    <p>› Reserva confirmada con el <strong>100% de la inversión</strong>.</p>
+                    <p>› Agendamiento mínimo con <strong>1 semana</strong> de antelación.</p>
+                    <p>› Viáticos fuera de Ibagué sujetos a cotización.</p>
+                    <p>› Vuelos de drone sujetos a <strong>normativa Aerocivil</strong> y condiciones climáticas.</p>
+                    <p>› Entrega del material en bruto en <strong>24 – 48 horas</strong> vía Google Drive.</p>
+                </div>
             </div>
         </div>
     </section>
 
-      <footer>
+    <!-- FAQ -->
+    <section class="section-alt">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Dudas</span>
+                <h2 class="section-title">Preguntas <span class="text-accent">Frecuentes</span></h2>
+            </div>
+            <div class="prod-faq reveal">
+                <details>
+                    <summary>¿Puedo alquilar solo el equipo sin operador?</summary>
+                    <p>No. Por seguridad de los equipos y para garantizar la calidad, todas las producciones incluyen
+                        mi operación como camarógrafo y piloto.</p>
+                </details>
+                <details>
+                    <summary>¿El drone puede volar en cualquier lugar?</summary>
+                    <p>No siempre. La Aerocivil restringe zonas como aeropuertos, bases militares y algunas áreas
+                        urbanas. Antes de confirmar revisamos tu ubicación y, si se requieren permisos especiales, te lo
+                        informo.</p>
+                </details>
+                <details>
+                    <summary>¿Qué pasa si llueve el día de la grabación?</summary>
+                    <p>Si las condiciones impiden grabar (especialmente con drone), reprogramamos la sesión sin costo
+                        adicional según disponibilidad.</p>
+                </details>
+                <details>
+                    <summary>¿El material viene editado?</summary>
+                    <p>Las tarifas incluyen el material en bruto. La edición se cotiza aparte; puedes marcarlo en el
+                        cotizador y te envío la propuesta.</p>
+                </details>
+                <details>
+                    <summary>¿En qué formato recibo el material?</summary>
+                    <p>Fotos en JPG de alta resolución (RAW si lo solicitas) y video en MP4 4K o Full HD, todo
+                        organizado en Google Drive.</p>
+                </details>
+                <details>
+                    <summary>¿Puedo combinar cámara y drone?</summary>
+                    <p>Sí. En el cotizador seleccionas ambos servicios y obtienes el total estimado de la producción
+                        completa.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- COTIZADOR -->
+    <section id="cotizador">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Cotización en Tiempo Real</span>
+                <h2 class="section-title">Cotiza tu <span class="text-accent">Producción</span></h2>
+                <p class="section-subtitle">Elige lo que necesitas y obtén un precio estimado al instante.</p>
+            </div>
+
+            <form id="prodQuoteForm" class="prod-form reveal" novalidate>
+
+                <div class="prod-form-block">
+                    <div class="prod-form-label">1. ¿Qué servicio necesitas?</div>
+                    <div class="prod-choice-row">
+                        <label class="prod-choice"><input type="checkbox" id="prodSrvCamara" value="camara">
+                            <span>📸 Sesión Pro Cámara</span></label>
+                        <label class="prod-choice"><input type="checkbox" id="prodSrvDrone" value="drone">
+                            <span>🚁 Vuelo Pro Drone</span></label>
+                    </div>
+                </div>
+
+                <div class="prod-form-block" id="prodBlockCamara" hidden>
+                    <label class="prod-form-label" for="prodCamaraBloque">2. Duración de la sesión de cámara</label>
+                    <select id="prodCamaraBloque" class="prod-input">
+                        <option value="2" data-precio="150000">Bloque 2 horas — $150.000</option>
+                        <option value="4" data-precio="230000">Bloque 4 horas — $230.000</option>
+                        <option value="6" data-precio="300000">Jornada 6 horas — $300.000</option>
+                    </select>
+                </div>
+
+                <div class="prod-form-block" id="prodBlockDrone" hidden>
+                    <label class="prod-form-label" for="prodDroneBaterias">3. Tiempo de vuelo del drone</label>
+                    <select id="prodDroneBaterias" class="prod-input">
+                        <option value="1" data-precio="200000">1 batería (~30 min) — $200.000</option>
+                        <option value="2" data-precio="350000">2 baterías (~60 min) — $350.000</option>
+                        <option value="3" data-precio="500000">3 baterías (~90 min) — $500.000</option>
+                    </select>
+                    <label class="prod-check"><input type="checkbox" id="prodFotogrametria"> Agregar fotogrametría
+                        (+$100.000)</label>
+                </div>
+
+                <div class="prod-form-grid">
+                    <div>
+                        <label class="prod-form-label" for="prodFecha">Fecha</label>
+                        <input type="date" id="prodFecha" class="prod-input" required>
+                    </div>
+                    <div>
+                        <label class="prod-form-label" for="prodHora">Hora de inicio</label>
+                        <input type="time" id="prodHora" class="prod-input" value="08:00" required>
+                    </div>
+                    <div>
+                        <label class="prod-form-label" for="prodUbicacion">Ubicación</label>
+                        <select id="prodUbicacion" class="prod-input">
+                            <option value="ibague">Ibagué urbana</option>
+                            <option value="fuera">Fuera de Ibagué (viáticos a cotizar)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="prod-form-label" for="prodTipo">Tipo de proyecto</label>
+                        <select id="prodTipo" class="prod-input">
+                            <option>Marca / negocio</option>
+                            <option>Inmobiliaria / finca</option>
+                            <option>Contenido para redes</option>
+                            <option>Entrevista / podcast</option>
+                            <option>Evento corporativo</option>
+                            <option>Otro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="prod-form-block">
+                    <label class="prod-check"><input type="checkbox" id="prodEdicion"> También quiero cotizar
+                        <strong>edición</strong> del material</label>
+                </div>
+
+                <div class="prod-form-block">
+                    <label class="prod-form-label" for="prodDetalle">Cuéntame brevemente tu proyecto
+                        (opcional)</label>
+                    <textarea id="prodDetalle" class="prod-input" rows="3"
+                        placeholder="Ej. Video para lanzamiento de producto en finca a 20 min de Ibagué"></textarea>
+                </div>
+
+                <div class="prod-form-grid">
+                    <div>
+                        <label class="prod-form-label" for="prodNombre">Nombre completo *</label>
+                        <input type="text" id="prodNombre" class="prod-input" placeholder="Ej. Camila Morales" required>
+                    </div>
+                    <div>
+                        <label class="prod-form-label" for="prodTel">WhatsApp *</label>
+                        <div class="prod-tel">
+                            <select id="prodPais" class="prod-input">
+                                <option value="+57">🇨🇴 +57</option>
+                                <option value="+1">🇺🇸 +1</option>
+                                <option value="+34">🇪🇸 +34</option>
+                                <option value="+52">🇲🇽 +52</option>
+                            </select>
+                            <input type="tel" id="prodTel" class="prod-input" placeholder="316 964 2159" required>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="prod-check"><input type="checkbox" id="prodTerminos" required> Acepto los <a href="terminos-condiciones.html" target="_blank" style="color:var(--accent);text-decoration:underline;">términos de producción</a> y autorizo el tratamiento de datos para recibir la cotización. *</label>
+
+                <div class="prod-total-bar">
+                    <div>
+                        <span>Total estimado</span>
+                        <strong id="prodTotal">$0</strong>
+                    </div>
+                    <button type="submit" id="prodSubmit" class="btn btn-primary">Enviar Solicitud</button>
+                </div>
+
+                <div id="prodResult" class="prod-result" hidden>
+                    <h3>✅ ¡Solicitud enviada!</h3>
+                    <p>Recibí tu cotización. Te contactaré por WhatsApp para confirmar disponibilidad
+                        <span id="prodResultDrone"></span>.</p>
+                    <a href="#" id="prodWhatsApp" target="_blank" class="btn btn-secondary">Escribir ahora por
+                        WhatsApp</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+        <footer>
     <div class="container">
       <div class="footer-grid">
         <div>
@@ -338,15 +1076,20 @@
           <ul class="footer-links">
             <li><a href="planes-diseno.html">Diseño Gráfico Pro</a></li>
             <li><a href="planes-instagrowth.html">InstaGrowth Pro</a></li>
-            <li><a href="produccion.html">Fotografía & Video</a></li>
+            <li><a href="eventos.html">Cobertura de Eventos</a></li>
+            <li><a href="produccion.html">Producción con Operador</a></li>
+            <li><a href="etiquetas_escolares.html">Etiquetas Escolares</a></li>
+            <li><a href="bolas_navidad.html">Bolas de Navidad</a></li>
             <li><a href="automatizacion.html">Automatizaciones n8n</a></li>
             <li><a href="web-premium.html">Web & Tech Premium</a></li>
             <li><a href="portafolio.html">Portafolio</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer-heading">Empresa</div>
+          <div class="footer-heading">Empresa y Legal</div>
           <ul class="footer-links">
+            <li><a href="terminos-condiciones.html" style="color:var(--accent);">Términos y Condiciones</a></li>
+            <li><a href="terminos-condiciones.html#art8">Política de Privacidad</a></li>
             <li><a href="https://wa.me/573169642159" target="_blank">WhatsApp</a></li>
             <li><a href="https://www.instagram.com/davidesign.co?igsh=YXJwempvMGxid2gz" target="_blank">Instagram</a></li>
             <li><a href="https://www.facebook.com/share/1GdNCi94S1/" target="_blank">Facebook</a></li>
@@ -362,13 +1105,144 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">© 2025 <span class="footer-accent">David Muñoz Diseñador</span>. Todos los derechos reservados.</p>
-        <p class="footer-copy">Diseño <span class="footer-accent">Tech-Premium</span> · Ibagué, Colombia</p>
+        <p class="footer-copy">© 2026 <span class="footer-accent">David Muñoz Diseñador</span>. Todos los derechos reservados.</p>
+        <p class="footer-copy"><a href="terminos-condiciones.html" style="color:var(--text-secondary);text-decoration:underline;">Términos & Privacidad</a> · Ibagué, Colombia</p>
       </div>
     </div>
   </footer>
-    <script src="js/main.js"></script>
+
+  <!-- BOTÓN FLOTANTE MÓVIL Y ESCRITORIO A COTIZADOR -->
+  <a href="#cotizador" id="floatingCTA" class="floating-cta">
+    <span>Cotizar Producción</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="2" width="16" height="20" rx="2" />
+      <line x1="8" y1="6" x2="16" y2="6" />
+      <line x1="16" y1="14" x2="16" y2="18" />
+    </svg>
+  </a>
+
+    <script src="js/main.js?v=20261105c"></script>
     <script src="js/logo-particles.js"></script>
+    <script>
+      /* ── COTIZADOR DE PRODUCCIÓN ── */
+      document.addEventListener('DOMContentLoaded', function () {
+        const WEB3FORMS_KEY = 'c4008f12-f2eb-4dda-bf62-8492b923f1c5';
+        const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzlSTL51D1Q4uNmMvE-KRP9ZJbVqer9cG_Vc1ODbZFk10yd1OoFxfgMbZKZE9FqM7JY/exec';
+        const $ = id => document.getElementById(id);
+        const form = $('prodQuoteForm');
+        const srvCam = $('prodSrvCamara'), srvDrone = $('prodSrvDrone');
+        const selCam = $('prodCamaraBloque'), selDrone = $('prodDroneBaterias'), chkFoto = $('prodFotogrametria');
+        const fmt = n => '$' + n.toLocaleString('es-CO');
+        const precio = sel => Number(sel.options[sel.selectedIndex].dataset.precio);
+
+        const hoy = new Date().toISOString().split('T')[0];
+        $('prodFecha').min = hoy; $('prodFecha').value = hoy;
+
+        function calcular() {
+          $('prodBlockCamara').hidden = !srvCam.checked;
+          $('prodBlockDrone').hidden = !srvDrone.checked;
+          let total = 0;
+          if (srvCam.checked) total += precio(selCam);
+          if (srvDrone.checked) total += precio(selDrone) + (chkFoto.checked ? 100000 : 0);
+          $('prodTotal').textContent = fmt(total);
+          return total;
+        }
+        [srvCam, srvDrone, selCam, selDrone, chkFoto].forEach(el => el.addEventListener('change', calcular));
+
+        // Botones de tarifas preseleccionan el servicio
+        document.querySelectorAll('.prod-price-btn').forEach(btn => btn.addEventListener('click', () => {
+          (btn.dataset.servicio === 'drone' ? srvDrone : srvCam).checked = true;
+          calcular();
+        }));
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const nombre = $('prodNombre').value.trim();
+          const tel = $('prodTel').value.trim();
+          if (!srvCam.checked && !srvDrone.checked) { alert('Selecciona al menos un servicio (cámara o drone).'); return; }
+          if (!nombre) { alert('Por favor ingresa tu nombre completo.'); $('prodNombre').focus(); return; }
+          if (!tel) { alert('Por favor ingresa tu número de WhatsApp.'); $('prodTel').focus(); return; }
+          if (!$('prodTerminos').checked) { alert('Por favor acepta los términos para continuar.'); return; }
+
+          const total = calcular();
+          const fuera = $('prodUbicacion').value === 'fuera';
+          const lead = {
+            hoja: 'Produccion',
+            fecha_registro: new Date().toLocaleString('es-CO'),
+            nombre: nombre,
+            telefono: `${$('prodPais').value} ${tel}`,
+            tipo_proyecto: $('prodTipo').value,
+            camara: srvCam.checked ? selCam.options[selCam.selectedIndex].text.split(' — ')[0] : 'No',
+            drone: srvDrone.checked ? selDrone.options[selDrone.selectedIndex].text.split(' — ')[0] : 'No',
+            fotogrametria: srvDrone.checked && chkFoto.checked ? 'Sí' : 'No',
+            fecha: $('prodFecha').value,
+            hora_inicio: $('prodHora').value,
+            ubicacion: fuera ? 'Fuera de Ibagué' : 'Ibagué urbana',
+            quiere_edicion: $('prodEdicion').checked ? 'Sí' : 'No',
+            detalle: $('prodDetalle').value.trim(),
+            total_estimado: fmt(total)
+          };
+
+          const btn = $('prodSubmit');
+          btn.disabled = true; btn.textContent = 'Enviando...';
+
+          const { hoja, ...correo } = lead;
+          fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ access_key: WEB3FORMS_KEY, subject: `Nueva cotización de producción - ${nombre}`, from_name: 'Web David Muñoz - Producción', ...correo })
+          }).catch(err => console.warn('Web3Forms error:', err));
+
+          fetch(GOOGLE_SHEETS_URL, {
+            method: 'POST', mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(lead)
+          }).catch(err => console.warn('Sheets error:', err));
+
+          const servicios = [srvCam.checked ? 'sesión de cámara (' + lead.camara + ')' : '', srvDrone.checked ? 'vuelo de drone (' + lead.drone + ')' : ''].filter(Boolean).join(' + ');
+          const waText = `Hola David, soy ${nombre}. Coticé en la web una producción: ${servicios} para el ${lead.fecha} a las ${lead.hora_inicio} (${lead.ubicacion}). Total estimado: ${lead.total_estimado}.${lead.quiere_edicion === 'Sí' ? ' También quiero cotizar edición.' : ''}`;
+          $('prodWhatsApp').href = `https://wa.me/573169642159?text=${encodeURIComponent(waText)}`;
+          $('prodResultDrone').textContent = srvDrone.checked ? 'y verificar que la zona sea apta para el vuelo del drone' : '';
+          $('prodResult').hidden = false;
+          $('prodResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          btn.textContent = '✔ Solicitud Enviada';
+          setTimeout(() => { btn.disabled = false; btn.textContent = 'Enviar Solicitud'; }, 4000);
+        });
+
+        /* ── CARRUSELES DESLIZABLES EN MÓVIL ─────────── */
+        function setupSwipeDots(gridId, dotsId, cardSelector, label) {
+          const grid = document.getElementById(gridId);
+          const dotsWrap = document.getElementById(dotsId);
+          if (!grid || !dotsWrap) return;
+          const items = Array.from(grid.querySelectorAll(cardSelector));
+          dotsWrap.innerHTML = '';
+          items.forEach((card, i) => {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.className = 'reviews-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', `${label} ${i + 1}`);
+            dot.addEventListener('click', () => {
+              grid.scrollTo({ left: card.offsetLeft - grid.offsetLeft - 20, behavior: 'smooth' });
+            });
+            dotsWrap.appendChild(dot);
+          });
+          const dotEls = Array.from(dotsWrap.children);
+          grid.addEventListener('scroll', () => {
+            const step = items[1] ? items[1].offsetLeft - items[0].offsetLeft : 1;
+            const idx = Math.min(items.length - 1, Math.round(grid.scrollLeft / step));
+            dotEls.forEach((d, i) => d.classList.toggle('active', i === idx));
+          }, { passive: true });
+        }
+
+        setupSwipeDots('gearGrid', 'gearDots', '.prod-gear-card', 'Ver equipo');
+        setupSwipeDots('usesGrid', 'usesDots', '.prod-use', 'Ver uso');
+        setupSwipeDots('deliverGrid', 'deliverDots', '.prod-deliver', 'Ver entregable');
+        setupSwipeDots('stepsGrid', 'stepsDots', '.prod-step', 'Ver paso');
+
+        calcular();
+      });
+    </script>
 </body>
 
 </html>

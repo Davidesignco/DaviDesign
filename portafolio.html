@@ -10,7 +10,7 @@
     content="Explore el portafolio interactivo de David Muñoz Torres, estructurado como perfil de Instagram. Más de 10 años de experiencia en diseño gráfico, e-commerce y producción audiovisual.">
   <meta name="keywords"
     content="portafolio david muñoz, diseño gráfico ibague, fotógrafo ibague, marketing digital, branding ibague">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=20261105c">
   <!-- Open Graph -->
   <meta property="og:title" content="Portafolio Estilo Instagram | David Muñoz Diseñador">
   <meta property="og:description"
@@ -379,7 +379,8 @@
       width: 12px;
       height: 12px;
       fill: currentColor;
-      margin-left: 2px; /* Center play button slightly */
+      margin-left: 2px;
+      /* Center play button slightly */
     }
 
     .carousel-indicator {
@@ -550,7 +551,8 @@
       height: 100%;
       background: var(--grad-accent);
       border-radius: 4px;
-      width: 0; /* Animated in JS */
+      width: 0;
+      /* Animated in JS */
       transition: width 1.5s var(--ease);
       box-shadow: 0 0 10px var(--accent-glow);
     }
@@ -562,11 +564,13 @@
       margin-bottom: 40px;
       overflow-x: auto;
       padding-bottom: 12px;
-      scrollbar-width: none; /* Firefox */
+      scrollbar-width: none;
+      /* Firefox */
     }
 
     .highlights-container::-webkit-scrollbar {
-      display: none; /* Safari/Chrome */
+      display: none;
+      /* Safari/Chrome */
     }
 
     .highlight-item {
@@ -589,7 +593,7 @@
       align-items: center;
       justify-content: center;
       transition: all 0.25s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     .highlight-circle:hover {
@@ -705,6 +709,132 @@
 
     .modal-media-element.active {
       display: block;
+    }
+
+    /* Modal Compare Slider */
+    .modal-compare-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      user-select: none;
+      touch-action: none;
+      background: #020408;
+    }
+
+    .modal-compare-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-compare-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+    }
+
+    .modal-compare-clipped {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      clip-path: inset(0 50% 0 0);
+      will-change: clip-path;
+    }
+
+    .modal-compare-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: #fff;
+      box-shadow: 0 0 14px rgba(0, 237, 255, 0.8), 0 0 28px rgba(0, 237, 255, 0.4);
+      cursor: ew-resize;
+      transform: translateX(-50%);
+      z-index: 10;
+      will-change: left;
+    }
+
+    .modal-compare-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #060d1d;
+      border: 2px solid #fff;
+      box-shadow: 0 0 20px rgba(0, 237, 255, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      pointer-events: none;
+    }
+
+    .modal-compare-badge {
+      position: absolute;
+      top: 16px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: var(--font-head);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      z-index: 12;
+      backdrop-filter: blur(8px);
+      pointer-events: none;
+    }
+
+    .modal-compare-badge.badge-raw {
+      left: 16px;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #cbd5e1;
+    }
+
+    .modal-compare-badge.badge-edited {
+      right: 16px;
+      background: rgba(0, 237, 255, 0.25);
+      border: 1px solid var(--accent);
+      color: #fff;
+      box-shadow: 0 0 15px rgba(0, 237, 255, 0.4);
+    }
+
+    .compare-indicator {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(8, 16, 32, 0.85);
+      border: 1px solid rgba(0, 237, 255, 0.6);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
     }
 
     .modal-sidebar {
@@ -936,6 +1066,7 @@
     .action-icon-btn.liked {
       color: #FF3B3B;
     }
+
     .action-icon-btn.liked svg {
       fill: #FF3B3B;
       stroke: #FF3B3B;
@@ -1078,7 +1209,8 @@
 
       .profile-header {
         display: grid;
-        grid-template-columns: 86px 1fr; /* Columna fija para el avatar evita que se ovalice */
+        grid-template-columns: 86px 1fr;
+        /* Columna fija para el avatar evita que se ovalice */
         grid-template-areas:
           "username username"
           "avatar meta"
@@ -1151,7 +1283,7 @@
         margin-top: 4px;
       }
 
-      .profile-stats-row > div {
+      .profile-stats-row>div {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1287,14 +1419,17 @@
       .profile-header {
         align-items: center;
       }
+
       .instagram-container {
-        padding: 0 12px; /* Más espacio para columnas en móviles */
+        padding: 0 12px;
+        /* Más espacio para columnas en móviles */
       }
     }
 
     @media (max-width: 380px) {
       .profile-header {
-        grid-template-columns: 76px 1fr; /* Columna de avatar más compacta */
+        grid-template-columns: 76px 1fr;
+        /* Columna de avatar más compacta */
         grid-template-areas:
           "username username"
           "avatar meta"
@@ -1331,7 +1466,7 @@
         font-size: 0.75rem;
       }
     }
-  
+
     /* Highlights Image clip */
     .highlight-inner img {
       width: 100%;
@@ -1355,12 +1490,12 @@
       opacity: 0;
       transition: opacity 0.3s ease;
     }
-    
+
     .stories-modal.active {
       display: flex;
       opacity: 1;
     }
-    
+
     .stories-modal-content {
       position: relative;
       width: 100%;
@@ -1374,7 +1509,7 @@
       display: flex;
       flex-direction: column;
     }
-    
+
     @media (max-width: 480px) {
       .stories-modal-content {
         max-width: 100%;
@@ -1383,7 +1518,7 @@
         border-radius: 0;
       }
     }
-    
+
     /* Progress Bar */
     .story-progress-bar-container {
       position: absolute;
@@ -1394,7 +1529,7 @@
       gap: 4px;
       z-index: 10;
     }
-    
+
     .story-progress-track {
       height: 3px;
       background: rgba(255, 255, 255, 0.3);
@@ -1403,13 +1538,13 @@
       overflow: hidden;
       position: relative;
     }
-    
+
     .story-progress-fill {
       height: 100%;
       background: #fff;
       width: 0%;
     }
-    
+
     /* Header */
     .story-header {
       position: absolute;
@@ -1421,40 +1556,40 @@
       align-items: center;
       z-index: 10;
       color: #fff;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
     }
-    
+
     .story-user-info {
       display: flex;
       align-items: center;
       gap: 10px;
     }
-    
+
     .story-avatar {
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.5);
+      border: 1px solid rgba(255, 255, 255, 0.5);
       object-fit: cover;
     }
-    
+
     .story-username {
       font-size: 0.9rem;
       font-weight: 600;
       letter-spacing: 0.3px;
     }
-    
+
     .story-time {
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255, 255, 255, 0.6);
     }
-    
+
     .story-controls {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-    
+
     .story-controls button {
       background: none;
       border: none;
@@ -1467,11 +1602,11 @@
       opacity: 0.85;
       transition: opacity 0.2s;
     }
-    
+
     .story-controls button:hover {
       opacity: 1;
     }
-    
+
     /* Media Container */
     .story-media-container {
       position: relative;
@@ -1483,32 +1618,220 @@
       justify-content: center;
       background: #000;
     }
-    
+
     .story-media-container img {
       width: 100%;
       height: 100%;
       object-fit: contain;
       background: #000;
     }
-    
+
     /* Overlay split-tap navigation areas */
-    .story-nav-prev, .story-nav-next {
+    .story-nav-prev,
+    .story-nav-next {
       position: absolute;
       top: 0;
       height: 100%;
       z-index: 5;
       cursor: pointer;
     }
-    
+
     .story-nav-prev {
       left: 0;
       width: 30%;
     }
-    
+
     .story-nav-next {
       right: 0;
       width: 70%;
     }
+  </style>
+  <style id="mobile-nav-styles">
+  /* ── MOBILE NAV ACORDEÓN DIRECT EMBED ── */
+  .nav-mobile {
+    display: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background: rgba(5, 10, 21, 0.98) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    z-index: 1500 !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 100px 20px 50px !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    box-sizing: border-box !important;
+  }
+
+  .nav-mobile.open {
+    display: flex !important;
+  }
+
+  .nav-mobile-inner {
+    width: 100% !important;
+    max-width: 380px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .mobile-dropdown {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-dropdown-toggle {
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 14px !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    color: #e2e8f0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 14px 18px !important;
+    cursor: pointer !important;
+    outline: none !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    box-sizing: border-box !important;
+    transition: all 0.25s ease !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .mobile-dropdown-toggle:hover,
+  .mobile-dropdown.open .mobile-dropdown-toggle {
+    color: #00edff !important;
+    background: rgba(0, 237, 255, 0.07) !important;
+    border-color: rgba(0, 237, 255, 0.35) !important;
+    box-shadow: 0 0 20px rgba(0, 237, 255, 0.15) !important;
+  }
+
+  .mobile-dropdown-toggle svg {
+    width: 18px !important;
+    height: 18px !important;
+    stroke: #00edff !important;
+    stroke-width: 2.5 !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    flex-shrink: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .mobile-dropdown.open .mobile-dropdown-toggle svg {
+    transform: rotate(180deg) !important;
+  }
+
+  .mobile-dropdown-menu {
+    display: none !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    padding: 10px 10px !important;
+    background: rgba(10, 16, 30, 0.75) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-radius: 12px !important;
+    margin-top: 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-dropdown.open .mobile-dropdown-menu {
+    display: flex !important;
+    animation: mobileSlideIn 0.25s ease !important;
+  }
+
+  @keyframes mobileSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .mobile-dropdown-menu a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    color: #94a3b8 !important;
+    padding: 11px 14px !important;
+    border-radius: 9px !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-dropdown-menu a:hover,
+  .mobile-dropdown-menu a.active {
+    color: #ffffff !important;
+    background: rgba(0, 237, 255, 0.12) !important;
+    font-weight: 600 !important;
+  }
+
+  .mobile-nav-link {
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 14px !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    color: #e2e8f0 !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 14px 18px !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+    transition: all 0.25s ease !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .mobile-nav-link:hover,
+  .mobile-nav-link.active {
+    color: #00edff !important;
+    background: rgba(0, 237, 255, 0.07) !important;
+    border-color: rgba(0, 237, 255, 0.35) !important;
+  }
+
+  .mobile-nav-cta {
+    width: 100% !important;
+    background: linear-gradient(135deg, #00edff 0%, #00a8ff 100%) !important;
+    color: #050a15 !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 1.05rem !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    padding: 15px 20px !important;
+    border-radius: 14px !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+    margin-top: 8px !important;
+    box-shadow: 0 0 25px rgba(0, 237, 255, 0.35) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  .mobile-nav-cta:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 0 35px rgba(0, 237, 255, 0.55) !important;
+  }
 </style>
 </head>
 
@@ -1531,7 +1854,7 @@
         <ul class="nav-links">
           <li class="nav-dropdown">
             <a class="nav-dropdown-toggle" href="#">
-              Planes
+              Servicios Digitales
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2.5">
                 <polyline points="6 9 12 15 18 9" />
@@ -1540,11 +1863,37 @@
             <div class="nav-dropdown-menu">
               <a href="planes-diseno.html">🎨 Diseño Gráfico Pro</a>
               <a href="planes-instagrowth.html">📱📸 InstaGrowth Pro</a>
+              <a href="web-premium.html">🌐 Web &amp; Tech Premium</a>
+              <a href="automatizacion.html">⚙️ Automatizaciones n8n</a>
             </div>
           </li>
-          <li><a href="produccion.html">Fotografía &amp; Video</a></li>
-          <li><a href="automatizacion.html">Automatizaciones</a></li>
-          <li><a href="web-premium.html">Web Premium</a></li>
+          <li class="nav-dropdown">
+            <a class="nav-dropdown-toggle" href="#">
+              Fotografía y Video
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="eventos.html">🎉 Cobertura de Eventos</a>
+              <a href="produccion.html">📹 Alquiler de Operador</a>
+            </div>
+          </li>
+          <li class="nav-dropdown">
+            <a class="nav-dropdown-toggle" href="#">
+              Personalizados
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="etiquetas_escolares.html">🏷️ Etiquetas Escolares</a>
+              <a href="bolas_navidad.html">🎄 Bolas de Navidad</a>
+            </div>
+          </li>
+
           <li><a href="portafolio.html" class="active">Portafolio</a></li>
           <li>
             <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios"
@@ -1565,25 +1914,63 @@
       </div>
     </div>
   </nav>
-
-
-  <!-- Mobile Nav -->
+  <!-- Mobile Nav (Acordeón Organizado) -->
   <div class="nav-mobile" id="navMobile">
-    <a href="planes-diseno.html">Diseño Gráfico Pro</a>
-    <a href="planes-instagrowth.html">InstaGrowth Pro</a>
-    <a href="produccion.html">Fotografía &amp; Video</a>
-    <a href="automatizacion.html">Automatizaciones</a>
-    <a href="web-premium.html">Web Premium</a>
-    <a href="portafolio.html" class="active">Portafolio</a>
-    <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20informaci%C3%B3n" target="_blank"
-      class="btn btn-primary mt-24">Cotizar Gratis</a>
+    <div class="nav-mobile-inner">
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-toggle" type="button">
+          <span>Servicios Digitales</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+        <div class="mobile-dropdown-menu">
+          <a href="planes-diseno.html">🎨 Diseño Gráfico Pro</a>
+          <a href="planes-instagrowth.html">📱📸 InstaGrowth Pro</a>
+          <a href="web-premium.html">🌐 Web &amp; Tech Premium</a>
+          <a href="automatizacion.html">⚙️ Automatizaciones n8n</a>
+        </div>
+      </div>
+
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-toggle" type="button">
+          <span>Fotografía y Video</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+        <div class="mobile-dropdown-menu">
+          <a href="eventos.html">🎉 Cobertura de Eventos</a>
+          <a href="produccion.html">📹 Alquiler de Operador</a>
+        </div>
+      </div>
+
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-toggle" type="button">
+          <span>Personalizados</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+        <div class="mobile-dropdown-menu">
+          <a href="etiquetas_escolares.html">🏷️ Etiquetas Escolares</a>
+          <a href="bolas_navidad.html">🎄 Bolas de Navidad</a>
+        </div>
+      </div>
+
+      <a href="portafolio.html" class="mobile-nav-link">💼 Portafolio</a>
+
+      <a href="https://wa.me/573169642159?text=Hola%20David%2C%20quiero%20informaci%C3%B3n" target="_blank"
+        class="mobile-nav-cta">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Cotizar Gratis
+      </a>
+    </div>
   </div>
 
-  <!-- -- PORTFOLIO CONTENT -------------------------------------- -->
-  <div class="instagram-wrapper">
-    <div class="instagram-container">
-
-      <!-- Cabecera de Perfil -->
+  <!-- Cabecera de Perfil -->
       <header class="profile-header">
         <div class="profile-username-container">
           <h2 class="profile-handle">davidesign.co</h2>
@@ -1594,7 +1981,9 @@
           <div class="profile-desktop-actions">
             <a href="https://wa.me/573169642159?text=Hola%20David%2C%20vi%20tu%20portafolio%20y%20quiero%20cotizar%20un%20proyecto"
               target="_blank" class="profile-btn btn-cta-ig">Contactar</a>
-            <a href="javascript:void(0)" onclick="switchTab('cv-tab'); document.querySelector('.tab-bar').scrollIntoView({ behavior: 'smooth' });" class="profile-btn">
+            <a href="javascript:void(0)"
+              onclick="switchTab('cv-tab'); document.querySelector('.tab-bar').scrollIntoView({ behavior: 'smooth' });"
+              class="profile-btn">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -1617,9 +2006,9 @@
 
         <div class="profile-meta-container">
           <div class="profile-name-mobile">David Muñoz Torres</div>
-          
+
           <div class="profile-stats-row">
-            <div><span class="stat-number-ig">35</span> <span class="stat-label-ig">publicaciones</span></div>
+            <div><span class="stat-number-ig">39</span> <span class="stat-label-ig">publicaciones</span></div>
             <div><span class="stat-number-ig">320+</span> <span class="stat-label-ig">clientes</span></div>
             <div><span class="stat-number-ig">10</span> <span class="stat-label-ig">años exp.</span></div>
           </div>
@@ -1628,9 +2017,9 @@
         <div class="profile-bio-container">
           <span class="profile-name-desktop">David Muñoz Torres</span>
           <div class="profile-bio-text">Diseñador Gráfico · Consultor Digital · E-commerce Specialist
-Amazon Account Manager 🚀
-Experiencia internacional en España 🇪🇸 y Latinoamérica 🇨🇴
-Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.</div>
+            Amazon Account Manager 🚀
+            Experiencia internacional en España 🇪🇸 y Latinoamérica 🇨🇴
+            Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.</div>
           <a href="https://wa.me/573169642159" target="_blank" class="profile-bio-link">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" style="vertical-align: middle;">
@@ -1644,7 +2033,9 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         <div class="profile-actions-mobile">
           <a href="https://wa.me/573169642159?text=Hola%20David%2C%20vi%20tu%20portafolio%20y%20quiero%20cotizar%20un%20proyecto"
             target="_blank" class="profile-btn btn-cta-ig">Contactar</a>
-          <a href="javascript:void(0)" onclick="switchTab('cv-tab'); document.querySelector('.tab-bar').scrollIntoView({ behavior: 'smooth' });" class="profile-btn">
+          <a href="javascript:void(0)"
+            onclick="switchTab('cv-tab'); document.querySelector('.tab-bar').scrollIntoView({ behavior: 'smooth' });"
+            class="profile-btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -1672,7 +2063,7 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         <div class="highlight-item" onclick="openStories('familia')">
           <div class="highlight-circle">
             <div class="highlight-inner">
-              <img src="portafolio/historias/Faportada.png" alt="Familia" loading="lazy">
+              <img src="portafolio/historias/fa2.webp" alt="Familia" loading="lazy">
             </div>
           </div>
           <div class="highlight-label">Familia</div>
@@ -1719,13 +2110,14 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         </button>
         <button class="tab-button" id="reels-btn" onclick="switchTab('reels-tab')">
           <svg viewBox="0 0 24 24">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2" />
             <polygon points="10 8 16 12 10 16 10 8" />
           </svg>
           Reels
         </button>
         <button class="tab-button" id="web-btn" onclick="switchTab('web-tab')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
             <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
             <line x1="8" y1="21" x2="16" y2="21"></line>
             <line x1="12" y1="17" x2="12" y2="21"></line>
@@ -1734,11 +2126,11 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         </button>
         <button class="tab-button" id="cv-btn" onclick="switchTab('cv-tab')">
           <svg viewBox="0 0 24 24">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-            <polyline points="14 2 14 8 20 8"/>
-            <line x1="16" y1="13" x2="8" y2="13"/>
-            <line x1="16" y1="17" x2="8" y2="17"/>
-            <polyline points="10 9 9 9 8 9"/>
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+            <polyline points="10 9 9 9 8 9" />
           </svg>
           Sobre Mí
         </button>
@@ -1774,189 +2166,241 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
           <div style="display:flex; flex-direction:column; gap:24px;">
             <!-- Extracto Profesional -->
             <div class="cv-card">
-            <p style="font-size:0.95rem; line-height:1.6; color:var(--text-secondary);">
-              <strong style="color:var(--text-primary);">Profesional multidisciplinario</strong> con amplia experiencia en marketing digital, diseño gráfico, comercio electrónico y gestión de cuentas Amazon.<br><br>
-              Apasionado por la innovación y la optimización constante, integro herramientas de automatización, analítica y publicidad digital para maximizar el rendimiento de cada campaña. Mi objetivo es aportar soluciones efectivas que conecten las marcas con su público y generen crecimiento sostenible.
-            </p>
-          </div>
+              <p style="font-size:0.95rem; line-height:1.6; color:var(--text-secondary);">
+                <strong style="color:var(--text-primary);">Profesional multidisciplinario</strong> con amplia
+                experiencia en marketing digital, diseño gráfico, comercio electrónico y gestión de cuentas
+                Amazon.<br><br>
+                Apasionado por la innovación y la optimización constante, integro herramientas de automatización,
+                analítica y publicidad digital para maximizar el rendimiento de cada campaña. Mi objetivo es aportar
+                soluciones efectivas que conecten las marcas con su público y generen crecimiento sostenible.
+              </p>
+            </div>
 
-          <!-- Experiencia -->
-          <div class="cv-card">
-            <h3 class="cv-section-title">
-              <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-              Experiencia Laboral
-            </h3>
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-header">
-                  <div>
-                    <span class="timeline-role">Director de Marketing Digital</span><br>
-                    <span class="timeline-company">Grupo Oralteck — Madrid, España</span>
+            <!-- Experiencia -->
+            <div class="cv-card">
+              <h3 class="cv-section-title">
+                <svg viewBox="0 0 24 24">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                </svg>
+                Experiencia Laboral
+              </h3>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-header">
+                    <div>
+                      <span class="timeline-role">Director de Marketing Digital</span><br>
+                      <span class="timeline-company">Grupo Oralteck — Madrid, España</span>
+                    </div>
+                    <span class="timeline-date">May 2025 – Oct 2025</span>
                   </div>
-                  <span class="timeline-date">May 2025 – Oct 2025</span>
+                  <ul class="timeline-desc">
+                    <li>Dirección estratégica de campañas digitales en Meta Ads, Google Ads y Amazon Ads.</li>
+                    <li>Gestión integral de catálogos, precios y Buy Box en Amazon Seller Central (España, Francia e
+                      Italia).</li>
+                    <li>Coordinación de contenido audiovisual y diseño de materiales publicitarios.</li>
+                    <li>Análisis de rentabilidad, control de stock y seguimiento de métricas clave.</li>
+                  </ul>
                 </div>
-                <ul class="timeline-desc">
-                  <li>Dirección estratégica de campañas digitales en Meta Ads, Google Ads y Amazon Ads.</li>
-                  <li>Gestión integral de catálogos, precios y Buy Box en Amazon Seller Central (España, Francia e Italia).</li>
-                  <li>Coordinación de contenido audiovisual y diseño de materiales publicitarios.</li>
-                  <li>Análisis de rentabilidad, control de stock y seguimiento de métricas clave.</li>
-                </ul>
-              </div>
 
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-header">
-                  <div>
-                    <span class="timeline-role">Diseñador y Gestor de E-commerce</span><br>
-                    <span class="timeline-company">JBS Fitness — Madrid, España</span>
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-header">
+                    <div>
+                      <span class="timeline-role">Diseñador y Gestor de E-commerce</span><br>
+                      <span class="timeline-company">JBS Fitness — Madrid, España</span>
+                    </div>
+                    <span class="timeline-date">Feb 2024 – Mar 2025</span>
                   </div>
-                  <span class="timeline-date">Feb 2024 – Mar 2025</span>
+                  <ul class="timeline-desc">
+                    <li>Creación del sitio web y tienda online desde cero (estructura, diseño y funcionalidad).</li>
+                    <li>Implementación de estrategias de SEO, SEM y remarketing.</li>
+                    <li>Diseño de recursos gráficos y publicitarios para redes y web.</li>
+                    <li>Optimización de la conversión mediante análisis en Google Analytics.</li>
+                  </ul>
                 </div>
-                <ul class="timeline-desc">
-                  <li>Creación del sitio web y tienda online desde cero (estructura, diseño y funcionalidad).</li>
-                  <li>Implementación de estrategias de SEO, SEM y remarketing.</li>
-                  <li>Diseño de recursos gráficos y publicitarios para redes y web.</li>
-                  <li>Optimización de la conversión mediante análisis en Google Analytics.</li>
-                </ul>
-              </div>
 
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-header">
-                  <div>
-                    <span class="timeline-role">Creador de Contenido y Diseñador Gráfico</span><br>
-                    <span class="timeline-company">Rotulaciones El Duende — Murcia, España</span>
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-header">
+                    <div>
+                      <span class="timeline-role">Creador de Contenido y Diseñador Gráfico</span><br>
+                      <span class="timeline-company">Rotulaciones El Duende — Murcia, España</span>
+                    </div>
+                    <span class="timeline-date">Sep 2023 – Feb 2024</span>
                   </div>
-                  <span class="timeline-date">Sep 2023 – Feb 2024</span>
+                  <ul class="timeline-desc">
+                    <li>Diseño de piezas gráficas para impresión y rotulación comercial.</li>
+                    <li>Producción de contenido visual adaptado a campañas locales.</li>
+                    <li>Apoyo en la instalación de materiales y control de calidad de impresión.</li>
+                  </ul>
                 </div>
-                <ul class="timeline-desc">
-                  <li>Diseño de piezas gráficas para impresión y rotulación comercial.</li>
-                  <li>Producción de contenido visual adaptado a campañas locales.</li>
-                  <li>Apoyo en la instalación de materiales y control de calidad de impresión.</li>
-                </ul>
-              </div>
 
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-header">
-                  <div>
-                    <span class="timeline-role">Creador de Contenido y Diseñador Gráfico</span><br>
-                    <span class="timeline-company">Más Vinilos — Elxe, España</span>
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-header">
+                    <div>
+                      <span class="timeline-role">Creador de Contenido y Diseñador Gráfico</span><br>
+                      <span class="timeline-company">Más Vinilos — Elxe, España</span>
+                    </div>
+                    <span class="timeline-date">May 2023 – Ago 2023</span>
                   </div>
-                  <span class="timeline-date">May 2023 – Ago 2023</span>
+                  <ul class="timeline-desc">
+                    <li>Diseño de materiales publicitarios y rotulación personalizada.</li>
+                    <li>Creación de contenido visual para redes sociales y catálogos.</li>
+                    <li>Participación en la impresión e instalación de piezas gráficas.</li>
+                  </ul>
                 </div>
-                <ul class="timeline-desc">
-                  <li>Diseño de materiales publicitarios y rotulación personalizada.</li>
-                  <li>Creación de contenido visual para redes sociales y catálogos.</li>
-                  <li>Participación en la impresión e instalación de piezas gráficas.</li>
-                </ul>
-              </div>
 
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-header">
-                  <div>
-                    <span class="timeline-role">Diseñador Gráfico y Gestor de Campañas</span><br>
-                    <span class="timeline-company">Tu Marca Digital — Ibagué, Colombia</span>
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-header">
+                    <div>
+                      <span class="timeline-role">Diseñador Gráfico y Gestor de Campañas</span><br>
+                      <span class="timeline-company">Tu Marca Digital — Ibagué, Colombia</span>
+                    </div>
+                    <span class="timeline-date">Feb 2022 – Dic 2022</span>
                   </div>
-                  <span class="timeline-date">Feb 2022 – Dic 2022</span>
+                  <ul class="timeline-desc">
+                    <li>Creación de contenido visual para medios digitales e impresos.</li>
+                    <li>Diseño de identidad visual y material promocional.</li>
+                    <li>Ejecución de campañas publicitarias en redes sociales.</li>
+                  </ul>
                 </div>
-                <ul class="timeline-desc">
-                  <li>Creación de contenido visual para medios digitales e impresos.</li>
-                  <li>Diseño de identidad visual y material promocional.</li>
-                  <li>Ejecución de campañas publicitarias en redes sociales.</li>
-                </ul>
               </div>
             </div>
-          </div>
           </div>
 
           <!-- Columna Lateral: Habilidades e Info Académica -->
           <div style="display:flex; flex-direction:column; gap:24px;">
             <div class="cv-card">
               <h3 class="cv-section-title">
-                <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                </svg>
                 Herramientas
               </h3>
               <div class="skills-grid">
                 <div class="skill-bar-wrapper">
                   <div class="skill-info"><span>Illustrator</span><span>90%</span></div>
-                  <div class="skill-track"><div class="skill-fill" data-width="90%"></div></div>
+                  <div class="skill-track">
+                    <div class="skill-fill" data-width="90%"></div>
+                  </div>
                 </div>
                 <div class="skill-bar-wrapper">
                   <div class="skill-info"><span>Photoshop</span><span>85%</span></div>
-                  <div class="skill-track"><div class="skill-fill" data-width="85%"></div></div>
+                  <div class="skill-track">
+                    <div class="skill-fill" data-width="85%"></div>
+                  </div>
                 </div>
                 <div class="skill-bar-wrapper">
                   <div class="skill-info"><span>After Effects & Video</span><span>89%</span></div>
-                  <div class="skill-track"><div class="skill-fill" data-width="89%"></div></div>
+                  <div class="skill-track">
+                    <div class="skill-fill" data-width="89%"></div>
+                  </div>
                 </div>
                 <div class="skill-bar-wrapper">
                   <div class="skill-info"><span>Diseño Web (WordPress/Woo)</span><span>93%</span></div>
-                  <div class="skill-track"><div class="skill-fill" data-width="93%"></div></div>
+                  <div class="skill-track">
+                    <div class="skill-fill" data-width="93%"></div>
+                  </div>
                 </div>
                 <div class="skill-bar-wrapper">
                   <div class="skill-info"><span>Amazon Account Manager</span><span>87%</span></div>
-                  <div class="skill-track"><div class="skill-fill" data-width="87%"></div></div>
+                  <div class="skill-track">
+                    <div class="skill-fill" data-width="87%"></div>
+                  </div>
                 </div>
                 <div class="skill-bar-wrapper">
                   <div class="skill-info"><span>Plotter, Láser & Rotulación</span><span>95%</span></div>
-                  <div class="skill-track"><div class="skill-fill" data-width="95%"></div></div>
+                  <div class="skill-track">
+                    <div class="skill-fill" data-width="95%"></div>
+                  </div>
                 </div>
               </div>
-              
+
               <div style="margin-top: 32px;">
-                <h4 style="font-size:0.9rem; margin-bottom:16px; color:var(--text-primary); font-family:var(--font-head); font-weight:600;">Habilidades Principales</h4>
+                <h4
+                  style="font-size:0.9rem; margin-bottom:16px; color:var(--text-primary); font-family:var(--font-head); font-weight:600;">
+                  Habilidades Principales</h4>
                 <div style="display:flex; flex-wrap:wrap; gap:8px;">
-                  <span style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">Amazon Seller Central</span>
-                  <span style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">E-commerce (Shopify/Woo)</span>
-                  <span style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">Meta & Google Ads</span>
-                  <span style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">Diseño Gráfico Pro</span>
-                  <span style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">Google Analytics & SEO</span>
-                  <span style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">Optimización CRO</span>
-                  <span style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">Gestión de Proyectos</span>
+                  <span
+                    style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">Amazon
+                    Seller Central</span>
+                  <span
+                    style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">E-commerce
+                    (Shopify/Woo)</span>
+                  <span
+                    style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">Meta
+                    & Google Ads</span>
+                  <span
+                    style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">Diseño
+                    Gráfico Pro</span>
+                  <span
+                    style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">Google
+                    Analytics & SEO</span>
+                  <span
+                    style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">Optimización
+                    CRO</span>
+                  <span
+                    style="background:var(--bg-glass); border:1px solid var(--border); color:var(--accent); font-size:0.75rem; padding:4px 10px; border-radius:20px;">Gestión
+                    de Proyectos</span>
                 </div>
               </div>
             </div>
 
             <div class="cv-card">
               <h3 class="cv-section-title">
-                <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                <svg viewBox="0 0 24 24">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                  <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
+                </svg>
                 Educación
               </h3>
               <div class="timeline" style="border-left:none; padding-left:0; margin-left:0;">
                 <div style="margin-bottom:16px;">
-                  <div class="timeline-role" style="font-size:0.9rem;">Dpl. Universitario Diseño de Productos Gráficos</div>
-                  <div class="timeline-company" style="font-size:0.82rem; margin-bottom:4px;">Univ. Antonio de Nebrija (España) · 2025</div>
-                  <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.4;">350h (14 ECTS). Certificación Apto, centrado en diseño, creatividad y producción visual.</div>
+                  <div class="timeline-role" style="font-size:0.9rem;">Dpl. Universitario Diseño de Productos Gráficos
+                  </div>
+                  <div class="timeline-company" style="font-size:0.82rem; margin-bottom:4px;">Univ. Antonio de Nebrija
+                    (España) · 2025</div>
+                  <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.4;">350h (14 ECTS).
+                    Certificación Apto, centrado en diseño, creatividad y producción visual.</div>
                 </div>
-                
+
                 <div style="margin-bottom:16px;">
-                  <div class="timeline-role" style="font-size:0.9rem;">Dpl. Universitario DOQ-CLEA-UAIII Diseño Gráfico</div>
-                  <div class="timeline-company" style="font-size:0.82rem; margin-bottom:4px;">Univ. CLEA (México) / Agencia Univ. DQ · 2025</div>
-                  <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.4;">350h. Enfoque en diseño profesional y productos gráficos digitales.</div>
+                  <div class="timeline-role" style="font-size:0.9rem;">Dpl. Universitario DOQ-CLEA-UAIII Diseño Gráfico
+                  </div>
+                  <div class="timeline-company" style="font-size:0.82rem; margin-bottom:4px;">Univ. CLEA (México) /
+                    Agencia Univ. DQ · 2025</div>
+                  <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.4;">350h. Enfoque en diseño
+                    profesional y productos gráficos digitales.</div>
                 </div>
 
                 <div style="margin-bottom:16px;">
                   <div class="timeline-role" style="font-size:0.9rem;">Máster en Marketing Digital y Analítica Web</div>
-                  <div class="timeline-company" style="font-size:0.82rem; margin-bottom:4px;">Neetwork Business School (España) · 2019</div>
-                  <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.4;">950h. Módulos de SEO, Social Media, Analytics, WordPress y Ads.</div>
+                  <div class="timeline-company" style="font-size:0.82rem; margin-bottom:4px;">Neetwork Business School
+                    (España) · 2019</div>
+                  <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.4;">950h. Módulos de SEO,
+                    Social Media, Analytics, WordPress y Ads.</div>
                 </div>
 
                 <div style="margin-bottom:16px;">
-                  <div class="timeline-role" style="font-size:0.9rem;">Certificado Profesional en Posicionamiento SEO</div>
+                  <div class="timeline-role" style="font-size:0.9rem;">Certificado Profesional en Posicionamiento SEO
+                  </div>
                   <div class="timeline-company" style="font-size:0.82rem;">Acción Laboral (España) · 2024</div>
                 </div>
 
                 <div style="margin-bottom:16px;">
                   <div class="timeline-role" style="font-size:0.9rem;">Curso de Google AdWords</div>
-                  <div class="timeline-company" style="font-size:0.82rem;">Inst. Economía Internacional - Univ. d'Alacant · 2019</div>
+                  <div class="timeline-company" style="font-size:0.82rem;">Inst. Economía Internacional - Univ.
+                    d'Alacant · 2019</div>
                 </div>
 
                 <div>
                   <div class="timeline-role" style="font-size:0.9rem;">Curso de Desarrollo Web</div>
-                  <div class="timeline-company" style="font-size:0.82rem;">Inst. Economía Internacional - Univ. d'Alacant · 2015</div>
+                  <div class="timeline-company" style="font-size:0.82rem;">Inst. Economía Internacional - Univ.
+                    d'Alacant · 2015</div>
                 </div>
               </div>
             </div>
@@ -1974,7 +2418,7 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
       <div class="story-progress-bar-container" id="story-progress-container">
         <!-- Generado dinámicamente -->
       </div>
-      
+
       <!-- Cabecera de la historia -->
       <div class="story-header">
         <div class="story-user-info">
@@ -1983,18 +2427,24 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         </div>
         <div class="story-controls">
           <button id="story-play-btn" onclick="toggleStoryPlay()">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+            </svg>
           </button>
           <button class="story-close-btn" onclick="closeStories()">
-            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
           </button>
         </div>
       </div>
-      
+
       <!-- Imagen/Video de la historia -->
       <div class="story-media-container" onclick="handleStoryTap(event)">
         <img id="story-img" src="" alt="Story Media" style="display: none;" loading="lazy">
-        <video id="story-video" src="" playsinline style="display: none; width: 100%; height: 100%; object-fit: contain;"></video>
+        <video id="story-video" src="" playsinline
+          style="display: none; width: 100%; height: 100%; object-fit: contain;"></video>
         <div class="story-nav-prev"></div>
         <div class="story-nav-next"></div>
       </div>
@@ -2005,16 +2455,20 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
   <div class="instagram-modal" id="instagramModal">
     <button class="modal-close-btn" onclick="closeModal()">
       <svg viewBox="0 0 24 24">
-        <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+        <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
       </svg>
     </button>
-    
+
     <button class="post-nav-btn post-prev" onclick="prevPost(event)">
-      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
+      <svg viewBox="0 0 24 24">
+        <polyline points="15 18 9 12 15 6" />
+      </svg>
     </button>
     <button class="post-nav-btn post-next" onclick="nextPost(event)">
-      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" /></svg>
+      <svg viewBox="0 0 24 24">
+        <polyline points="9 18 15 12 9 6" />
+      </svg>
     </button>
 
     <div class="modal-box">
@@ -2022,10 +2476,14 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
       <div class="modal-media-panel" id="modalMediaPanel">
         <!-- Renders media (img/video) via JS -->
         <button class="carousel-arrow arrow-left" id="prevMediaBtn" onclick="prevMedia()">
-          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
+          <svg viewBox="0 0 24 24">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
         </button>
         <button class="carousel-arrow arrow-right" id="nextMediaBtn" onclick="nextMedia()">
-          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" /></svg>
+          <svg viewBox="0 0 24 24">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
         </button>
         <div class="carousel-dots" id="carouselDots"></div>
       </div>
@@ -2041,8 +2499,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
             <div class="sidebar-user-info">
               <span class="sidebar-username">
                 davidesign.co
-                <svg class="instagram-verified-badge" viewBox="0 0 24 24" width="14" height="14" style="margin-left:4px;">
-                  <path d="M12.003 2.001c.53 0 1.05.15 1.5.43l1.83 1.13c.27.17.59.25.92.23l2.13-.15c.53-.04 1.05.13 1.47.48.42.34.69.83.76 1.36l.29 2.13c.04.33.2.63.43.86l1.53 1.5c.38.37.61.88.63 1.41.02.53-.17 1.05-.53 1.44l-1.53 1.5c-.23.23-.39.53-.43.86l-.29 2.13c-.07.53-.34 1.02-.76 1.36-.42.35-.94.52-1.47.48l-2.13-.15c-.33-.02-.65.06-.92.23l-1.83 1.13c-.45.28-.97.43-1.5.43s-1.05-.15-1.5-.43l-1.83-1.13c-.27-.17-.59-.25-.92-.23l-2.13.15c-.53.04-1.05-.13-1.47-.48-.42-.34-.69-.83-.76-1.36l-.29-2.13c-.04-.33-.2-.63-.43-.86l-1.53-1.5c-.38-.37-.61-.88-.63-1.41-.02-.53.17-1.05.53-1.44l1.53-1.5c.23-.23.39-.53.43-.86l.29-2.13c.07-.53.34-1.02.76-1.36.42-.35.94-.52 1.47-.48l2.13.15c.33.02.65-.06.92-.23l1.83-1.13c.45-.28.97-.43 1.5-.43zm-2.002 14l6.002-6.002-1.414-1.414-4.588 4.588-2.176-2.176-1.414 1.414 3.59 3.59z" />
+                <svg class="instagram-verified-badge" viewBox="0 0 24 24" width="14" height="14"
+                  style="margin-left:4px;">
+                  <path
+                    d="M12.003 2.001c.53 0 1.05.15 1.5.43l1.83 1.13c.27.17.59.25.92.23l2.13-.15c.53-.04 1.05.13 1.47.48.42.34.69.83.76 1.36l.29 2.13c.04.33.2.63.43.86l1.53 1.5c.38.37.61.88.63 1.41.02.53-.17 1.05-.53 1.44l-1.53 1.5c-.23.23-.39.53-.43.86l-.29 2.13c-.07.53-.34 1.02-.76 1.36-.42.35-.94.52-1.47.48l-2.13-.15c-.33-.02-.65.06-.92.23l-1.83 1.13c-.45.28-.97.43-1.5.43s-1.05-.15-1.5-.43l-1.83-1.13c-.27-.17-.59-.25-.92-.23l-2.13.15c-.53.04-1.05-.13-1.47-.48-.42-.34-.69-.83-.76-1.36l-.29-2.13c-.04-.33-.2-.63-.43-.86l-1.53-1.5c-.38-.37-.61-.88-.63-1.41-.02-.53.17-1.05.53-1.44l1.53-1.5c.23-.23.39-.53.43-.86l.29-2.13c.07-.53.34-1.02.76-1.36.42-.35.94-.52 1.47-.48l2.13.15c.33.02.65-.06.92-.23l1.83-1.13c.45-.28.97-.43 1.5-.43zm-2.002 14l6.002-6.002-1.414-1.414-4.588 4.588-2.176-2.176-1.414 1.414 3.59 3.59z" />
                 </svg>
               </span>
               <span class="sidebar-category" id="modalCategory">Branding</span>
@@ -2074,14 +2534,22 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
           <div class="footer-actions-row">
             <div class="footer-actions-left">
               <button class="action-icon-btn" id="likeBtn" onclick="toggleLike()">
-                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
               </button>
               <button class="action-icon-btn" onclick="focusCommentInput()">
-                <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                </svg>
               </button>
             </div>
             <button class="action-icon-btn">
-              <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /></svg>
+              <svg viewBox="0 0 24 24">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+              </svg>
             </button>
           </div>
 
@@ -2092,8 +2560,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
 
           <!-- CTA WhatsApp Directo -->
           <div class="cta-whatsapp-bar">
-            <a href="#" target="_blank" class="cta-website-btn" id="modalWebsiteBtn" style="display: none; margin-bottom: 8px;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <a href="#" target="_blank" class="cta-website-btn" id="modalWebsiteBtn"
+              style="display: none; margin-bottom: 8px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                 <polyline points="15 3 21 3 21 9"></polyline>
                 <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -2102,7 +2572,8 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
             </a>
             <a href="#" target="_blank" class="cta-whatsapp-btn" id="modalWhatsAppBtn">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
               </svg>
               Preguntar por este servicio
             </a>
@@ -2113,7 +2584,7 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
   </div>
 
   <!-- -- FOOTER ---------------------------------------------------- -->
-  <footer>
+    <footer>
     <div class="container">
       <div class="footer-grid">
         <div>
@@ -2157,15 +2628,20 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
           <ul class="footer-links">
             <li><a href="planes-diseno.html">Diseño Gráfico Pro</a></li>
             <li><a href="planes-instagrowth.html">InstaGrowth Pro</a></li>
-            <li><a href="produccion.html">Fotografía & Video</a></li>
+            <li><a href="eventos.html">Cobertura de Eventos</a></li>
+            <li><a href="produccion.html">Producción con Operador</a></li>
+            <li><a href="etiquetas_escolares.html">Etiquetas Escolares</a></li>
+            <li><a href="bolas_navidad.html">Bolas de Navidad</a></li>
             <li><a href="automatizacion.html">Automatizaciones n8n</a></li>
             <li><a href="web-premium.html">Web & Tech Premium</a></li>
             <li><a href="portafolio.html">Portafolio</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer-heading">Empresa</div>
+          <div class="footer-heading">Empresa y Legal</div>
           <ul class="footer-links">
+            <li><a href="terminos-condiciones.html" style="color:var(--accent);">Términos y Condiciones</a></li>
+            <li><a href="terminos-condiciones.html#art8">Política de Privacidad</a></li>
             <li><a href="https://wa.me/573169642159" target="_blank">WhatsApp</a></li>
             <li><a href="https://www.instagram.com/davidesign.co?igsh=YXJwempvMGxid2gz" target="_blank">Instagram</a></li>
             <li><a href="https://www.facebook.com/share/1GdNCi94S1/" target="_blank">Facebook</a></li>
@@ -2181,8 +2657,8 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">© 2025 <span class="footer-accent">David Muñoz Diseñador</span>. Todos los derechos reservados.</p>
-        <p class="footer-copy">Diseño <span class="footer-accent">Tech-Premium</span> · Ibagué, Colombia</p>
+        <p class="footer-copy">© 2026 <span class="footer-accent">David Muñoz Diseñador</span>. Todos los derechos reservados.</p>
+        <p class="footer-copy"><a href="terminos-condiciones.html" style="color:var(--text-secondary);text-decoration:underline;">Términos & Privacidad</a> · Ibagué, Colombia</p>
       </div>
     </div>
   </footer>
@@ -2197,12 +2673,88 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
   </a>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20261105c"></script>
   <script src="js/logo-particles.js"></script>
 
   <script>
     // ── DATA DE PROYECTOS (PORTAFOLIO) ──────────────────────────
     const projectsData = [
+      {
+        id: 38,
+        title: "Edición & Revelado RAW - Fotografía",
+        category: "Fotografía & Retoque Digital",
+        description: "Demostración de postproducción y revelado digital profesional para fotografía de eventos sociales y retratos. Arrastra el divisor interactivo para comparar la toma plana original en bruto (RAW) frente al resultado final con gradación tonal, recuperación de altas luces y colorimetría cinematográfica.",
+        likes: 421,
+        commentsCount: 39,
+        tools: ["Lightroom Classic", "Photoshop", "Revelado RAW", "Colorimetría", "Retoque High-End"],
+        date: "HACE 1 DÍA",
+        media: [
+          "portafolio/Slider/resultado-slider.png",
+          "portafolio/Slider/base-slider.png"
+        ],
+        isCompareSlider: true,
+        compareBefore: "portafolio/Slider/base-slider.png",
+        compareAfter: "portafolio/Slider/resultado-slider.png",
+        clientComments: [
+          { user: "fotografia_pro", text: "¡Qué cambio tan impresionante! La recuperación de los tonos en las sombras y el tono de piel quedó perfecto." },
+          { user: "camila_eventos", text: "Me encanta poder comparar el antes y el después con el slider, se nota todo el detalle del trabajo." },
+          { user: "wedding_planner_col", text: "Qué calidad de revelado, los tonos cálidos quedaron impecables." }
+        ]
+      },
+      {
+        id: 37,
+        title: "Instituto Técnico Minuto de Dios (TEC MD)",
+        category: "Desarrollo Web Premium",
+        description: "Diseño UX/UI y maquetación responsiva en código nativo de la landing page institucional para el Politécnico Minuto de Dios (TEC MD). Optimizada para el lanzamiento y captación de inscritos al Diplomado en Inteligencia Artificial Aplicada a la Educación, con arquitectura semántica SEO, banner interactivo en 5 capas, formularios con validación e integración de embudos de conversión.",
+        likes: 365,
+        commentsCount: 28,
+        tools: ["HTML5 & CSS3", "JavaScript", "Responsive Design", "SEO Semántico", "UI/UX"],
+        date: "HACE 1 DÍA",
+        media: [
+          "portafolio/web tecmd minuto de dios.webp"
+        ],
+        isWebsite: true,
+        websiteUrl: "portafolio/minuto de dios/tecmd/landing.html",
+        clientComments: [
+          { user: "tecmd_oficial", text: "Excelente propuesta de diseño y desarrollo web. La estructura de conversión y la velocidad de carga superaron nuestras expectativas." },
+          { user: "edtech_latam", text: "Impresionante el nivel de detalle en el hero y la adaptabilidad responsive para educación virtual." }
+        ]
+      },
+      {
+        id: 35,
+        title: "Keyler Rodríguez - Scouting Deportivo",
+        category: "Producción Audiovisual",
+        description: "Reel de scouting individual y compilación de jugadas de alto impacto para el futbolista Keyler Andrés Rodríguez del Club Talento Real. Edición de alto dinamismo con seguimiento de jugadas, velocidad, control de balón y definición ante el arco, optimizado para presentación ante reclutadores y visorías.",
+        likes: 388,
+        commentsCount: 32,
+        tools: ["Premiere Pro", "Tracking de Jugador", "Film Deportivo", "Cámara Lenta"],
+        date: "HACE 2 DÍAS",
+        media: [
+          "portafolio/Talento real/Keyler_andres_rodriguez_1.mp4"
+        ],
+        clientComments: [
+          { user: "keyler_rodriguez", text: "¡Hermano qué video tan brutal! Captaste mis mejores jugadas en los partidos y entrenamientos, 10 de 10." },
+          { user: "talentoreal_fc", text: "Keyler es un crack y este video lo muestra en su máxima expresión técnica." },
+          { user: "scout_futbol_col", text: "Excelente formato de presentación para visorías y agencias deportivas." }
+        ]
+      },
+      {
+        id: 36,
+        title: "Talento Real - Club de Fútbol",
+        category: "Producción Audiovisual",
+        description: "Dirección, rodaje y edición audiovisual para el Club de Fútbol Talento Real. Video de presentación deportiva orientado a exhibir las técnicas de juego, la disciplina táctica y el alto rendimiento de sus categorías competitivas en el terreno de juego.",
+        likes: 345,
+        commentsCount: 27,
+        tools: ["Film Deportivo", "Premiere Pro", "Color Grading", "Edición Dinámica"],
+        date: "HACE 3 DÍAS",
+        media: [
+          "portafolio/Talento real/video_presentacion30fps_1.mp4"
+        ],
+        clientComments: [
+          { user: "talentoreal_fc", text: "¡Gran trabajo David! El video transmite toda la pasión y el nivel de juego que formamos en el club." },
+          { user: "futbol_base_ibg", text: "Excelente ritmo de edición y tomas en cancha. Se nota la calidad de los muchachos." }
+        ]
+      },
       {
         id: 0,
         title: "Dra. Andrea Cardona",
@@ -2210,10 +2762,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Diseño, maquetación y desarrollo completo del sitio web premium para la Dra. Andrea Cardona. Un sitio enfocado en medicina estética que incluye secciones detalladas de servicios, galería de antes y después interactiva, y agendamiento directo por WhatsApp. Totalmente optimizado para SEO local en Ibagué y velocidad de carga ultra rápida.",
         likes: 312,
         commentsCount: 28,
-        tools: ["WordPress","CSS Custom","SEO Local","Responsive Design"],
+        tools: ["WordPress", "CSS Custom", "SEO Local", "Responsive Design"],
         date: "HACE 1 SEMANA",
         media: [
-                  "portafolio/web andrea cardona.webp"
+          "portafolio/web andrea cardona.webp"
         ],
         isWebsite: true,
         websiteUrl: "https://draandreacardona.com/",
@@ -2229,10 +2781,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Producción y edición de reel publicitario en formato vertical explicando los beneficios y el procedimiento médico de la cavitación corporal para reducción de medidas. Incluye locución (voz en off) profesional y subtitulado dinámico.",
         likes: 234,
         commentsCount: 18,
-        tools: ["Premiere Pro","Edición Dinámica","Voz en Off","Marketing Médico"],
+        tools: ["Premiere Pro", "Edición Dinámica", "Voz en Off", "Marketing Médico"],
         date: "HACE 1 SEMANA",
         media: [
-                  "portafolio/Dra Andrea Cardona/reel  voz en off cavitacion.mp4"
+          "portafolio/Dra Andrea Cardona/reel  voz en off cavitacion.mp4"
         ],
         clientComments: [
           { user: "dra.andreacardona", text: "Excelente explicación del tratamiento, los pacientes entendieron súper fácil de qué se trata." },
@@ -2246,13 +2798,13 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Tienda online y catálogo digital premium para MotoSuper Alicante en España. Desarrollado con una interfaz enfocada a la experiencia de usuario (UX) móvil, integración de pasarelas de pago seguro, y optimización de velocidad de carga y bases de datos para albergar repuestos y motocicletas de alta gama.",
         likes: 284,
         commentsCount: 34,
-        tools: ["WooCommerce","WordPress","E-commerce SEO","Payment Gateways"],
+        tools: ["WooCommerce", "WordPress", "E-commerce SEO", "Payment Gateways"],
         date: "HACE 2 SEMANAS",
         media: [
-                  "portafolio/web moto super.webp"
+          "portafolio/web moto super.webp"
         ],
         isWebsite: true,
-        websiteUrl: "https://motosuperalicante.es/",
+        websiteUrl: "portafolio/Motosuper/index.html",
         clientComments: [
           { user: "motosuperalicante", text: "Nuestra tienda online en Alicante funciona al 100%. Los clientes pueden ver el stock de motos y repuestos y pagar de forma segura. Excelente maquetación." },
           { user: "ecommerce_pro", text: "Carga rapidísimo para tener un catálogo tan grande. Gran trabajo en la optimización." }
@@ -2265,14 +2817,14 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Sesión de fotografía de producto en estudio para el lanzamiento de Cocina Oculta, diseño de empaques con códigos QR interactivos, y plantillas dinámicas de Instagram para la promoción de menús de hamburguesas. Un branding rústico, moderno y muy llamativo.",
         likes: 198,
         commentsCount: 15,
-        tools: ["Studio Lighting","Branding","Packaging QR","Photoshop"],
+        tools: ["Studio Lighting", "Branding", "Packaging QR", "Photoshop"],
         date: "HACE 1 MES",
         media: [
-                  "portafolio/Cocina oculta/template hamburguesaB.webp",
-                  "portafolio/Cocina oculta/template hamburguesa916b.webp",
-                  "portafolio/Cocina oculta/canasta-ranche-d.webp",
-                  "portafolio/Cocina oculta/IMG_20220712_111953.webp",
-                  "portafolio/Cocina oculta/IMG_20220712_112052.webp"
+          "portafolio/Cocina oculta/template hamburguesaB.webp",
+          "portafolio/Cocina oculta/template hamburguesa916b.webp",
+          "portafolio/Cocina oculta/canasta-ranche-d.webp",
+          "portafolio/Cocina oculta/IMG_20220712_111953.webp",
+          "portafolio/Cocina oculta/IMG_20220712_112052.webp"
         ],
         clientComments: [
           { user: "cocinaocultabg", text: "La sesión en estudio fue súper ágil y los templates de historias nos ahorran horas de diseño." },
@@ -2286,10 +2838,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Video demostrativo y promocional de la prensa inclinada para piernas de la marca de maquinaria JBS en Madrid, España. Enfocado en detallar el diseño ergonómico, la resistencia de materiales y la biomecánica del ejercicio para su catálogo digital de ventas y redes sociales.",
         likes: 176,
         commentsCount: 15,
-        tools: ["Video de Producto","Premiere Pro","Fitness Marketing","Madrid España"],
+        tools: ["Video de Producto", "Premiere Pro", "Fitness Marketing", "Madrid España"],
         date: "HACE 6 MESES",
         media: [
-                  "portafolio/JBS prensa inclinada.mp4"
+          "portafolio/JBS prensa inclinada.mp4"
         ],
         clientComments: [
           { user: "jbs_fitness", text: "Perfecta demostración de la estabilidad de la prensa. Los clientes captan de inmediato la calidad del equipo." },
@@ -2303,11 +2855,11 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Diseño y desarrollo de piezas publicitarias estéticas para la campaña de Black Friday de la Dra. Andrea Cardona en Ibagué. Incluye folletos promocionales digitales para redes sociales enfocados en tratamientos estéticos avanzados con descuentos de temporada.",
         likes: 184,
         commentsCount: 24,
-        tools: ["Photoshop","Branding","Redes Sociales","Marketing Estético"],
+        tools: ["Photoshop", "Branding", "Redes Sociales", "Marketing Estético"],
         date: "HACE 2 SEMANAS",
         media: [
-                  "portafolio/Dra Andrea Cardona/black-friday-andrea.webp",
-                  "portafolio/Dra Andrea Cardona/black-friday-andrea-1.webp"
+          "portafolio/Dra Andrea Cardona/black-friday-andrea.webp",
+          "portafolio/Dra Andrea Cardona/black-friday-andrea-1.webp"
         ],
         clientComments: [
           { user: "dra.andreacardona", text: "La estética de los posts de Black Friday captó perfectamente el tono premium de la clínica." },
@@ -2321,10 +2873,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Video promocional dinámico de alta conversión creado con herramientas de Inteligencia Artificial para el lanzamiento de un libro digital de recetas saludables para perros. Incluye generación de imágenes ultra realistas de comida canina y edición ágil en formato vertical.",
         likes: 342,
         commentsCount: 28,
-        tools: ["Generative AI","Midjourney","Premiere Pro","Video Marketing"],
+        tools: ["Generative AI", "Midjourney", "Premiere Pro", "Video Marketing"],
         date: "HACE 1 SEMANA",
         media: [
-                  "portafolio/recetas para perros/Reel 2.mp4"
+          "portafolio/recetas para perros/Reel 2.mp4"
         ],
         clientComments: [
           { user: "dog_lover_academy", text: "Excelente calidad de imagen! La generación de las recetas con IA quedó increíble." },
@@ -2338,11 +2890,11 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Producción audiovisual automotriz comercial premium para la marca Inver Miller. Rodaje y postproducción de videos promocionales dinámicos de vehículos de alto desempeño (Porsche 911 y McLaren) enfocados a redes sociales, combinando música de alto ritmo y edición acelerada de planos de detalle.",
         likes: 423,
         commentsCount: 62,
-        tools: ["Premiere Pro","Gimbal 3-Ejes","Audiovisual","Automotive Video"],
+        tools: ["Premiere Pro", "Gimbal 3-Ejes", "Audiovisual", "Automotive Video"],
         date: "HACE 3 MESES",
         media: [
-                  "portafolio/Inver miller/porsche.mp4",
-                  "portafolio/Inver miller/mclaren.mp4"
+          "portafolio/Inver miller/porsche.mp4",
+          "portafolio/Inver miller/mclaren.mp4"
         ],
         clientComments: [
           { user: "invermiller_auto", text: "El alcance del reel en Instagram fue espectacular. La velocidad de edición y planos de detalle del McLaren quedaron brutales." },
@@ -2357,17 +2909,17 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Edición digital y fotografía gastronómica profesional de cortes de carne premium en asador para El Gaucho. Diseño de menús impresos rústicos de alta calidad, material publicitario digital para transmisiones de partidos de fútbol y cartelería impresa física para el local comercial.",
         likes: 215,
         commentsCount: 22,
-        tools: ["Food Photography","Indesign","Banner Design","Outdoor Poster"],
+        tools: ["Food Photography", "Indesign", "Banner Design", "Outdoor Poster"],
         date: "HACE 2 MESES",
         media: [
-                  "portafolio/el gaucho/asado.webp",
-                  "portafolio/el gaucho/choripan.webp",
-                  "portafolio/el gaucho/choripapa.webp",
-                  "portafolio/el gaucho/churrasco.webp",
-                  "portafolio/el gaucho/maradoniana.webp",
-                  "portafolio/el gaucho/partido final.webp",
-                  "portafolio/el gaucho/cara impresa.webp",
-                  "portafolio/el gaucho/cara impresa2.webp"
+          "portafolio/el gaucho/asado.webp",
+          "portafolio/el gaucho/choripan.webp",
+          "portafolio/el gaucho/choripapa.webp",
+          "portafolio/el gaucho/churrasco.webp",
+          "portafolio/el gaucho/maradoniana.webp",
+          "portafolio/el gaucho/partido final.webp",
+          "portafolio/el gaucho/cara impresa.webp",
+          "portafolio/el gaucho/cara impresa2.webp"
         ],
         clientComments: [
           { user: "elgaucho_asados", text: "El menú impreso quedó perfecto con el estilo rústico de nuestro restaurante, muy buena calidad." },
@@ -2381,10 +2933,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Edición de video dinámico explicativo sobre la aplicación de Radiesse, un bioestimulador de colágeno premium. Edición ágil de primeros planos e inyección de gráficos explicativos para educar a los pacientes en redes sociales.",
         likes: 289,
         commentsCount: 24,
-        tools: ["Premiere Pro","Color Grading","Social Media Video","Medicina Estética"],
+        tools: ["Premiere Pro", "Color Grading", "Social Media Video", "Medicina Estética"],
         date: "HACE 2 SEMANAS",
         media: [
-                  "portafolio/Dra Andrea Cardona/reel  voz en off radiesse.mp4"
+          "portafolio/Dra Andrea Cardona/reel  voz en off radiesse.mp4"
         ],
         clientComments: [
           { user: "dra.andreacardona", text: "El Radiesse es uno de nuestros tratamientos estrella y este reel captó su esencia premium." },
@@ -2398,11 +2950,11 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Vuelo de mapeo técnico y fotogrametría aérea con dron DJI para modelado 3D de terreno y acopios de materiales industriales. Procesamiento de ortofotomapas georreferenciados de alta resolución espacial para análisis topográfico, cálculo de volúmenes y diseño vial técnico.",
         likes: 210,
         commentsCount: 19,
-        tools: ["DJI Phantom","Pix4D","Topografía","Ortofotomapa 3D"],
+        tools: ["DJI Phantom", "Pix4D", "Topografía", "Ortofotomapa 3D"],
         date: "HACE 4 MESES",
         media: [
-                  "portafolio/Fotogrametria/vuelo-acopio_transparent_mosaic_group1.webp",
-		  "portafolio/Fotogrametria/vuelo-panelela_transparent_mosaic_group1.webp"
+          "portafolio/Fotogrametria/vuelo-acopio_transparent_mosaic_group1.webp",
+          "portafolio/Fotogrametria/vuelo-panelela_transparent_mosaic_group1.webp"
         ],
         clientComments: [
           { user: "ing_civil_col", text: "Excelente resolución y precisión en el cálculo de volúmenes de material de acopio." },
@@ -2416,11 +2968,11 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Piezas gráficas publicitarias en formato vertical (Stories 9:16) para la promoción de tratamientos estéticos de moldeado corporal y criolipólisis de la Dra. Andrea Cardona. Diseñado bajo la línea de marca sobria y elegante del consultorio médico para capturar clientes potenciales.",
         likes: 212,
         commentsCount: 15,
-        tools: ["Instagram Stories","Photoshop","Diseño de Ofertas","Branding"],
+        tools: ["Instagram Stories", "Photoshop", "Diseño de Ofertas", "Branding"],
         date: "HACE 1 MES",
         media: [
-                  "portafolio/Dra Andrea Cardona/promo-moldeado-corporal-historia.webp",
-                  "portafolio/Dra Andrea Cardona/promo-crio-historia.webp"
+          "portafolio/Dra Andrea Cardona/promo-moldeado-corporal-historia.webp",
+          "portafolio/Dra Andrea Cardona/promo-crio-historia.webp"
         ],
         clientComments: [
           { user: "dra.andreacardona", text: "Las historias promocionales aumentaron significativamente las preguntas directas al WhatsApp de citas." },
@@ -2434,10 +2986,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Video promocional e institucional de presentación de marca para JBS, fabricante y distribuidor de máquinas de gimnasio profesionales en Madrid, España. Un recorrido dinámico que muestra la variedad de maquinaria de fuerza y cardio de alta gama en un ambiente deportivo de alto rendimiento.",
         likes: 230,
         commentsCount: 22,
-        tools: ["Video Corporativo","Branding","Edición Dinámica","Madrid España"],
+        tools: ["Video Corporativo", "Branding", "Edición Dinámica", "Madrid España"],
         date: "HACE 6 MESES",
         media: [
-                  "portafolio/JBS general.mp4"
+          "portafolio/JBS general.mp4"
         ],
         clientComments: [
           { user: "jbs_fitness", text: "Este video refleja exactamente la potencia y calidad que queremos transmitir como marca de fitness profesional." },
@@ -2451,14 +3003,14 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Diseño conceptual de fachada comercial, rediseño de logotipo y rotulación para el establecimiento Tin Tin. Modelado y fotomontaje del antes y después para aprobación municipal del aviso exterior, garantizando cumplimiento de normativas de espacio público y visibilidad comercial óptima.",
         likes: 189,
         commentsCount: 14,
-        tools: ["Fotomontaje","Logotipo","Fachada 3D","Rotulación Exterior"],
+        tools: ["Fotomontaje", "Logotipo", "Fachada 3D", "Rotulación Exterior"],
         date: "HACE 3 MESES",
         media: [
-                  "portafolio/fachada tintin/despues1.webp",
-                  "portafolio/fachada tintin/antes.webp",
-                  "portafolio/fachada tintin/despues2.webp",
-                  "portafolio/fachada tintin/despues3.webp",
-                  "portafolio/fachada tintin/despues4.webp"
+          "portafolio/fachada tintin/despues1.webp",
+          "portafolio/fachada tintin/antes.webp",
+          "portafolio/fachada tintin/despues2.webp",
+          "portafolio/fachada tintin/despues3.webp",
+          "portafolio/fachada tintin/despues4.webp"
         ],
         clientComments: [
           { user: "tintin_oficial", text: "Ver el fotomontaje antes de mandar a fabricar el letrero nos ahorró cometer un error costoso de escala." },
@@ -2472,10 +3024,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Segundo Reel de la campaña publicitaria del libro de recetas para perros. Enfocado en educar sobre los beneficios de la comida natural versus el alimento procesado, utilizando avatares e ilustraciones generadas por IA y subtítulos atractivos.",
         likes: 295,
         commentsCount: 19,
-        tools: ["Generative AI","CapCut","Midjourney","Social Media Ads"],
+        tools: ["Generative AI", "CapCut", "Midjourney", "Social Media Ads"],
         date: "HACE 2 SEMANAS",
         media: [
-                  "portafolio/recetas para perros/reel 3.mp4"
+          "portafolio/recetas para perros/reel 3.mp4"
         ],
         clientComments: [
           { user: "pet_wellness", text: "Muy informativa la comparación. La edición capta la atención de inmediato." },
@@ -2489,10 +3041,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Diseño de hablador impreso para la recepción del consultorio físico de la Dra. Andrea Cardona con código QR personalizado enlazado a la ficha de Google Maps. Facilita que los pacientes califiquen su experiencia en el consultorio, aumentando la reputación local en búsquedas orgánicas.",
         likes: 156,
         commentsCount: 9,
-        tools: ["Print Design","QR Integration","Folleto Acrílico","Google Maps SEO"],
+        tools: ["Print Design", "QR Integration", "Folleto Acrílico", "Google Maps SEO"],
         date: "HACE 3 MESES",
         media: [
-                  "portafolio/Dra Andrea Cardona/hablador-google-maps.webp"
+          "portafolio/Dra Andrea Cardona/hablador-google-maps.webp"
         ],
         clientComments: [
           { user: "dra.andreacardona", text: "El acrílico en la recepción se ve lindísimo y ya hemos subido bastante la cantidad de calificaciones en Google Maps." },
@@ -2506,18 +3058,18 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Sesión de fotografía social profesional en exteriores e iglesia para cobertura de evento de renovación de votos matrimoniales. Fotografía artística con control de luz natural en exteriores (Sunset lighting) y luz de apoyo en interiores de iglesia, retratando emociones y momentos espontáneos.",
         likes: 295,
         commentsCount: 48,
-        tools: ["Portrait Photo","Sunset Lighting","Reflector","Lightroom CC"],
+        tools: ["Portrait Photo", "Sunset Lighting", "Reflector", "Lightroom CC"],
         date: "HACE 4 MESES",
         media: [
-                  "portafolio/Fotos Matrimonio/renovacion_votos_ (1).webp",
-                  "portafolio/Fotos Matrimonio/renovacion_votos_ (2).webp",
-                  "portafolio/Fotos Matrimonio/renovacion_votos_ (5).webp",
-                  "portafolio/Fotos Matrimonio/renovacion_votos_ (7).webp",
-                  "portafolio/Fotos Matrimonio/renovacion_votos_ (9).webp",
-                  "portafolio/Fotos Matrimonio/renovacion_votos_ (10).webp",
-                  "portafolio/Fotos Matrimonio/renovacion_votos_ (12).webp",
-                  "portafolio/Fotos Matrimonio/renovacion_votos_ (14).webp",
-                  "portafolio/Fotos Matrimonio/renovacion_votos_ (15).webp"
+          "portafolio/Fotos Matrimonio/renovacion_votos_ (1).webp",
+          "portafolio/Fotos Matrimonio/renovacion_votos_ (2).webp",
+          "portafolio/Fotos Matrimonio/renovacion_votos_ (5).webp",
+          "portafolio/Fotos Matrimonio/renovacion_votos_ (7).webp",
+          "portafolio/Fotos Matrimonio/renovacion_votos_ (9).webp",
+          "portafolio/Fotos Matrimonio/renovacion_votos_ (10).webp",
+          "portafolio/Fotos Matrimonio/renovacion_votos_ (12).webp",
+          "portafolio/Fotos Matrimonio/renovacion_votos_ (14).webp",
+          "portafolio/Fotos Matrimonio/renovacion_votos_ (15).webp"
         ],
         clientComments: [
           { user: "andrea_y_luis", text: "Las fotos capturaron toda la emoción de nuestra renovación de votos de una forma muy natural y mágica." },
@@ -2531,10 +3083,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Dirección, grabación y producción de la campaña audiovisual de verano 2023 para MotoSuper Alicante en España. Campaña publicitaria centrada en la prevención de averías y mantenimiento de motocicletas para viajes de larga distancia. Se implementó una estrategia en redes sociales que incrementó el flujo de visitantes físicos al taller en un 200% durante la temporada.",
         likes: 342,
         commentsCount: 29,
-        tools: ["Premiere Pro","After Effects","Dirección de Video","Marketing Digital"],
+        tools: ["Premiere Pro", "After Effects", "Dirección de Video", "Marketing Digital"],
         date: "HACE 2 MESES",
         media: [
-                  "portafolio/MotoSuper averias español.mp4"
+          "portafolio/MotoSuper averias español.mp4"
         ],
         clientComments: [
           { user: "motosuperalicante", text: "La campaña de verano fue un éxito brutal. ¡Tuvimos que contratar personal extra para el taller de Alicante!" },
@@ -2548,10 +3100,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Diseño publicitario en alta resolución (folleto/banner premium) enfocado en la promoción de tratamientos avanzados de criolipólisis para reducción de grasa localizada de la Dra. Andrea Cardona. Muestra de forma limpia e informativa los beneficios médicos del procedimiento.",
         likes: 168,
         commentsCount: 12,
-        tools: ["Flyer Design","Photoshop","Diseño Editorial","Infografía"],
+        tools: ["Flyer Design", "Photoshop", "Diseño Editorial", "Infografía"],
         date: "HACE 3 MESES",
         media: [
-                  "portafolio/Dra Andrea Cardona/8mb.webp"
+          "portafolio/Dra Andrea Cardona/8mb.webp"
         ],
         clientComments: [
           { user: "dra.andreacardona", text: "Un folleto informativo de gran resolución, ideal para enviar a los pacientes interesados." },
@@ -2565,14 +3117,14 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Rediseño completo de logotipo y manual de identidad corporativa para MotoSuper. Definición de la paleta de colores corporativa para talleres y oficinas, guías de uso tipográfico en diferentes medios y adaptaciones cromáticas en un tono y negativos para uniformes e impresos.",
         likes: 167,
         commentsCount: 11,
-        tools: ["Illustrator CC","Manual Identidad","Logo Redesign","Vector"],
+        tools: ["Illustrator CC", "Manual Identidad", "Logo Redesign", "Vector"],
         date: "HACE 3 MESES",
         media: [
-                  "portafolio/Logo moto super/resultado.png",
-                  "portafolio/Logo moto super/maquetacion.png",
-                  "portafolio/Logo moto super/logo-inicial.png",
-                  "portafolio/Logo moto super/un-tono.png",
-                  "portafolio/Logo moto super/usos.png"
+          "portafolio/Logo moto super/resultado.png",
+          "portafolio/Logo moto super/maquetacion.png",
+          "portafolio/Logo moto super/logo-inicial.png",
+          "portafolio/Logo moto super/un-tono.png",
+          "portafolio/Logo moto super/usos.png"
         ],
         clientComments: [
           { user: "motosuperalicante", text: "El logo en una tinta nos facilitó un montón el bordado de los overoles de los mecánicos en Alicante." },
@@ -2586,10 +3138,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Video conmemorativo y resumen cinematográfico de la fiesta de quince años de Claudia, celebrada en Murcia, España. Captura los momentos más emotivos y alegres del evento con un ritmo dinámico y edición detallada que preserva los recuerdos de manera inolvidable.",
         likes: 287,
         commentsCount: 42,
-        tools: ["Videografía Social","Premiere Pro","Color Grading","Murcia España"],
+        tools: ["Videografía Social", "Premiere Pro", "Color Grading", "Murcia España"],
         date: "HACE 1 AÑO",
         media: [
-                  "portafolio/Claudia 15.mp4"
+          "portafolio/Claudia 15.mp4"
         ],
         clientComments: [
           { user: "claudia_m", text: "¡Me encantó el video! Lo veo una y otra vez y me vuelvo a emocionar. Gracias David por capturar cada detalle." },
@@ -2603,10 +3155,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Diseño de invitación digital e impresa premium para eventos especiales e inauguración del consultorio de la Dra. Andrea Cardona. Colores sobrios y tipografía elegante pensados para médicos y cirujanos colaboradores del área estética.",
         likes: 145,
         commentsCount: 7,
-        tools: ["Graphic Design","Typography","Branding","Print Design"],
+        tools: ["Graphic Design", "Typography", "Branding", "Print Design"],
         date: "HACE 4 MESES",
         media: [
-                  "portafolio/Dra Andrea Cardona/invitacion.webp"
+          "portafolio/Dra Andrea Cardona/invitacion.webp"
         ],
         clientComments: [
           { user: "dra.andreacardona", text: "Muchos colegas me felicitaron por el diseño de la tarjeta de invitación del evento." },
@@ -2620,10 +3172,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Video final de la campaña promocional del Ebook de recetas saludables para mascotas. Diseñado para redes sociales con Inteligencia Artificial, combinando un ritmo dinámico y tomas de alta calidad que destacan los ingredientes naturales y el bienestar de los perros.",
         likes: 318,
         commentsCount: 22,
-        tools: ["Generative AI","After Effects","Food Styling AI","Ebook Promo"],
+        tools: ["Generative AI", "After Effects", "Food Styling AI", "Ebook Promo"],
         date: "HACE 3 SEMANAS",
         media: [
-                  "portafolio/recetas para perros/Reel 4.mp4"
+          "portafolio/recetas para perros/Reel 4.mp4"
         ],
         clientComments: [
           { user: "chef_canino", text: "El montaje del video es excelente. El libro de recetas está súper completo!" },
@@ -2637,16 +3189,16 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Cobertura de acción en vivo y diseño de afiches promocionales oficiales para el evento Hooligans Fight. Fotografía de alta velocidad para capturar golpes y movimientos en el ring bajo luces complejas de escenario. Creación de piezas dinámicas en photoshop para feeds de competidores y el póster publicitario del evento principal.",
         likes: 334,
         commentsCount: 51,
-        tools: ["Action Photo","High-speed shutter","Póster Design","Photoshop CC"],
+        tools: ["Action Photo", "High-speed shutter", "Póster Design", "Photoshop CC"],
         date: "HACE 4 MESES",
         media: [
-                  "portafolio/Hooligans fitgh/Pelea-1-HF-feed.png",
-                  "portafolio/Hooligans fitgh/Pelea-1-HF.png",
-                  "portafolio/Hooligans fitgh/Pelea-2-HF-feed.png",
-                  "portafolio/Hooligans fitgh/Pelea-2-HF.png",
-                  "portafolio/Hooligans fitgh/Pelea-3-HF-feed.png",
-                  "portafolio/Hooligans fitgh/Pelea-3-HF.png",
-                  "portafolio/Hooligans fitgh/cartel-30-nov-HF.png"
+          "portafolio/Hooligans fitgh/Pelea-1-HF-feed.png",
+          "portafolio/Hooligans fitgh/Pelea-1-HF.png",
+          "portafolio/Hooligans fitgh/Pelea-2-HF-feed.png",
+          "portafolio/Hooligans fitgh/Pelea-2-HF.png",
+          "portafolio/Hooligans fitgh/Pelea-3-HF-feed.png",
+          "portafolio/Hooligans fitgh/Pelea-3-HF.png",
+          "portafolio/Hooligans fitgh/cartel-30-nov-HF.png"
         ],
         clientComments: [
           { user: "hooligansfight", text: "Los pósters oficiales y las fotos de acción en el ring le dieron un nivel profesional al evento." },
@@ -2661,11 +3213,11 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Edición y producción del video conmemorativo y la tarjeta digital de felicitaciones de cumpleaños para la Dra. Andrea Cardona. Formato dinámico que celebra la trayectoria de la doctora con un ritmo jovial y edición estéticamente cuidada para sus redes sociales.",
         likes: 298,
         commentsCount: 38,
-        tools: ["Video Editing","Premiere Pro","Color Grading","Social Card Design"],
+        tools: ["Video Editing", "Premiere Pro", "Color Grading", "Social Card Design"],
         date: "HACE 2 MESES",
         media: [
-                  "portafolio/Dra Andrea Cardona/cumple andrea cardona.mp4",
-                  "portafolio/Dra Andrea Cardona/Felicidades.webp"
+          "portafolio/Dra Andrea Cardona/cumple andrea cardona.mp4",
+          "portafolio/Dra Andrea Cardona/Felicidades.webp"
         ],
         clientComments: [
           { user: "dra.andreacardona", text: "¡Me encantó el video de cumpleaños! Un recuerdo muy lindo de parte de todo mi equipo de trabajo." },
@@ -2679,10 +3231,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Desarrollo de un sistema automatizado para atención al cliente y gestión de citas de la Dra. Andrea Cardona. Conecta a los pacientes que escriben por WhatsApp con un asistente virtual inteligente que responde dudas frecuentes, agenda citas automáticamente sincronizándolas con Google Calendar, procesa pagos/cobros recurrentes y envía recordatorios automáticos de citas por WhatsApp, logrando reducir el absentismo en un 40%.",
         likes: 245,
         commentsCount: 18,
-        tools: ["n8n","WhatsApp API","Google Calendar","Reminders API"],
+        tools: ["n8n", "WhatsApp API", "Google Calendar", "Reminders API"],
         date: "HACE 1 SEMANA",
         media: [
-                  "portafolio/Automatizacion.webp"
+          "portafolio/Automatizacion.webp"
         ],
         clientComments: [
           { user: "dra.andreacardona", text: "Ha sido un cambio de 180 grados en el consultorio. Los recordatorios automáticos han salvado muchas citas que antes se perdían." },
@@ -2696,10 +3248,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Comercial de producto y video promocional para el exprimidor de naranjas profesional de Boston Tech. Enfatiza la facilidad de uso, la potencia del motor y la limpieza del dispositivo mediante planos macro en cámara lenta (slow motion) de la extracción de jugo y tomas limpias de estudio.",
         likes: 318,
         commentsCount: 31,
-        tools: ["Comercial Producto","Slow Motion","Iluminación Estudio","Boston Tech"],
+        tools: ["Comercial Producto", "Slow Motion", "Iluminación Estudio", "Boston Tech"],
         date: "HACE 1 AÑO",
         media: [
-                  "portafolio/Boston tech exprimidor de naranja.mp4"
+          "portafolio/Boston tech exprimidor de naranja.mp4"
         ],
         clientComments: [
           { user: "bostontech_oficial", text: "Un video excelente que describe de forma muy estética la potencia de nuestro exprimidor. ¡Gran trabajo de iluminación!" },
@@ -2713,10 +3265,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Diseño de post informativo y de concientización para el Día sin Carro, alineando la marca médica de la Dra. Andrea Cardona con iniciativas ecológicas locales en la ciudad de Ibagué de forma estética.",
         likes: 132,
         commentsCount: 6,
-        tools: ["Social Media Post","Vector Design","Branding","SEO Ibagué"],
+        tools: ["Social Media Post", "Vector Design", "Branding", "SEO Ibagué"],
         date: "HACE 3 MESES",
         media: [
-                  "portafolio/Dra Andrea Cardona/dia-sin-carro.webp"
+          "portafolio/Dra Andrea Cardona/dia-sin-carro.webp"
         ],
         clientComments: [
           { user: "dra.andreacardona", text: "Un post muy acorde al día y que mantuvo activa nuestra comunidad con temas de salud y ambiente." },
@@ -2730,10 +3282,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Video promocional e institucional desarrollado para la empresa Fidko. Fue uno de mis primeros proyectos utilizando tecnología de drones DJI para capturar tomas aéreas cinemáticas e impactantes del establecimiento, logrando presentar las instalaciones y procesos industriales con una narrativa corporativa pulida.",
         likes: 198,
         commentsCount: 12,
-        tools: ["Drone DJI","DaVinci Resolve","Tomas Aéreas","Video Corporativo"],
+        tools: ["Drone DJI", "DaVinci Resolve", "Tomas Aéreas", "Video Corporativo"],
         date: "HACE 3 AÑOS",
         media: [
-                  "portafolio/fidko empresarial.mp4"
+          "portafolio/fidko empresarial.mp4"
         ],
         clientComments: [
           { user: "fidko_admin", text: "Excelente video de presentación. Las tomas aéreas le dieron una perspectiva muy profesional a nuestras instalaciones." },
@@ -2747,10 +3299,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Producción de video institucional tipo Reel presentando la tecnología de punta y aparatología médica del consultorio de la Dra. Andrea Cardona en Ibagué. Locución explicativa que genera confianza y demuestra la calidad de los tratamientos.",
         likes: 312,
         commentsCount: 29,
-        tools: ["Premiere Pro","Tomas de Detalle","Voz en Off","Branding Médico"],
+        tools: ["Premiere Pro", "Tomas de Detalle", "Voz en Off", "Branding Médico"],
         date: "HACE 1 MES",
         media: [
-                  "portafolio/Dra Andrea Cardona/reel  voz en off todas las maquinas.mp4"
+          "portafolio/Dra Andrea Cardona/reel  voz en off todas las maquinas.mp4"
         ],
         clientComments: [
           { user: "dra.andreacardona", text: "Un recorrido tecnológico fantástico por nuestro consultorio. ¡Excelente producción!" },
@@ -2764,10 +3316,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Invitación matrimonial audiovisual interactiva diseñada con temática de Harry Potter para una pareja que contrajo matrimonio en Alicante, España. Recrea elementos mágicos del universo de la saga con animaciones y efectos especiales digitales, logrando una pieza única y muy comentada por los invitados.",
         likes: 412,
         commentsCount: 56,
-        tools: ["After Effects","Ilustración Digital","Efectos Especiales","Alicante España"],
+        tools: ["After Effects", "Ilustración Digital", "Efectos Especiales", "Alicante España"],
         date: "HACE 1 AÑO",
         media: [
-                  "portafolio/Invitacion matrimonial.mp4"
+          "portafolio/Invitacion matrimonial.mp4"
         ],
         clientComments: [
           { user: "boda_alicante", text: "Los invitados quedaron locos con la invitación. ¡Fue el tema de conversación por semanas y todos querían ir!" },
@@ -2781,10 +3333,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Video dinámico promocional enfocado en la recuperación y tratamientos estéticos para deportistas de alto rendimiento. Edición enérgica con transiciones rápidas y sincronización musical para captar la atención del público fitness.",
         likes: 215,
         commentsCount: 14,
-        tools: ["Edición Dinámica","After Effects","Música de Ritmo","Fitness Video"],
+        tools: ["Edición Dinámica", "After Effects", "Música de Ritmo", "Fitness Video"],
         date: "HACE 2 MESES",
         media: [
-                  "portafolio/Dra Andrea Cardona/video deportista2.mp4"
+          "portafolio/Dra Andrea Cardona/video deportista2.mp4"
         ],
         clientComments: [
           { user: "dra.andreacardona", text: "Muy dinámico el enfoque deportivo, excelente ritmo." },
@@ -2798,10 +3350,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Video promocional e institucional desarrollado para el irrigador dental Acquapik 100 del Grupo Oralteck. Presenta los beneficios del cuidado bucal y la tecnología de microburbujas del irrigador a través de tomas en detalle de estudio y explicaciones de salud bucodental de forma estética.",
         likes: 264,
         commentsCount: 27,
-        tools: ["Video de Producto","Modelado de Luz","Edición Comercial","Oralteck"],
+        tools: ["Video de Producto", "Modelado de Luz", "Edición Comercial", "Oralteck"],
         date: "HACE 1 AÑO",
         media: [
-                  "portafolio/Acquapick irrigador dental.mp4"
+          "portafolio/Acquapick irrigador dental.mp4"
         ],
         clientComments: [
           { user: "oralteck_salud", text: "Excelente video comercial, explica de manera muy clara el funcionamiento y beneficios clínicos del Acquapik 100." },
@@ -2815,10 +3367,10 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Producción y locución de video promocional para el tratamiento de moldeado corporal no invasivo Contour Shape. Muestra paso a paso la aplicación del procedimiento con detalles gráficos y explicaciones sobre la reducción de celulitis y flacidez.",
         likes: 198,
         commentsCount: 11,
-        tools: ["Premiere Pro","Voz en Off","Moldeado Corporal","Diseño Gráfico"],
+        tools: ["Premiere Pro", "Voz en Off", "Moldeado Corporal", "Diseño Gráfico"],
         date: "HACE 2 MESES",
         media: [
-                  "portafolio/Dra Andrea Cardona/voz en of contorushape.mp4"
+          "portafolio/Dra Andrea Cardona/voz en of contorushape.mp4"
         ],
         clientComments: [
           { user: "dra.andreacardona", text: "El Contour Shape es el favorito de muchas, y este video detalla súper bien el paso a paso." },
@@ -2832,16 +3384,16 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         description: "Producción de fotografía gastronómica profesional de alta resolución, diseño de menús interactivos y plantillas estéticas para el feed e historias de Instagram de West Burger. Resalta los ingredientes y la jugosidad de sus productos, aumentando el engagement y atrayendo clientes locales.",
         likes: 245,
         commentsCount: 18,
-        tools: ["Canon EOS","Lightroom","Menú Design","Social Templates"],
+        tools: ["Canon EOS", "Lightroom", "Menú Design", "Social Templates"],
         date: "HACE 2 SEMANAS",
         media: [
-                  "portafolio/west burguer/muestra.png",
-                  "portafolio/west burguer/muestra 2.png",
-                  "portafolio/west burguer/Hamburguesa con PaPas.png",
-                  "portafolio/west burguer/promo burguer ranch.png",
-                  "portafolio/west burguer/ranch 1 feed.png",
-                  "portafolio/west burguer/ranch 1.png",
-                  "portafolio/west burguer/historia 1.png"
+          "portafolio/west burguer/muestra.png",
+          "portafolio/west burguer/muestra 2.png",
+          "portafolio/west burguer/Hamburguesa con PaPas.png",
+          "portafolio/west burguer/promo burguer ranch.png",
+          "portafolio/west burguer/ranch 1 feed.png",
+          "portafolio/west burguer/ranch 1.png",
+          "portafolio/west burguer/historia 1.png"
         ],
         clientComments: [
           { user: "westburger.co", text: "Las fotos quedaron brutales, las ventas de la Burger Ranch subieron muchísimo tras publicar." },
@@ -2875,7 +3427,7 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
           videoEl.style.zIndex = "1";
           element.appendChild(videoEl);
         }
-        videoEl.play().catch(() => {});
+        videoEl.play().catch(() => { });
       });
 
       element.addEventListener("mouseleave", () => {
@@ -2894,10 +3446,13 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
       const gridContainer = document.getElementById("portfolioGrid");
       const reelsContainer = document.getElementById("reelsGrid");
       const webContainer = document.getElementById("webGrid");
-      
+
       gridContainer.innerHTML = "";
       reelsContainer.innerHTML = "";
       if (webContainer) webContainer.innerHTML = "";
+
+      const statCount = document.querySelector(".stat-number-ig");
+      if (statCount) statCount.textContent = projectsData.length;
 
       projectsData.forEach(proj => {
         // Grid Item principal
@@ -2907,19 +3462,25 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
 
         // Check if video first slide or video available
         const isVideo = proj.media[0].endsWith(".mp4");
-        
+
         // Elemento de Media: sólo cargamos imágenes ligeras (póster) para los videos en la cuadrícula
         let mediaHtml = "";
         if (isVideo) {
           const posterPath = proj.media[0].replace(/\.mp4$/i, "_poster.jpg");
-          mediaHtml = `<img class="grid-item-media" src="${posterPath}" alt="${proj.title}" loading="lazy">`;
+          mediaHtml = `<img class="grid-item-media" src="${posterPath}" alt="${proj.title}" loading="lazy" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='block';">
+          <video class="grid-item-media" src="${proj.media[0]}#t=0.5" preload="metadata" muted playsinline style="display:none; width:100%; height:100%; object-fit:cover; pointer-events:none;"></video>`;
         } else {
           mediaHtml = `<img class="grid-item-media" src="${proj.media[0]}" alt="${proj.title}" loading="lazy">`;
         }
 
-        // Indicators (reel/carousel)
+        // Indicators (reel/carousel/compare)
         let indicatorHtml = "";
-        if (isVideo) {
+        if (proj.isCompareSlider) {
+          indicatorHtml = `
+            <div class="compare-indicator" title="Comparador interactivo Antes / Después">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="8 18 2 12 8 6"/><polyline points="16 6 22 12 16 18"/><line x1="12" y1="2" x2="12" y2="22"/></svg>
+            </div>`;
+        } else if (isVideo) {
           indicatorHtml = `
             <div class="reel-indicator" title="Este post es un video (Reel)">
               <svg viewBox="0 0 24 24"><polygon points="8 5 8 19 19 12 8 5" /></svg>
@@ -2985,7 +3546,7 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
 
       // Show specific
       document.getElementById(tabId).classList.add("active");
-      
+
       // Select button
       if (tabId === "grid-tab") {
         document.getElementById("grid-btn").classList.add("active");
@@ -3017,13 +3578,13 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
       if (!proj) return;
 
       const modal = document.getElementById("instagramModal");
-      
+
       // Text details
       document.getElementById("modalCategory").textContent = proj.category;
       document.getElementById("modalDescription").textContent = proj.description;
       document.getElementById("modalLikesCount").textContent = `${proj.likes} Me gusta`;
       document.getElementById("modalDateTag").textContent = proj.date;
-      
+
       // Like button reset
       const likeBtn = document.getElementById("likeBtn");
       likeBtn.classList.remove("liked");
@@ -3078,13 +3639,199 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
       document.body.style.overflow = "hidden";
     }
 
+    let modalCompareAnimId = null;
+    let modalCompareAutoplay = true;
+    let modalCompareDir = 1;
+    let modalComparePos = 50;
+    let modalCompareLastTime = performance.now();
+    let modalCompareDragging = false;
+    let modalCompareHovering = false;
+    let modalCompareResumeTimer = null;
+    let modalCompareCleanups = [];
+
+    function stopModalCompare() {
+      if (modalCompareAnimId) {
+        cancelAnimationFrame(modalCompareAnimId);
+        modalCompareAnimId = null;
+      }
+      clearTimeout(modalCompareResumeTimer);
+      modalCompareAutoplay = false;
+      modalCompareDragging = false;
+      modalCompareHovering = false;
+      while (modalCompareCleanups.length > 0) {
+        const cleanup = modalCompareCleanups.pop();
+        try { cleanup(); } catch (e) { }
+      }
+    }
+
+    function initModalCompareSlider(container) {
+      stopModalCompare();
+
+      const clipped = container.querySelector("#modalCompareClipped");
+      const handle = container.querySelector("#modalCompareHandle");
+      if (!clipped || !handle) return;
+
+      modalCompareAutoplay = true;
+      modalCompareDir = 1;
+      modalComparePos = 50;
+      modalCompareLastTime = performance.now();
+      modalCompareDragging = false;
+      modalCompareHovering = false;
+
+      function update(percent) {
+        const clamped = Math.max(0, Math.min(100, percent));
+        modalComparePos = clamped;
+        clipped.style.clipPath = `inset(0 ${100 - clamped}% 0 0)`;
+        handle.style.left = `${clamped}%`;
+      }
+
+      function loop(now) {
+        if (!modalCompareAutoplay) return;
+        const delta = (now - modalCompareLastTime) / 1000;
+        modalCompareLastTime = now;
+        const speed = 25; // % per second
+        modalComparePos += modalCompareDir * speed * delta;
+        if (modalComparePos >= 80) {
+          modalComparePos = 80;
+          modalCompareDir = -1;
+        } else if (modalComparePos <= 20) {
+          modalComparePos = 20;
+          modalCompareDir = 1;
+        }
+        update(modalComparePos);
+        modalCompareAnimId = requestAnimationFrame(loop);
+      }
+
+      modalCompareAnimId = requestAnimationFrame(loop);
+
+      function stopAutoplay() {
+        clearTimeout(modalCompareResumeTimer);
+        modalCompareAutoplay = false;
+        if (modalCompareAnimId) cancelAnimationFrame(modalCompareAnimId);
+      }
+
+      function startAutoplay() {
+        if (modalCompareAutoplay || modalCompareDragging || modalCompareHovering) return;
+        modalComparePos = Math.max(20, Math.min(80, modalComparePos));
+        modalCompareDir = modalComparePos >= 50 ? -1 : 1;
+        modalCompareAutoplay = true;
+        modalCompareLastTime = performance.now();
+        modalCompareAnimId = requestAnimationFrame(loop);
+      }
+
+      function handleMove(clientX) {
+        const rect = container.getBoundingClientRect();
+        if (rect.width <= 0) return;
+        const offsetX = clientX - rect.left;
+        const percent = (offsetX / rect.width) * 100;
+        update(percent);
+      }
+
+      const onMouseEnter = () => {
+        modalCompareHovering = true;
+        stopAutoplay();
+      };
+      container.addEventListener("mouseenter", onMouseEnter);
+
+      const onMouseLeave = () => {
+        modalCompareHovering = false;
+        if (!modalCompareDragging) startAutoplay();
+      };
+      container.addEventListener("mouseleave", onMouseLeave);
+
+      const onMouseDown = (e) => {
+        stopAutoplay();
+        modalCompareDragging = true;
+        handleMove(e.clientX);
+      };
+      container.addEventListener("mousedown", onMouseDown);
+
+      const onMouseMove = (e) => {
+        if (!modalCompareDragging) return;
+        handleMove(e.clientX);
+      };
+      window.addEventListener("mousemove", onMouseMove);
+
+      const onMouseUp = () => {
+        if (!modalCompareDragging) return;
+        modalCompareDragging = false;
+        if (!modalCompareHovering) startAutoplay();
+      };
+      window.addEventListener("mouseup", onMouseUp);
+
+      // Touch events
+      const onTouchStart = (e) => {
+        stopAutoplay();
+        modalCompareDragging = true;
+        if (e.touches && e.touches[0]) handleMove(e.touches[0].clientX);
+      };
+      container.addEventListener("touchstart", onTouchStart, { passive: true });
+
+      const onTouchMove = (e) => {
+        if (!modalCompareDragging || !e.touches || !e.touches[0]) return;
+        handleMove(e.touches[0].clientX);
+      };
+      window.addEventListener("touchmove", onTouchMove, { passive: true });
+
+      const onTouchEnd = () => {
+        if (!modalCompareDragging) return;
+        modalCompareDragging = false;
+        clearTimeout(modalCompareResumeTimer);
+        modalCompareResumeTimer = setTimeout(startAutoplay, 1500);
+      };
+      window.addEventListener("touchend", onTouchEnd);
+
+      // Register cleanup
+      modalCompareCleanups.push(() => {
+        window.removeEventListener("mousemove", onMouseMove);
+        window.removeEventListener("mouseup", onMouseUp);
+        window.removeEventListener("touchmove", onTouchMove);
+        window.removeEventListener("touchend", onTouchEnd);
+      });
+    }
+
     function renderModalMedia() {
       const proj = projectsData.find(p => p.id === activeProjectId);
       const mediaPanel = document.getElementById("modalMediaPanel");
-      
+
+      // Stop any active compare slider or video
+      stopCurrentVideo();
+      stopModalCompare();
+
       // Remove previous media elements
       const prevMedia = mediaPanel.querySelectorAll(".modal-media-element");
       prevMedia.forEach(el => el.remove());
+
+      if (proj && proj.isCompareSlider) {
+        document.getElementById("prevMediaBtn").style.display = "none";
+        document.getElementById("nextMediaBtn").style.display = "none";
+        document.getElementById("carouselDots").innerHTML = "";
+
+        const compareEl = document.createElement("div");
+        compareEl.className = "modal-compare-container modal-media-element active";
+        compareEl.id = "modalImageCompare";
+        compareEl.innerHTML = `
+          <span class="modal-compare-badge badge-raw">Original RAW</span>
+          <span class="modal-compare-badge badge-edited">Resultado Final</span>
+          <div class="modal-compare-wrapper">
+            <img src="${proj.compareAfter}" alt="Resultado Final Editado" class="modal-compare-img">
+            <div class="modal-compare-clipped" id="modalCompareClipped">
+              <img src="${proj.compareBefore}" alt="Original RAW Sin Revelar" class="modal-compare-img">
+            </div>
+            <div class="modal-compare-handle" id="modalCompareHandle">
+              <div class="modal-compare-circle">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="8 18 2 12 8 6" />
+                  <polyline points="16 6 22 12 16 18" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        `;
+        mediaPanel.insertBefore(compareEl, document.getElementById("prevMediaBtn"));
+        initModalCompareSlider(compareEl);
+        return;
+      }
 
       // Render all slides
       proj.media.forEach((path, idx) => {
@@ -3100,7 +3847,7 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
           mediaEl.setAttribute("poster", path.replace(/\.mp4$/i, "_poster.jpg"));
           mediaEl.setAttribute("preload", "none");
           mediaEl.autoplay = idx === activeSlideIndex;
-          if (idx === activeSlideIndex) mediaEl.play().catch(() => {});
+          if (idx === activeSlideIndex) mediaEl.play().catch(() => { });
         } else {
           mediaEl = document.createElement("img");
           mediaEl.className = "modal-media-element";
@@ -3125,7 +3872,7 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
       if (proj.media.length > 1) {
         leftArrow.style.display = "flex";
         rightArrow.style.display = "flex";
-        
+
         // Render dots
         proj.media.forEach((_, idx) => {
           const dot = document.createElement("div");
@@ -3178,13 +3925,13 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
     function updateActiveSlide() {
       const mediaPanel = document.getElementById("modalMediaPanel");
       const elements = mediaPanel.querySelectorAll(".modal-media-element");
-      
+
       elements.forEach((el, idx) => {
         if (idx === activeSlideIndex) {
           el.classList.add("active");
           if (el.tagName === "VIDEO") {
             el.currentTime = 0;
-            el.play().catch(() => {});
+            el.play().catch(() => { });
           }
         } else {
           el.classList.remove("active");
@@ -3225,6 +3972,7 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
 
     function closeModal() {
       if (typeof stopCurrentVideo === 'function') stopCurrentVideo();
+      if (typeof stopModalCompare === 'function') stopModalCompare();
       const modal = document.getElementById("instagramModal");
       modal.classList.remove("open");
       document.body.style.overflow = "";
@@ -3232,14 +3980,14 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
     }
 
     // Close on background click
-    document.getElementById("instagramModal").addEventListener("click", function(e) {
+    document.getElementById("instagramModal").addEventListener("click", function (e) {
       if (e.target === this) {
         closeModal();
       }
     });
 
     // Close on Escape key
-    document.addEventListener("keydown", function(e) {
+    document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") {
         closeModal();
       }
@@ -3273,7 +4021,7 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
     }
 
     // Profile ring action (Simulation of story click)
-    document.getElementById("profileAvatarRing").addEventListener("click", function() {
+    document.getElementById("profileAvatarRing").addEventListener("click", function () {
       // Switch to Sobro Mí or show CV
       alert("¡Hola! Soy David Muñoz Torres. Estás viendo mi portafolio. Si quieres ver mi curriculum completo o contactarme, haz clic en los botones de mi perfil. 🎨");
     });
@@ -3301,11 +4049,9 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
       },
       "familia": {
         label: "Familia 👨‍👩‍👧‍👦",
-        cover: "portafolio/historias/Faportada.png",
+        cover: "portafolio/historias/fa2.webp",
         items: [
-          "portafolio/historias/fa1.webp",
           "portafolio/historias/fa2.webp",
-          "portafolio/historias/fa3.jpg",
           "portafolio/historias/fa4.jpg",
           "portafolio/historias/fa5.jpg",
           "portafolio/historias/fa6.jpg"
@@ -3329,7 +4075,6 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
           "portafolio/historias/M1.jpg",
           "portafolio/historias/M2.mp4",
           "portafolio/historias/M3.mp4",
-          "portafolio/historias/M4.mp4",
           "portafolio/historias/M5.MP4"
         ],
         dates: ["Amanecer", "Vuelo Dron", "Edición", "Estudio", "Grabación"]
@@ -3349,15 +4094,15 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
       activeStoryIndex = 0;
       elapsedInSlide = 0;
       storyIsPlaying = true;
-      
+
       const modal = document.getElementById("stories-modal");
       modal.classList.add("active");
       document.body.style.overflow = "hidden"; // Disable background scrolling
-      
+
       // Update UI for the first slide
       renderProgressBars();
       showStorySlide();
-      
+
       // Start the timer loop
       lastTickTime = performance.now();
       requestAnimationFrame(storyTick);
@@ -3367,22 +4112,22 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
       const container = document.getElementById("story-progress-container");
       container.innerHTML = "";
       const story = highlightsData[activeStoryKey];
-      
+
       story.items.forEach((_, idx) => {
         const track = document.createElement("div");
         track.className = "story-progress-track";
-        
+
         const fill = document.createElement("div");
         fill.className = "story-progress-fill";
         fill.id = `story-progress-${idx}`;
-        
+
         // If it's a completed slide, set to 100%
         if (idx < activeStoryIndex) {
           fill.style.width = "100%";
         } else {
           fill.style.width = "0%";
         }
-        
+
         track.appendChild(fill);
         container.appendChild(track);
       });
@@ -3392,30 +4137,30 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
       const story = highlightsData[activeStoryKey];
       const img = document.getElementById("story-img");
       const video = document.getElementById("story-video");
-      
+
       const path = story.items[activeStoryIndex];
       const isVideo = path.toLowerCase().endsWith(".mp4");
-      
+
       // Reset play button state
       const playBtn = document.getElementById("story-play-btn");
       playBtn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
-      
+
       // Reset video element
       video.pause();
       video.src = "";
       video.style.display = "none";
       img.style.display = "none";
-      
+
       if (isVideo) {
         video.style.display = "block";
         video.src = path;
-        
+
         // Wait for metadata to set actual video duration
         video.onloadedmetadata = () => {
           storyDuration = video.duration * 1000 || 4000;
           elapsedInSlide = 0;
           if (storyIsPlaying) {
-            video.play().catch(() => {});
+            video.play().catch(() => { });
           }
         };
         video.load();
@@ -3425,7 +4170,7 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         storyDuration = 4000;
         elapsedInSlide = 0;
       }
-      
+
       // Reset width of the current progress fill
       const currentFill = document.getElementById(`story-progress-${activeStoryIndex}`);
       if (currentFill) {
@@ -3435,18 +4180,18 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
 
     function storyTick(timestamp) {
       if (!storyIsPlaying || activeStoryKey === null) return;
-      
+
       const delta = timestamp - lastTickTime;
       lastTickTime = timestamp;
-      
+
       elapsedInSlide += delta;
-      
+
       if (elapsedInSlide >= storyDuration) {
         elapsedInSlide = 0;
         // Mark current bar as 100%
         const currentFill = document.getElementById(`story-progress-${activeStoryIndex}`);
         if (currentFill) currentFill.style.width = "100%";
-        
+
         nextStorySlide();
       } else {
         // Update current progress bar width
@@ -3461,11 +4206,11 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
 
     function nextStorySlide() {
       const story = highlightsData[activeStoryKey];
-      
+
       // Complete current bar before moving
       const currentFill = document.getElementById(`story-progress-${activeStoryIndex}`);
       if (currentFill) currentFill.style.width = "100%";
-      
+
       if (activeStoryIndex < story.items.length - 1) {
         activeStoryIndex++;
         elapsedInSlide = 0;
@@ -3488,14 +4233,14 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
         // Reset current progress fill
         const currentFill = document.getElementById(`story-progress-${activeStoryIndex}`);
         if (currentFill) currentFill.style.width = "0%";
-        
+
         activeStoryIndex--;
         elapsedInSlide = 0;
-        
+
         // Reset previous progress fill (the one we are going back to)
         const prevFill = document.getElementById(`story-progress-${activeStoryIndex}`);
         if (prevFill) prevFill.style.width = "0%";
-        
+
         showStorySlide();
         requestAnimationFrame(storyTick);
       } else {
@@ -3531,7 +4276,7 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
       } else {
         storyIsPlaying = true;
         playBtn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
-        if (isVideo) video.play().catch(() => {});
+        if (isVideo) video.play().catch(() => { });
         lastTickTime = performance.now();
         requestAnimationFrame(storyTick);
       }
@@ -3551,7 +4296,7 @@ Suscripciones premium de diseño y automatizaciones n8n para escalar su negocio.
       const containerRect = event.currentTarget.getBoundingClientRect();
       const clickX = event.clientX - containerRect.left;
       const width = containerRect.width;
-      
+
       if (clickX < width * 0.3) {
         prevStorySlide();
       } else {

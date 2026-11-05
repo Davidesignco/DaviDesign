@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | MotoSuper Alicante</title>
+    <meta name="description"
+        content="Contacta con MotoSuper Alicante. Reserva tu cita para revisiones, reparaciones o ITV. Estamos en el centro de Alicante.">
+    <link rel="icon" type="image/svg+xml" href="Logos/ico-logo.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="Logos/logotipo-header.svg" alt="MotoSuper Logo" style="height: 45px; display: block;">
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html">Inicio</a>
+                <div class="nav-item-dropdown">
+                    <a href="#" class="dropdown-trigger">Servicios <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="revisiones.html"><i class="fas fa-wrench"></i> Revisiones de Mantenimiento</a>
+                        <a href="itv.html"><i class="fas fa-clipboard-check"></i> Servicio Pre-ITV</a>
+                        <a href="siniestros.html"><i class="fas fa-car-crash"></i> Gestión de Siniestros</a>
+                        <a href="reparaciones.html"><i class="fas fa-cogs"></i> Taller y Reparación</a>
+                    </div>
+                </div>
+                <a href="contacto.html" class="btn btn-primary active"
+                    style="color: white; padding: 10px 20px; font-size: 0.9rem; margin-top: 0;">Contactar</a>
+            </nav>
+
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section 1: HERO -->
+        <section class="hero-wrapper" style="min-height: 500px; background-color: #ffffff !important;">
+            <!-- High Priority Stacking: Moto (10) < Ring (50) < Content (100) -->
+            <div class="hero-mechanic-visual" style="background-image: url('Imagenes/de72aefa69.jpg'); opacity: 1 !important; z-index: 10;"></div>
+            <div class="hero-ring-container" style="z-index: 50;">
+                <div class="hero-deco-ring" style="opacity: 0.8 !important;"></div>
+            </div>
+
+            <div class="container hero-grid">
+                <div class="hero-content animate-on-scroll fade-right" style="z-index: 100;">
+                    <h1>Súmate a la <br><span class="highlight">Familia MotoSuper</span></h1>
+                    <p>
+                        Estamos aquí para cuidar de tu moto y de tu seguridad. Ven a visitarnos a cualquiera de nuestras sedes o reserva tu cita online.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="https://wa.me/34613355880" class="btn btn-primary">Escribir Mensaje</a>
+                        <a href="#ubicacion" class="btn btn-outline">Ver Ubicaciones</a>
+                    </div>
+                </div>
+                <div class="hero-visual"></div>
+            </div>
+        </section>
+
+        <!-- Section 2: MAPS & LOCATIONS -->
+        <div style="width: 100%; height: 4px; background-color: var(--brand-red);"></div>
+        <section id="ubicacion" class="locations-section">
+            <div class="container">
+                <div class="section-title animate-on-scroll fade-up">
+                    <span class="badge">DÓNDE ESTAMOS</span>
+                    <h2>Nuestras Sedes en Alicante</h2>
+                </div>
+                <div class="locations-grid">
+                    <div class="location-cards">
+                        <!-- Sede 1 Card -->
+                        <div class="location-card active" data-lat="38.35631" data-lng="-0.47716" data-index="0">
+                            <div class="card-status">Sede 1</div>
+                            <h3>MotoSuper Alicante</h3>
+                            <p class="address"><i class="fas fa-map-marker-alt"></i> C/ Ingeniero Canales, 6, 03013, Alicante</p>
+                            <p class="phone"><i class="fas fa-phone"></i> 965598615</p>
+                            <p class="schedule"><i class="fas fa-clock"></i> L - V: 09:30 - 14:30 | 16:30 - 20:30</p>
+                            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=C/%20Ingeniero%20Canales%206,%20Alicante" target="_blank" class="btn btn-secondary btn-sm">
+                                    <i class="fas fa-directions"></i> Cómo llegar
+                                </a>
+                                <a href="https://wa.me/34613355880" target="_blank" class="btn btn-primary btn-sm">
+                                    <i class="fab fa-whatsapp"></i> Contactar
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Sede 2 Card -->
+                        <div class="location-card" data-lat="38.35386" data-lng="-0.48698" data-index="1">
+                            <div class="card-status">Sede 2</div>
+                            <h3>MotoSuper Alicante</h3>
+                            <p class="address"><i class="fas fa-map-marker-alt"></i> C/ Teniente Llorca, 3, 03012, Alicante</p>
+                            <p class="phone"><i class="fas fa-phone"></i> 865821061</p>
+                            <p class="schedule"><i class="fas fa-clock"></i> L - V: 09:30 - 14:30 | 16:30 - 20:30</p>
+                            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=C/%20Teniente%20Llorca%203,%20Alicante" target="_blank" class="btn btn-secondary btn-sm">
+                                    <i class="fas fa-directions"></i> Cómo llegar
+                                </a>
+                                <a href="https://wa.me/34611206826" target="_blank" class="btn btn-primary btn-sm">
+                                    <i class="fab fa-whatsapp"></i> Contactar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map Container -->
+                    <div class="map-wrapper">
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: CONTACT FORM -->
+        <section id="formulario" class="contact-final-section">
+            <div class="container">
+                <div class="contact-cta-wrapper animate-on-scroll fade-up">
+                    <div class="contact-cta-content">
+                        <span class="badge">TE LLAMAMOS</span>
+                        <h2>¿Tienes alguna duda o necesitas presupuesto?</h2>
+                        <p>Escríbenos directamente y un experto de nuestro equipo te responderá en menos de 24 horas.</p>
+
+                        <div class="contact-whatsapp-cta">
+                            <p class="cta-subtitle">Atención inmediata por WhatsApp</p>
+                            <a href="https://wa.me/34613355880" class="btn btn-primary btn-lg w-100">
+                                <i class="fab fa-whatsapp"></i> HABLAR POR WHATSAPP
+                            </a>
+                            <p class="form-disclaimer">Horario de atención: L - V: 09:30 - 14:30 | 16:30 - 20:30</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <img src="Logos/logotipo-footer.svg" alt="MotoSuper Logo" style="height: 35px; margin-bottom: 20px;">
+                <p>Tu taller multimarca de confianza en Alicante. Transparencia, velocidad y recambios originales.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Menú</h4>
+                <a href="index.html">Inicio</a>
+                <a href="revisiones.html">Revisiones de Mantenimiento</a>
+                <a href="itv.html">Servicio Pre-ITV</a>
+                <a href="siniestros.html">Gestión Siniestros</a>
+                <a href="reparaciones.html">Taller y Reparaciones</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="aviso-legal.html">Aviso Legal</a>
+                <a href="politica-privacidad.html">Política de Privacidad</a>
+                <a href="politica-cookies.html">Política de Cookies</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Sede 1: C/ Ingeniero Canales 6</p>
+                <p><i class="fas fa-map-marker-alt"></i> Sede 2: C/ Teniente Llorca 3</p>
+                <p><i class="fas fa-phone"></i> 613355880</p>
+                <p><i class="fas fa-envelope"></i> motosuperalicante@gmail.com</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/motosuper.alicante/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://www.facebook.com/MotoSuper.alicante" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="https://wa.me/34613355880" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2024 MotoSuper Alicante. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+    <!-- Floating CTA for Mobile -->
+    <a href="https://wa.me/34613355880" class="floating-cta-mobile">
+        <i class="fab fa-whatsapp"></i> Contactar
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

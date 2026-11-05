@@ -57,7 +57,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  overflow-x: hidden;
+  overflow-x: clip;
   scrollbar-gutter: stable;
 }
 
@@ -66,7 +66,7 @@ body {
   background: var(--bg-deep);
   color: var(--text-primary);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -378,6 +378,7 @@ ul {
     linear-gradient(90deg, rgba(0, 237, 255, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
   z-index: 2;
+  pointer-events: none;
   animation: gridDrift 20s linear infinite;
 }
 
@@ -397,6 +398,7 @@ ul {
   border-radius: 50%;
   filter: blur(80px);
   z-index: 1;
+  pointer-events: none;
   animation: orbFloat 8s ease-in-out infinite alternate;
 }
 
@@ -1248,7 +1250,7 @@ footer {
   transition-delay: 0.6s;
 }
 
-/* ── MOBILE NAV ─────────────────────────────────────────────── */
+/* ── MOBILE NAV ACORDEÓN (MODERNO) ─────────────────── */
 .nav-mobile {
   display: none;
   position: fixed;
@@ -1256,38 +1258,172 @@ footer {
   left: 0;
   right: 0;
   bottom: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
   background: rgba(5, 10, 21, 0.98);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   z-index: 1500;
-  /* Aumentado para estar por encima de todo */
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 28px;
+  justify-content: flex-start;
+  padding: 100px 20px 50px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
 }
 
 .nav-mobile.open {
   display: flex;
 }
 
-.nav-mobile a {
+.nav-mobile-inner {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobile-dropdown {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mobile-dropdown-toggle {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
   font-family: var(--font-head);
-  font-size: 1.6rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-secondary);
-  transition: color 0.2s var(--ease);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  transition: all 0.25s var(--ease);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.nav-mobile a:hover,
-.nav-mobile a.active {
+.mobile-dropdown-toggle:hover,
+.mobile-dropdown.open .mobile-dropdown-toggle {
   color: var(--accent);
+  background: rgba(0, 237, 255, 0.07);
+  border-color: rgba(0, 237, 255, 0.35);
+  box-shadow: 0 0 20px rgba(0, 237, 255, 0.15);
 }
 
-.nav-mobile .btn-primary {
-  color: #fff !important;
+.mobile-dropdown-toggle svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  pointer-events: none;
 }
 
-/* Eliminado nav-mobile-close. Se usa el toggle principal. */
+.mobile-dropdown.open .mobile-dropdown-toggle svg {
+  transform: rotate(180deg);
+}
+
+.mobile-dropdown-menu {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 10px;
+  background: rgba(10, 16, 30, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  margin-top: 8px;
+  box-sizing: border-box;
+}
+
+.mobile-dropdown.open .mobile-dropdown-menu {
+  display: flex;
+  animation: mobileSlideIn 0.25s ease;
+}
+
+.mobile-dropdown-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 11px 14px;
+  border-radius: 9px;
+  text-decoration: none;
+  transition: all 0.2s var(--ease);
+  box-sizing: border-box;
+}
+
+.mobile-dropdown-menu a:hover,
+.mobile-dropdown-menu a.active {
+  color: #ffffff;
+  background: rgba(0, 237, 255, 0.12);
+  font-weight: 600;
+}
+
+.mobile-nav-link {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: all 0.25s var(--ease);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  color: var(--accent);
+  background: rgba(0, 237, 255, 0.07);
+  border-color: rgba(0, 237, 255, 0.35);
+}
+
+.mobile-nav-cta {
+  width: 100%;
+  background: linear-gradient(135deg, var(--accent) 0%, #00a8ff 100%);
+  color: #050a15 !important;
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: 14px;
+  text-decoration: none;
+  box-sizing: border-box;
+  margin-top: 8px;
+  box-shadow: 0 0 25px rgba(0, 237, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.mobile-nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 35px rgba(0, 237, 255, 0.55);
+}
 
 /* ── SECTION SPACING ────────────────────────────────────────── */
 section {

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Mecánico y Reparaciones Avanzadas | MotoSuper Alicante</title>
+    <meta name="description"
+        content="Servicio técnico especializado en reparación de motos en Alicante. Diagnosis avanzada, neumáticos, frenos y mecánica integral.">
+    <link rel="icon" type="image/svg+xml" href="Logos/ico-logo.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="Logos/logotipo-header.svg" alt="MotoSuper Logo" style="height: 45px; display: block;">
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html">Inicio</a>
+                <div class="nav-item-dropdown">
+                    <a href="#" class="dropdown-trigger active">Servicios <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="revisiones.html"><i class="fas fa-wrench"></i> Revisiones de Mantenimiento</a>
+                        <a href="itv.html"><i class="fas fa-clipboard-check"></i> Servicio Pre-ITV</a>
+                        <a href="siniestros.html"><i class="fas fa-car-crash"></i> Gestión de Siniestros</a>
+                        <a href="reparaciones.html" class="active"><i class="fas fa-cogs"></i> Taller y Reparación</a>
+                    </div>
+                </div>
+                <a href="contacto.html" class="btn btn-primary"
+                    style="color: white; padding: 10px 20px; font-size: 0.9rem; margin-top: 0;">Contactar</a>
+            </nav>
+
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section 1: HERO -->
+        <section class="hero-wrapper">
+            <div class="hero-ring-container">
+                <div class="hero-deco-ring"></div>
+            </div>
+            <div class="hero-mechanic-visual hero-visual-reparaciones"></div>
+
+            <div class="container hero-grid">
+                <div class="hero-content animate-on-scroll fade-right">
+                    <h1>Mecánica de Precisión <br><span class="highlight">Y Diagnosis Avanzada</span></h1>
+                    <p>
+                        Solucionamos lo que otros no pueden. Como taller multimarca, disponemos de equipamiento de última generación y recambios originales para que tu moto rinda al máximo.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="https://wa.me/34613355880" class="btn btn-primary">Pedir Presupuesto</a>
+                        <a href="#ventajas" class="btn btn-outline">Nuestras Soluciones</a>
+                    </div>
+                </div>
+                <div class="hero-visual"></div>
+            </div>
+        </section>
+
+        <!-- Section 2: TRUST -->
+        <section id="ventajas" class="value-prop">
+            <div class="container">
+                <div class="section-title animate-on-scroll fade-up">
+                    <span class="badge">SOLUCIONES TÉCNICAS</span>
+                    <h2>Resolución de <span class="text-red">Averías Complejas</span></h2>
+                    <p>Combinamos experiencia técnica avanzada con tecnología de diagnosis multimarca.</p>
+                </div>
+
+                <div class="trust-grid">
+                    <div class="trust-visual animate-on-scroll fade-right">
+                         <img src="Imagenes/f1d6deadbe.jpg" alt="Mecánico Reparando Moto" style="border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg);">
+                    </div>
+                    <div class="trust-content animate-on-scroll fade-left">
+                        <div class="trust-item">
+                            <div class="trust-icon"><i class="fas fa-microchip"></i></div>
+                            <div>
+                                <h3>Diagnosis Electrónica</h3>
+                                <p>Localizamos fallos invisibles en la ECU y sensores utilizando escáneres específicos para cada marca y modelo.</p>
+                            </div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="trust-icon"><i class="fas fa-dharmachakra"></i></div>
+                            <div>
+                                <h3>Especialistas en Neumáticos</h3>
+                                <p>Montaje y equilibrado con precisión láser. Trabajamos con las mejores gomas del mercado: Pirelli, Michelin, Dunlop.</p>
+                            </div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="trust-icon"><i class="fas fa-oil-can"></i></div>
+                            <div>
+                                <h3>Fluidos de Alto Rendimiento</h3>
+                                <p>Solo utilizamos aceites y lubricantes de máxima calidad (Motul, Castrol) para proteger el corazón de tu máquina.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: EXPERIENCE -->
+        <section class="history-section" style="background: var(--bg-light);">
+            <div class="history-ring-container">
+                <div class="history-deco-ring"></div>
+            </div>
+            <div class="history-team-visual"></div>
+
+            <div class="container relative-container">
+                <div class="grid-2" style="align-items: center;">
+                    <div class="spacer-div"></div>
+                    <div class="history-content animate-on-scroll fade-left">
+                        <h2 class="section-title-left">Rigurosidad en <br><span class="text-red">Cada Tornillo</span></h2>
+                        <p class="history-lead">No creemos en las reparaciones a medias. Cada intervención se rige por los manuales técnicos originales.</p>
+                        <p>Ya sea una sustitución de kit de arrastre, un ajuste de válvulas o una reconstrucción de motor, nuestro equipo técnico aplica la misma exigencia que en un box de competición.</p>
+                        <p>En MotoSuper Alicante, la transparencia es nuestra bandera: te mostramos el fallo y te damos la solución más viable y duradera.</p>
+                        <a href="https://wa.me/34613355880" class="btn btn-primary btn-history-tablet">Solicitar Diagnóstico</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: STATS -->
+        <section id="estadisticas" class="stats-section">
+            <div class="container relative-container">
+                <div class="stats-grid animate-on-scroll fade-up">
+                    <div class="stat-item">
+                        <div class="stat-number-wrapper"><h4 class="stat-number counter" data-target="3820" data-speed="10" data-increment="10">0</h4></div>
+                        <span class="stat-label">Reparaciones de Éxito</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number-wrapper"><span class="prefix">+</span><h4 class="stat-number counter" data-target="15" data-speed="150" data-increment="1">0</h4></div>
+                        <span class="stat-label">Años de Exp. Técnica</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number-wrapper"><h4 class="stat-number counter" data-target="100" data-speed="30" data-increment="1">0</h4><span class="suffix">%</span></div>
+                        <span class="stat-label">Recambios Originales</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number-wrapper"><h4 class="stat-number counter" data-target="0" data-speed="50" data-increment="1">0</h4></div>
+                        <span class="stat-label">Sorpresas en Factura</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: HOW IT WORKS -->
+        <section id="proceso" class="process-section">
+            <div class="container">
+                <div class="section-title animate-on-scroll fade-up">
+                    <h2>Claridad desde el primer momento</h2>
+                    <p>Tu tranquilidad es nuestra prioridad. Te mantenemos informado en cada etapa.</p>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step animate-on-scroll fade-up">
+                        <div class="step-number">1</div>
+                        <h3>Entrada y Análisis</h3>
+                        <p>Documentamos el estado de entrada de tu moto y realizamos las pruebas iniciales de diagnóstico.</p>
+                    </div>
+                    <div class="process-step animate-on-scroll fade-up">
+                        <div class="step-number">2</div>
+                        <h3>Presupuesto Cerrado</h3>
+                        <p>Te enviamos por WhatsApp o email el desglose exacto de piezas y mano de obra. Sin sorpresas.</p>
+                    </div>
+                    <div class="process-step animate-on-scroll fade-up">
+                        <div class="step-number">3</div>
+                        <h3>Ejecución Técnica</h3>
+                        <p>Mecánicos certificados realizan la reparación bajo estrictas normas de seguridad y limpieza.</p>
+                    </div>
+                    <div class="process-step animate-on-scroll fade-up">
+                        <div class="step-number">4</div>
+                        <h3>Control Post-Taller</h3>
+                        <p>Verificamos la solución y te entregamos la moto con la garantía de reparación y factura detallada.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: WHY US -->
+        <section class="comparative">
+            <div class="container">
+                <div class="section-title animate-on-scroll fade-up">
+                    <h2>Especialistas en resultados</h2>
+                </div>
+                <div class="grid-3">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-search"></i></div>
+                        <h3>Precisión</h3>
+                        <p>No jugamos a las adivinanzas. Usamos tecnología para saber exactamente qué falla.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-boxes"></i></div>
+                        <h3>Stock de Recambios</h3>
+                        <p>Contamos con las piezas comunes más solicitadas para agilizar tu reparación urgente.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-vial"></i></div>
+                        <h3>Prueba en Carretera</h3>
+                        <p>Cada moto reparada es probada dinámicamente para asegurar que el problema se ha resuelto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: REVIEWS -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-title animate-on-scroll fade-up">
+                    <h2>Valoración 5 Estrellas en Google</h2>
+                    <p>No te fíes solo de nuestra palabra. Lee lo que dicen los motoristas de Alicante.</p>
+                </div>
+                <div class="carousel-container animate-on-scroll fade-up">
+                    <div class="carousel-track">
+                        <!-- Google Review Card 1 -->
+                        <div class="google-review-card">
+                            <div class="review-header">
+                                <div class="reviewer-avatar" style="background-color: #4285F4;">C</div>
+                                <div class="reviewer-info">
+                                    <h4>Carlos M.</h4>
+                                    <span class="review-date">Hace 2 semanas</span>
+                                </div>
+                                <div class="google-icon"><i class="fab fa-google"></i></div>
+                            </div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p>"Espectacular el servicio. Fui sin cita para cambiar aceite y tensar cadena, en 40
+                                minutos estaba fuera. Trato de 10. Muy recomendables para cualquier moto gorda."</p>
+                        </div>
+
+                        <!-- Google Review Card 2 -->
+                        <div class="google-review-card">
+                            <div class="review-header">
+                                <div class="reviewer-avatar" style="background-color: #EA4335;">L</div>
+                                <div class="reviewer-info">
+                                    <h4>Laura S.</h4>
+                                    <span class="review-date">Hace 1 mes</span>
+                                </div>
+                                <div class="google-icon"><i class="fab fa-google"></i></div>
+                            </div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p>"Tuve una caída leve, ellos se encargaron del peritaje con Mapfre y me devolvieron la
+                                moto pintada entera y revisada. Increíbles profesionales."</p>
+                        </div>
+
+                        <!-- Google Review Card 3 -->
+                        <div class="google-review-card">
+                            <div class="review-header">
+                                <div class="reviewer-avatar" style="background-color: #FBBC05;">D</div>
+                                <div class="reviewer-info">
+                                    <h4>David G.</h4>
+                                    <span class="review-date">Hace 3 meses</span>
+                                </div>
+                                <div class="google-icon"><i class="fab fa-google"></i></div>
+                            </div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p>"El único taller en Alicante donde confío mi BMW para el mantenimiento riguroso. Precios
+                                transparentes y el taller lo tienen súper limpio. Repetiré seguro."</p>
+                        </div>
+
+                        <!-- Google Review Card 4 -->
+                        <div class="google-review-card">
+                            <div class="review-header">
+                                <div class="reviewer-avatar" style="background-color: #34A853;">M</div>
+                                <div class="reviewer-info">
+                                    <h4>Miguel A.</h4>
+                                    <span class="review-date">Hace 4 meses</span>
+                                </div>
+                                <div class="google-icon"><i class="fab fa-google"></i></div>
+                            </div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p>"Unos cracks. Me solucionaron un problema eléctrico en la Kawasaki que en otros sitios no
+                                daban con la tecla. 100% sinceros con el presupuesto."</p>
+                        </div>
+
+                        <!-- Google Review Card 5 -->
+                        <div class="google-review-card">
+                            <div class="review-header">
+                                <div class="reviewer-avatar" style="background-color: #673AB7;">S</div>
+                                <div class="reviewer-info">
+                                    <h4>Silvia R.</h4>
+                                    <span class="review-date">Hace 5 meses</span>
+                                </div>
+                                <div class="google-icon"><i class="fab fa-google"></i></div>
+                            </div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p>"Trato excelente, rápidos y te explican exactamente lo que han hecho. Fui por el cambio
+                                de neumáticos y me revisaron niveles sin coste extra."</p>
+                        </div>
+
+                        <!-- Google Review Card 6 -->
+                        <div class="google-review-card">
+                            <div class="review-header">
+                                <div class="reviewer-avatar" style="background-color: #00BCD4;">P</div>
+                                <div class="reviewer-info">
+                                    <h4>Pedro J.</h4>
+                                    <span class="review-date">Hace 6 meses</span>
+                                </div>
+                                <div class="google-icon"><i class="fab fa-google"></i></div>
+                            </div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p>"Honestidad por encima de todo. Iba dispuesto a cambiar un disco de freno doblado y ellos
+                                lograron enderezarlo ahorrándome mucho dinero. Ya no cambio de taller."</p>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <button class="carousel-btn prev-btn" aria-label="Anterior Reseña"><i
+                            class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next-btn" aria-label="Siguiente Reseña"><i
+                            class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="https://www.google.com/maps/place/MotoSuper/@38.3562775,-0.4797228,17z/data=!4m8!3m7!1s0xd6237f0f8c283b1:0xbff719c53b0a4db6!8m2!3d38.3562733!4d-0.4771479!9m1!1b1!16s%2Fg%2F11pkc88cb6"
+                        target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-outline-white">
+                        <i class="fab fa-google"></i> Ver Todas Nuestras Reseñas Reales
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: MAPS -->
+        <section id="ubicacion" class="locations-section">
+            <div class="container">
+                <div class="section-title animate-on-scroll fade-up">
+                    <h2>Visita nuestras instalaciones</h2>
+                </div>
+                <div class="locations-grid">
+                    <div class="location-cards">
+                        <!-- Sede 1 Card -->
+                        <div class="location-card active" data-lat="38.35631" data-lng="-0.47716" data-index="0">
+                            <div class="card-status">Sede 1</div>
+                            <h3>MotoSuper Alicante</h3>
+                            <p class="address"><i class="fas fa-map-marker-alt"></i> C/ Ingeniero Canales, 6, 03013, Alicante</p>
+                            <p class="phone"><i class="fas fa-phone"></i> 965598615</p>
+                            <p class="schedule"><i class="fas fa-clock"></i> L - V: 09:30 - 14:30 | 16:30 - 20:30</p>
+                            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=C/%20Ingeniero%20Canales%206,%20Alicante" target="_blank" class="btn btn-secondary btn-sm">
+                                    <i class="fas fa-directions"></i> Cómo llegar
+                                </a>
+                                <a href="https://wa.me/34613355880" target="_blank" class="btn btn-primary btn-sm">
+                                    <i class="fab fa-whatsapp"></i> Contactar
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Sede 2 Card -->
+                        <div class="location-card" data-lat="38.35386" data-lng="-0.48698" data-index="1">
+                            <div class="card-status">Sede 2</div>
+                            <h3>MotoSuper Alicante</h3>
+                            <p class="address"><i class="fas fa-map-marker-alt"></i> C/ Teniente Llorca, 3, 03012, Alicante</p>
+                            <p class="phone"><i class="fas fa-phone"></i> 865821061</p>
+                            <p class="schedule"><i class="fas fa-clock"></i> L - V: 09:30 - 14:30 | 16:30 - 20:30</p>
+                            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=C/%20Teniente%20Llorca%203,%20Alicante" target="_blank" class="btn btn-secondary btn-sm">
+                                    <i class="fas fa-directions"></i> Cómo llegar
+                                </a>
+                                <a href="https://wa.me/34611206826" target="_blank" class="btn btn-primary btn-sm">
+                                    <i class="fab fa-whatsapp"></i> Contactar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-wrapper"><div id="map"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: FORM -->
+        <section id="contacto" class="contact-final-section">
+            <div class="container">
+                <div class="contact-cta-wrapper animate-on-scroll fade-up">
+                    <div class="contact-cta-content">
+                        <span class="badge">SOLICITUD DE REPARACIÓN</span>
+                        <h2>Recupera el rendimiento de tu moto</h2>
+                        <p>Explícanos brevemente qué le ocurre y te daremos una primera valoración técnica.</p>
+                        <div class="contact-whatsapp-cta">
+                            <p class="cta-subtitle">Atención inmediata por WhatsApp</p>
+                            <a href="https://wa.me/34613355880" class="btn btn-primary btn-lg w-100">
+                                <i class="fab fa-whatsapp"></i> PEDIR PRESUPUESTO
+                            </a>
+                            <p class="form-disclaimer">Horario de atención: L - V: 09:30 - 14:30 | 16:30 - 20:30</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <img src="Logos/logotipo-footer.svg" alt="MotoSuper Logo" style="height: 35px; margin-bottom: 20px;">
+                <p>Tu taller multimarca de confianza en Alicante. Transparencia, velocidad y recambios originales.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Menú</h4>
+                <a href="index.html">Inicio</a>
+                <a href="revisiones.html">Revisiones de Mantenimiento</a>
+                <a href="itv.html">Servicio Pre-ITV</a>
+                <a href="siniestros.html">Gestión Siniestros</a>
+                <a href="reparaciones.html">Taller y Reparaciones</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="aviso-legal.html">Aviso Legal</a>
+                <a href="politica-privacidad.html">Política de Privacidad</a>
+                <a href="politica-cookies.html">Política de Cookies</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Sede 1: C/ Ingeniero Canales 6</p>
+                <p><i class="fas fa-map-marker-alt"></i> Sede 2: C/ Teniente Llorca 3</p>
+                <p><i class="fas fa-phone"></i> 613355880</p>
+                <p><i class="fas fa-envelope"></i> motosuperalicante@gmail.com</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/motosuper.alicante/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://www.facebook.com/MotoSuper.alicante" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="https://wa.me/34613355880" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2024 MotoSuper Alicante. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Floating CTA for Mobile -->
+    <a href="https://wa.me/34613355880" class="floating-cta-mobile">
+        <i class="fab fa-whatsapp"></i> Contactar
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
