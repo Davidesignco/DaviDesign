@@ -9381,37 +9381,29 @@
               return;
             }
 
-            // 1. Capturar el diseño exacto del visualizador como imagen para Google Drive
+            // 1. Capturar el diseño exacto del visualizador como imagen para Google Drive (con timeout de seguridad para no retrasar Wompi)
             let previewBase64 = '';
             const stageEl = document.getElementById('stageWrapper');
             if (stageEl && typeof html2canvas === 'function') {
               try {
-                if (document.fonts && document.fonts.ready) {
-                  await document.fonts.ready;
-                }
-                const canvas = await html2canvas(stageEl, {
-                  scale: 1.2,
-                  useCORS: true,
-                  allowTaint: false,
-                  backgroundColor: '#141721',
-                  logging: false,
-                  onclone: prepareClonedStageDoc
-                });
-                previewBase64 = canvas.toDataURL('image/jpeg', 0.85);
-              } catch (errCapture) {
-                console.warn('html2canvas capture en Wompi falló, intentando directo:', errCapture);
-                try {
-                  const canvas2 = await html2canvas(stageEl, {
-                    scale: 1,
+                const capturePromise = (async () => {
+                  if (document.fonts && document.fonts.ready) {
+                    await document.fonts.ready;
+                  }
+                  const canvas = await html2canvas(stageEl, {
+                    scale: 1.0,
+                    useCORS: true,
                     allowTaint: false,
                     backgroundColor: '#141721',
                     logging: false,
                     onclone: prepareClonedStageDoc
                   });
-                  previewBase64 = canvas2.toDataURL('image/jpeg', 0.80);
-                } catch (err2) {
-                  console.error('No se pudo capturar diseño:', err2);
-                }
+                  return canvas.toDataURL('image/jpeg', 0.85);
+                })();
+                const timeoutPromise = new Promise(resolve => setTimeout(() => resolve(''), 2200));
+                previewBase64 = await Promise.race([capturePromise, timeoutPromise]);
+              } catch (errCapture) {
+                console.warn('html2canvas capture en Wompi omitido por seguridad:', errCapture);
               }
             }
 

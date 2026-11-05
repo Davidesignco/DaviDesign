@@ -2818,7 +2818,8 @@
         hasPet: false,
         petNames: [],
         activePreviewIndex: 0,
-        previewingPetIndex: -1
+        previewingPetIndex: -1,
+        orderCode: 'BN-' + Math.floor(1000 + Math.random() * 9000)
       };
 
       function getTotalQty() {
@@ -3626,7 +3627,10 @@
         const info = obtenerDatosCliente();
         const totalQty = getTotalQty();
         const total = calcPrice(totalQty);
-        const orderCode = `BN-${randomSalt}-${Date.now().toString().slice(-4)}`;
+        if (!state.orderCode) {
+          state.orderCode = 'BN-' + Math.floor(1000 + Math.random() * 9000);
+        }
+        const orderCode = `${state.orderCode}-${Date.now().toString().slice(-4)}`;
 
         const listaBolas = [];
         // Bolas principales
@@ -3716,71 +3720,94 @@
 
       // ── ACCIÓN BOTÓN WOMPI PRODUCCIÓN ──
       btnPayWompi.addEventListener('click', async function () {
-        const info = obtenerDatosCliente();
+        const origBtnHtml = btnPayWompi.innerHTML;
+        try {
+          const info = obtenerDatosCliente();
 
-        if (!info.clientName || !info.clientEmail || !info.clientPhone || !info.clientDept || !info.clientCity || !info.clientAddress) {
-          alert('Por favor completa todos tus datos de envío obligatorios (Nombre, Correo, WhatsApp, Departamento, Ciudad y Dirección) para continuar con el pago.');
-          return;
-        }
+          if (!info.clientName || !info.clientEmail || !info.clientPhone || !info.clientDept || !info.clientCity || !info.clientAddress) {
+            alert('Por favor completa todos tus datos de envío obligatorios (Nombre, Correo, WhatsApp, Departamento, Ciudad y Dirección) para continuar con el pago.');
+            return;
+          }
 
-        const total = calcPrice(getTotalQty());
-        const amountInCents = total * 100;
-        const wompiReference = `BN-${randomSalt}-${Date.now()}`;
+          if (typeof WidgetCheckout !== 'function') {
+            alert('La pasarela de pago segura de Wompi se está cargando o fue bloqueada por tu navegador. Puedes intentar de nuevo en un segundo o pagar directamente por WhatsApp.');
+            return;
+          }
 
-        let integritySignature = null;
-        if (WOMPI_INTEGRITY_SECRET) {
-          const strToSign = wompiReference + amountInCents + 'COP' + WOMPI_INTEGRITY_SECRET;
-          integritySignature = await calcularFirmaWompi(strToSign);
-        }
+          btnPayWompi.disabled = true;
+          btnPayWompi.innerHTML = '<span style="font-size:0.95rem; font-weight:700;">⏳ Conectando con Wompi...</span>';
 
-        const cleanPhone = info.clientPhone.replace(/\D/g, '').slice(-10);
-        const checkoutOptions = {
-          currency: 'COP',
-          amountInCents: amountInCents,
-          reference: wompiReference,
-          publicKey: WOMPI_PUBLIC_KEY,
-          customerData: {
+          if (!state.orderCode) {
+            state.orderCode = 'BN-' + Math.floor(1000 + Math.random() * 9000);
+          }
+
+          const total = calcPrice(getTotalQty());
+          const amountInCents = total * 100;
+          const wompiReference = `${state.orderCode}-${Date.now().toString().slice(-4)}`;
+
+          let integritySignature = null;
+          if (WOMPI_INTEGRITY_SECRET) {
+            const strToSign = wompiReference + amountInCents + 'COP' + WOMPI_INTEGRITY_SECRET;
+            integritySignature = await calcularFirmaWompi(strToSign);
+          }
+
+          const cleanPhone = info.clientPhone.replace(/\D/g, '').slice(-10);
+          const customerData = {
             email: info.clientEmail,
-            fullName: info.clientName,
-            phoneNumber: cleanPhone,
-            phoneNumberPrefix: '+57'
+            fullName: info.clientName
+          };
+          if (cleanPhone && cleanPhone.length >= 7) {
+            customerData.phoneNumber = cleanPhone;
+            customerData.phoneNumberPrefix = '+57';
           }
-        };
 
-        if (integritySignature) {
-          checkoutOptions.signature = { integrity: integritySignature };
-        }
+          const checkoutOptions = {
+            currency: 'COP',
+            amountInCents: amountInCents,
+            reference: wompiReference,
+            publicKey: WOMPI_PUBLIC_KEY,
+            customerData: customerData
+          };
 
-        if (typeof WidgetCheckout !== 'function') {
-          alert('La pasarela segura de Wompi se está cargando. Puedes intentar de nuevo en un segundo o pagar directamente por WhatsApp.');
-          return;
-        }
-
-        const checkout = new WidgetCheckout(checkoutOptions);
-        checkout.open(function (result) {
-          const transaction = result && result.transaction;
-          if (!transaction) return;
-
-          console.log('[Wompi] Resultado transacción:', transaction);
-
-          if (transaction.status === 'APPROVED') {
-            const wompiPayload = construirPayloadPedido('✅ PAGADO_WOMPI', transaction.id);
-            registrarEnGoogleSheets(wompiPayload);
-
-            alert(`🎉 ¡Pago aprobado con éxito! Código de pedido: ${wompiPayload.codigo_pedido}. David Muñoz coordinará tu envío a ${info.clientCity}.`);
-            updateCheckoutButtons();
-            window.open(btnPayWa.href, '_blank');
-          } else if (transaction.status === 'PENDING') {
-            const wompiPayload = construirPayloadPedido('⏳ PENDIENTE_WOMPI', transaction.id);
-            registrarEnGoogleSheets(wompiPayload);
-
-            alert(`Tu pago está en estado PENDIENTE por validación de tu entidad bancaria (ID: ${transaction.id || 'N/A'}). Te notificaremos tan pronto sea confirmado.`);
-            updateCheckoutButtons();
-            window.open(btnPayWa.href, '_blank');
-          } else if (transaction.status === 'DECLINED') {
-            alert('La transacción no fue aprobada por el banco. Puedes intentar con otra tarjeta/medio de pago o escribirnos directamente a WhatsApp para transferir por Nequi o Bancolombia.');
+          if (integritySignature) {
+            checkoutOptions.signature = { integrity: integritySignature };
           }
-        });
+
+          const checkout = new WidgetCheckout(checkoutOptions);
+
+          btnPayWompi.disabled = false;
+          btnPayWompi.innerHTML = origBtnHtml;
+
+          checkout.open(function (result) {
+            const transaction = result && result.transaction;
+            if (!transaction) return;
+
+            console.log('[Wompi] Resultado transacción:', transaction);
+
+            if (transaction.status === 'APPROVED') {
+              const wompiPayload = construirPayloadPedido('✅ PAGADO_WOMPI', transaction.id);
+              registrarEnGoogleSheets(wompiPayload);
+
+              alert(`🎉 ¡Pago aprobado con éxito! Código de pedido: ${wompiPayload.codigo_pedido}. David Muñoz coordinará tu envío a ${info.clientCity}.`);
+              updateCheckoutButtons();
+              window.open(btnPayWa.href, '_blank');
+            } else if (transaction.status === 'PENDING') {
+              const wompiPayload = construirPayloadPedido('⏳ PENDIENTE_WOMPI', transaction.id);
+              registrarEnGoogleSheets(wompiPayload);
+
+              alert(`Tu pago está en estado PENDIENTE por validación de tu entidad bancaria (ID: ${transaction.id || 'N/A'}). Te notificaremos tan pronto sea confirmado.`);
+              updateCheckoutButtons();
+              window.open(btnPayWa.href, '_blank');
+            } else if (transaction.status === 'DECLINED') {
+              alert('La transacción no fue aprobada por el banco. Puedes intentar con otra tarjeta o escribirnos directamente a WhatsApp para transferir por Nequi o Bancolombia.');
+            }
+          });
+        } catch (err) {
+          console.error('[Wompi Error]', err);
+          alert('Hubo un inconveniente al abrir la pasarela: ' + (err.message || err) + '. Puedes finalizar tu pedido directamente por WhatsApp.');
+          btnPayWompi.disabled = false;
+          btnPayWompi.innerHTML = origBtnHtml;
+        }
       });
 
       // ── INICIALIZACIÓN ──
