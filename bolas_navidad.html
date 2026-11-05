@@ -2761,6 +2761,8 @@
       // ── GOOGLE SHEETS BASE DE DATOS ──
       // Hoja vinculada: https://docs.google.com/spreadsheets/d/16w32vpv4p3jvhXKzV16iiVrZ1VEJV99cgQ3PtWCrT8o/edit
       const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxYNI1Z0_eZMcrCZO3htb8qcMBDT9O1VGaaz3pxUQWG1hVyyAiFw9bxwvjz2MLwKd-oUg/exec';
+      const WEB3FORMS_KEY = 'c4008f12-f2eb-4dda-bf62-8492b923f1c5';
+      const ADMIN_NOTIFICATION_EMAIL = 'davidesign93@gmail.com';
 
       // ── HELPERS CORTE LÁSER & FECHA ──
       function sanitizeLaserText(val) {
@@ -3671,27 +3673,50 @@
       }
 
       function registrarEnGoogleSheets(payload) {
-        if (!GOOGLE_SHEETS_URL) {
-          console.log('[Sheets] GOOGLE_SHEETS_URL no configurada aún.');
-          return;
+        const bodyStr = JSON.stringify(payload);
+
+        // 1. Envío a Google Sheets (con keepalive para persistir tras navegación)
+        if (GOOGLE_SHEETS_URL) {
+          try {
+            fetch(GOOGLE_SHEETS_URL, {
+              method: 'POST',
+              mode: 'no-cors',
+              keepalive: true,
+              headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+              body: bodyStr
+            }).then(() => {
+              console.log('[Sheets] Pedido enviado a Google Sheets con éxito:', payload.codigo_pedido);
+            }).catch(err => {
+              console.warn('[Sheets] Error al registrar en Sheets:', err);
+            });
+          } catch (e) {
+            console.warn('[Sheets] Excepción Sheets:', e);
+          }
         }
-        try {
-          fetch(GOOGLE_SHEETS_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify(payload)
-          }).then(() => {
-            console.log('[Sheets] Pedido enviado a Google Sheets con éxito');
-          }).catch(err => {
-            console.warn('[Sheets] Error al registrar en Sheets:', err);
-          });
-        } catch (e) {
-          console.warn('[Sheets] Excepción Sheets:', e);
+
+        // 2. Respaldo por correo electrónico vía Web3Forms (notificación inmediata)
+        if (WEB3FORMS_KEY) {
+          try {
+            fetch('https://api.web3forms.com/submit', {
+              method: 'POST',
+              keepalive: true,
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              body: JSON.stringify({
+                access_key: WEB3FORMS_KEY,
+                subject: `🎄 Nuevo Pedido Bolas Navidad: ${payload.codigo_pedido} - ${payload.nombre_cliente} (${payload.estado_pago})`,
+                from_name: 'David Muñoz Web - Bolas Navidad',
+                to_email: ADMIN_NOTIFICATION_EMAIL,
+                replyto: (payload.correo_cliente || ADMIN_NOTIFICATION_EMAIL),
+                ...payload
+              })
+            }).catch(err => console.warn('[Web3Forms] Error:', err));
+          } catch (e) {
+            console.warn('[Web3Forms] Excepción Web3Forms:', e);
+          }
         }
       }
 
-      // ── ACCIÓN BOTÓN WHATSAPP (VALIDACIÓN + REGISTRO SHEETS) ──
+      // ── ACCIÓN BOTÓN WHATSAPP (VALIDACIÓN + REGISTRO SHEETS & CORREO) ──
       if (btnPayWa) {
         btnPayWa.addEventListener('click', function (e) {
           const info = obtenerDatosCliente();
@@ -3700,9 +3725,10 @@
             e.preventDefault();
             return;
           }
-          // Registrar en Sheets en segundo plano antes de abrir WA
+          // Registrar en Sheets y Correo en segundo plano con keepalive
           const payload = construirPayloadPedido('💬 WHATSAPP');
           registrarEnGoogleSheets(payload);
+          alert(`¡Gracias ${info.clientName}! Tu pedido ${payload.codigo_pedido} ha sido registrado exitosamente. Te estamos dirigiendo a WhatsApp para coordinar los detalles.`);
         });
       }
 
@@ -3744,6 +3770,10 @@
           const total = calcPrice(getTotalQty());
           const amountInCents = total * 100;
           const wompiReference = `${state.orderCode}-${Date.now().toString().slice(-4)}`;
+
+          // Pre-registro inmediato en Google Sheets para garantizar que ningún pedido se pierda al abrir Wompi
+          const preWompiPayload = construirPayloadPedido('💳 INICIANDO_WOMPI');
+          registrarEnGoogleSheets(preWompiPayload);
 
           let integritySignature = null;
           if (WOMPI_INTEGRITY_SECRET) {
@@ -3799,6 +3829,8 @@
               updateCheckoutButtons();
               window.open(btnPayWa.href, '_blank');
             } else if (transaction.status === 'DECLINED') {
+              const wompiPayload = construirPayloadPedido('❌ RECHAZADO_WOMPI', transaction.id || '');
+              registrarEnGoogleSheets(wompiPayload);
               alert('La transacción no fue aprobada por el banco. Puedes intentar con otra tarjeta o escribirnos directamente a WhatsApp para transferir por Nequi o Bancolombia.');
             }
           });

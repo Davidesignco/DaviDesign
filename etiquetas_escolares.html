@@ -9059,6 +9059,7 @@
           fetch(GOOGLE_SHEETS_URL, {
             method: 'POST',
             mode: 'no-cors',
+            keepalive: true,
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify(pedidoData)
           }).catch(err => console.warn('Error al registrar en Sheets:', err));
@@ -9068,6 +9069,7 @@
         if (WEB3FORMS_KEY) {
           fetch('https://api.web3forms.com/submit', {
             method: 'POST',
+            keepalive: true,
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify({
               access_key: WEB3FORMS_KEY,
@@ -9543,6 +9545,10 @@
             }
 
             const checkout = new WidgetCheckout(wompiCheckoutOptions);
+
+            // Pre-registro inmediato en Google Sheets y Correo al abrir la pasarela
+            const prePedidoData = armarPedidoData('💳 INICIANDO_WOMPI', wompiReference);
+            registrarPedido(prePedidoData);
 
             btnPayWompi.disabled = false;
             btnPayWompi.innerHTML = origBtnHtml;
