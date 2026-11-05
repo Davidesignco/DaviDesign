@@ -675,6 +675,19 @@
       pointer-events: none;
     }
 
+    .compare-layer-edited {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      clip-path: inset(0 0 0 50%);
+      will-change: clip-path;
+      pointer-events: none;
+      z-index: 4;
+    }
+
     .compare-clipped {
       position: absolute;
       top: 0;
@@ -684,6 +697,8 @@
       overflow: hidden;
       clip-path: inset(0 50% 0 0);
       will-change: clip-path;
+      pointer-events: none;
+      z-index: 5;
     }
 
     .compare-handle {
@@ -724,11 +739,12 @@
       top: 16px;
       padding: 6px 14px;
       border-radius: 20px;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 700;
       font-family: var(--font-head);
       letter-spacing: 0.05em;
       text-transform: uppercase;
+      white-space: nowrap;
       z-index: 5;
       backdrop-filter: blur(8px);
       pointer-events: none;
@@ -1931,17 +1947,20 @@
       </div>
 
       <div class="compare-container reveal" id="imageCompare">
-        <span class="compare-badge badge-raw">Original RAW (Sin Revelar)</span>
-        <span class="compare-badge badge-edited">Resultado Final (Edición Pro)</span>
-
         <div class="compare-wrapper">
           <!-- Capa 1: Resultado Editado (Fondo Completo) -->
           <img src="portafolio/Slider/resultado-slider.png" alt="Foto editada resultado profesional"
             class="compare-img">
 
-          <!-- Capa 2: Archivo Base Original (Clipped) -->
+          <!-- Capa Editada Clipped (Badge que desaparece al pasar la barra hacia la derecha) -->
+          <div class="compare-layer-edited" id="compareLayerEdited">
+            <span class="compare-badge badge-edited">Resultado Final</span>
+          </div>
+
+          <!-- Capa 2: Archivo Base Original RAW (Clipped que desaparece al pasar la barra hacia la izquierda) -->
           <div class="compare-clipped" id="compareClipped">
             <img src="portafolio/Slider/base-slider.png" alt="Foto original plano RAW" class="compare-img">
+            <span class="compare-badge badge-raw">Original RAW</span>
           </div>
 
           <!-- Divisor Vertical y Handle -->
@@ -2804,6 +2823,7 @@
       /* ── 2. IMAGE COMPARE SLIDER (AUTOPLAY + DRAG) ──────────── */
       const compareContainer = document.getElementById('imageCompare');
       const compareClipped = document.getElementById('compareClipped');
+      const compareLayerEdited = document.getElementById('compareLayerEdited');
       const compareHandle = document.getElementById('compareHandle');
 
       let isDragging = false;
@@ -2817,6 +2837,9 @@
         const clamped = Math.max(0, Math.min(100, percentage));
         currentPos = clamped;
         compareClipped.style.clipPath = `inset(0 ${100 - clamped}% 0 0)`;
+        if (compareLayerEdited) {
+          compareLayerEdited.style.clipPath = `inset(0 0 0 ${clamped}%)`;
+        }
         compareHandle.style.left = `${clamped}%`;
       }
 
