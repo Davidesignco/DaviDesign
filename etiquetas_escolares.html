@@ -9347,77 +9347,165 @@
         }
       }
 
-      // Manejador del botón Wompi (Genera vista previa y abre pasarela)
+      function armarPedidoData(estadoPago, transaccionId) {
+        const wpClientName = (document.getElementById('orderClientName')?.value || '').trim();
+        const wpClientEmail = (document.getElementById('orderClientEmail')?.value || '').trim();
+        const wpClientTel = (document.getElementById('orderWhatsApp')?.value || '').trim();
+        const wpClientDept = (document.getElementById('orderDept')?.value || '').trim();
+        let wpClientCity = (document.getElementById('orderCity')?.value || '').trim();
+        if (wpClientCity === '__OTRO__' || wpClientCity === 'OTRO') {
+          const customCityInput = document.getElementById('orderCityCustom');
+          wpClientCity = customCityInput && customCityInput.value.trim() ? customCityInput.value.trim() : 'Otro Municipio';
+        }
+        const wpClientAddress = (document.getElementById('orderAddress')?.value || '').trim();
+        const wpClientNotes = (document.getElementById('orderExtraNotes')?.value || '').trim();
+
+        const wantsCopies = state.wantsCopies;
+        const extraCopies = wantsCopies ? (state.extraCopies || 1) : 0;
+        const totalPacks = 1 + extraCopies;
+        const singlePrice = (state.selectedItem && state.selectedItem.price) || 49990;
+        const addCost = (state.selectedItem && state.selectedItem.crossPrice) || (singlePrice - 20000);
+        const packTotal = singlePrice + (extraCopies * addCost);
+        const packSavings = extraCopies * 20000;
+
+        const mainStudentName = (state.material === 'combo')
+          ? (state.comboText18.trim() || state.comboText12_1.trim() || state.name.trim())
+          : state.name.trim();
+
+        const mainGradeInfo = (state.material === 'combo')
+          ? (state.comboText12_2.trim() || state.grade.trim() || 'Sin subtexto') + (state.comboText5.trim() ? ' (Redonda: ' + state.comboText5.trim() + ')' : '')
+          : (isSingleLineSize(state.selectedSizeId) ? 'N/A (1 sola línea)' : (state.grade || 'Ninguno'));
+
+        const tipoEtiquetaClean = (state.selectedOptionId || (state.selectedItem && state.selectedItem.id) || 'ETN001')
+          .replace(/-[BP]$/i, '')
+          .trim();
+
+        let iconDescription = state.icon;
+        if (hasNoIcons(state.material, state.selectedSizeId)) {
+          iconDescription = 'Sin icono (Formato texto completo)';
+        } else if (state.iconMode === 'custom' && state.customIconDataUrl) {
+          iconDescription = '📸 FOTO/LOGO PROPIO (' + (state.customIconFileName || 'Archivo cargado') + ')';
+        } else if (isIconMandatory(state.material, state.selectedSizeId)) {
+          iconDescription = state.icon + ' (Obligatorio en este formato)';
+        } else if (state.icon === 'none') {
+          iconDescription = 'Sin icono (Solo texto)';
+        }
+
+        const materialLabelPrincipal = state.material === 'vinilo'
+          ? 'Vinilo Adhesivo'
+          : (state.material === 'textil' ? 'Textil Termofijable' : 'Super Combo Escolar');
+
+        const isCombo = state.material === 'combo';
+        const txt1 = isCombo ? (state.comboText18.trim() || state.name.trim()) : state.name.trim();
+        const txt2 = isCombo ? (state.comboText12_1.trim() || state.name.trim()) : state.name.trim();
+        const txt3 = isCombo ? (state.comboText12_2.trim() || state.grade.trim() || '') : (isSingleLineSize(state.selectedSizeId) ? '' : state.grade.trim());
+        const txt4 = isCombo ? (state.comboText5.trim() || '') : '';
+
+        const items = [{
+          item_index: 1,
+          item_renglon: '1 de 1 (Pack Principal)',
+          tipo_etiqueta: tipoEtiquetaClean,
+          tipo_item: 'Pack Principal',
+          producto: (state.selectedItem ? state.selectedItem.name : 'Pack Escolar') + (extraCopies > 0 ? ' (+' + extraCopies + ' ' + (extraCopies === 1 ? 'copia idéntica' : 'copias idénticas') + ' con bono)' : ''),
+          material: materialLabelPrincipal,
+          cantidad: totalPacks,
+          nombre_en_etiqueta: mainStudentName,
+          grado_colegio: mainGradeInfo,
+          texto_1: txt1,
+          texto_2: txt2,
+          texto_3: txt3,
+          texto_4: txt4,
+          color_fondo: state.bg,
+          color_texto: state.textColor,
+          estampado: state.pattern,
+          icono: iconDescription,
+          fuente: state.font,
+          precio: formatCOP(packTotal),
+          observaciones: (extraCopies > 0 ? '(' + totalPacks + ' paquetes: 1 original + ' + extraCopies + ' copias con bono) ' : '') + (wpClientNotes || 'Ninguna'),
+          enlace_diseno: true
+        }];
+
+        return {
+          hoja: 'Etiquetas_Escolares',
+          fecha_registro: new Date().toLocaleString('es-CO'),
+          codigo_pedido: state.orderCode,
+          tipo_etiqueta: tipoEtiquetaClean,
+          nombre_cliente: wpClientName,
+          correo_cliente: wpClientEmail,
+          whatsapp: wpClientTel,
+          departamento: wpClientDept,
+          ciudad: wpClientCity,
+          direccion: wpClientAddress,
+          pack_principal: state.selectedItem ? state.selectedItem.name : 'Pack Escolar',
+          material: materialLabelPrincipal,
+          cantidad_paquetes: totalPacks,
+          precio_pack_principal: packTotal,
+          ahorro_copias: packSavings > 0 ? packSavings : 0,
+          nombre_en_etiqueta: mainStudentName,
+          grado_colegio: mainGradeInfo,
+          texto_1: txt1,
+          texto_2: txt2,
+          texto_3: txt3,
+          texto_4: txt4,
+          color_fondo: state.bg,
+          color_texto: state.textColor,
+          estampado: state.pattern,
+          icono: iconDescription,
+          fuente: state.font,
+          total_ahorro_bonos: packSavings,
+          total_pagar: summaryTotalPrice ? summaryTotalPrice.textContent : formatCOP(packTotal),
+          total_cop: packTotal,
+          observaciones_cliente: wpClientNotes || 'Ninguna',
+          items: items,
+          foto_cliente_base64: (state.iconMode === 'custom' && state.customIconDataUrl) ? state.customIconDataUrl : '',
+          foto_cliente_nombre: (state.iconMode === 'custom' && state.customIconFileName) ? state.customIconFileName : '',
+          id_transaccion_wompi: transaccionId || '',
+          estado_pago: estadoPago || 'INICIANDO_WOMPI'
+        };
+      }
+
+      // Manejador del botón Wompi (Apertura instantánea y segura)
       if (btnPayWompi) {
         btnPayWompi.addEventListener('click', async function () {
-          // 1. Validar formulario
-          if (!orderForm.checkValidity()) {
-            orderForm.reportValidity();
-            return;
-          }
-
-          const wpClientName = document.getElementById('orderClientName').value.trim();
-          const wpClientEmail = (document.getElementById('orderClientEmail') ? document.getElementById('orderClientEmail').value.trim() : '');
-          const wpClientTel = document.getElementById('orderWhatsApp').value.trim();
-          const wpClientDept = document.getElementById('orderDept').value;
-          let wpClientCity = document.getElementById('orderCity').value;
-          if (wpClientCity === '__OTRO__') {
-            const customCityInput = document.getElementById('orderCityCustom');
-            wpClientCity = customCityInput && customCityInput.value.trim() ? customCityInput.value.trim() : 'Otro Municipio';
-          }
-          const wpClientAddress = document.getElementById('orderAddress').value.trim();
-          const wpClientNotes = document.getElementById('orderExtraNotes').value.trim();
-
           const origBtnHtml = btnPayWompi.innerHTML;
-          btnPayWompi.disabled = true;
-          btnPayWompi.innerHTML = '<span style="font-size:0.95rem; font-weight:700;">⏳ Preparando pedido y abriendo pago...</span>';
-
           try {
-            // Verificar si el script de Wompi está cargado
-            if (typeof WidgetCheckout === 'undefined') {
-              alert('La pasarela de Wompi está cargando o fue bloqueada por el navegador. Puedes finalizar directamente por WhatsApp.');
-              btnPayWompi.disabled = false;
-              btnPayWompi.innerHTML = origBtnHtml;
+            const wpClientName = (document.getElementById('orderClientName')?.value || '').trim();
+            const wpClientEmail = (document.getElementById('orderClientEmail')?.value || '').trim();
+            const wpClientTel = (document.getElementById('orderWhatsApp')?.value || '').trim();
+            const wpClientDept = (document.getElementById('orderDept')?.value || '').trim();
+            let wpClientCity = (document.getElementById('orderCity')?.value || '').trim();
+            if (wpClientCity === '__OTRO__' || wpClientCity === 'OTRO') {
+              const customCityInput = document.getElementById('orderCityCustom');
+              wpClientCity = customCityInput && customCityInput.value.trim() ? customCityInput.value.trim() : 'Otro Municipio';
+            }
+            const wpClientAddress = (document.getElementById('orderAddress')?.value || '').trim();
+
+            if (!wpClientName || !wpClientEmail || !wpClientTel || !wpClientDept || !wpClientCity || !wpClientAddress) {
+              alert('Por favor completa todos tus datos de envío obligatorios (Nombre, Correo, WhatsApp, Departamento, Ciudad y Dirección) para continuar con el pago.');
               return;
             }
 
-            // 1. Capturar el diseño exacto del visualizador como imagen para Google Drive (con timeout de seguridad para no retrasar Wompi)
-            let previewBase64 = '';
-            const stageEl = document.getElementById('stageWrapper');
-            if (stageEl && typeof html2canvas === 'function') {
-              try {
-                const capturePromise = (async () => {
-                  if (document.fonts && document.fonts.ready) {
-                    await document.fonts.ready;
-                  }
-                  const canvas = await html2canvas(stageEl, {
-                    scale: 1.0,
-                    useCORS: true,
-                    allowTaint: false,
-                    backgroundColor: '#141721',
-                    logging: false,
-                    onclone: prepareClonedStageDoc
-                  });
-                  return canvas.toDataURL('image/jpeg', 0.85);
-                })();
-                const timeoutPromise = new Promise(resolve => setTimeout(() => resolve(''), 2200));
-                previewBase64 = await Promise.race([capturePromise, timeoutPromise]);
-              } catch (errCapture) {
-                console.warn('html2canvas capture en Wompi omitido por seguridad:', errCapture);
-              }
+            if (typeof WidgetCheckout !== 'function') {
+              alert('La pasarela de pago segura de Wompi se está cargando o fue bloqueada por tu navegador. Puedes intentar de nuevo en un segundo o pagar directamente por WhatsApp.');
+              return;
             }
+
+            btnPayWompi.disabled = true;
+            btnPayWompi.innerHTML = '<span style="font-size:0.95rem; font-weight:700;">⏳ Conectando con Wompi...</span>';
 
             const wantsCopies = state.wantsCopies;
             const extraCopies = wantsCopies ? (state.extraCopies || 1) : 0;
-            const totalPacks = 1 + extraCopies;
-            const singlePrice = state.selectedItem.price;
-            const addCost = state.selectedItem.crossPrice || (singlePrice - 20000);
+            const singlePrice = (state.selectedItem && state.selectedItem.price) || 49990;
+            const addCost = (state.selectedItem && state.selectedItem.crossPrice) || (singlePrice - 20000);
             const packTotal = singlePrice + (extraCopies * addCost);
-            const packSavings = extraCopies * 20000;
             const amountInCents = packTotal * 100;
-            const wompiReference = state.orderCode + '-' + Date.now().toString().slice(-4);
 
-            // Generar firma de integridad SHA-256 instantánea
+            if (!state.orderCode) {
+              state.orderCode = 'PED-' + Math.floor(1000 + Math.random() * 9000);
+            }
+            const wompiReference = `${state.orderCode}-${Date.now().toString().slice(-4)}`;
+
+            // Generar firma de integridad SHA-256 oficial
             let integritySignature = null;
             if (WOMPI_INTEGRITY_SECRET) {
               const strToSign = wompiReference + amountInCents + 'COP' + WOMPI_INTEGRITY_SECRET;
@@ -9430,13 +9518,12 @@
               }
             }
 
-            // Opciones para el Widget de Wompi
-            const cleanPhone = wpClientTel.replace(/\D/g, '');
+            const cleanPhone = wpClientTel.replace(/\D/g, '').slice(-10);
             const customerData = {
-              email: wpClientEmail || 'cliente@davidesign.co',
+              email: wpClientEmail,
               fullName: wpClientName
             };
-            if (cleanPhone && cleanPhone.length >= 7) {
+            if (cleanPhone && cleanPhone.length === 10) {
               customerData.phoneNumber = cleanPhone;
               customerData.phoneNumberPrefix = '+57';
             }
@@ -9455,113 +9542,11 @@
               };
             }
 
-            // Armar datos completos del pedido (con la imagen capturada lista)
-            const mainStudentName = (state.material === 'combo')
-              ? (state.comboText18.trim() || state.comboText12_1.trim() || state.name.trim())
-              : state.name.trim();
-
-            const mainGradeInfo = (state.material === 'combo')
-              ? (state.comboText12_2.trim() || state.grade.trim() || 'Sin subtexto') + (state.comboText5.trim() ? ' (Redonda: ' + state.comboText5.trim() + ')' : '')
-              : (isSingleLineSize(state.selectedSizeId) ? 'N/A (1 sola línea)' : (state.grade || 'Ninguno'));
-
-            const tipoEtiquetaClean = (state.selectedOptionId || (state.selectedItem && state.selectedItem.id) || 'ETN001')
-              .replace(/-[BP]$/i, '')
-              .trim();
-
-            let iconDescription = state.icon;
-            if (hasNoIcons(state.material, state.selectedSizeId)) {
-              iconDescription = 'Sin icono (Formato texto completo)';
-            } else if (state.iconMode === 'custom' && state.customIconDataUrl) {
-              iconDescription = '📸 FOTO/LOGO PROPIO (' + (state.customIconFileName || 'Archivo cargado') + ')';
-            } else if (isIconMandatory(state.material, state.selectedSizeId)) {
-              iconDescription = state.icon + ' (Obligatorio en este formato)';
-            } else if (state.icon === 'none') {
-              iconDescription = 'Sin icono (Solo texto)';
-            }
-
-            const materialLabelPrincipal = state.material === 'vinilo'
-              ? 'Vinilo Adhesivo'
-              : (state.material === 'textil' ? 'Textil Termofijable' : 'Super Combo Escolar');
-
-            const isCombo = state.material === 'combo';
-            const txt1 = isCombo ? (state.comboText18.trim() || state.name.trim()) : state.name.trim();
-            const txt2 = isCombo ? (state.comboText12_1.trim() || state.name.trim()) : state.name.trim();
-            const txt3 = isCombo ? (state.comboText12_2.trim() || state.grade.trim() || '') : (isSingleLineSize(state.selectedSizeId) ? '' : state.grade.trim());
-            const txt4 = isCombo ? (state.comboText5.trim() || '') : '';
-
-            const items = [{
-              item_index: 1,
-              item_renglon: '1 de 1 (Pack Principal)',
-              tipo_etiqueta: tipoEtiquetaClean,
-              tipo_item: 'Pack Principal',
-              producto: state.selectedItem.name + (extraCopies > 0 ? ' (+' + extraCopies + ' ' + (extraCopies === 1 ? 'copia idéntica' : 'copias idénticas') + ' con bono)' : ''),
-              material: materialLabelPrincipal,
-              cantidad: totalPacks,
-              nombre_en_etiqueta: mainStudentName,
-              grado_colegio: mainGradeInfo,
-              texto_1: txt1,
-              texto_2: txt2,
-              texto_3: txt3,
-              texto_4: txt4,
-              color_fondo: state.bg,
-              color_texto: state.textColor,
-              estampado: state.pattern,
-              icono: iconDescription,
-              fuente: state.font,
-              precio: formatCOP(packTotal),
-              observaciones: (extraCopies > 0 ? '(' + totalPacks + ' paquetes: 1 original + ' + extraCopies + ' copias con bono) ' : '') + (wpClientNotes || 'Ninguna'),
-              enlace_diseno: true
-            }];
-
-            const pedidoData = {
-              hoja: 'Etiquetas_Escolares',
-              fecha_registro: new Date().toLocaleString('es-CO'),
-              codigo_pedido: state.orderCode,
-              tipo_etiqueta: tipoEtiquetaClean,
-              nombre_cliente: wpClientName,
-              correo_cliente: wpClientEmail,
-              whatsapp: wpClientTel,
-              departamento: wpClientDept,
-              ciudad: wpClientCity,
-              direccion: wpClientAddress,
-              pack_principal: state.selectedItem.name,
-              material: materialLabelPrincipal,
-              cantidad_paquetes: totalPacks,
-              precio_pack_principal: packTotal,
-              ahorro_copias: packSavings > 0 ? packSavings : 0,
-              nombre_en_etiqueta: mainStudentName,
-              grado_colegio: mainGradeInfo,
-              texto_1: txt1,
-              texto_2: txt2,
-              texto_3: txt3,
-              texto_4: txt4,
-              color_fondo: state.bg,
-              color_texto: state.textColor,
-              estampado: state.pattern,
-              icono: iconDescription,
-              fuente: state.font,
-              total_ahorro_bonos: packSavings,
-              total_pagar: summaryTotalPrice.textContent,
-              total_cop: packTotal,
-              observaciones_cliente: wpClientNotes || 'Ninguna',
-              items: items,
-              vista_previa_base64: previewBase64,
-              foto_cliente_base64: (state.iconMode === 'custom' && state.customIconDataUrl) ? state.customIconDataUrl : '',
-              foto_cliente_nombre: (state.iconMode === 'custom' && state.customIconFileName) ? state.customIconFileName : '',
-              estado_pago: 'INICIANDO_WOMPI'
-            };
-
-            // Pre-registro seguro con la imagen lista en Google Sheets + Drive
-            registrarPedido(pedidoData);
-
-            // Instanciar y abrir Wompi Checkout
             const checkout = new WidgetCheckout(wompiCheckoutOptions);
 
-            // Restaurar botón
             btnPayWompi.disabled = false;
             btnPayWompi.innerHTML = origBtnHtml;
 
-            // Abrir modal de Wompi
             checkout.open(function (result) {
               const transaction = result && result.transaction;
               if (!transaction) return;
@@ -9570,15 +9555,13 @@
 
               if (transaction.status === 'APPROVED') {
                 playSuccessSound();
+                const pedidoData = armarPedidoData('PAGADO_WOMPI', transaction.id);
                 notificarPagoAprobadoWompi(transaction, pedidoData);
                 showWompiSuccessModal(transaction, pedidoData);
               } else if (transaction.status === 'PENDING') {
                 alert('Tu pago está en estado PENDIENTE por validación bancaria (' + (transaction.id || '') + '). Te notificaremos tan pronto sea aprobado.');
-                registrarPedido({
-                  ...pedidoData,
-                  estado_pago: 'PENDIENTE_BANCO_WOMPI',
-                  id_transaccion_wompi: transaction.id || ''
-                });
+                const pedidoData = armarPedidoData('PENDIENTE_BANCO_WOMPI', transaction.id || '');
+                registrarPedido(pedidoData);
               } else if (transaction.status === 'DECLINED') {
                 alert('La transacción no fue aprobada por el banco. Puedes intentar con otro medio de pago o coordinar vía WhatsApp.');
               }
