@@ -231,15 +231,16 @@ function doPost(e) {
     let estadoColorFg = '#0f172a';
     let transaccionIdTexto = data.id_transaccion_wompi || 'N/A';
 
-    if (data.estado_pago === 'PAGADO_WOMPI') {
+    const rawEstado = (data.estado_pago || '').toString().toUpperCase();
+    if (rawEstado.indexOf('PAGADO') !== -1 || rawEstado.indexOf('APPROVED') !== -1) {
       estadoPagoTexto = '✅ PAGADO';
       estadoColorBg = '#10b981';
       estadoColorFg = '#ffffff';
-    } else if (data.estado_pago === 'PENDIENTE_BANCO_WOMPI') {
+    } else if (rawEstado.indexOf('PENDIENTE') !== -1 || rawEstado.indexOf('PENDING') !== -1) {
       estadoPagoTexto = '⏳ PENDIENTE BANCO';
       estadoColorBg = '#f59e0b';
       estadoColorFg = '#ffffff';
-    } else if (data.estado_pago === 'INICIANDO_WOMPI') {
+    } else if (rawEstado.indexOf('INICIANDO') !== -1 || rawEstado.indexOf('WOMPI') !== -1) {
       estadoPagoTexto = '⏳ Iniciando Wompi';
       estadoColorBg = '#e0f2fe';
       estadoColorFg = '#0369a1';

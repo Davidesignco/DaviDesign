@@ -3171,91 +3171,7 @@
       color: #fff;
     }
 
-    /* ── WOMPI WIDGET RESPONSIVE MOBILE FIXES ───────────────────────── */
-    /* En móvil: Pantalla completa nativa sin franjas laterales ni scroll doble */
-    @media (max-width: 768px) {
-      .waybox-backdrop {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        height: 100dvh !important;
-        background-color: rgba(0, 0, 0, 0.95) !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        overflow: hidden !important;
-        z-index: 9999999 !important;
-      }
-
-      .waybox-modal {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        width: 100vw !important;
-        max-width: 100vw !important;
-        height: 100vh !important;
-        height: 100dvh !important;
-        max-height: 100dvh !important;
-        margin: 0 !important;
-        border-radius: 0 !important;
-        border: none !important;
-        box-shadow: none !important;
-        box-sizing: border-box !important;
-        overflow: hidden !important;
-        -webkit-overflow-scrolling: touch !important;
-        background: #fff !important;
-        z-index: 10000000 !important;
-      }
-
-      .waybox-iframe {
-        width: 100vw !important;
-        height: 100vh !important;
-        height: 100dvh !important;
-        border: none !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-      }
-    }
-
-    /* En pantallas de escritorio: Tarjeta flotante centrada, estilizada y premium */
-    @media (min-width: 769px) {
-      .waybox-backdrop {
-        backdrop-filter: blur(8px) !important;
-        background-color: rgba(0, 0, 0, 0.75) !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        z-index: 9999999 !important;
-      }
-
-      .waybox-modal {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        bottom: auto !important;
-        margin: auto !important;
-        width: 95% !important;
-        max-width: 440px !important;
-        height: 85vh !important;
-        max-height: 740px !important;
-        border-radius: 20px !important;
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(16, 185, 129, 0.25) !important;
-        overflow: hidden !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-      }
-
-      .waybox-iframe {
-        width: 100% !important;
-        height: 100% !important;
-        border: none !important;
-      }
-    }
+    /* Estilos nativos responsivos de Wompi Widget activos */
 
 
 
@@ -9133,24 +9049,57 @@
       // Llaves y Secretos de Producción Oficiales
       const WOMPI_PUBLIC_KEY = 'pub_prod_pdLghBPNVVInC8u9oP3Ko0ffhQYou76T';
 
-      // Bloquear scroll de la página de fondo cuando el modal de Wompi está en pantalla
-      (function initWompiScrollLock() {
-        const observer = new MutationObserver(() => {
-          const backdrop = document.querySelector('.waybox-backdrop');
-          const isModalOpen = backdrop && !backdrop.hasAttribute('hidden') && !backdrop.classList.contains('waybox-backdrop-hidden');
-          if (isModalOpen) {
-            document.body.style.overflow = 'hidden';
-          } else {
-            document.body.style.overflow = '';
-          }
-        });
-        if (document.body) {
-          observer.observe(document.body, { childList: true, attributes: true, attributeFilter: ['class', 'hidden'], subtree: true });
-        }
-      })();
+      
 
       const WOMPI_INTEGRITY_SECRET = 'prod_integrity_EHFQ80YqnNr0D8cAmBiw5Rg5xPvPevsi';
       const ADMIN_NOTIFICATION_EMAIL = 'davidesign93@gmail.com';
+
+      // Cálculo de firma SHA-256 oficial para integridad Wompi
+      async function calcularFirmaWompi(cadena) {
+        if (window.crypto && window.crypto.subtle) {
+          const encoder = new TextEncoder();
+          const data = encoder.encode(cadena);
+          const hashBuffer = await window.crypto.subtle.digest('SHA-256', data);
+          const hashArray = Array.from(new Uint8Array(hashBuffer));
+          return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+        return fastSha256(cadena);
+      }
+
+      // Captura de diseño para Google Drive vía html2canvas
+      async function capturarVistaPreviaBase64() {
+        const stageEl = document.getElementById('stageWrapper');
+        if (!stageEl || typeof html2canvas !== 'function') return '';
+        try {
+          if (document.fonts && document.fonts.ready) {
+            await document.fonts.ready;
+          }
+          const canvas = await html2canvas(stageEl, {
+            scale: 1.1,
+            useCORS: true,
+            allowTaint: false,
+            backgroundColor: '#141721',
+            logging: false,
+            onclone: prepareClonedStageDoc
+          });
+          return canvas.toDataURL('image/jpeg', 0.85);
+        } catch (errCapture) {
+          console.warn('html2canvas con CORS falló, intentando directo:', errCapture);
+          try {
+            const canvas2 = await html2canvas(stageEl, {
+              scale: 1.0,
+              allowTaint: false,
+              backgroundColor: '#141721',
+              logging: false,
+              onclone: prepareClonedStageDoc
+            });
+            return canvas2.toDataURL('image/jpeg', 0.80);
+          } catch (err2) {
+            console.error('No se pudo capturar diseño:', err2);
+            return '';
+          }
+        }
+      }
 
 
       // Algoritmo puro SHA-256 (ejecución síncrona instantánea en cualquier contexto o navegador)
@@ -9349,7 +9298,7 @@
         }
       }
 
-      function armarPedidoData(estadoPago, transaccionId) {
+      function armarPedidoData(estadoPago, transaccionId, previewImgBase64) {
         const wpClientName = (document.getElementById('orderClientName')?.value || '').trim();
         const wpClientEmail = (document.getElementById('orderClientEmail')?.value || '').trim();
         const wpClientTel = (document.getElementById('orderWhatsApp')?.value || '').trim();
@@ -9459,6 +9408,7 @@
           total_cop: packTotal,
           observaciones_cliente: wpClientNotes || 'Ninguna',
           items: items,
+          vista_previa_base64: previewImgBase64 || '',
           foto_cliente_base64: (state.iconMode === 'custom' && state.customIconDataUrl) ? state.customIconDataUrl : '',
           foto_cliente_nombre: (state.iconMode === 'custom' && state.customIconFileName) ? state.customIconFileName : '',
           id_transaccion_wompi: transaccionId || '',
@@ -9468,7 +9418,11 @@
 
       // Manejador del botón Wompi (Apertura instantánea y segura)
       if (btnPayWompi) {
-        btnPayWompi.addEventListener('click', async function () {
+        btnPayWompi.addEventListener('click', async function (e) {
+          if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
           const origBtnHtml = btnPayWompi.innerHTML;
           try {
             const wpClientName = (document.getElementById('orderClientName')?.value || '').trim();
@@ -9495,6 +9449,16 @@
             btnPayWompi.disabled = true;
             btnPayWompi.innerHTML = '<span style="font-size:0.95rem; font-weight:700;">⏳ Conectando con Wompi...</span>';
 
+            // 1. Capturar la imagen del diseño para Google Drive (con timeout de 2.2s para no demorar la pasarela)
+            let previewBase64 = '';
+            try {
+              const capturePromise = capturarVistaPreviaBase64();
+              const timeoutPromise = new Promise(resolve => setTimeout(() => resolve(''), 2200));
+              previewBase64 = await Promise.race([capturePromise, timeoutPromise]);
+            } catch (errCapture) {
+              console.warn('Captura diseño omitida:', errCapture);
+            }
+
             const wantsCopies = state.wantsCopies;
             const extraCopies = wantsCopies ? (state.extraCopies || 1) : 0;
             const singlePrice = (state.selectedItem && state.selectedItem.price) || 49990;
@@ -9507,17 +9471,15 @@
             }
             const wompiReference = `${state.orderCode}-${Date.now().toString().slice(-4)}`;
 
+            // Pre-registro inmediato en Google Sheets y Drive para asegurar captura del cliente y su diseño
+            const prePedidoData = armarPedidoData('INICIANDO_WOMPI', wompiReference, previewBase64);
+            registrarPedido(prePedidoData);
+
             // Generar firma de integridad SHA-256 oficial
             let integritySignature = null;
             if (WOMPI_INTEGRITY_SECRET) {
               const strToSign = wompiReference + amountInCents + 'COP' + WOMPI_INTEGRITY_SECRET;
-              if (window.crypto && window.crypto.subtle) {
-                const encoder = new TextEncoder();
-                const hashBuf = await window.crypto.subtle.digest('SHA-256', encoder.encode(strToSign));
-                integritySignature = Array.from(new Uint8Array(hashBuf)).map(b => b.toString(16).padStart(2, '0')).join('');
-              } else {
-                integritySignature = fastSha256(strToSign);
-              }
+              integritySignature = await calcularFirmaWompi(strToSign);
             }
 
             const cleanPhone = wpClientTel.replace(/\D/g, '').slice(-10);
@@ -9525,7 +9487,7 @@
               email: wpClientEmail,
               fullName: wpClientName
             };
-            if (cleanPhone && cleanPhone.length === 10) {
+            if (cleanPhone && cleanPhone.length >= 7) {
               customerData.phoneNumber = cleanPhone;
               customerData.phoneNumberPrefix = '+57';
             }
@@ -9546,10 +9508,6 @@
 
             const checkout = new WidgetCheckout(wompiCheckoutOptions);
 
-            // Pre-registro inmediato en Google Sheets y Correo al abrir la pasarela
-            const prePedidoData = armarPedidoData('💳 INICIANDO_WOMPI', wompiReference);
-            registrarPedido(prePedidoData);
-
             btnPayWompi.disabled = false;
             btnPayWompi.innerHTML = origBtnHtml;
 
@@ -9561,12 +9519,12 @@
 
               if (transaction.status === 'APPROVED') {
                 playSuccessSound();
-                const pedidoData = armarPedidoData('PAGADO_WOMPI', transaction.id);
+                const pedidoData = armarPedidoData('PAGADO_WOMPI', transaction.id, previewBase64);
                 notificarPagoAprobadoWompi(transaction, pedidoData);
                 showWompiSuccessModal(transaction, pedidoData);
               } else if (transaction.status === 'PENDING') {
                 alert('Tu pago está en estado PENDIENTE por validación bancaria (' + (transaction.id || '') + '). Te notificaremos tan pronto sea aprobado.');
-                const pedidoData = armarPedidoData('PENDIENTE_BANCO_WOMPI', transaction.id || '');
+                const pedidoData = armarPedidoData('PENDIENTE_BANCO_WOMPI', transaction.id || '', previewBase64);
                 registrarPedido(pedidoData);
               } else if (transaction.status === 'DECLINED') {
                 alert('La transacción no fue aprobada por el banco. Puedes intentar con otro medio de pago o coordinar vía WhatsApp.');
@@ -9581,7 +9539,6 @@
           }
         });
       }
-
       orderForm.addEventListener('submit', async function (e) {
         e.preventDefault();
 
@@ -9771,7 +9728,8 @@
           items: items,
           vista_previa_base64: previewBase64,
           foto_cliente_base64: (state.iconMode === 'custom' && state.customIconDataUrl) ? state.customIconDataUrl : '',
-          foto_cliente_nombre: (state.iconMode === 'custom' && state.customIconFileName) ? state.customIconFileName : ''
+          foto_cliente_nombre: (state.iconMode === 'custom' && state.customIconFileName) ? state.customIconFileName : '',
+          estado_pago: 'WHATSAPP'
         };
 
         // Guardar en la base de datos (Google Sheets + Correo)
