@@ -8970,33 +8970,46 @@
       const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxB8HzfOnzCwErjw6Nzb2gcWTkuYKJfK-DYVASI8FYCQRXMb8n_2QCnNwa-U7ChYBNW/exec';
 
       function registrarPedido(pedidoData) {
-        // 1) Registro en Google Sheets
+        // 1) Registro en Google Sheets y Google Drive
+        // Nota: NO se usa keepalive:true porque el diseño en base64 supera el límite estricto de 64KB de los navegadores.
         if (GOOGLE_SHEETS_URL) {
-          fetch(GOOGLE_SHEETS_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            keepalive: true,
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify(pedidoData)
-          }).catch(err => console.warn('Error al registrar en Sheets:', err));
+          try {
+            fetch(GOOGLE_SHEETS_URL, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+              body: JSON.stringify(pedidoData)
+            }).then(() => {
+              console.log('[Sheets] Pedido enviado a Google Sheets y Drive con éxito:', pedidoData.codigo_pedido);
+            }).catch(err => console.warn('[Sheets] Error al registrar en Sheets:', err));
+          } catch (e) {
+            console.warn('[Sheets] Excepción Sheets:', e);
+          }
         }
 
-        // 2) Copia por correo vía Web3Forms
+        // 2) Copia por correo vía Web3Forms (sin base64 para cumplir el límite de tamaño)
         if (WEB3FORMS_KEY) {
-          fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            keepalive: true,
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify({
-              access_key: WEB3FORMS_KEY,
-              subject: `Nuevo Pedido Etiquetas: ${pedidoData.codigo_pedido} - ${pedidoData.nombre_cliente}`,
-              from_name: 'David Muñoz Web - Etiquetas',
-              to_email: 'davidesign93@gmail.com',
-              replyto: (pedidoData.correo_cliente || 'davidesign93@gmail.com'),
-              notificar_a: 'davidesign93@gmail.com',
-              ...pedidoData
-            })
-          }).catch(err => console.warn('Error Web3Forms:', err));
+          try {
+            const emailData = Object.assign({}, pedidoData);
+            delete emailData.vista_previa_base64;
+            delete emailData.foto_cliente_base64;
+
+            fetch('https://api.web3forms.com/submit', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              body: JSON.stringify({
+                access_key: WEB3FORMS_KEY,
+                subject: `Nuevo Pedido Etiquetas: ${pedidoData.codigo_pedido} - ${pedidoData.nombre_cliente} (${pedidoData.estado_pago || 'Pendiente'})`,
+                from_name: 'David Muñoz Web - Etiquetas',
+                to_email: 'davidesign93@gmail.com',
+                replyto: (pedidoData.correo_cliente || 'davidesign93@gmail.com'),
+                notificar_a: 'davidesign93@gmail.com',
+                ...emailData
+              })
+            }).catch(err => console.warn('[Web3Forms] Error:', err));
+          } catch (e) {
+            console.warn('[Web3Forms] Excepción Web3Forms:', e);
+          }
         }
       }
 
@@ -9453,7 +9466,7 @@
             let previewBase64 = '';
             try {
               const capturePromise = capturarVistaPreviaBase64();
-              const timeoutPromise = new Promise(resolve => setTimeout(() => resolve(''), 2200));
+              const timeoutPromise = new Promise(resolve => setTimeout(() => resolve(''), 4500));
               previewBase64 = await Promise.race([capturePromise, timeoutPromise]);
             } catch (errCapture) {
               console.warn('Captura diseño omitida:', errCapture);

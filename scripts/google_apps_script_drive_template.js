@@ -222,7 +222,7 @@ function doPost(e) {
     }
     if (!ss) throw new Error("No se pudo conectar a la hoja: " + ID_HOJA_CALCULO);
 
-    let sheet = ss.getSheets()[0];
+    let sheet = ss.getSheetByName('Etiquetas Escolares') || ss.getSheetByName('Etiquetas_Escolares') || ss.getSheetByName('Pedidos') || ss.getSheets()[0];
     asegurarCabeceras(sheet);
 
     // Determinar valores de pago
