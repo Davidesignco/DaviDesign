@@ -1,0 +1,257 @@
+/* ==========================================================================
+   CSS GLOBAL & DESIGN TOKENS - TEC MD
+   ========================================================================== */
+
+/* --- Fonts Loading --- */
+@font-face {
+  font-family: 'JUST Sans';
+  src: url('../assets/fonts/just_sans/JUST Sans Regular.woff2') format('woff2'),
+       url('../assets/fonts/just_sans/JUST Sans Regular.woff') format('woff'),
+       url('../assets/fonts/just_sans/JUST Sans Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JUST Sans';
+  src: url('../assets/fonts/just_sans/JUST Sans ExBold.woff2') format('woff2'),
+       url('../assets/fonts/just_sans/JUST Sans ExBold.woff') format('woff'),
+       url('../assets/fonts/just_sans/JUST Sans ExBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Caveat';
+  src: url('../assets/fonts/Caveat/Caveat-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Caveat';
+  src: url('../assets/fonts/Caveat/Caveat-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Caveat';
+  src: url('../assets/fonts/Caveat/Caveat-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Caveat';
+  src: url('../assets/fonts/Caveat/Caveat-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- Google Fonts for Body text --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* --- Root variables --- */
+:root {
+  /* Color Palette */
+  --primary-color: #212844;
+  --primary-color-rgb: 33, 40, 68;
+  --primary-light: #2c3558;
+  --primary-dark: #121629;
+  
+  --accent-color: #ffcc00;
+  --accent-color-rgb: 255, 204, 0;
+  --accent-hover: #e6b800;
+  --accent-blue: #00bfff;
+  --accent-blue-rgb: 0, 191, 255;
+  
+  --text-light: #ffffff;
+  --text-muted: rgba(33, 40, 68, 0.65);
+  --text-muted-dark: rgba(255, 255, 255, 0.7);
+  --text-dark: #1e2540;
+  
+  --bg-body: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  
+  --border-light: rgba(33, 40, 68, 0.08);
+  --border-hover: rgba(33, 40, 68, 0.15);
+  
+  --shadow-premium: 0 10px 30px rgba(33, 40, 68, 0.06);
+  --shadow-glow: 0 0 20px rgba(0, 191, 255, 0.15);
+  
+  /* Fonts */
+  --font-header: 'JUST Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-handwritten: 'Caveat', cursive, sans-serif;
+  
+  /* Layout */
+  --container-width: 1200px;
+  --header-height-top: 40px;
+  --header-height-main: 80px;
+  --border-radius: 16px;
+  --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Base Reseteo --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-body);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  border: none;
+  outline: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* --- Container --- */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 24px;
+  padding-left: 24px;
+}
+
+/* --- Utility Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-header);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.text-accent {
+  color: var(--accent-color);
+}
+
+.text-blue {
+  color: var(--accent-blue);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.font-handwritten {
+  font-family: var(--font-handwritten);
+  font-weight: 600;
+}
+
+/* --- Premium UI Helpers --- */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-premium);
+  transition: var(--transition-smooth);
+}
+
+.glass-panel:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.35);
+}
+
+/* --- Buttons --- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-color);
+  color: var(--primary-dark);
+  font-family: var(--font-header);
+  font-weight: 800;
+  padding: 12px 28px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+  transition: var(--transition-smooth);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 204, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-light);
+  color: var(--text-light);
+  font-family: var(--font-header);
+  font-weight: 800;
+  padding: 12px 28px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+
+/* Scrollbar Style */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-body);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-light);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}

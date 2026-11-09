@@ -20,7 +20,7 @@
   <style>
     /* ── STYLING PORTAFOLIO INSTAGRAM ─────────────────────────── */
     .instagram-wrapper {
-      padding-top: 100px;
+      padding-top: 140px;
       padding-bottom: 60px;
       background: var(--bg-deep);
       min-height: 100vh;
@@ -32,6 +32,30 @@
       padding: 0 20px;
     }
 
+    /* ── NAVBAR ESPECÍFICA PARA PORTAFOLIO (SOLO LOGO PRINCIPAL) ── */
+    .navbar {
+      background: rgba(5, 10, 21, 0.95) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+      padding: 14px 0 !important;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.45) !important;
+    }
+
+    .nav-inner {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      width: 100% !important;
+    }
+
+    /* Ocultar menú de navegación para empresas */
+    .nav-links,
+    .nav-toggle,
+    .nav-mobile {
+      display: none !important;
+    }
+
     /* Header Perfil */
     .profile-header {
       display: grid;
@@ -40,8 +64,9 @@
         "avatar username"
         "avatar meta"
         "avatar bio";
-      gap: 12px 40px;
+      gap: 16px 40px;
       align-items: flex-start;
+      margin-top: 20px;
       margin-bottom: 44px;
     }
 
@@ -1219,13 +1244,14 @@
     /* ── RESPONSIVE DESIGN ──────────────────────────────────── */
     @media (max-width: 768px) {
       .instagram-wrapper {
-        padding-top: 80px;
+        padding-top: 110px !important;
         padding-bottom: 40px;
       }
 
       .profile-header {
         display: grid;
         grid-template-columns: 86px 1fr;
+        margin-top: 10px !important;
         /* Columna fija para el avatar evita que se ovalice */
         grid-template-areas:
           "username username"
@@ -1857,7 +1883,7 @@
   <nav class="navbar" id="navbar">
     <div class="container">
       <div class="nav-inner">
-        <a href="index.html" class="nav-logo logo-text-container" id="navLogoContainer">
+        <a href="portafolio.html" class="nav-logo logo-text-container" id="navLogoContainer" title="David Muñoz Diseñador">
           <canvas class="logo-particles-canvas logo-particles-back"></canvas>
           <span class="logo-words">
             <span class="logo-word">DAVID</span>
@@ -2646,8 +2672,6 @@
             <li><a href="planes-instagrowth.html">InstaGrowth Pro</a></li>
             <li><a href="eventos.html">Cobertura de Eventos</a></li>
             <li><a href="produccion.html">Producción con Operador</a></li>
-            <li><a href="etiquetas_escolares.html">Etiquetas Escolares</a></li>
-            <li><a href="bolas_navidad.html">Bolas de Navidad</a></li>
             <li><a href="automatizacion.html">Automatizaciones n8n</a></li>
             <li><a href="web-premium.html">Web & Tech Premium</a></li>
             <li><a href="portafolio.html">Portafolio</a></li>
