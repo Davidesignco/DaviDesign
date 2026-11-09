@@ -27,6 +27,24 @@
   <meta name="twitter:description" content="Personaliza las esferas navideñas de tu árbol con los nombres de tu familia. Envíos a toda Colombia.">
   <meta name="twitter:image" content="https://davidesignco.github.io/DaviDesign/Productos/Etiquetas%20escolares/Bolas%20de%20navidad/publicaciones/mavidaco.jpg">
 
+  <!-- Meta / Facebook Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1676408717479304');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1676408717479304&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta / Facebook Pixel Code -->
+
   <!-- Fuente Amarillo Oficial para las Esferas -->
   <style>
     @font-face {
@@ -3737,6 +3755,17 @@
           // Registrar en Sheets y Correo en segundo plano con keepalive
           const payload = construirPayloadPedido('💬 WHATSAPP');
           registrarEnGoogleSheets(payload);
+
+          // Meta Pixel Contact / Lead Event
+          if (typeof fbq === 'function') {
+            fbq('track', 'Contact', {
+              content_name: 'Bolas de Navidad WhatsApp',
+              content_category: 'Decoración Navideña',
+              currency: 'COP',
+              value: calcPrice(getTotalQty())
+            });
+          }
+
           alert(`¡Gracias ${info.clientName}! Tu pedido ${payload.codigo_pedido} ha sido registrado exitosamente. Te estamos dirigiendo a WhatsApp para coordinar los detalles.`);
         });
       }
@@ -3784,6 +3813,17 @@
           const preWompiPayload = construirPayloadPedido('💳 INICIANDO_WOMPI');
           registrarEnGoogleSheets(preWompiPayload);
 
+          // Meta Pixel InitiateCheckout Event
+          if (typeof fbq === 'function') {
+            fbq('track', 'InitiateCheckout', {
+              content_name: 'Bolas de Navidad',
+              content_category: 'Decoración Navideña',
+              currency: 'COP',
+              value: total,
+              num_items: getTotalQty()
+            });
+          }
+
           let integritySignature = null;
           if (WOMPI_INTEGRITY_SECRET) {
             const strToSign = wompiReference + amountInCents + 'COP' + WOMPI_INTEGRITY_SECRET;
@@ -3826,6 +3866,17 @@
             if (transaction.status === 'APPROVED') {
               const wompiPayload = construirPayloadPedido('✅ PAGADO_WOMPI', transaction.id);
               registrarEnGoogleSheets(wompiPayload);
+
+              // Meta Pixel Purchase Event
+              if (typeof fbq === 'function') {
+                fbq('track', 'Purchase', {
+                  content_name: 'Bolas de Navidad',
+                  content_type: 'product',
+                  value: total,
+                  currency: 'COP',
+                  num_items: getTotalQty()
+                });
+              }
 
               alert(`🎉 ¡Pago aprobado con éxito! Código de pedido: ${wompiPayload.codigo_pedido}. David Muñoz coordinará tu envío a ${info.clientCity}.`);
               updateCheckoutButtons();
