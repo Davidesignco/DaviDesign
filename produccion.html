@@ -1132,7 +1132,7 @@
 
     <script src="js/main.js?v=20261105c"></script>
     <script src="js/logo-particles.js"></script>
-  <script src="js/telemetry.js?v=20261110_01"></script>
+  <script src="js/telemetry.js?v=20261110_02"></script>
     <script>
       /* ── COTIZADOR DE PRODUCCIÓN ── */
       document.addEventListener('DOMContentLoaded', function () {
@@ -1148,6 +1148,17 @@
         const hoy = new Date().toISOString().split('T')[0];
         $('prodFecha').min = hoy; $('prodFecha').value = hoy;
 
+        let calcTimeout = null;
+        function notifyCalcChange(tot) {
+          clearTimeout(calcTimeout);
+          calcTimeout = setTimeout(() => {
+            if (window.DMG_Telemetry && tot > 0) {
+              const serv = [srvCam.checked ? 'Cámara' : '', srvDrone.checked ? 'Drone' : ''].filter(Boolean).join(' + ') || 'Producción';
+              window.DMG_Telemetry.trackEvent('USO_COTIZADOR', 'Cotizador de Producción', 'Cálculo: ' + serv + ' - ' + fmt(tot));
+            }
+          }, 600);
+        }
+
         function calcular() {
           $('prodBlockCamara').hidden = !srvCam.checked;
           $('prodBlockDrone').hidden = !srvDrone.checked;
@@ -1155,6 +1166,7 @@
           if (srvCam.checked) total += precio(selCam);
           if (srvDrone.checked) total += precio(selDrone) + (chkFoto.checked ? 100000 : 0);
           $('prodTotal').textContent = fmt(total);
+          notifyCalcChange(total);
           return total;
         }
         [srvCam, srvDrone, selCam, selDrone, chkFoto].forEach(el => el.addEventListener('change', calcular));
@@ -1216,9 +1228,12 @@
           $('prodResult').hidden = false;
           $('prodResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
           btn.textContent = '✔ Solicitud Enviada';
+          const paisVal = $('prodPais') ? $('prodPais').value : '+57';
+          const servResumen = [srvCam.checked ? 'Cámara' : '', srvDrone.checked ? 'Drone' : ''].filter(Boolean).join(' + ') || 'Producción';
           if (window.DMG_Telemetry) {
-            window.DMG_Telemetry.identify({ name: nombre, phone: `${pais} ${tel}` });
-            window.DMG_Telemetry.trackEvent('FORM_COTIZACION', 'Cotizador de Producción', `Cotización: ${packTitle} (${$('prodTotal').textContent})`);
+            window.DMG_Telemetry.identify({ name: nombre, phone: paisVal + ' ' + tel });
+            window.DMG_Telemetry.trackEvent('FORM_COTIZACION', 'Cotizador de Producción', 'Cotización: ' + servResumen + ' (' + $('prodTotal').textContent + ')');
+            window.DMG_Telemetry.flush();
           }
           setTimeout(() => { btn.disabled = false; btn.textContent = 'Enviar Solicitud'; }, 4000);
         });

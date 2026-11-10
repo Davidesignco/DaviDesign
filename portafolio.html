@@ -2865,7 +2865,7 @@ Disciplina, agilidad creativa y trabajo en equipo orientado a resultados.</div>
   <!-- Scripts -->
   <script src="js/main.js?v=20261105c"></script>
   <script src="js/logo-particles.js"></script>
-  <script src="js/telemetry.js?v=20261110_01"></script>
+  <script src="js/telemetry.js?v=20261110_02"></script>
 
   <script>
     // ── DATA DE PROYECTOS (PORTAFOLIO) ──────────────────────────
@@ -3730,6 +3730,11 @@ Disciplina, agilidad creativa y trabajo en equipo orientado a resultados.</div>
 
     // Switch Tabs
     function switchTab(tabId) {
+      if (window.DMG_Telemetry) {
+        var tabNames = { 'grid-tab': 'Publicaciones', 'cv-tab': 'Experiencia / CV', 'reels-tab': 'Reels', 'web-tab': 'Webs' };
+        window.DMG_Telemetry.trackEvent('CAMBIO_PESTANA', 'Barra de Pestañas', 'Cambió a: ' + (tabNames[tabId] || tabId));
+        window.DMG_Telemetry.flush();
+      }
       // Hide all contents
       document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
       // Deactivate all buttons
@@ -3767,6 +3772,11 @@ Disciplina, agilidad creativa y trabajo en equipo orientado a resultados.</div>
       activeSlideIndex = 0;
       const proj = projectsData.find(p => p.id === projId);
       if (!proj) return;
+
+      if (window.DMG_Telemetry) {
+        window.DMG_Telemetry.trackEvent('VER_PROYECTO', 'Feed de Proyectos', 'Proyecto #' + projId + ': ' + (proj.category || 'Detalle'));
+        window.DMG_Telemetry.flush();
+      }
 
       const modal = document.getElementById("instagramModal");
 
@@ -4306,6 +4316,12 @@ Disciplina, agilidad creativa y trabajo en equipo orientado a resultados.</div>
       activeStoryIndex = 0;
       elapsedInSlide = 0;
       storyIsPlaying = true;
+
+      if (window.DMG_Telemetry) {
+        var sTitle = (highlightsData[storyKey] && highlightsData[storyKey].title) || storyKey;
+        window.DMG_Telemetry.trackEvent('VER_HISTORIA', 'Historias Destacadas', 'Abrió Historia: ' + sTitle);
+        window.DMG_Telemetry.flush();
+      }
 
       const modal = document.getElementById("stories-modal");
       modal.classList.add("active");

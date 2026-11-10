@@ -10,7 +10,9 @@
  * 4. Detección de dispositivo, navegador, sistema operativo y tipo de red (WiFi/4G).
  * 5. Atribución de tráfico (Instagram, Facebook Ads, Google, UTMs, fbclid).
  * 6. Captura de datos de contacto (Nombre y Teléfono al interactuar o autocompletar).
- * 7. Envío en segundo plano (Beacon / keepalive) sin afectar la velocidad de carga.
+ * 7. Seguimiento de profundidad de scroll (25%, 50%, 75%, 90%).
+ * 8. Seguimiento de interacciones ricas: historias, pestañas, modales, cotizadores, CTAs.
+ * 9. Envío en segundo plano (Fetch keepalive / Beacon) sin afectar la velocidad.
  * ==============================================================================
  */
 
@@ -20,8 +22,8 @@
   // Configuración del Endpoint de Google Apps Script Web App
   const CONFIG = {
     endpoint: window.DMG_TELEMETRY_URL || 'https://script.google.com/macros/s/AKfycby6PUUADw9y3dFVlGWzh88GoHiVfOTYVb3wuNUvPJHz91JXkuHYJ8_BseDdqKQap8rj/exec',
-    flushIntervalMs: 3000,
-    minTimeSecondsToLog: 2, // Ignora scrolls fugaces menores a 2 segundos
+    flushIntervalMs: 2500,
+    minTimeSecondsToLog: 1.5, // Registra vistas a partir de 1.5s de permanencia
     geoApiUrl: 'https://get.geojs.io/v1/ip/geo.json'
   };
 
@@ -192,7 +194,6 @@
   }
 
   function getPageName() {
-    // Si la página tiene etiqueta de título o data-page
     const bodyPage = document.body && document.body.getAttribute('data-telemetry-page');
     if (bodyPage) return bodyPage;
 
@@ -205,7 +206,8 @@
     if (title.includes('Instagrowth') || window.location.pathname.includes('instagrowth')) return 'Instagrowth';
     if (title.includes('Automatización') || window.location.pathname.includes('automatizacion')) return 'Automatización';
     if (title.includes('Web') || window.location.pathname.includes('web-premium')) return 'Web Premium';
-    if (window.location.pathname === '/' || window.location.pathname.includes('index')) return 'Portafolio Principal';
+    if (window.location.pathname.includes('portafolio')) return 'Portafolio Principal';
+    if (window.location.pathname === '/' || window.location.pathname.includes('index')) return 'Home Principal';
     return title.split('—')[0].split('|')[0].trim() || window.location.pathname;
   }
 
@@ -217,7 +219,7 @@
       ID_Sesion: sessionId,
       Nro_Visita: visitCount,
       Pagina: opts.pagina || getPageName(),
-      Seccion: opts.seccion || 'General',
+      Seccion: opts.seccion || activeSectionName || 'General',
       Tiempo_Segundos: typeof opts.tiempo === 'number' ? Math.round(opts.tiempo) : 0,
       Tipo_Evento: opts.tipo || 'ACCION',
       Detalle_Evento: opts.detalle || '',
@@ -236,8 +238,9 @@
 
     eventQueue.push(ev);
 
-    // Si es un evento crítico (Compra, WhatsApp, Formulario), envía de inmediato
-    if (['COMPRA', 'CLIC_WHATSAPP', 'FORM_DATOS'].includes(ev.Tipo_Evento)) {
+    // Eventos prioritarios se despachan de inmediato
+    const immediateEvents = ['COMPRA', 'CLIC_WHATSAPP', 'FORM_DATOS', 'FORM_DIAGNOSTICO', 'FORM_COTIZACION', 'FORM_LEAD', 'LLEGADA_WEB'];
+    if (immediateEvents.includes(ev.Tipo_Evento)) {
       flush();
     }
   }
@@ -249,7 +252,7 @@
     const itemsToSend = eventQueue.splice(0, eventQueue.length);
     const payload = JSON.stringify({ events: itemsToSend });
 
-    // En navegadores móviles, fetch con no-cors y keepalive sigue automáticamente los redirects 302 de Google Apps Script
+    // En navegadores modernos y móviles, fetch con no-cors y keepalive sigue redirects 302 sin problema
     try {
       fetch(url, {
         method: 'POST',
@@ -270,10 +273,10 @@
     }
   }
 
-  // Enviar eventos periódicamente
+  // Intervalo periódico de sincronización
   setInterval(flush, CONFIG.flushIntervalMs);
 
-  // Enviar al ocultar pestaña o cerrar ventana
+  // Al ocultar pestaña o salir
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
       endCurrentSection();
@@ -288,13 +291,19 @@
     flush();
   });
 
-  // --- 5. RASTREO PRECISO DE SECCIONES (TIEMPO POR SECCIÓN) ---
+  window.addEventListener('beforeunload', () => {
+    endCurrentSection();
+    flush();
+  });
+
+  // --- 5. RASTREO PRECISO DE SECCIONES (PIXELS VISIBLES EN PANTALLA) ---
   let activeSectionEl = null;
   let activeSectionName = '';
   let activeSectionStartTime = Date.now();
+  let lastMilestoneLoggedSeconds = 0;
 
   function getSectionFriendlyName(el) {
-    if (!el) return 'Desconocida';
+    if (!el) return 'General';
     if (el.getAttribute('data-telemetry-name')) {
       return el.getAttribute('data-telemetry-name');
     }
@@ -302,20 +311,30 @@
     const id = (el.id || '').toLowerCase();
     const className = (el.className || '').toLowerCase();
 
-    if (className.includes('xmas-hero-section') || className.includes('hero') || id === 'hero') {
-      return 'Hero Principal';
-    }
-    if (id === 'modelos') return 'Catálogo de Modelos';
+    if (className.includes('hero') || id === 'inicio' || id === 'pagehero') return 'Hero Principal';
+    if (className.includes('profile-header')) return 'Perfil y Biografía';
+    if (className.includes('highlights') || className.includes('stories')) return 'Historias Destacadas';
+    if (className.includes('tab-bar')) return 'Barra de Pestañas';
+    if (id === 'pane-posts' || id === 'grid-tab') return 'Feed de Proyectos';
+    if (id === 'pane-cv' || id === 'cv-tab') return 'Currículum y Trayectoria';
+    if (id === 'reels-tab' || className.includes('reels-container')) return 'Reels y Formato Vertical';
+    if (id === 'web-tab') return 'Diseño y Desarrollo Web';
+    if (id === 'modelos' || id === 'catalogopacks') return 'Catálogo de Modelos y Packs';
     if (id === 'simulador') return 'Simulador Interactivo';
-    if (id === 'reviews') return 'Opiniones y Reseñas';
+    if (id === 'casos-uso') return 'Casos de Uso e Integraciones';
+    if (id === 'proceso' || id === 'metodologia') return 'Metodología de Trabajo';
+    if (id === 'planes' || id === 'tarifas') return 'Planes y Tarifas';
+    if (id === 'cotizador' || id === 'calculadora' || id === 'solicitud' || id === 'diagnostico' || id === 'checkout-section') return 'Cotizador / Formulario';
+    if (id === 'reviews' || id === 'testimonios' || id === 'opiniones') return 'Opiniones y Reseñas';
     if (id === 'faq') return 'Preguntas Frecuentes';
-    if (id === 'contacto') return 'Contacto y Ubicación';
+    if (id === 'contacto' || id === 'confianza') return 'Contacto y Confianza';
+    if (el.tagName === 'FOOTER') return 'Pie de Página';
 
-    // Intenta buscar el primer h2 o h3 dentro de la sección
-    const heading = el.querySelector('h1, h2, h3');
+    // Buscar encabezado visible
+    const heading = el.querySelector('h1, h2, h3, .section-title, .section-label');
     if (heading && heading.textContent) {
       const txt = heading.textContent.replace(/\s+/g, ' ').trim();
-      if (txt.length > 0 && txt.length < 35) return txt;
+      if (txt.length > 0 && txt.length < 40) return txt;
     }
 
     return id ? `Sección #${id}` : 'Sección Contenido';
@@ -334,47 +353,117 @@
     }
     activeSectionEl = null;
     activeSectionStartTime = 0;
+    lastMilestoneLoggedSeconds = 0;
   }
 
   function resumeCurrentSection() {
     if (activeSectionEl) {
       activeSectionStartTime = Date.now();
+      lastMilestoneLoggedSeconds = 0;
+    }
+  }
+
+  function updateActiveSection() {
+    const selector = 'section, header, footer, [data-telemetry-section], [data-telemetry-name], .profile-header, .highlights-container, .tab-bar, .tab-content.active';
+    const sections = document.querySelectorAll(selector);
+    if (!sections || sections.length === 0) return;
+
+    const vHeight = window.innerHeight || document.documentElement.clientHeight;
+    let bestEl = null;
+    let maxVisiblePx = 0;
+
+    sections.forEach(s => {
+      // Ignorar elementos ocultos o no visibles
+      if (s.offsetParent === null && s.style.display === 'none') return;
+
+      const rect = s.getBoundingClientRect();
+      const visibleTop = Math.max(0, rect.top);
+      const visibleBottom = Math.min(vHeight, rect.bottom);
+      const visiblePx = Math.max(0, visibleBottom - visibleTop);
+
+      if (visiblePx > maxVisiblePx) {
+        maxVisiblePx = visiblePx;
+        bestEl = s;
+      }
+    });
+
+    if (bestEl && maxVisiblePx >= 60) {
+      if (bestEl !== activeSectionEl) {
+        endCurrentSection();
+        activeSectionEl = bestEl;
+        activeSectionName = getSectionFriendlyName(activeSectionEl);
+        activeSectionStartTime = Date.now();
+        lastMilestoneLoggedSeconds = 0;
+      } else {
+        // Hito de lectura continua (cada 20 segundos de lectura continua en la misma sección)
+        const elapsed = (Date.now() - activeSectionStartTime) / 1000;
+        if (elapsed - lastMilestoneLoggedSeconds >= 20) {
+          lastMilestoneLoggedSeconds = elapsed;
+          logEvent({
+            tipo: 'VISTA_SECCION',
+            seccion: activeSectionName,
+            tiempo: elapsed,
+            detalle: `Lectura activa de ${Math.round(elapsed)}s en ${activeSectionName}`
+          });
+        }
+      }
     }
   }
 
   function initSectionObserver() {
-    const sections = document.querySelectorAll('section, header.xmas-hero-section, footer, [data-telemetry-section]');
-    if (!sections || sections.length === 0) return;
+    updateActiveSection();
 
-    // Usamos IntersectionObserver para detectar qué sección ocupa el foco del visitante
-    const observer = new IntersectionObserver(
-      entries => {
-        // Encontrar la sección más visible
-        let maxVisibleEntry = null;
-        entries.forEach(entry => {
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.25) {
-            if (!maxVisibleEntry || entry.intersectionRatio > maxVisibleEntry.intersectionRatio) {
-              maxVisibleEntry = entry;
-            }
-          }
-        });
-
-        if (maxVisibleEntry && maxVisibleEntry.target !== activeSectionEl) {
-          endCurrentSection();
-          activeSectionEl = maxVisibleEntry.target;
-          activeSectionName = getSectionFriendlyName(activeSectionEl);
-          activeSectionStartTime = Date.now();
-        }
-      },
-      {
-        threshold: [0.25, 0.5, 0.75]
+    let scrollTimeout = null;
+    window.addEventListener('scroll', () => {
+      if (!scrollTimeout) {
+        scrollTimeout = setTimeout(() => {
+          scrollTimeout = null;
+          updateActiveSection();
+        }, 150);
       }
-    );
+    }, { passive: true });
 
-    sections.forEach(s => observer.observe(s));
+    setInterval(updateActiveSection, 2000);
   }
 
-  // --- 6. AUTO-CAPTURA DE DATOS DEL CLIENTE EN FORMULARIOS ---
+  // --- 6. RASTREO DE PROFUNDIDAD DE SCROLL (25%, 50%, 75%, 90%) ---
+  function initScrollDepthTracking() {
+    const milestones = [
+      { depth: 25, reached: false },
+      { depth: 50, reached: false },
+      { depth: 75, reached: false },
+      { depth: 90, reached: false }
+    ];
+
+    window.addEventListener('scroll', () => {
+      const docHeight = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.offsetHeight
+      );
+      const winHeight = window.innerHeight || document.documentElement.clientHeight;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const totalScrollable = docHeight - winHeight;
+
+      if (totalScrollable <= 0) return;
+
+      const currentPercent = Math.round((scrollTop / totalScrollable) * 100);
+
+      milestones.forEach(m => {
+        if (!m.reached && currentPercent >= m.depth) {
+          m.reached = true;
+          logEvent({
+            tipo: 'DESPLAZAMIENTO',
+            seccion: activeSectionName || 'Navegación',
+            detalle: `Profundidad de scroll: ${m.depth}% de la página`
+          });
+        }
+      });
+    }, { passive: true });
+  }
+
+  // --- 7. AUTO-CAPTURA DE DATOS DEL CLIENTE EN FORMULARIOS ---
   function initAutoCaptureForms() {
     document.addEventListener(
       'blur',
@@ -423,7 +512,7 @@
     );
   }
 
-  // --- 7. AUTO-CAPTURA DE CLICS EN BOTONES DE WHATSAPP ---
+  // --- 8. AUTO-CAPTURA DE CLICS EN BOTONES DE WHATSAPP ---
   function initWhatsAppClickTracking() {
     document.addEventListener('click', function (e) {
       const link = e.target.closest && e.target.closest('a[href*="wa.me"], a[href*="whatsapp.com"]');
@@ -446,7 +535,108 @@
     }, true);
   }
 
-  // --- 7. API GLOBAL DMG_Telemetry ---
+  // --- 9. AUTO-CAPTURA DE HISTORIAS, PESTAÑAS, PROYECTOS, CALCULADORAS Y CTAS ---
+  function initRichInteractionsTracking() {
+    // Clics interactivos en la interfaz
+    document.addEventListener('click', function (e) {
+      const target = e.target;
+      if (!target) return;
+
+      // A) Clic en Historias Destacadas (Instagram Highlights)
+      const storyItem = target.closest && target.closest('.highlight-item, [onclick*="openStories"]');
+      if (storyItem) {
+        const label = storyItem.querySelector('.highlight-label') ? storyItem.querySelector('.highlight-label').textContent.trim() : 'Historia';
+        logEvent({
+          tipo: 'VER_HISTORIA',
+          seccion: 'Historias Destacadas',
+          detalle: `Abrió historia: ${label}`
+        });
+        flush();
+        return;
+      }
+
+      // B) Clic en Pestañas (CV, Posts, Reels, Web)
+      const tabBtn = target.closest && target.closest('.tab-button, [onclick*="switchTab"]');
+      if (tabBtn) {
+        const label = (tabBtn.textContent || '').replace(/\s+/g, ' ').trim();
+        logEvent({
+          tipo: 'CAMBIO_PESTANA',
+          seccion: 'Barra de Pestañas',
+          detalle: `Pestaña activa: ${label}`
+        });
+        flush();
+        return;
+      }
+
+      // C) Clic en Proyecto para abrir Modal
+      const projItem = target.closest && target.closest('.grid-item, .reel-item, .web-item, [onclick*="openModal"]');
+      if (projItem) {
+        const titleEl = projItem.querySelector('.project-title, .grid-overlay span, h3');
+        const title = titleEl ? titleEl.textContent.trim() : 'Proyecto';
+        logEvent({
+          tipo: 'VER_PROYECTO',
+          seccion: 'Feed de Proyectos',
+          detalle: `Abrió proyecto: ${title}`
+        });
+        flush();
+        return;
+      }
+
+      // D) Clic en Botón Like dentro del modal
+      const likeBtn = target.closest && target.closest('#likeBtn');
+      if (likeBtn) {
+        logEvent({
+          tipo: 'LIKE_PROYECTO',
+          seccion: 'Modal Proyecto',
+          detalle: 'Dio Me Gusta a un proyecto'
+        });
+        flush();
+        return;
+      }
+
+      // E) Clic en Botones CTA (Diagnóstico, Cotizar, Solicitar, Ver Planes)
+      const ctaBtn = target.closest && target.closest('.nav-cta, .floating-cta, .btn-primary, .btn-cta-ig, a[href^="#diagnostico"], a[href^="#cotizador"], a[href^="#planes"], a[href^="#tarifas"]');
+      if (ctaBtn && !ctaBtn.href.includes('wa.me')) {
+        const txt = (ctaBtn.textContent || '').replace(/\s+/g, ' ').trim();
+        if (txt.length > 0 && txt.length < 40) {
+          logEvent({
+            tipo: 'CLIC_CTA',
+            seccion: activeSectionName || 'Navegación',
+            detalle: `Clic CTA: ${txt}`
+          });
+          flush();
+        }
+      }
+    }, true);
+
+    // Cambios en calculadoras, cotizadores y chips en tiempo real
+    document.addEventListener('change', function (e) {
+      const target = e.target;
+      if (!target) return;
+
+      const form = target.closest && target.closest('form');
+      const formId = form ? form.id : '';
+
+      // Si pertenece a alguna calculadora conocida
+      if (['quoteCalculatorForm', 'prodQuoteForm', 'webQuoteForm', 'autoQuoteForm'].includes(formId)) {
+        const formName = formId === 'quoteCalculatorForm' ? 'Calculadora Eventos'
+          : formId === 'prodQuoteForm' ? 'Cotizador Producción'
+          : formId === 'webQuoteForm' ? 'Cotizador Web'
+          : 'Diagnóstico Automatización';
+
+        const label = target.name || target.id || target.className || 'Opción';
+        const val = target.type === 'checkbox' ? (target.checked ? 'Marcado' : 'Desmarcado') : (target.value || '').substring(0, 30);
+
+        logEvent({
+          tipo: 'INTERACCION_COTIZADOR',
+          seccion: activeSectionName || 'Cotizador',
+          detalle: `${formName}: ${label} = ${val}`
+        });
+      }
+    }, true);
+  }
+
+  // --- 10. API GLOBAL DMG_Telemetry ---
   window.DMG_Telemetry = {
     setEndpoint: function (url) {
       CONFIG.endpoint = url;
@@ -483,11 +673,13 @@
     flush: flush
   };
 
-  // Inicializar al cargar el DOM y registrar evento inmediato de llegada
+  // --- 11. INICIALIZACIÓN ---
   function startup() {
     initSectionObserver();
+    initScrollDepthTracking();
     initAutoCaptureForms();
     initWhatsAppClickTracking();
+    initRichInteractionsTracking();
 
     setTimeout(() => {
       logEvent({
@@ -496,7 +688,7 @@
         detalle: `Visita iniciada en ${getPageName()}`
       });
       flush();
-    }, 600);
+    }, 400);
   }
 
   if (document.readyState === 'loading') {
@@ -505,4 +697,3 @@
     startup();
   }
 })();
-

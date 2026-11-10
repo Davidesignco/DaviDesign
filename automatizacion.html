@@ -1432,7 +1432,7 @@
 
     <script src="js/main.js?v=20261105c"></script>
     <script src="js/logo-particles.js"></script>
-    <script src="js/telemetry.js?v=20261110_01"></script>
+    <script src="js/telemetry.js?v=20261110_02"></script>
     <script>
         /* ── CAPTURA Y ENVÍO DE DATOS - AUTOMATIZACIONES (N8N / IA) ── */
         document.addEventListener('DOMContentLoaded', function () {
@@ -1457,7 +1457,12 @@
             }
 
             if (selectSector) {
-                selectSector.addEventListener('change', toggleSectorOtro);
+                selectSector.addEventListener('change', function() {
+                    toggleSectorOtro();
+                    if (window.DMG_Telemetry) {
+                        window.DMG_Telemetry.trackEvent('INTERACCION_SECTOR', 'Diagnóstico', 'Sector: ' + selectSector.value);
+                    }
+                });
                 toggleSectorOtro();
             }
 
@@ -1487,6 +1492,9 @@
 
                 input.addEventListener('change', function () {
                     syncChipState(chip);
+                    if (window.DMG_Telemetry) {
+                        window.DMG_Telemetry.trackEvent('INTERACCION_CHIP', 'Herramientas', 'Herramienta: ' + input.value + ' (' + (input.checked ? 'Marcada' : 'Desmarcada') + ')');
+                    }
                 });
 
                 chip.addEventListener('click', function () {
@@ -1590,6 +1598,7 @@
                 if (window.DMG_Telemetry) {
                     window.DMG_Telemetry.identify({ name: nombre, phone: `${pais} ${tel}` });
                     window.DMG_Telemetry.trackEvent('FORM_DIAGNOSTICO', 'Formulario de Diagnóstico', `Automatización para: ${marca} (${sector})`);
+                    window.DMG_Telemetry.flush();
                 }
 
                 setTimeout(() => {
