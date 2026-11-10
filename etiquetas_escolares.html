@@ -3768,9 +3768,17 @@
     box-shadow: 0 0 35px rgba(0, 237, 255, 0.55) !important;
   }
 </style>
+  <!-- Microsoft Clarity Telemetry & Heatmaps -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zblmtma9bg");
+  </script>
 </head>
 
-<body>
+<body data-telemetry-page="Etiquetas Escolares">
 
   <!-- -- NAVIGATION REESTRUCTURADA (OPCIÓN B) ------------------- -->
   <nav class="navbar" id="navbar">
@@ -3917,7 +3925,7 @@
   </div>
 
   <!-- ── SECCIÓN 1: HERO DE RECEPCIÓN (ABOVE THE FOLD) ───────────── -->
-  <header class="landing-hero-section">
+  <header class="landing-hero-section" data-telemetry-name="Hero Principal">
     <div class="container hero-split-container">
 
       <!-- Columna Izquierda: Mensaje Persuasivo, Confianza y CTA -->
@@ -3989,7 +3997,7 @@
   </header>
 
   <!-- ── SECCIÓN 2: SLIDER DE PRODUCTOS Y FORMATOS DESTACADOS ─────── -->
-  <section class="section-packs-slider" id="catalogoPacks">
+  <section class="section-packs-slider" id="catalogoPacks" data-telemetry-name="Catálogo de Paquetes">
     <div class="container">
 
       <div class="section-header-center">
@@ -4344,7 +4352,7 @@
   </section>
 
   <!-- ── SECCIÓN 3: CREADOR Y VISUALIZADOR EN TIEMPO REAL ───────── -->
-  <section class="stickers-hero section-alt" id="simulador">
+  <section class="stickers-hero section-alt" id="simulador" data-telemetry-name="Simulador Interactivo">
     <div class="hero-grid" style="opacity:0.4;"></div>
     <div class="hero-orb hero-orb-1" style="opacity:0.4;"></div>
     <div class="hero-container-wide">
@@ -5331,7 +5339,7 @@
   </section>
 
   <!-- -- SECCIÓN DE CHECKOUT ASISTIDO Y REGISTRO ----------------- -->
-  <section class="section section-alt" id="checkout-section" style="padding: 60px 20px;">
+  <section class="section section-alt" id="checkout-section" data-telemetry-name="Formulario y Checkout" style="padding: 60px 20px;">
     <div class="container" style="max-width: 900px;">
 
       <div style="text-align: center; margin-bottom: 32px;">
@@ -5529,7 +5537,7 @@
   </section>
 
   <!-- ── SECCIÓN 5: CONFIANZA Y GARANTÍAS (AUTO SLIDE EN LÍNEA) ───── -->
-  <section class="section-trust-guarantee" id="confianza">
+  <section class="section-trust-guarantee" id="confianza" data-telemetry-name="Garantía y Confianza">
     <div class="container" style="padding: 0 20px;">
       <div style="text-align: center; max-width: 800px; margin: 0 auto;">
         <span class="section-kicker" style="display:inline-block; margin-bottom:10px;">SEGURIDAD & TRANQUILIDAD TOTAL
@@ -5652,7 +5660,7 @@
   </section>
 
   <!-- ── SECCIÓN 6: RESEÑAS Y PRUEBA SOCIAL (AUTO SLIDE EN LÍNEA) ────── -->
-  <section class="section-reviews-social" id="testimonios">
+  <section class="section-reviews-social" id="testimonios" data-telemetry-name="Reseñas y Testimonios">
     <div class="container" style="padding: 0 20px;">
       <div style="text-align: center; max-width: 800px; margin: 0 auto;">
         <div class="reviews-score-hero">
@@ -6131,7 +6139,7 @@
   </section>
 
   <!-- ── SECCIÓN 7: PREGUNTAS FRECUENTES (FAQ) ───────────────────────── -->
-  <section class="section-faq-stickers" id="faq">
+  <section class="section-faq-stickers" id="faq" data-telemetry-name="Preguntas Frecuentes">
     <div class="container">
       <div style="text-align: center; max-width: 800px; margin: 0 auto;">
         <span class="section-kicker" style="display:inline-block; margin-bottom:10px;">RESOLVEMOS TUS DUDAS ❓</span>
@@ -6274,7 +6282,7 @@
 
     </div>
   </section>
-    <footer>
+    <footer data-telemetry-name="Pie de Página">
     <div class="container">
       <div class="footer-grid">
         <div>
@@ -6429,6 +6437,7 @@
   <script type="text/javascript" src="https://checkout.wompi.co/widget.js"></script>
   <script src="js/main.js?v=20261105c"></script>
   <script src="js/logo-particles.js"></script>
+  <script src="js/telemetry.js?v=20261110_01"></script>
 
   <!-- -- LOGICA JAVASCRIPT DEL SIMULADOR Y CHECKOUT --------------- -->
   <script>
@@ -9274,6 +9283,11 @@
 
       // Notificar a Google Sheets y Web3Forms sobre pago aprobado
       function notificarPagoAprobadoWompi(transaction, pedidoData) {
+        // Telemetría Google Sheets: Compra Exitosa
+        if (window.DMG_Telemetry) {
+          window.DMG_Telemetry.identify({ name: pedidoData.nombre_cliente, phone: pedidoData.whatsapp });
+          window.DMG_Telemetry.trackEvent('COMPRA', 'Formulario y Checkout', `Compra Aprobada Wompi ${pedidoData.codigo_pedido} - Transacción: ${transaction.id}, Total: ${pedidoData.total_pagar}`);
+        }
         let metodoPagoNombre = transaction.payment_method_type || 'Wompi';
         if (transaction.payment_method && transaction.payment_method.extra) {
           const brand = transaction.payment_method.extra.brand || transaction.payment_method.type || '';
@@ -9497,6 +9511,12 @@
             // Pre-registro inmediato en Google Sheets y Drive para asegurar captura del cliente y su diseño
             const prePedidoData = armarPedidoData('INICIANDO_WOMPI', wompiReference, previewBase64);
             registrarPedido(prePedidoData);
+
+            // Telemetría Google Sheets: Intento Pasarela Wompi
+            if (window.DMG_Telemetry) {
+              window.DMG_Telemetry.identify({ name: clientName, phone: clientTel });
+              window.DMG_Telemetry.trackEvent('INICIO_PAGO_WOMPI', 'Formulario y Checkout', `Inició Wompi ${prePedidoData.codigo_pedido} - ${state.selectedItem.name} (${formatCOP(packTotal)})`);
+            }
 
             // Generar firma de integridad SHA-256 oficial
             let integritySignature = null;
@@ -9757,6 +9777,12 @@
 
         // Guardar en la base de datos (Google Sheets + Correo)
         registrarPedido(pedido);
+
+        // Telemetría Google Sheets: Pedido WhatsApp
+        if (window.DMG_Telemetry) {
+          window.DMG_Telemetry.identify({ name: clientName, phone: clientTel });
+          window.DMG_Telemetry.trackEvent('CLIC_WHATSAPP', 'Formulario y Checkout', `Pedido WA ${state.orderCode} - ${state.selectedItem.name} (${formatCOP(packTotal)})`);
+        }
 
         // Armar Mensaje preformateado de WhatsApp
         let waText = `¡Hola David! Quiero confirmar mi pedido de Etiquetas Escolares:\n\n`;
