@@ -464,9 +464,17 @@
     box-shadow: 0 0 35px rgba(0, 237, 255, 0.55) !important;
   }
 </style>
+  <!-- Microsoft Clarity Telemetry & Heatmaps -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zbm84jfnm0");
+  </script>
 </head>
 
-<body>
+<body data-telemetry-page="InstaGrowth Pro">
 
     <!-- NAV -->
   <nav class="navbar" id="navbar">
@@ -601,7 +609,7 @@
   </div>
 
   <!-- HERO -->
-    <section class="page-hero section-alt" id="pageHero" style="position:relative;overflow:hidden;">
+    <section class="page-hero section-alt" id="pageHero" style="position:relative;overflow:hidden;" data-telemetry-name="Hero Principal">
         <div class="hero-grid" style="opacity:0.5;"></div>
         <div class="hero-orb hero-orb-1" style="opacity:0.6;"></div>
         <div class="hero-orb hero-orb-2" style="opacity:0.6;"></div>
@@ -662,7 +670,7 @@
     </aside>
 
     <!-- THE BIG IDEA -->
-    <section style="overflow:hidden;">
+    <section style="overflow:hidden;" id="la-gran-idea" data-telemetry-name="Propuesta de Valor 360">
         <div class="container">
             <div class="cta-block reveal"
                 style="background:linear-gradient(135deg, rgba(0,237,255,0.06) 0%, rgba(0,0,0,0) 100%);text-align:left;padding:48px;">
@@ -708,7 +716,7 @@
     </section>
 
     <!-- CÓMO FUNCIONA EL PLAN -->
-    <section class="section-alt">
+    <section class="section-alt" id="gestion-llave-mano" data-telemetry-name="Gestión Llave en Mano">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Gestión Llave en Mano</span>
@@ -762,7 +770,7 @@
     </section>
 
     <!-- SERVICIOS INCLUIDOS -->
-    <section class="section-alt" id="servicios">
+    <section class="section-alt" id="servicios" data-telemetry-name="Servicios Incluidos">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Todo Incluido</span>
@@ -835,7 +843,7 @@
     </section>
 
     <!-- INVERSIÓN -->
-    <section id="planes" style="overflow: hidden;">
+    <section id="planes" style="overflow: hidden;" data-telemetry-name="Planes y Tarifas">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Inversión</span>
@@ -908,7 +916,7 @@
     </section>
 
     <!-- METODOLOGÍA -->
-    <section class="section-alt">
+    <section class="section-alt" id="proceso" data-telemetry-name="Proceso de Crecimiento">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Proceso</span>
@@ -944,7 +952,7 @@
     </section>
 
     <!-- FORMULARIO DE CAPTURA & DIAGNÓSTICO INSTAGROWTH -->
-    <section class="ig-form-section" id="solicitud">
+    <section class="ig-form-section" id="solicitud" data-telemetry-name="Formulario de Diagnóstico">
         <div class="container">
             <div class="ig-form-container reveal">
                 <div class="ig-form-header">
@@ -1097,7 +1105,7 @@
         </div>
     </section>
 
-        <footer>
+        <footer data-telemetry-name="Pie de Página">
     <div class="container">
       <div class="footer-grid">
         <div>
@@ -1187,6 +1195,7 @@
 
     <script src="js/main.js?v=20261105c"></script>
     <script src="js/logo-particles.js"></script>
+    <script src="js/telemetry.js?v=20261110_01"></script>
     <script>
         /* ── CAPTURA Y ENVÍO DE DATOS - INSTAGROWTH PRO ── */
         document.addEventListener('DOMContentLoaded', function () {
@@ -1306,6 +1315,12 @@
                 resultCard.style.display = 'block';
                 resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 btnSubmit.textContent = '✔ Diagnóstico Enviado';
+
+                // Telemetría Google Sheets: Formulario de Diagnóstico
+                if (window.DMG_Telemetry) {
+                    window.DMG_Telemetry.identify({ name: nombre, phone: `${pais} ${tel}` });
+                    window.DMG_Telemetry.trackEvent('FORM_DIAGNOSTICO', 'Formulario de Diagnóstico', `Diagnóstico para marca: ${marca} (${sector})`);
+                }
 
                 setTimeout(() => {
                     btnSubmit.disabled = false;
