@@ -214,7 +214,7 @@
 </style>
 </head>
 
-<body>
+<body data-telemetry-page="Inicio (Home)">
 
   <!-- -- NAVIGATION -------------------------------------------- -->
   <nav class="navbar" id="navbar">
@@ -350,7 +350,7 @@
   </div>
 
   <!-- -- HERO --------------------------------------------------- -->
-  <section class="hero" id="inicio">
+  <section class="hero" id="inicio" data-telemetry-name="Hero Principal">
     <canvas id="hero-particles"></canvas>
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
@@ -397,7 +397,7 @@
   </section>
 
   <!-- -- STATS --------------------------------------------------- -->
-  <section id="stats">
+  <section id="stats" data-telemetry-name="Métricas e Impacto">
     <div class="container">
       <div class="stats-grid reveal">
         <div class="stat-item">
@@ -429,7 +429,7 @@
   </section>
 
   <!-- -- SERVICIOS ----------------------------------------------- -->
-  <section class="section-alt" id="servicios">
+  <section class="section-alt" id="servicios" data-telemetry-name="Servicios y Superpoderes">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-label">¿Qué hacemos?</span>
@@ -558,7 +558,7 @@
   </section>
 
   <!-- -- POR QUÉ ELEGIRNOS ---------------------------------------- -->
-  <section>
+  <section id="por-que-elegirnos" data-telemetry-name="Por Qué Elegirnos">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-label">Diferenciadores</span>
@@ -601,7 +601,7 @@
   </section>
 
   <!-- -- C�MO FUNCIONA ------------------------------------------- -->
-  <section class="section-alt">
+  <section class="section-alt" id="proceso" data-telemetry-name="Proceso de Trabajo">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-label">El Proceso</span>
@@ -638,7 +638,7 @@
   </section>
 
   <!-- -- CTA FINAL ------------------------------------------------- -->
-  <section>
+  <section id="contacto" data-telemetry-name="CTA Auditoría Gratuita">
     <div class="container">
       <div class="cta-block reveal">
         <div class="cta-title">¿Listo para Transformar<br>su <span class="text-accent">Marca</span>?</div>
@@ -659,7 +659,7 @@
   </section>
 
   <!-- -- FOOTER ---------------------------------------------------- -->
-      <footer>
+      <footer data-telemetry-name="Pie de Página">
     <div class="container">
       <div class="footer-grid">
         <div>
@@ -748,6 +748,7 @@
 
   <script src="js/main.js?v=20261105c"></script>
   <script src="js/logo-particles.js"></script>
+  <script src="js/telemetry.js?v=20261110_01"></script>
 </body>
 
 </html>

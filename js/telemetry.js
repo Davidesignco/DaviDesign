@@ -423,6 +423,29 @@
     );
   }
 
+  // --- 7. AUTO-CAPTURA DE CLICS EN BOTONES DE WHATSAPP ---
+  function initWhatsAppClickTracking() {
+    document.addEventListener('click', function (e) {
+      const link = e.target.closest && e.target.closest('a[href*="wa.me"], a[href*="whatsapp.com"]');
+      if (link) {
+        const text = (link.textContent || '').replace(/\s+/g, ' ').trim() || 'Botón WhatsApp';
+        const href = link.getAttribute('href') || '';
+        let msg = '';
+        try {
+          const u = new URL(href, window.location.href);
+          msg = u.searchParams.get('text') || '';
+        } catch (err) {}
+
+        logEvent({
+          tipo: 'CLIC_WHATSAPP',
+          seccion: activeSectionName || 'General',
+          detalle: `Clic en WhatsApp: ${text.substring(0, 35)}${msg ? ' (Msg: ' + msg.substring(0, 35) + '...)' : ''}`
+        });
+        flush();
+      }
+    }, true);
+  }
+
   // --- 7. API GLOBAL DMG_Telemetry ---
   window.DMG_Telemetry = {
     setEndpoint: function (url) {
@@ -464,6 +487,7 @@
   function startup() {
     initSectionObserver();
     initAutoCaptureForms();
+    initWhatsAppClickTracking();
 
     setTimeout(() => {
       logEvent({
