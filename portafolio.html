@@ -356,6 +356,64 @@
       box-shadow: 0 0 10px var(--accent);
     }
 
+    /* Pestaña llamativa Naranja: Experiencia Laboral */
+    .tab-button-orange {
+      color: #FF7A00 !important;
+      font-weight: 800 !important;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .tab-button-orange svg {
+      width: 15px;
+      height: 15px;
+      stroke: #FF7A00 !important;
+      fill: none !important;
+      filter: drop-shadow(0 0 6px rgba(255, 122, 0, 0.45));
+    }
+
+    .tab-button-orange:hover,
+    .tab-button-orange.active {
+      color: #FFA534 !important;
+    }
+
+    .tab-button-orange:hover svg,
+    .tab-button-orange.active svg {
+      stroke: #FFA534 !important;
+      filter: drop-shadow(0 0 10px rgba(255, 122, 0, 0.7));
+    }
+
+    .tab-button-orange.active::before {
+      background: #FF7A00 !important;
+      box-shadow: 0 0 14px #FF7A00, 0 0 24px rgba(255, 122, 0, 0.6) !important;
+    }
+
+    .tab-orange-badge {
+      background: linear-gradient(135deg, #FF6B00, #FF3B00);
+      color: #ffffff;
+      font-size: 0.6rem;
+      padding: 2px 7px;
+      border-radius: 10px;
+      margin-left: 6px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      box-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
+      animation: pulseOrange 2s infinite ease-in-out;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    @keyframes pulseOrange {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 8px rgba(255, 107, 0, 0.4);
+      }
+      50% {
+        transform: scale(1.08);
+        box-shadow: 0 0 16px rgba(255, 107, 0, 0.85);
+      }
+    }
+
     /* Grid de Contenidos */
     .tab-content {
       display: none;
@@ -1465,15 +1523,13 @@
         padding: 20px;
       }
 
-      /* Tab bar scrollable en móvil */
+      /* Tab bar centrado y amplio en móvil para las 2 pestañas */
       .tab-bar {
-        justify-content: flex-start;
-        overflow-x: auto;
+        justify-content: center !important;
+        gap: 24px !important;
+        padding: 0 10px;
+        overflow-x: visible;
         white-space: nowrap;
-        gap: 24px;
-        padding: 0 16px;
-        scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
       }
 
       .tab-bar::-webkit-scrollbar {
@@ -2229,7 +2285,7 @@
         </div>
       </div>
 
-      <!-- Tab bar de Instagram -->
+      <!-- Tab bar de Instagram (Sólo Publicaciones y Experiencia Laboral en Naranja) -->
       <div class="tab-bar">
         <button class="tab-button active" id="grid-btn" onclick="switchTab('grid-tab')">
           <svg viewBox="0 0 24 24">
@@ -2245,31 +2301,14 @@
           </svg>
           Publicaciones
         </button>
-        <button class="tab-button" id="reels-btn" onclick="switchTab('reels-tab')">
-          <svg viewBox="0 0 24 24">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2" />
-            <polygon points="10 8 16 12 10 16 10 8" />
-          </svg>
-          Reels
-        </button>
-        <button class="tab-button" id="web-btn" onclick="switchTab('web-tab')">
+        <button class="tab-button tab-button-orange" id="cv-btn" onclick="switchTab('cv-tab')">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-            <line x1="8" y1="21" x2="16" y2="21"></line>
-            <line x1="12" y1="17" x2="12" y2="21"></line>
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
           </svg>
-          Web
-        </button>
-        <button class="tab-button" id="cv-btn" onclick="switchTab('cv-tab')">
-          <svg viewBox="0 0 24 24">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-            <polyline points="14 2 14 8 20 8" />
-            <line x1="16" y1="13" x2="8" y2="13" />
-            <line x1="16" y1="17" x2="8" y2="17" />
-            <polyline points="10 9 9 9 8 9" />
-          </svg>
-          Sobre Mí
+          Experiencia Laboral
+          <span class="tab-orange-badge">VER CV</span>
         </button>
       </div>
 
