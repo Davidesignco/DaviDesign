@@ -2402,17 +2402,17 @@
 
                 <div class="text-input-wrap">
                   <label for="orderClientName">Tu Nombre Completo (Quien Recibe) *</label>
-                  <input type="text" id="orderClientName" required placeholder="Ej: Carlos Roa Pérez">
+                  <input type="text" id="orderClientName" name="name" autocomplete="name" required placeholder="Ej: Carlos Roa Pérez">
                 </div>
 
                 <div class="text-input-wrap">
                   <label for="orderClientEmail">Correo Electrónico (Para confirmación y recibo) *</label>
-                  <input type="email" id="orderClientEmail" required placeholder="Ej: micorreo@gmail.com">
+                  <input type="email" id="orderClientEmail" name="email" autocomplete="email" required placeholder="Ej: micorreo@gmail.com">
                 </div>
 
                 <div class="text-input-wrap">
                   <label for="orderWhatsApp">Número de WhatsApp (Contacto directo) *</label>
-                  <input type="tel" id="orderWhatsApp" required placeholder="Ej: 316 964 2159">
+                  <input type="tel" id="orderWhatsApp" name="tel" autocomplete="tel" required placeholder="Ej: 316 964 2159">
                 </div>
 
                 <div class="text-input-wrap">
@@ -2434,12 +2434,12 @@
                   style="display:none; grid-column: 1 / -1; animation: fadeInCustomCity 0.3s ease;">
                   <label for="orderCityCustom" style="color:var(--xmas-gold);">✍️ Escribe el Nombre de tu Municipio o
                     Corregimiento *</label>
-                  <input type="text" id="orderCityCustom" placeholder="Ej: Gaitania, La Marina, Chicoral, etc.">
+                  <input type="text" id="orderCityCustom" name="city" autocomplete="address-level2" placeholder="Ej: Gaitania, La Marina, Chicoral, etc.">
                 </div>
 
                 <div class="text-input-wrap" style="grid-column: 1 / -1;">
                   <label for="orderAddress">Dirección Completa de Envío (Calle, Cra, Apto, Barrio) *</label>
-                  <input type="text" id="orderAddress" required placeholder="Ej: Cra 5 # 38-25 Apto 402, Edificio Los Robles">
+                  <input type="text" id="orderAddress" name="address" autocomplete="street-address" required placeholder="Ej: Cra 5 # 38-25 Apto 402, Edificio Los Robles">
                 </div>
 
                 <div class="text-input-wrap" style="grid-column: 1 / -1;">
