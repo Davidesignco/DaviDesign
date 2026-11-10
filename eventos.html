@@ -1042,6 +1042,38 @@
       color: #fff;
     }
 
+    /* ── Selectores de Fecha y Hora en Tema Oscuro ── */
+    input[type="date"].form-control,
+    input[type="time"].form-control {
+      color-scheme: dark;
+      cursor: pointer;
+      position: relative;
+    }
+
+    input[type="date"].form-control:hover,
+    input[type="time"].form-control:hover {
+      border-color: rgba(0, 237, 255, 0.45);
+      background: rgba(5, 10, 21, 0.85);
+    }
+
+    /* Iconos nativos visibles, blancos y nítidos en Edge, Chrome, Safari, Opera */
+    input[type="date"].form-control::-webkit-calendar-picker-indicator,
+    input[type="time"].form-control::-webkit-calendar-picker-indicator {
+      filter: brightness(0) invert(1);
+      cursor: pointer;
+      opacity: 0.9;
+      padding: 4px;
+      margin-right: -2px;
+      transition: all 0.2s ease;
+    }
+
+    input[type="date"].form-control::-webkit-calendar-picker-indicator:hover,
+    input[type="time"].form-control::-webkit-calendar-picker-indicator:hover {
+      opacity: 1;
+      transform: scale(1.18);
+      filter: brightness(0) invert(1) drop-shadow(0 0 6px var(--accent));
+    }
+
     .service-options {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -2201,12 +2233,12 @@
             <label class="form-label">3. Horario del Evento <span class="req">*</span></label>
             <div class="time-grid">
               <div>
-                <label style="font-size:0.82rem; color:var(--text-secondary); display:block; margin-bottom:4px;">Hora de
+                <label for="calcHoraInicio" style="font-size:0.82rem; color:var(--text-secondary); display:block; margin-bottom:4px; cursor:pointer;">Hora de
                   Inicio</label>
                 <input type="time" id="calcHoraInicio" class="form-control" value="17:00" required>
               </div>
               <div>
-                <label style="font-size:0.82rem; color:var(--text-secondary); display:block; margin-bottom:4px;">Hora de
+                <label for="calcHoraFin" style="font-size:0.82rem; color:var(--text-secondary); display:block; margin-bottom:4px; cursor:pointer;">Hora de
                   Fin</label>
                 <input type="time" id="calcHoraFin" class="form-control" value="22:00" required>
               </div>
@@ -3045,6 +3077,22 @@
       const todayISO = new Date().toISOString().split('T')[0];
       inputFecha.min = todayISO;
       inputFecha.value = todayISO;
+
+      // Desplegar automáticamente el selector de fecha y hora al hacer clic en cualquier parte del input
+      [inputFecha, inputHoraInicio, inputHoraFin].forEach(input => {
+        if (!input) return;
+        input.addEventListener('click', function () {
+          try {
+            if (typeof this.showPicker === 'function') {
+              this.showPicker();
+            }
+          } catch (e) {
+            // Silencioso en caso de navegadores con restricciones
+          }
+        });
+      });
+
+      inputFecha.addEventListener('change', recalculateDurationOnly);
 
       // Servicio Selector Card clicks
       radioOptions.forEach(opt => {
