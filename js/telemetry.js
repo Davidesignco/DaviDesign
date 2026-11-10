@@ -20,7 +20,7 @@
   // Configuración del Endpoint de Google Apps Script Web App
   const CONFIG = {
     endpoint: window.DMG_TELEMETRY_URL || 'https://script.google.com/macros/s/AKfycby6PUUADw9y3dFVlGWzh88GoHiVfOTYVb3wuNUvPJHz91JXkuHYJ8_BseDdqKQap8rj/exec',
-    flushIntervalMs: 6000,
+    flushIntervalMs: 3000,
     minTimeSecondsToLog: 2, // Ignora scrolls fugaces menores a 2 segundos
     geoApiUrl: 'https://get.geojs.io/v1/ip/geo.json'
   };
@@ -243,30 +243,30 @@
   }
 
   function flush() {
-    const url = CONFIG.endpoint || window.DMG_TELEMETRY_URL;
+    const url = CONFIG.endpoint;
     if (!url || eventQueue.length === 0) return;
 
-    const payload = JSON.stringify({ events: eventQueue.splice(0, eventQueue.length) });
+    const itemsToSend = eventQueue.splice(0, eventQueue.length);
+    const payload = JSON.stringify({ events: itemsToSend });
 
-    // Intento con sendBeacon primero (óptimo para no congelar navegación)
-    let sent = false;
-    if (navigator.sendBeacon) {
-      try {
-        const blob = new Blob([payload], { type: 'text/plain;charset=UTF-8' });
-        sent = navigator.sendBeacon(url, blob);
-      } catch (e) {
-        sent = false;
-      }
-    }
-
-    if (!sent) {
+    // En navegadores móviles, fetch con no-cors y keepalive sigue automáticamente los redirects 302 de Google Apps Script
+    try {
       fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
         body: payload,
         mode: 'no-cors',
         keepalive: true
-      }).catch(() => {});
+      }).catch(err => {
+        console.warn('[Telemetry] Error en fetch:', err);
+      });
+    } catch (e) {
+      if (navigator.sendBeacon) {
+        try {
+          const blob = new Blob([payload], { type: 'text/plain;charset=UTF-8' });
+          navigator.sendBeacon(url, blob);
+        } catch (be) {}
+      }
     }
   }
 
@@ -460,15 +460,25 @@
     flush: flush
   };
 
-  // Inicializar al cargar el DOM
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      initSectionObserver();
-      initAutoCaptureForms();
-    });
-  } else {
+  // Inicializar al cargar el DOM y registrar evento inmediato de llegada
+  function startup() {
     initSectionObserver();
     initAutoCaptureForms();
+
+    setTimeout(() => {
+      logEvent({
+        tipo: 'LLEGADA_WEB',
+        seccion: activeSectionName || 'Hero Principal',
+        detalle: `Visita iniciada en ${getPageName()}`
+      });
+      flush();
+    }, 600);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startup);
+  } else {
+    startup();
   }
 })();
 
