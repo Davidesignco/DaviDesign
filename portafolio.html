@@ -42,21 +42,27 @@
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.45) !important;
     }
 
+    .navbar .container {
+      max-width: 935px !important;
+      margin: 0 auto !important;
+      padding: 0 20px !important;
+    }
+
     .nav-inner {
       display: flex !important;
-      justify-content: center !important;
+      justify-content: flex-start !important;
       align-items: center !important;
       width: 100% !important;
     }
 
-    /* Logotipo idéntico al de escritorio en móvil (horizontal y centrado sólo en portafolio) */
+    /* Logotipo alineado a la izquierda (horizontal en móvil y escritorio) */
     .navbar .logo-text-container {
       display: inline-flex !important;
       flex-direction: column !important;
-      align-items: center !important;
+      align-items: flex-start !important;
       transform: scale(0.75) !important;
-      transform-origin: center center !important;
-      margin: 0 auto !important;
+      transform-origin: left center !important;
+      margin: 0 !important;
       padding: 4px 0 !important;
     }
 
@@ -65,7 +71,7 @@
       flex-direction: row !important;
       flex-wrap: nowrap !important;
       gap: 8px !important;
-      justify-content: center !important;
+      justify-content: flex-start !important;
       align-items: center !important;
     }
 
@@ -80,13 +86,20 @@
       font-size: 11px !important;
       letter-spacing: 5px !important;
       margin-top: 5px !important;
-      text-align: center !important;
-      width: 100% !important;
+      text-align: left !important;
+      width: auto !important;
+    }
+
+    @media (max-width: 768px) {
+      .navbar .container {
+        padding: 0 16px !important;
+      }
     }
 
     @media (max-width: 360px) {
       .navbar .logo-text-container {
         transform: scale(0.68) !important;
+        transform-origin: left center !important;
       }
     }
 
