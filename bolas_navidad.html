@@ -141,6 +141,8 @@
         url('Productos/Etiquetas escolares/Bolas de navidad/hero_bg_xmas.png') right center / cover no-repeat;
       overflow: hidden;
       border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+      box-sizing: border-box;
+      width: 100%;
     }
 
     .xmas-hero-container {
@@ -153,6 +155,7 @@
       margin: 0 auto;
       position: relative;
       z-index: 5;
+      box-sizing: border-box;
     }
 
     .xmas-trust-tag {
@@ -1439,69 +1442,131 @@
       .xmas-hero-section {
         background: linear-gradient(180deg, rgba(5, 10, 21, 0.9) 0%, rgba(5, 10, 21, 0.6) 30%, rgba(5, 10, 21, 0.1) 50%, transparent 65%),
           url('Productos/Etiquetas escolares/Bolas de navidad/hero_bg_xmas_mobile.png') right top / cover no-repeat;
-        padding: 24px 16px 40px;
+        padding: 24px 20px 40px !important;
         min-height: auto;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
       }
 
       .xmas-hero-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 100% !important;
         text-align: left;
         gap: 0;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .xmas-hero-container > div:first-child {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .xmas-trust-tag {
+        display: inline-flex !important;
+        align-items: center;
+        gap: 6px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(245, 158, 11, 0.35);
+        padding: 6px 12px !important;
+        border-radius: 999px;
+        font-size: clamp(0.72rem, 3.2vw, 0.8rem) !important;
+        color: #fef08a;
+        margin-bottom: 16px !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        white-space: normal !important;
+        line-height: 1.35 !important;
+        word-break: break-word !important;
+      }
+
+      .xmas-trust-tag .stars {
+        letter-spacing: 1px !important;
+        flex-shrink: 0;
       }
 
       .xmas-hero-title {
-        font-size: clamp(1.8rem, 6.5vw, 2.3rem);
-        line-height: 1.15;
-        margin-bottom: 12px;
+        font-size: clamp(1.65rem, 5.8vw, 2.15rem) !important;
+        line-height: 1.18 !important;
+        margin-bottom: 12px !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
       }
 
       .xmas-hero-desc {
-        font-size: 0.95rem;
-        line-height: 1.55;
-        margin-bottom: 18px;
+        font-size: 0.95rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 18px !important;
         color: #e2e8f0;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        word-break: break-word !important;
       }
 
       /* Grid 2x2 compacto con soporte glass para lectura impecable */
       .xmas-features-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 8px;
-        margin-bottom: 22px;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+        margin-bottom: 22px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
       }
 
       .xmas-feature-item {
+        min-width: 0 !important;
+        box-sizing: border-box !important;
         background: rgba(5, 10, 21, 0.7);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         border: 1px solid rgba(245, 158, 11, 0.25);
-        padding: 10px 10px;
-        gap: 8px;
+        padding: 10px 8px !important;
+        gap: 6px !important;
+        overflow: hidden !important;
       }
 
       .xmas-feature-item .feat-icon {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
+        flex-shrink: 0;
       }
 
       .xmas-feature-item strong {
-        font-size: 0.8rem;
+        font-size: 0.78rem !important;
+        display: block;
+        line-height: 1.25;
       }
 
       .xmas-feature-item span {
-        font-size: 0.68rem;
+        font-size: 0.65rem !important;
+        display: block;
+        line-height: 1.25;
       }
 
       .xmas-hero-ctas {
-        width: 100%;
-        margin-bottom: 20px;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-bottom: 20px !important;
       }
 
       .xmas-hero-ctas .btn {
-        width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
         text-align: center;
         justify-content: center;
-        font-size: 1.05rem;
-        padding: 16px 20px;
+        font-size: 1.02rem !important;
+        padding: 15px 16px !important;
         box-shadow: 0 10px 30px rgba(245, 158, 11, 0.45);
+        white-space: normal !important;
       }
 
       .xmas-hero-focal-wrap {
@@ -2161,7 +2226,7 @@
 
       <div class="section-styles-grid">
         <!-- Modelo BN001 -->
-        <div class="style-card" onclick="selectModel('BN001')" id="styleCardBN001">
+        <div class="style-card" onclick="selectModel('BN001', true)" id="styleCardBN001">
           <span class="style-card-badge">Clásico</span>
           <img src="Productos/Etiquetas escolares/Bolas de navidad/BN001/BN001/1.png"
             alt="Modelo BN001 Copos Navideños">
@@ -2170,7 +2235,7 @@
         </div>
 
         <!-- Modelo BN002 -->
-        <div class="style-card" onclick="selectModel('BN002')" id="styleCardBN002">
+        <div class="style-card" onclick="selectModel('BN002', true)" id="styleCardBN002">
           <span class="style-card-badge">Bosque</span>
           <img src="Productos/Etiquetas escolares/Bolas de navidad/BN002/BN002/1.png" alt="Modelo BN002 Silueta Reno">
           <h3>BN002 · Noche Navideña</h3>
@@ -2178,7 +2243,7 @@
         </div>
 
         <!-- Modelo BN003 (Favorito ML) -->
-        <div class="style-card active" onclick="selectModel('BN003')" id="styleCardBN003">
+        <div class="style-card active" onclick="selectModel('BN003', true)" id="styleCardBN003">
           <span class="style-card-badge badge-best">⭐ Más Vendido</span>
           <img src="Productos/Etiquetas escolares/Bolas de navidad/BN003/BN003/1.png"
             alt="Modelo BN003 Muñeco de Nieve">
@@ -2187,7 +2252,7 @@
         </div>
 
         <!-- Modelo BN004 (Mascotas) -->
-        <div class="style-card" onclick="selectModel('BN004')" id="styleCardBN004">
+        <div class="style-card" onclick="selectModel('BN004', true)" id="styleCardBN004">
           <span class="style-card-badge"
             style="background:rgba(217, 119, 6, 0.95); border-color:#f59e0b; color:#fff;">🐾 Mascotas</span>
           <img src="Productos/Etiquetas escolares/Bolas de navidad/BN004/1.png" alt="Modelo BN004 Mascotas Huellitas">
@@ -3052,8 +3117,26 @@
       window.addEventListener('scroll', checkMiniStickyVisibility, { passive: true });
       window.addEventListener('resize', checkMiniStickyVisibility, { passive: true });
 
+      // ── META PIXEL EMBUDO DE CONVERSIÓN & RASTREO DE EVENTOS ──
+      const trackedFunnelEvents = new Set();
+      function trackFunnelOnce(eventName, params = {}, isCustom = true) {
+        if (trackedFunnelEvents.has(eventName)) return;
+        trackedFunnelEvents.add(eventName);
+        if (typeof fbq === 'function') {
+          try {
+            if (isCustom) {
+              fbq('trackCustom', eventName, params);
+            } else {
+              fbq('track', eventName, params);
+            }
+          } catch (e) {
+            console.warn('[Pixel Error]', e);
+          }
+        }
+      }
+
       // ── GESTIÓN DE MODELO SELECCIONADO ──
-      window.selectModel = function (modelKey) {
+      window.selectModel = function (modelKey, shouldScrollToSim = false) {
         if (!MODELS_DATA[modelKey]) return;
         state.activeModel = modelKey;
 
@@ -3069,6 +3152,26 @@
         renderCanvas();
         updatePricingSummary();
         updateCheckoutButtons();
+
+        // Meta Pixel: Registro de clic y selección de modelo específico
+        if (typeof fbq === 'function') {
+          try {
+            fbq('trackCustom', 'Select_Model', {
+              model_id: modelKey,
+              model_name: (MODELS_DATA[modelKey] && MODELS_DATA[modelKey].name) ? MODELS_DATA[modelKey].name : modelKey
+            });
+          } catch (e) {
+            console.warn('[Pixel Error]', e);
+          }
+        }
+
+        // Si fue clickeado desde el catálogo, scroll suave hacia el simulador
+        if (shouldScrollToSim) {
+          const simEl = document.getElementById('simulador');
+          if (simEl) {
+            simEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
       };
 
       // ── GESTIÓN DE CANTIDAD DE BOLAS (CONTADOR) ──
@@ -3086,6 +3189,11 @@
         }
 
         state.qty = newQty;
+        trackFunnelOnce('CustomizeProduct', {
+          action: 'adjust_qty',
+          model: state.activeModel,
+          qty: state.qty
+        });
         updateQtyUI();
       };
 
@@ -3224,6 +3332,14 @@
               renderCanvas();
             }
             updateCheckoutButtons();
+
+            if (cleanVal.length > 0) {
+              trackFunnelOnce('CustomizeProduct', {
+                action: 'typed_name',
+                model: state.activeModel,
+                qty: state.qty
+              });
+            }
           });
 
           input.addEventListener('focus', () => {
@@ -3290,6 +3406,14 @@
             state.previewingPetIndex = idx;
             renderCanvas();
             updateCheckoutButtons();
+
+            if (cleanVal.length > 0) {
+              trackFunnelOnce('CustomizeProduct', {
+                action: 'typed_pet_name',
+                model: state.activeModel,
+                qty: getTotalQty()
+              });
+            }
           });
 
           input.addEventListener('focus', () => {
@@ -3628,11 +3752,25 @@
         }
       }
 
-      // Eventos inputs de cliente para refrescar WA
+      // Eventos inputs de cliente para refrescar WA y registrar inicio de formulario en Meta
       ['orderClientName', 'orderClientEmail', 'orderWhatsApp', 'orderDept', 'orderCity', 'orderCityCustom', 'orderAddress', 'orderExtraNotes'].forEach(id => {
         const el = document.getElementById(id);
         if (el) {
-          el.addEventListener('input', updateCheckoutButtons);
+          el.addEventListener('input', () => {
+            trackFunnelOnce('Form_Started', {
+              field: id,
+              model: state.activeModel,
+              qty: getTotalQty()
+            });
+            updateCheckoutButtons();
+          });
+          el.addEventListener('focus', () => {
+            trackFunnelOnce('Form_Started', {
+              field: id,
+              model: state.activeModel,
+              qty: getTotalQty()
+            });
+          });
           el.addEventListener('change', updateCheckoutButtons);
         }
       });
@@ -3903,6 +4041,40 @@
           btnPayWompi.innerHTML = origBtnHtml;
         }
       });
+
+      // ── META PIXEL RASTREO DE SECCIONES (SCROLL FUNNEL) ──
+      if ('IntersectionObserver' in window) {
+        const sectionsToTrack = [
+          { id: 'modelos', event: 'View_Modelos' },
+          { id: 'simulador', event: 'View_Simulador', standardEvent: 'ViewContent' },
+          { id: 'reviews', event: 'View_Reviews' },
+          { id: 'faq', event: 'View_FAQ' }
+        ];
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const matched = sectionsToTrack.find(s => s.id === entry.target.id);
+              if (matched) {
+                trackFunnelOnce(matched.event, { section_id: matched.id });
+                if (matched.standardEvent) {
+                  trackFunnelOnce(matched.standardEvent, {
+                    content_name: 'Simulador Bolas de Navidad',
+                    content_category: 'Decoración Navideña',
+                    currency: 'COP',
+                    value: calcPrice(state.qty)
+                  }, false);
+                }
+              }
+            }
+          });
+        }, { threshold: 0.25 });
+
+        sectionsToTrack.forEach(item => {
+          const el = document.getElementById(item.id);
+          if (el) sectionObserver.observe(el);
+        });
+      }
 
       // ── INICIALIZACIÓN ──
       preloadImages();
