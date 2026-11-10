@@ -2842,6 +2842,7 @@
   <script type="text/javascript" src="https://checkout.wompi.co/widget.js"></script>
   <script src="js/main.js?v=20261105c"></script>
   <script src="js/logo-particles.js"></script>
+  <script src="js/telemetry.js"></script>
 
   <!-- ── SCRIPT DEL SIMULADOR EN VIVO Y LÓGICA DE PRECIOS ──────────── -->
   <script>
@@ -3163,6 +3164,11 @@
           } catch (e) {
             console.warn('[Pixel Error]', e);
           }
+        }
+
+        // Telemetría Google Sheets: Registro de modelo visto
+        if (window.DMG_Telemetry) {
+          window.DMG_Telemetry.trackEvent('CLIC_MODELO', 'Catálogo de Modelos', `Seleccionó ${modelKey} (${MODELS_DATA[modelKey] && MODELS_DATA[modelKey].name ? MODELS_DATA[modelKey].name : ''})`);
         }
 
         // Si fue clickeado desde el catálogo, scroll suave hacia el simulador
@@ -3896,6 +3902,12 @@
           const payload = construirPayloadPedido('💬 WHATSAPP');
           registrarEnGoogleSheets(payload);
 
+          // Telemetría Google Sheets: Registro de contacto / pedido WhatsApp
+          if (window.DMG_Telemetry) {
+            window.DMG_Telemetry.identify({ name: info.clientName, phone: info.clientPhone });
+            window.DMG_Telemetry.trackEvent('CLIC_WHATSAPP', 'Checkout Resumen', `Pedido WA ${payload.codigo_pedido} - Cantidad: ${getTotalQty()}, Total: COP $${calcPrice(getTotalQty())}`);
+          }
+
           // Meta Pixel Contact / Lead Event
           if (typeof fbq === 'function') {
             fbq('track', 'Contact', {
@@ -3953,6 +3965,12 @@
           const preWompiPayload = construirPayloadPedido('💳 INICIANDO_WOMPI');
           registrarEnGoogleSheets(preWompiPayload);
 
+          // Telemetría Google Sheets: Intento de pago pasarela
+          if (window.DMG_Telemetry) {
+            window.DMG_Telemetry.identify({ name: info.clientName, phone: info.clientPhone });
+            window.DMG_Telemetry.trackEvent('INICIO_PAGO_WOMPI', 'Checkout Resumen', `Inició pasarela Wompi ${preWompiPayload.codigo_pedido} - Total: COP $${total}`);
+          }
+
           // Meta Pixel InitiateCheckout Event
           if (typeof fbq === 'function') {
             fbq('track', 'InitiateCheckout', {
@@ -4006,6 +4024,11 @@
             if (transaction.status === 'APPROVED') {
               const wompiPayload = construirPayloadPedido('✅ PAGADO_WOMPI', transaction.id);
               registrarEnGoogleSheets(wompiPayload);
+
+              // Telemetría Google Sheets: Compra Exitosa
+              if (window.DMG_Telemetry) {
+                window.DMG_Telemetry.trackEvent('COMPRA', 'Checkout Resumen', `Compra Aprobada Wompi ${wompiPayload.codigo_pedido} - Transacción: ${transaction.id}, Total: COP $${total}`);
+              }
 
               // Meta Pixel Purchase Event
               if (typeof fbq === 'function') {
