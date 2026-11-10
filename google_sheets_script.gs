@@ -8,6 +8,12 @@
 
 const SHEET_NAME = 'Eventos_Detalle';
 
+// Lista de sesiones o usuarios excluidos (Administrador / Pruebas de David)
+const EXCLUDED_IDS = [
+  'SES-MWB1GEQ4-ZHT41', // Ordenador David
+  'SES-MWB4KEQF-W4QYW'  // Móvil David
+];
+
 // Estructura oficial de 20 columnas (Stream de Eventos con Atribución Detallada)
 const HEADERS = [
   'Fecha_Hora',
@@ -68,7 +74,20 @@ function doPost(e) {
     }
 
     const payload = JSON.parse(e.postData.contents);
-    const events = Array.isArray(payload) ? payload : (payload.events ? payload.events : [payload]);
+    const rawEvents = Array.isArray(payload) ? payload : (payload.events ? payload.events : [payload]);
+
+    // Omitir automáticamente eventos de las sesiones o usuarios de David (administrador)
+    const events = rawEvents.filter(function(ev) {
+      const sId = (ev.ID_Sesion || '').trim();
+      const uId = (ev.ID_Usuario || '').trim();
+      return !EXCLUDED_IDS.includes(sId) && !EXCLUDED_IDS.includes(uId);
+    });
+
+    if (events.length === 0) {
+      lock.releaseLock();
+      return ContentService.createTextOutput(JSON.stringify({ status: 'ignored', message: 'Eventos del administrador omitidos exitosamente' }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
 
     const rowsToAppend = events.map(function(ev) {
       return [
@@ -121,3 +140,28 @@ function doGet(e) {
   })).setMimeType(ContentService.MimeType.JSON);
 }
 
+/**
+ * FUNCIÓN DE LIMPIEZA AUTOMÁTICA:
+ * Elimina de la hoja todas las filas históricas que correspondan a tus sesiones de prueba.
+ * Para ejecutarla: En el editor de Apps Script, selecciona la función 'limpiarRegistrosPrueba' arriba y haz clic en 'Ejecutar'.
+ */
+function limpiarRegistrosPrueba() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName(SHEET_NAME);
+  if (!sheet) return;
+
+  const data = sheet.getDataRange().getValues();
+  if (data.length <= 1) return;
+
+  let borradas = 0;
+  // Recorrer de abajo hacia arriba para borrar las filas sin desfase de índices
+  for (let i = data.length - 1; i >= 1; i--) {
+    const sesId = String(data[i][2] || '').trim(); // Columna C (ID_Sesion)
+    const usrId = String(data[i][1] || '').trim(); // Columna B (ID_Usuario)
+    if (EXCLUDED_IDS.includes(sesId) || EXCLUDED_IDS.includes(usrId)) {
+      sheet.deleteRow(i + 1);
+      borradas++;
+    }
+  }
+  Logger.log('Filas de prueba eliminadas: ' + borradas);
+}

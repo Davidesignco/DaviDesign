@@ -64,6 +64,25 @@
     sessionId = generateId('SES');
   }
 
+  // --- FILTRO Y EXCLUSIÓN DE ADMINISTRADOR / DISPOSITIVOS DE DAVID ---
+  const EXCLUDED_IDS = [
+    'SES-MWB1GEQ4-ZHT41', // Ordenador David
+    'SES-MWB4KEQF-W4QYW'  // Móvil David
+  ];
+
+  let isExcluded = false;
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    // Si la URL lleva ?admin=1, ?exclude=1 o coincide con los IDs, se marca permanentemente este dispositivo
+    if (urlParams.has('admin') || urlParams.has('exclude') || urlParams.get('test') === 'admin') {
+      localStorage.setItem('dmg_exclude_admin', 'true');
+    }
+    if (EXCLUDED_IDS.includes(sessionId) || localStorage.getItem('dmg_exclude_admin') === 'true') {
+      isExcluded = true;
+      localStorage.setItem('dmg_exclude_admin', 'true');
+    }
+  } catch (e) {}
+
   // Contador de visitas del usuario
   let visitCount = 1;
   try {
@@ -212,6 +231,7 @@
   }
 
   function logEvent(opts) {
+    if (isExcluded) return;
     opts = opts || {};
     const ev = {
       Fecha_Hora: formatDateTime(),
@@ -246,6 +266,7 @@
   }
 
   function flush() {
+    if (isExcluded) return;
     const url = CONFIG.endpoint;
     if (!url || eventQueue.length === 0) return;
 
@@ -638,6 +659,14 @@
 
   // --- 10. API GLOBAL DMG_Telemetry ---
   window.DMG_Telemetry = {
+    isExcluded: isExcluded,
+    excludeCurrentDevice: function() {
+      try {
+        localStorage.setItem('dmg_exclude_admin', 'true');
+        isExcluded = true;
+        console.log('[Telemetry] Dispositivo excluido permanentemente.');
+      } catch (e) {}
+    },
     setEndpoint: function (url) {
       CONFIG.endpoint = url;
       window.DMG_TELEMETRY_URL = url;
@@ -675,6 +704,10 @@
 
   // --- 11. INICIALIZACIÓN ---
   function startup() {
+    if (isExcluded) {
+      console.log('[Telemetry] Dispositivo de Administrador (David) omitido de telemetría.');
+      return;
+    }
     initSectionObserver();
     initScrollDepthTracking();
     initAutoCaptureForms();
