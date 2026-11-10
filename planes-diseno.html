@@ -591,9 +591,17 @@
     box-shadow: 0 0 35px rgba(0, 237, 255, 0.55) !important;
   }
 </style>
+  <!-- Microsoft Clarity Telemetry & Heatmaps -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zblzoxm1x5");
+  </script>
 </head>
 
-<body>
+<body data-telemetry-page="Planes de Diseño">
 
     <!-- NAV -->
     <nav class="navbar" id="navbar">
@@ -728,7 +736,7 @@
   </div>
 
   <!-- PAGE HERO -->
-    <section class="page-hero section-alt" id="pageHero" style="position:relative;overflow:hidden;">
+    <section class="page-hero section-alt" id="pageHero" style="position:relative;overflow:hidden;" data-telemetry-name="Hero Principal">
         <div class="hero-grid" style="opacity:0.5;"></div>
         <div class="hero-orb hero-orb-1" style="opacity:0.5;"></div>
         <div class="container" style="position:relative;z-index:2;">
@@ -785,7 +793,7 @@
     </aside>
 
     <!-- METODOLOGÍA -->
-    <section>
+    <section id="metodologia" data-telemetry-name="Cómo Funciona">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Cómo Funciona</span>
@@ -816,7 +824,7 @@
     </section>
 
     <!-- INNOVACIÓN: POR QUÉ ESTO ES DISTINTO -->
-    <section class="section reveal">
+    <section class="section reveal" id="innovacion" data-telemetry-name="El Futuro del Diseño">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">El Futuro del Diseño</span>
@@ -879,7 +887,7 @@
     </section>
 
     <!-- ARSENAL TÉCNICO -->
-    <section class="section-alt">
+    <section class="section-alt" id="arsenal-tecnico" data-telemetry-name="Capacidad Técnica">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Capacidad Técnica</span>
@@ -1018,7 +1026,7 @@
     </section>
 
     <!-- PLANES -->
-    <section class="section-alt" id="planes">
+    <section class="section-alt" id="planes" data-telemetry-name="Planes y Precios">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Precios</span>
@@ -1217,7 +1225,7 @@
     </section>
 
     <!-- ENTREGABLES -->
-    <section>
+    <section id="entregables" data-telemetry-name="Alcance de Servicios">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">¿Qué puede pedir?</span>
@@ -1356,7 +1364,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="section-alt">
+    <section class="section-alt" id="faq" data-telemetry-name="Preguntas Frecuentes">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Preguntas Frecuentes</span>
@@ -1429,7 +1437,7 @@
     </section>
 
     <!-- FORMULARIO DE COTIZACIÓN Y SOLICITUD DE DISEÑO -->
-    <section class="design-form-section section-alt" id="solicitud">
+    <section class="design-form-section section-alt" id="solicitud" data-telemetry-name="Formulario de Cotización">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Solicitud & Cotización</span>
@@ -1632,7 +1640,7 @@
 
 
     <!-- FOOTER -->
-      <footer>
+      <footer data-telemetry-name="Pie de Página">
     <div class="container">
       <div class="footer-grid">
         <div>
@@ -1721,6 +1729,7 @@
     </a>
     <script src="js/main.js?v=20261105c"></script>
     <script src="js/logo-particles.js"></script>
+    <script src="js/telemetry.js?v=20261110_01"></script>
     <script>
         /* ── CAPTURA Y ENVÍO DE DATOS - PLANES DISEÑO (DINÁMICO) ── */
         document.addEventListener('DOMContentLoaded', function () {
@@ -1938,6 +1947,12 @@
                 resultCard.hidden = false;
                 resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 btnSubmit.textContent = '✔ Solicitud Enviada';
+
+                // Telemetría Google Sheets: Solicitud de Cotización
+                if (window.DMG_Telemetry) {
+                    window.DMG_Telemetry.identify({ name: nombre, phone: telefono });
+                    window.DMG_Telemetry.trackEvent('FORM_COTIZACION', 'Formulario de Cotización', `Solicitud: ${solucionTexto} (${marcaFinal})`);
+                }
 
                 setTimeout(() => {
                     btnSubmit.disabled = false;
