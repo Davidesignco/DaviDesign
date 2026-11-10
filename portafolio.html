@@ -49,10 +49,45 @@
       width: 100% !important;
     }
 
+    /* Logotipo idéntico al de escritorio en móvil (horizontal y centrado sólo en portafolio) */
     .navbar .logo-text-container {
-      transform: scale(0.75);
+      display: inline-flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      transform: scale(0.75) !important;
       transform-origin: center center !important;
       margin: 0 auto !important;
+      padding: 4px 0 !important;
+    }
+
+    .navbar .logo-text-container .logo-words {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      gap: 8px !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+
+    .navbar .logo-text-container .logo-word {
+      font-size: 32px !important;
+      line-height: 1.1 !important;
+      white-space: nowrap !important;
+      letter-spacing: 0.5px !important;
+    }
+
+    .navbar .logo-text-container .logo-subtext {
+      font-size: 11px !important;
+      letter-spacing: 5px !important;
+      margin-top: 5px !important;
+      text-align: center !important;
+      width: 100% !important;
+    }
+
+    @media (max-width: 360px) {
+      .navbar .logo-text-container {
+        transform: scale(0.68) !important;
+      }
     }
 
     /* Ocultar menú de navegación para empresas */
