@@ -388,29 +388,23 @@
       box-shadow: 0 0 14px #FF7A00, 0 0 24px rgba(255, 122, 0, 0.6) !important;
     }
 
-    .tab-orange-badge {
-      background: linear-gradient(135deg, #FF6B00, #FF3B00);
-      color: #ffffff;
-      font-size: 0.6rem;
-      padding: 2px 7px;
-      border-radius: 10px;
-      margin-left: 6px;
-      font-weight: 800;
-      letter-spacing: 0.6px;
-      box-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
-      animation: pulseOrange 2s infinite ease-in-out;
-      vertical-align: middle;
-      display: inline-block;
+    @media (max-width: 480px) {
+      .tab-bar {
+        gap: 16px !important;
+      }
+      .tab-button {
+        font-size: 0.72rem !important;
+        letter-spacing: 0.8px !important;
+      }
     }
 
-    @keyframes pulseOrange {
-      0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 0 8px rgba(255, 107, 0, 0.4);
+    @media (max-width: 360px) {
+      .tab-bar {
+        gap: 10px !important;
       }
-      50% {
-        transform: scale(1.08);
-        box-shadow: 0 0 16px rgba(255, 107, 0, 0.85);
+      .tab-button {
+        font-size: 0.66rem !important;
+        letter-spacing: 0.4px !important;
       }
     }
 
@@ -2277,12 +2271,6 @@
           </div>
           <div class="highlight-label">Momentos</div>
         </div>
-        <div class="highlight-item" onclick="openCurriculumQuickView()">
-          <div class="highlight-circle">
-            <div class="highlight-inner">📄</div>
-          </div>
-          <div class="highlight-label">Curriculum</div>
-        </div>
       </div>
 
       <!-- Tab bar de Instagram (Sólo Publicaciones y Experiencia Laboral en Naranja) -->
@@ -2308,7 +2296,6 @@
             <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
           </svg>
           Experiencia Laboral
-          <span class="tab-orange-badge">VER CV</span>
         </button>
       </div>
 
