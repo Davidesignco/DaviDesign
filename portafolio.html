@@ -2020,9 +2020,17 @@
       box-shadow: 0 0 35px rgba(0, 237, 255, 0.55) !important;
     }
   </style>
+  <!-- Microsoft Clarity Telemetry & Heatmaps -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zbmlobezhz");
+  </script>
 </head>
 
-<body>
+<body data-telemetry-page="Portafolio">
 
   <!-- -- NAVIGATION -------------------------------------------- -->
   <nav class="navbar" id="navbar">
@@ -2166,7 +2174,7 @@
   <main class="instagram-wrapper">
     <div class="instagram-container">
       <!-- Cabecera de Perfil -->
-      <header class="profile-header">
+      <header class="profile-header" data-telemetry-section data-telemetry-name="Perfil y Biografía">
         <div class="profile-username-container">
           <h2 class="profile-handle">davidesign.co</h2>
           <svg class="instagram-verified-badge" viewBox="0 0 24 24" width="20" height="20">
@@ -2275,7 +2283,7 @@ Disciplina, agilidad creativa y trabajo en equipo orientado a resultados.</div>
       </div>
 
       <!-- Tab bar de Instagram (Sólo Publicaciones y Experiencia Laboral en Naranja) -->
-      <div class="tab-bar">
+      <div class="tab-bar" data-telemetry-section data-telemetry-name="Barra de Pestañas">
         <button class="tab-button active" id="grid-btn" onclick="switchTab('grid-tab')">
           <svg viewBox="0 0 24 24">
             <rect x="3" y="3" width="5" height="5" />
@@ -2756,7 +2764,7 @@ Disciplina, agilidad creativa y trabajo en equipo orientado a resultados.</div>
   </div>
 
   <!-- -- FOOTER ---------------------------------------------------- -->
-  <footer>
+  <footer data-telemetry-name="Pie de Página">
     <div class="container">
       <div class="footer-grid">
         <div>
@@ -2857,6 +2865,7 @@ Disciplina, agilidad creativa y trabajo en equipo orientado a resultados.</div>
   <!-- Scripts -->
   <script src="js/main.js?v=20261105c"></script>
   <script src="js/logo-particles.js"></script>
+  <script src="js/telemetry.js?v=20261110_01"></script>
 
   <script>
     // ── DATA DE PROYECTOS (PORTAFOLIO) ──────────────────────────

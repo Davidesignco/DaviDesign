@@ -1022,9 +1022,17 @@
     box-shadow: 0 0 35px rgba(0, 237, 255, 0.55) !important;
   }
 </style>
+  <!-- Microsoft Clarity Telemetry & Heatmaps -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zbmiopm9a9");
+  </script>
 </head>
 
-<body>
+<body data-telemetry-page="Web & Tech Premium">
 
     <!-- NAV -->
   <nav class="navbar" id="navbar">
@@ -1159,7 +1167,7 @@
   </div>
 
   <!-- HERO -->
-    <section class="page-hero section-alt" style="position:relative;overflow:hidden;">
+    <section class="page-hero section-alt" style="position:relative;overflow:hidden;" data-telemetry-name="Hero Principal">
         <div class="hero-grid" style="opacity:0.4;"></div>
         <div class="hero-orb hero-orb-1"
             style="background:radial-gradient(circle, rgba(0,237,255,0.15) 0%, transparent 70%);"></div>
@@ -1267,7 +1275,7 @@
     </section>
 
     <!-- BENEFICIOS -->
-    <section class="section-alt">
+    <section class="section-alt" id="beneficios" data-telemetry-name="Beneficios y Rendimiento">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Beneficios</span>
@@ -1315,7 +1323,7 @@
     </section>
 
     <!-- PORTAFOLIO / CASOS DE ÉXITO -->
-    <section class="section-alt" id="casos-exito">
+    <section class="section-alt" id="casos-exito" data-telemetry-name="Casos de Éxito">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Casos de Éxito</span>
@@ -1444,7 +1452,7 @@
     </section>
 
     <!-- PLANES: 3D COVERFLOW INTERACTIVO -->
-    <section id="planes" class="web-plans-3d-section">
+    <section id="planes" class="web-plans-3d-section" data-telemetry-name="Modalidades y Planes">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Modalidades & Planes</span>
@@ -1577,7 +1585,7 @@
     </section>
 
     <!-- SECCIÓN: COTIZADOR & DIAGNÓSTICO WEB INTERACTIVO -->
-    <section class="section-alt" id="cotizador-web">
+    <section class="section-alt" id="cotizador-web" data-telemetry-name="Cotizador y Diagnóstico Web">
         <div class="container">
             <div class="web-form-card reveal">
                 <div class="web-form-header">
@@ -1687,7 +1695,7 @@
         </div>
     </section>
 
-        <footer>
+        <footer data-telemetry-name="Pie de Página">
     <div class="container">
       <div class="footer-grid">
         <div>
@@ -1777,6 +1785,7 @@
 
     <script src="js/main.js?v=20261105c"></script>
     <script src="js/logo-particles.js"></script>
+    <script src="js/telemetry.js?v=20261110_01"></script>
     <script>
         /* ── CAPTURA Y ENVÍO DE DATOS - COTIZADOR WEB & TECH PREMIUM ── */
         document.addEventListener('DOMContentLoaded', function () {
@@ -2104,6 +2113,10 @@ ${requerimientos}
                         body: JSON.stringify(web3Payload)
                     }).catch(err => console.warn('Error Web3Forms:', err));
 
+                    if (window.DMG_Telemetry) {
+                        window.DMG_Telemetry.identify({ name: nombre, phone: `${pais} ${tel}` });
+                        window.DMG_Telemetry.trackEvent('FORM_COTIZACION', 'Cotizador y Diagnóstico Web', `Proyecto Web: ${tipo} (${marca})`);
+                    }
                     Promise.allSettled([p1, p2]).then(() => {
                         // Construir mensaje de WhatsApp
                         const waMsg = `Hola David, acabo de solicitar una cotización para un proyecto web desde la página.%0A%0A` +

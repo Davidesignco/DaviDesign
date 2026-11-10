@@ -420,9 +420,17 @@
     box-shadow: 0 0 35px rgba(0, 237, 255, 0.55) !important;
   }
 </style>
+  <!-- Microsoft Clarity Telemetry & Heatmaps -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zbml6t3tgu");
+  </script>
 </head>
 
-<body>
+<body data-telemetry-page="Producción Gráfica">
 
     <!-- NAV -->
   <nav class="navbar" id="navbar">
@@ -557,7 +565,7 @@
   </div>
 
   <!-- HERO -->
-    <section class="page-hero section-alt" style="position:relative;overflow:hidden;">
+    <section class="page-hero section-alt" style="position:relative;overflow:hidden;" data-telemetry-name="Hero Principal">
         <div class="hero-grid" style="opacity:0.5;"></div>
         <div class="hero-orb hero-orb-1" style="opacity:0.5;"></div>
         <div class="container" style="position:relative;z-index:2;">
@@ -724,7 +732,7 @@
     </section>
 
     <!-- TARIFAS -->
-    <section class="section-alt" id="tarifas">
+    <section class="section-alt" id="tarifas" data-telemetry-name="Tarifas y Paquetes">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Precios</span>
@@ -911,7 +919,7 @@
     </section>
 
     <!-- COTIZADOR -->
-    <section id="cotizador">
+    <section id="cotizador" data-telemetry-name="Cotizador de Producción">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Cotización en Tiempo Real</span>
@@ -1032,7 +1040,7 @@
         </div>
     </section>
 
-        <footer>
+        <footer data-telemetry-name="Pie de Página">
     <div class="container">
       <div class="footer-grid">
         <div>
@@ -1124,6 +1132,7 @@
 
     <script src="js/main.js?v=20261105c"></script>
     <script src="js/logo-particles.js"></script>
+  <script src="js/telemetry.js?v=20261110_01"></script>
     <script>
       /* ── COTIZADOR DE PRODUCCIÓN ── */
       document.addEventListener('DOMContentLoaded', function () {
@@ -1207,6 +1216,10 @@
           $('prodResult').hidden = false;
           $('prodResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
           btn.textContent = '✔ Solicitud Enviada';
+          if (window.DMG_Telemetry) {
+            window.DMG_Telemetry.identify({ name: nombre, phone: `${pais} ${tel}` });
+            window.DMG_Telemetry.trackEvent('FORM_COTIZACION', 'Cotizador de Producción', `Cotización: ${packTitle} (${$('prodTotal').textContent})`);
+          }
           setTimeout(() => { btn.disabled = false; btn.textContent = 'Enviar Solicitud'; }, 4000);
         });
 

@@ -704,9 +704,17 @@
     box-shadow: 0 0 35px rgba(0, 237, 255, 0.55) !important;
   }
 </style>
+  <!-- Microsoft Clarity Telemetry & Heatmaps -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zbmjv9jn7k");
+  </script>
 </head>
 
-<body>
+<body data-telemetry-page="Automatizaciones n8n">
 
     <!-- NAV -->
   <nav class="navbar" id="navbar">
@@ -841,7 +849,7 @@
   </div>
 
   <!-- HERO -->
-    <section class="page-hero section-alt" style="position:relative;overflow:hidden;">
+    <section class="page-hero section-alt" style="position:relative;overflow:hidden;" data-telemetry-name="Hero Principal">
         <div class="hero-grid" style="opacity:0.4;"></div>
         <div class="hero-orb hero-orb-1"
             style="background:radial-gradient(circle, rgba(0,237,255,0.15) 0%, transparent 70%);"></div>
@@ -938,7 +946,7 @@
     </section>
 
     <!-- CASOS DE USO -->
-    <section class="section-alt">
+    <section class="section-alt" id="casos-uso" data-telemetry-name="Casos de Uso e Integraciones">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Casos de Uso</span>
@@ -1032,7 +1040,7 @@
     </section>
 
     <!-- PLAN DE IMPLEMENTACIÓN -->
-    <section id="planes">
+    <section id="planes" data-telemetry-name="Planes de Automatización">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Inversión</span>
@@ -1116,7 +1124,7 @@
     </section>
 
     <!-- TIMELINE -->
-    <section class="section-alt">
+    <section class="section-alt" id="proceso" data-telemetry-name="Metodología de Trabajo">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Proceso</span>
@@ -1158,7 +1166,7 @@
     </section>
 
     <!-- FORMULARIO DE DIAGNÓSTICO DE AUTOMATIZACIÓN & PROCESOS -->
-    <section class="auto-form-section" id="diagnostico">
+    <section class="auto-form-section" id="diagnostico" data-telemetry-name="Formulario de Diagnóstico">
         <div class="container">
             <div class="auto-form-container reveal">
                 <div class="auto-form-header">
@@ -1336,7 +1344,7 @@
         </div>
     </section>
 
-        <footer>
+        <footer data-telemetry-name="Pie de Página">
     <div class="container">
       <div class="footer-grid">
         <div>
@@ -1424,6 +1432,7 @@
 
     <script src="js/main.js?v=20261105c"></script>
     <script src="js/logo-particles.js"></script>
+    <script src="js/telemetry.js?v=20261110_01"></script>
     <script>
         /* ── CAPTURA Y ENVÍO DE DATOS - AUTOMATIZACIONES (N8N / IA) ── */
         document.addEventListener('DOMContentLoaded', function () {
@@ -1578,6 +1587,10 @@
                 resultCard.style.display = 'block';
                 resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 btnSubmit.textContent = '✔ Diagnóstico Enviado';
+                if (window.DMG_Telemetry) {
+                    window.DMG_Telemetry.identify({ name: nombre, phone: `${pais} ${tel}` });
+                    window.DMG_Telemetry.trackEvent('FORM_DIAGNOSTICO', 'Formulario de Diagnóstico', `Automatización para: ${marca} (${sector})`);
+                }
 
                 setTimeout(() => {
                     btnSubmit.disabled = false;
